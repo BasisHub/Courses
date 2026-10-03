@@ -113,7 +113,7 @@ Plans:
 **Wave 1**
 
 - [x] 03-01-PLAN.md — Brand assets: recolored navbar logo, logo-derived favicon (SVG + 32 px PNG), 1200x630 social cover
-- [ ] 03-02-PLAN.md — BBj highlighting: local extension of Prism's bbj grammar, verified class list, wrapped swizzle, smoke test, MCP evidence
+- [x] 03-02-PLAN.md — BBj highlighting: local extension of Prism's bbj grammar, verified class list, wrapped swizzle, smoke test, MCP evidence
 - [ ] 03-03-PLAN.md — Exercise admonition, YouTube click-to-load facade, base MDXComponents registry
 
 **Wave 2** *(blocked on Wave 1 completion)*
@@ -206,7 +206,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
 | 2. Repo Hygiene & CI | 6/6 | Complete    | 2026-10-03 |
-| 3. Content Components & Brand | 1/6 | In Progress|  |
+| 3. Content Components & Brand | 2/6 | In Progress|  |
 | 4. DWC Book Relocation | 0/TBD | Not started | - |
 | 5. Intro-BBj Conversion | 0/TBD | Not started | - |
 | 6. Exercises & DWC Gap Audit | 0/TBD | Not started | - |
