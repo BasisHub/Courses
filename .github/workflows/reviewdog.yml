@@ -1,0 +1,29 @@
+name: reviewdog
+
+# No paths or paths-ignore filter: a skipped required check never reports and blocks the PR.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  vale:
+    name: runner / vale
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # Only error-level alerts fail the job (D-11). Warnings and suggestions
+      # appear as review comments.
+      - uses: errata-ai/vale-action@518a9136acc6e6668ce7c00d367051e0941e87ff # reviewdog (v3.0.0)
+        with:
+          version: 3.24.0
+          files: docs/docs
+          reporter: github-pr-review
+          filter_mode: file
+          fail_on_error: true
+          sync: "false"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
