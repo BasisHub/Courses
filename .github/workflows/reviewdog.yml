@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       # Only error-level alerts fail the job (D-11). Warnings and suggestions
       # appear as review comments.
