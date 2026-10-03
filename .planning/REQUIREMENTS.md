@@ -20,9 +20,9 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 
 ### Repository & CI
 
-- [ ] **REPO-01**: Every push to `main` builds and deploys the site to GitHub Pages (Node 24, `npm ci` in `docs/`, current Pages actions)
-- [ ] **REPO-02**: Every PR runs the site build without deploying, and runs Vale (Google + BASIS styles, `*.{md,mdx,txt}`, BBj vocabulary and acronym exceptions) failing on errors
-- [ ] **REPO-03**: Repo has `CLAUDE.md` (seed section 7, updated with research corrections), `CONTRIBUTING.md`, `.editorconfig`, and `THIRD_PARTY_NOTICES.md` plus MIT headers on files copied from webforJ
+- [x] **REPO-01**: Every push to `main` builds and deploys the site to GitHub Pages (Node 24, `npm ci` in `docs/`, current Pages actions)
+- [x] **REPO-02**: Every PR runs the site build without deploying, and runs Vale (Google + BASIS styles, `*.{md,mdx,txt}`, BBj vocabulary and acronym exceptions) failing on errors
+- [x] **REPO-03**: Repo has `CLAUDE.md` (seed section 7, updated with research corrections), `CONTRIBUTING.md`, `.editorconfig`, and `THIRD_PARTY_NOTICES.md` plus MIT headers on files copied from webforJ
 - [x] **REPO-04**: The whole `import/` folder (Moodle backups, unpacked trees) is gitignored and never committed or pushed; it is a temporary local workspace that is deleted once the migration is done. Nothing the site or later work depends on lives there
 - [x] **REPO-05**: Dependencies pinned (Docusaurus 3.10.2 exact, lockfile committed); `tools/requirements.txt` pins the converter's Python packages
 
@@ -131,9 +131,9 @@ Populated 2026-10-03 during roadmap creation.
 | SITE-08 | Phase 1 | Complete |
 | REPO-04 | Phase 1 | Complete |
 | REPO-05 | Phase 1 | Complete |
-| REPO-01 | Phase 2 | Pending |
-| REPO-02 | Phase 2 | Pending |
-| REPO-03 | Phase 2 | Pending |
+| REPO-01 | Phase 2 | Complete |
+| REPO-02 | Phase 2 | Complete |
+| REPO-03 | Phase 2 | Complete |
 | COMP-01 | Phase 3 | Pending |
 | COMP-02 | Phase 3 | Pending |
 | COMP-03 | Phase 3 | Pending |
