@@ -53,8 +53,8 @@ section_tools() {
   SEC=tools
   if [ -n "$VALE" ] && "$VALE" --version 2>/dev/null | grep -q '3\.24\.0'; then pass "vale 3.24.0"
   else fail "vale 3.24.0 (run bash tools/install-lint-tools.sh)"; fi
-  if [ -n "$ACTIONLINT" ]; then pass "actionlint available"
-  else fail "actionlint available (run bash tools/install-lint-tools.sh)"; fi
+  if [ -n "$ACTIONLINT" ] && "$ACTIONLINT" --version 2>/dev/null | head -1 | grep -q '1\.7\.12'; then pass "actionlint 1.7.12"
+  else fail "actionlint 1.7.12 (run bash tools/install-lint-tools.sh)"; fi
 }
 
 section_ci() {
