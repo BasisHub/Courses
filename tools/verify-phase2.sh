@@ -3,7 +3,7 @@
 # Usage: bash tools/verify-phase2.sh [--local] [--deploy] [--gates]   (no flag = all three)
 # Prints one "PASS|FAIL|SKIP  [section] name" line per check; exits non-zero if any check failed.
 # Sections: local = tools ci vale docs headers seed hygiene; deploy; gates.
-# Writes only the Vale probe file, which is always removed.
+# Writes only the Vale probe files, which are always removed.
 set -u
 cd "$(dirname "$0")/.." || exit 1
 
@@ -11,6 +11,7 @@ REPO=BasisHub/Courses
 SITE=https://basishub.github.io/Courses
 DEEP="$SITE/docs/dwc/first-chapter/sample-page"
 PROBE=docs/docs/dwc/99-vale-probe.mdx
+D08_PROBE=".vale-d08-probe-$$.md"   # repo root, next to CONTRIBUTING.md and CLAUDE.md
 FAILS=0
 SEC=""
 
@@ -27,7 +28,7 @@ live() { grep -v '^[[:space:]]*#' "$1" 2>/dev/null; }                # file with
 has_live() { live "$1" | grep -qF -- "$2"; }                         # has_live <file> <fixed string>
 code() { curl -s -o /dev/null -w '%{http_code}' --max-time 30 "$1"; }
 
-cleanup() { rm -f "$PROBE"; }
+cleanup() { rm -f "$PROBE" "$D08_PROBE"; }
 trap cleanup EXIT
 
 MODE_LOCAL=0; MODE_DEPLOY=0; MODE_GATES=0
@@ -119,12 +120,18 @@ section_vale() {
   if [ "$rc" -ne 0 ] && echo "$out" | grep -q 'Vale\.Avoid' && echo "$out" | grep -q 'Vale\.Terms'; then pass "probe vocab fails with Vale.Avoid and Vale.Terms"
   else fail "probe vocab fails with Vale.Avoid and Vale.Terms (rc=$rc)"; fi
   local f
+  # D-08: CONTRIBUTING.md and CLAUDE.md are not linted. A clean run alone proves
+  # nothing (the file may simply have no alerts), so lint a copy at the repo root
+  # with an error-level violation appended: it must exit 0 with no BASIS alert.
+  # Any exit code other than 0 (config error, crash, alerts) fails the check.
   for f in CONTRIBUTING.md CLAUDE.md; do
     if [ -f "$f" ]; then
-      out="$("$VALE" "$f" 2>&1)"
-      if echo "$out" | grep -Eq '[0-9]+ errors?, [0-9]+ warnings?, and [0-9]+ suggestions? in 0 files|0 errors, 0 warnings and 0 suggestions'; then pass "$f not linted (D-08)"
-      elif echo "$out" | grep -Eq '^ *[0-9]+:[0-9]+ '; then fail "$f not linted (D-08)"
-      else pass "$f not linted (D-08)"; fi
+      cp "$f" "$D08_PROBE"
+      printf '\nSee oaicite here.\n' >> "$D08_PROBE"
+      out="$("$VALE" "$D08_PROBE" 2>&1)"; rc=$?
+      rm -f "$D08_PROBE"
+      if [ "$rc" -eq 0 ] && ! echo "$out" | grep -q 'BASIS\.' && ! echo "$out" | grep -Eq '^ *[0-9]+:[0-9]+ '; then pass "$f not linted (D-08)"
+      else fail "$f not linted (D-08) (rc=$rc)"; fi
     fi
   done
 }
