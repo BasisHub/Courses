@@ -29,7 +29,7 @@ Both books read well and correctly on one public site in the webforJ look, and e
 - [ ] `ExpandableCode` and `TableWrapper` from webforJ; code blocks over 40 lines collapsed
 - [ ] Local search (`@easyops-cn/docusaurus-search-local`), Algolia config commented in place
 - [ ] Book-card landing page at `/`; one navbar item per book; category icons per book
-- [ ] DWC gap audit against Moodle course 4 (`import/dwc-gap-audit.md` with keep/drop/covered verdicts, kept material added to pages) done **before go-live**, as its own commit series after the relocation
+- [ ] DWC gap audit against Moodle course 4 (`tools/data/dwc-gap-audit.md` with keep/drop/covered verdicts, kept material added to pages) done **before go-live**, as its own commit series after the relocation
 - [ ] Screenshots with 2022 timestamps in their original filename flagged with `<!-- TODO: screenshot outdated? -->`
 - [ ] `docs/ROADMAP.md` carrying over the useful open items from DWC-Course's `.planning/`
 - [ ] Hand review of both books (headings, fences, entities, alt text, overviews, both themes) and a clean Vale pass across all content
@@ -52,7 +52,7 @@ Both books read well and correctly on one public site in the webforJ look, and e
 
 ## Context
 
-- Inputs in `import/`: `backup-moodle2-course-2-bbj_development_basics-*.mbz` (243 KB, converted to `intro-bbj`) and `backup-moodle2-course-4-bbjdwc-*.mbz` (16.7 MB, gap audit only; kept out of git or in LFS, location noted in `import/README.md`).
+- Inputs in `import/`: `backup-moodle2-course-2-bbj_development_basics-*.mbz` (243 KB, converted to `intro-bbj`) and `backup-moodle2-course-4-bbjdwc-*.mbz` (16.7 MB, gap audit only). `import/` is entirely gitignored, never committed or pushed, and deleted once the migration is done; derived artifacts that must persist (image maps, gap audit) live in `tools/data/`.
 - Existing `BasisHub/DWC-Course` (Docusaurus 3.9.2, React 19, TS config, ~14,800 words, 12 chapters, ~50 images, 10 sample folders, own blue palette) is a condensed rewrite of Moodle course 4. Chapters 3 (DWC Debugging) and 12 (Deployment) have no Moodle counterpart.
 - Reference repo `webforj/webforj-documentation` (MIT) supplies the SCSS, theme overrides, scripts, Vale styles and the CLAUDE.md shape. Its site lives in a `docs/` subfolder; this repo keeps the same convention.
 - Moodle HTML is messy: `<br>` runs, inline span styles, `<pre>` without language classes mixing BBj/CSS/HTML, image filenames with spaces and timestamps, YouTube links stored as plain anchors.
@@ -80,6 +80,7 @@ Both books read well and correctly on one public site in the webforJ look, and e
 | Stay on `basishub.github.io/Courses`, no custom domain | No domain planned | — Pending |
 | Logo/social cover supplied by Stephan | Site needs a BASIS-level brand, not the DWC one | — Pending |
 | Ignore Moodle course 3 | Superseded by course 4 | — Pending |
+| `import/` (Moodle backups) gitignored, never pushed, deleted after migration | Backups are temporary inputs; overrides seed 2.1 which committed the course-2 archive | — Pending |
 | Converter is throwaway; Markdown is the source of truth | Avoids maintaining a two-way sync with Moodle | — Pending |
 
 ## Evolution
