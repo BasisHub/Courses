@@ -32,7 +32,8 @@ export default function extendBbj(Prism, classes) {
   // (2) Tokens in front of `number`. insertBefore replaces the grammar object,
   // so re-read Prism.languages.bbj after every call.
   const classPattern = new RegExp(
-    '\\b(?:' + classes.map(escapeRegExp).join('|') + ')\\b(?!\\.(?:TRUE|FALSE)\\b)'
+    // The lookahead leaves BBjAPI.TRUE/.True/.false to the case-insensitive `boolean`.
+    '\\b(?:' + classes.map(escapeRegExp).join('|') + ')\\b(?!\\.(?:[Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee])\\b)'
   );
   Prism.languages.insertBefore('bbj', 'number', {
     mnemonic: {

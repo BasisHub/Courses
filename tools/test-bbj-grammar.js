@@ -111,6 +111,10 @@ const cnRe = new RegExp(reOf(Prism.languages.bbj['class-name']).source);
 check('class-name matches BBjVector', cnRe.test('BBjVector'));
 check('class-name skips BBjGridExWidget', !cnRe.test('BBjGridExWidget'));
 check('class-name skips BBjPanel', !cnRe.test('BBjPanel'));
+for (const b of ['BBjAPI.TRUE', 'BBjAPI.True', 'BBjAPI.false']) {
+  const bToks = flat(Prism.tokenize(`x = ${b}`, Prism.languages.bbj));
+  check(`boolean ${b}`, bToks.some((t) => t.type === 'boolean' && t.text === b));
+}
 check('class list has 35 unique entries', classList.classes.length === 35 && new Set(classList.classes).size === 35);
 
 process.exit(failed ? 1 : 0);
