@@ -1,7 +1,8 @@
 ---
 phase: 1
 slug: site-scaffold-quality-gates
-status: draft
+status: approved
+reviewed_at: 2026-10-03
 shadcn_initialized: false
 preset: none
 created: 2026-10-03
@@ -174,11 +175,11 @@ Third-party code that does enter the project: MIT-licensed webforJ SCSS and scri
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: FLAG (non-blocking: 404 keeps the full theme-default message)
+- [x] Dimension 2 Visuals: PASS
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS
+- [x] Dimension 5 Spacing: PASS
+- [x] Dimension 6 Registry Safety: PASS
 
 **Approval:** pending
