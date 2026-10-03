@@ -1,0 +1,398 @@
+[
+  {
+    "old": "static/img/ARC_image_1.png",
+    "new": "docs/docs/dwc/04-upgrading-apps/img/arc-image-1.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/04-upgrading-apps/01-arc-files.md"
+  },
+  {
+    "old": "static/img/ARC_image_2.png",
+    "new": "docs/docs/dwc/04-upgrading-apps/img/arc-image-2.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/04-upgrading-apps/01-arc-files.md"
+  },
+  {
+    "old": "static/img/CSSFlexbox.png",
+    "new": "docs/docs/dwc/06-flow-layouts/img/css-flexbox.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "old": "static/img/CSSGrid.png",
+    "new": "docs/docs/dwc/06-flow-layouts/img/css-grid.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "old": "static/img/CSS_Grid_Playground_1.png",
+    "new": "docs/docs/dwc/06-flow-layouts/img/css-grid-playground-1.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "old": "static/img/CSS_Grid_Playground_2.png",
+    "new": "tools/data/dwc-unused-img/css-grid-playground-2.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/CSS_Grid_Playground_3.png",
+    "new": "tools/data/dwc-unused-img/css-grid-playground-3.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/CSS_Layout_Samples_1.png",
+    "new": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-1.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "old": "static/img/CSS_Layout_Samples_2.png",
+    "new": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-2.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "old": "static/img/CSS_Layout_Samples_3.png",
+    "new": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-3.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "old": "static/img/CSS_Layout_Samples_4.png",
+    "new": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-4.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "old": "static/img/CSS_Layout_Samples_5.png",
+    "new": "tools/data/dwc-unused-img/css-layout-samples-5.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/CSS_Layout_Samples_6.png",
+    "new": "tools/data/dwc-unused-img/css-layout-samples-6.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/ChromeDevConsoleView.png",
+    "new": "docs/docs/dwc/02-browser-developer-tools/img/chrome-dev-console-view.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
+  },
+  {
+    "old": "static/img/ClientFiles.png",
+    "new": "docs/docs/dwc/09-browser-constraints/img/client-files.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/09-browser-constraints/index.md"
+  },
+  {
+    "old": "static/img/ColorCss.png",
+    "new": "docs/docs/dwc/05-dwc-controls/img/color-css.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/05-dwc-controls/index.md"
+  },
+  {
+    "old": "static/img/DTColorCodeCompletion.gif",
+    "new": "docs/docs/dwc/02-browser-developer-tools/img/dt-color-code-completion.gif",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
+  },
+  {
+    "old": "static/img/DWC1_showGridSize.png",
+    "new": "docs/docs/dwc/02-browser-developer-tools/img/dwc1-show-grid-size.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
+  },
+  {
+    "old": "static/img/DWC_Flexbox_Demo.png",
+    "new": "docs/docs/dwc/06-flow-layouts/img/dwc-flexbox-demo.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "old": "static/img/DWC_Themer.png",
+    "new": "docs/docs/dwc/05-dwc-controls/img/dwc-themer.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/05-dwc-controls/index.md"
+  },
+  {
+    "old": "static/img/DevTools_Screenshot_1.png",
+    "new": "tools/data/dwc-unused-img/dev-tools-screenshot-1.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/DevTools_Screenshot_2.png",
+    "new": "tools/data/dwc-unused-img/dev-tools-screenshot-2.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/DevTools_Screenshot_3.png",
+    "new": "tools/data/dwc-unused-img/dev-tools-screenshot-3.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/DevTools_Screenshot_4.png",
+    "new": "tools/data/dwc-unused-img/dev-tools-screenshot-4.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/DiscreteLabels.png",
+    "new": "docs/docs/dwc/05-dwc-controls/img/discrete-labels.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/05-dwc-controls/index.md"
+  },
+  {
+    "old": "static/img/DwcPanel.png",
+    "new": "docs/docs/dwc/02-browser-developer-tools/img/dwc-panel.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
+  },
+  {
+    "old": "static/img/EM_Registration.png",
+    "new": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/em-registration.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/01-registering-launching.md"
+  },
+  {
+    "old": "static/img/EclipsePreferences.png",
+    "new": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/eclipse-preferences.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/01-registering-launching.md"
+  },
+  {
+    "old": "static/img/EditBox_withLabel.png",
+    "new": "docs/docs/dwc/05-dwc-controls/img/edit-box-with-label.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/05-dwc-controls/index.md"
+  },
+  {
+    "old": "static/img/EditBox_withoutLabel.png",
+    "new": "docs/docs/dwc/05-dwc-controls/img/edit-box-without-label.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/05-dwc-controls/index.md"
+  },
+  {
+    "old": "static/img/Hello_BBj_DWC_Grid.png",
+    "new": "tools/data/dwc-unused-img/hello-bbj-dwc-grid.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/Hello_DWC_4A.png",
+    "new": "tools/data/dwc-unused-img/hello-dwc-4a.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/IconPools_1.png",
+    "new": "docs/docs/dwc/07-icon-pools/img/icon-pools-1.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/07-icon-pools/index.md"
+  },
+  {
+    "old": "static/img/IconPools_2.png",
+    "new": "docs/docs/dwc/07-icon-pools/img/icon-pools-2.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/07-icon-pools/index.md"
+  },
+  {
+    "old": "static/img/IconPools_3.png",
+    "new": "docs/docs/dwc/07-icon-pools/img/icon-pools-3.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/07-icon-pools/index.md"
+  },
+  {
+    "old": "static/img/IconPools_4.png",
+    "new": "docs/docs/dwc/07-icon-pools/img/icon-pools-4.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/07-icon-pools/index.md"
+  },
+  {
+    "old": "static/img/IconPools_5.png",
+    "new": "docs/docs/dwc/07-icon-pools/img/icon-pools-5.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/07-icon-pools/index.md"
+  },
+  {
+    "old": "static/img/IconPools_6.png",
+    "new": "docs/docs/dwc/07-icon-pools/img/icon-pools-6.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/07-icon-pools/index.md"
+  },
+  {
+    "old": "static/img/IconPools_7.png",
+    "new": "docs/docs/dwc/07-icon-pools/img/icon-pools-7.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/07-icon-pools/index.md"
+  },
+  {
+    "old": "static/img/LabelAttributes.png",
+    "new": "docs/docs/dwc/05-dwc-controls/img/label-attributes.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/05-dwc-controls/index.md"
+  },
+  {
+    "old": "static/img/Layout_Information.png",
+    "new": "docs/docs/dwc/06-flow-layouts/img/layout-information.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "old": "static/img/MediaQueries_sizeChange.png",
+    "new": "docs/docs/dwc/11-advanced-responsive/img/media-queries-size-change.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/11-advanced-responsive/01-media-queries.md"
+  },
+  {
+    "old": "static/img/MessageBox.png",
+    "new": "tools/data/dwc-unused-img/message-box.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/Regex101.png",
+    "new": "docs/docs/dwc/08-control-validation/img/regex101.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Responsive_Demo.png",
+    "new": "tools/data/dwc-unused-img/responsive-demo.png",
+    "verdict": "parked",
+    "page": null
+  },
+  {
+    "old": "static/img/TreeSearch.png",
+    "new": "docs/docs/dwc/05-dwc-controls/img/tree-search.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/05-dwc-controls/index.md"
+  },
+  {
+    "old": "static/img/Validation_1.png",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-1.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Validation_2.png",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-2.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Validation_3.png",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-3.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Validation_4.png",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-4.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Validation_5.png",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-5.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Validation_6.png",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-6.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Validation_7.png",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-7.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Validation_8.png",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-8.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Validation_9.png",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-9.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Validation_demo.gif",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-demo.gif",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Validation_demo2.gif",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-demo2.gif",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/Validation_demo3.gif",
+    "new": "docs/docs/dwc/08-control-validation/img/validation-demo3.gif",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/08-control-validation/index.md"
+  },
+  {
+    "old": "static/img/docusaurus-social-card.jpg",
+    "new": null,
+    "verdict": "not-moved",
+    "page": null
+  },
+  {
+    "old": "static/img/docusaurus.png",
+    "new": null,
+    "verdict": "not-moved",
+    "page": null
+  },
+  {
+    "old": "static/img/dwc-logo.png",
+    "new": null,
+    "verdict": "not-moved",
+    "page": null
+  },
+  {
+    "old": "static/img/dwc_titlebar_text.png",
+    "new": "docs/docs/dwc/02-browser-developer-tools/img/dwc-titlebar-text.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
+  },
+  {
+    "old": "static/img/dwc_titlebar_text_nocolor.png",
+    "new": "docs/docs/dwc/02-browser-developer-tools/img/dwc-titlebar-text-nocolor.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
+  },
+  {
+    "old": "static/img/favicon.ico",
+    "new": null,
+    "verdict": "not-moved",
+    "page": null
+  },
+  {
+    "old": "static/img/favicon.png",
+    "new": null,
+    "verdict": "not-moved",
+    "page": null
+  },
+  {
+    "old": "static/img/logo.svg",
+    "new": null,
+    "verdict": "not-moved",
+    "page": null
+  }
+]
