@@ -6,6 +6,11 @@ docs/.docusaurus/
 docs/.cache-loader/
 __pycache__/
 *.pyc
+.venv/
+venv/
+.env
+npm-debug.log*
+*.mbz
 tools/.bin/
 /.claude/worktrees/
 .claude/settings.local.json

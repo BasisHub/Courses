@@ -1,5 +1,5 @@
 # http://editorconfig.org
-# Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
+# Adapted from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
 
 root = true
 
@@ -12,9 +12,12 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 [*.md]
-insert_final_newline = false
+insert_final_newline = true
 trim_trailing_whitespace = false
 
 [*.mdx]
-insert_final_newline = false
+insert_final_newline = true
 trim_trailing_whitespace = false
+
+[*.py]
+indent_size = 4
