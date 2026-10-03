@@ -439,13 +439,15 @@ classend
 
 Expected tokens for the grammar test: `msg$`, `total!`, `count%`, `counter!` → variable; `"She said ""hi"" to me"` → one string token; `'CS'` → mnemonic; `done` on `done:` → label; `#count` → field; `BBjNumber` → class-name; `rem show the count` → comment; `to`, `step`, `next`, `new`, `for`, `gosub`, `release`, `class`, `method`, `methodret` → keyword.
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **BBj MCP verification**
    - Known: single-quoted mnemonics are documented (documentation.basis.cloud "Using Mnemonics"); `rem` form is documented.
    - **RESOLVED by the orchestrator:** see "BBj MCP Verification" above. Executors cannot call the MCP; they use those lists and that snippet verbatim.
-2. **Auto vs explicit collapse** (Claude's discretion): recommended hybrid in Pattern 4; planner confirms.
-3. **Favicon glyph** (D-05): B glyph vs swoosh; Stephan reviews.
+2. **Auto vs explicit collapse** (Claude's discretion): recommended hybrid in Pattern 4.
+   - **RESOLVED:** hybrid. Fences over 40 lines collapse automatically through the CodeBlock wrapper, and authors can use `<ExpandableCode>` explicitly with `previewLines` and `title` (plan 03-04).
+3. **Favicon glyph** (D-05): B glyph vs swoosh.
+   - **RESOLVED:** B glyph from the logo, with the swoosh as fallback if the B cannot be isolated as one path (plan 03-01). Stephan reviews it at the end-of-phase human check.
 
 ## Environment Availability
 

@@ -119,9 +119,12 @@ Plans:
 **Wave 2** *(blocked on Wave 1 completion)*
 
 - [ ] 03-04-PLAN.md — ExpandableCode + 40-line auto-collapse, TableWrapper, registry and notices update
+
+**Wave 3** *(blocked on Wave 2 completion; runs alone because it reinstalls node_modules)*
+
 - [ ] 03-05-PLAN.md — New deps (search-local, zooming) and all docusaurus.config.js changes: search, zoom, exercise keyword, llms ignore, navbar/footer/favicon/cover
 
-**Wave 3** *(blocked on Wave 2 completion)*
+**Wave 4** *(blocked on Wave 3 completion)*
 
 - [ ] 03-06-PLAN.md — Unlisted component fixture, tools/verify-phase3.sh, CLAUDE.md/CONTRIBUTING.md notes, final regression
 
