@@ -1,4 +1,7 @@
-/* Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt). */
+/* Copied from webforj/webforj-documentation and modified (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
+   Local changes: dropped the accordion, blog and dwc-doc-components @use lines;
+   added @use for book-icons and print; font stacks lead with the self-hosted
+   'Inter Variable' / 'JetBrains Mono Variable' families; removed the .MuiChip-root rules. */
 @use "./alerts";
 @use "./tables";
 @use "./announcement";

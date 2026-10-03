@@ -1,4 +1,6 @@
-/* Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt). */
+/* Copied from webforj/webforj-documentation and modified (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
+   Local changes: @import of the content-block mixin replaced by @use, so the
+   include is namespaced (content-block.content-block). */
 @use "./mixins/content-block";
 
 #__docusaurus {

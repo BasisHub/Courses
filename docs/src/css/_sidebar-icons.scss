@@ -1,4 +1,6 @@
-/* Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt). */
+/* Copied from webforj/webforj-documentation and modified (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
+   Local changes: removed the webforJ-specific .cat-icon--* rules (docs and
+   cookbook categories); the shared category and experimental mixins are kept. */
 @mixin _icon($name) {
   $url: url("../../node_modules/@tabler/icons/icons/outline/#{$name}.svg");
   -webkit-mask-image: $url;
