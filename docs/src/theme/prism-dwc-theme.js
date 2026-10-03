@@ -1,6 +1,7 @@
-// Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
+// Copied from webforj/webforj-documentation and modified (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
+// Local change: the comment below now names the correct file.
 // PrismJS theme using DWC CSS custom properties
-// Colors are defined via --dwc-code-* vars in custom.scss
+// Colors are defined via --dwc-code-* vars in src/css/_prism.scss
 
 const theme = {
   plain: {
