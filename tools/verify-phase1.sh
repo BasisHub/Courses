@@ -57,9 +57,9 @@ done
 n=$(grep -o 'navbar-book' "$INDEX" 2>/dev/null | wc -l | tr -d ' ')
 if [ "${n:-0}" -ge 2 ]; then pass "navbar has book items ($n)"; else fail "navbar has book items ($n)"; fi
 check "dwc sidebar lists own chapter" grep -q '/Courses/docs/dwc/first-chapter' "$BUILD/docs/dwc/overview.html"
-check "dwc sidebar omits intro-bbj chapter" bash -c "! grep -q '/Courses/docs/intro-bbj/getting-started' '$BUILD/docs/dwc/overview.html'"
+check "dwc sidebar omits intro-bbj chapter" bash -c "test -f '$BUILD/docs/dwc/overview.html' && ! grep -q '/Courses/docs/intro-bbj/getting-started' '$BUILD/docs/dwc/overview.html'"
 check "intro-bbj sidebar lists own chapter" grep -q '/Courses/docs/intro-bbj/getting-started' "$BUILD/docs/intro-bbj/overview.html"
-check "intro-bbj sidebar omits dwc chapter" bash -c "! grep -q '/Courses/docs/dwc/first-chapter' '$BUILD/docs/intro-bbj/overview.html'"
+check "intro-bbj sidebar omits dwc chapter" bash -c "test -f '$BUILD/docs/intro-bbj/overview.html' && ! grep -q '/Courses/docs/dwc/first-chapter' '$BUILD/docs/intro-bbj/overview.html'"
 
 # 3. Served smoke
 (cd docs && exec npm run serve -- --port "$PORT" --no-open >/dev/null 2>&1) &
