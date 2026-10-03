@@ -118,7 +118,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 03-04-PLAN.md — ExpandableCode + 40-line auto-collapse, TableWrapper, registry and notices update
+- [x] 03-04-PLAN.md — ExpandableCode + 40-line auto-collapse, TableWrapper, registry and notices update
 
 **Wave 3** *(blocked on Wave 2 completion; runs alone because it reinstalls node_modules)*
 
@@ -206,7 +206,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
 | 2. Repo Hygiene & CI | 6/6 | Complete    | 2026-10-03 |
-| 3. Content Components & Brand | 3/6 | In Progress|  |
+| 3. Content Components & Brand | 4/6 | In Progress|  |
 | 4. DWC Book Relocation | 0/TBD | Not started | - |
 | 5. Intro-BBj Conversion | 0/TBD | Not started | - |
 | 6. Exercises & DWC Gap Audit | 0/TBD | Not started | - |
