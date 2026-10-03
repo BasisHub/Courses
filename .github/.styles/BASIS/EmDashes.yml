@@ -1,7 +1,8 @@
-# Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
-extends: occurrence
-message: "An em dash is already on this article. Rewrite one of the sentences."
+# Adapted from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
+# House rule: no em dashes at all (webforJ's version allowed one per document).
+extends: existence
+message: "Do not use em dashes; rewrite the sentence."
 level: warning
-scope: summary
-max: 1
-token: '—'
+nonword: true
+tokens:
+  - '—'
