@@ -1,0 +1,1348 @@
+/* Snapshot of https://cdn.webforj.com/next/dwc-ui.css fetched 2026-10-03. Vendored unmodified for self-hosting; update manually. */
+:root{--dwc-dark-mode:0;--dwc-safe-area-inset-top:env(safe-area-inset-top);--dwc-safe-area-inset-bottom:env(safe-area-inset-bottom);--dwc-safe-area-inset-left:env(safe-area-inset-left);--dwc-safe-area-inset-right:env(safe-area-inset-right);--dwc-overlay-background:oklch(0% 0 0 / calc(0.16 + var(--dwc-dark-mode) * 0.07));--dwc-advancer-gradient:var(--dwc-surface-1) 40%,
+    oklch(from var(--dwc-surface-1) l c h / 0.7) 80%,
+    oklch(from var(--dwc-surface-1) l c h / 0) 100%;--dwc-font-family-sans:system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';--dwc-font-family-mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;--dwc-font-family:var(--dwc-font-family-sans);--dwc-font-weight-thin:100;--dwc-font-weight-lighter:200;--dwc-font-weight-light:300;--dwc-font-weight-normal:400;--dwc-font-weight-medium:500;--dwc-font-weight-semibold:600;--dwc-font-weight-bold:700;--dwc-font-weight-bolder:800;--dwc-font-weight-black:900;--dwc-font-weight:var(--dwc-font-weight-normal);--dwc-font-line-height-3xs:1;--dwc-font-line-height-2xs:1.1;--dwc-font-line-height-xs:1.25;--dwc-font-line-height-s:1.375;--dwc-font-line-height-m:1.5;--dwc-font-line-height-l:1.625;--dwc-font-line-height-xl:1.75;--dwc-font-line-height-2xl:1.875;--dwc-font-line-height-3xl:2;--dwc-font-line-height:var(--dwc-font-line-height-xs);--dwc-font-size-3xs:0.625rem;--dwc-font-size-2xs:0.6875rem;--dwc-font-size-xs:0.75rem;--dwc-font-size-s:0.8125rem;--dwc-font-size-m:0.875rem;--dwc-font-size-l:1rem;--dwc-font-size-xl:1.25rem;--dwc-font-size-2xl:1.625rem;--dwc-font-size-3xl:2.125rem;--dwc-font-size:var(--dwc-font-size-m);--dwc-scale-press:0.97;--dwc-scale-press-deep:0.93;--dwc-size-3xs:1.125rem;--dwc-size-2xs:1.375rem;--dwc-size-xs:1.625rem;--dwc-size-s:1.875rem;--dwc-size-m:2.25rem;--dwc-size-l:2.75rem;--dwc-size-xl:3.25rem;--dwc-size-2xl:4rem;--dwc-size-3xl:4.25rem;--dwc-size:var(--dwc-size-m);--dwc-space-3xs:0.0625rem;--dwc-space-2xs:0.125rem;--dwc-space-xs:0.25rem;--dwc-space-s:0.5rem;--dwc-space-m:1rem;--dwc-space-l:1.25rem;--dwc-space-xl:1.5rem;--dwc-space-2xl:1.75rem;--dwc-space-3xl:2rem;--dwc-space:var(--dwc-space-s);--dwc-border-width:1px;--dwc-border-style:solid;--dwc-border-color:var(--dwc-border-color-default);--dwc-border-color-emphasis:var(--dwc-border-color-default-emphasis);--dwc-border-radius-seed:0.5rem;--dwc-border-radius-2xs:0.0625rem;--dwc-border-radius-xs:0.125rem;--dwc-border-radius-s:calc(var(--dwc-border-radius-seed) * 0.5);--dwc-border-radius-m:calc(var(--dwc-border-radius-seed) * 0.75);--dwc-border-radius-l:var(--dwc-border-radius-seed);--dwc-border-radius-xl:calc(var(--dwc-border-radius-seed) * 1.5);--dwc-border-radius-2xl:calc(var(--dwc-border-radius-seed) * 2);--dwc-border-radius-3xl:calc(var(--dwc-border-radius-seed) * 3);--dwc-border-radius-4xl:calc(var(--dwc-border-radius-seed) * 4);--dwc-border-radius-round:50%;--dwc-border-radius-pill:calc(var(--dwc-size-m) / 2);--dwc-border-radius:var(--dwc-border-radius-seed);--dwc-surface-1:oklch(from var(--dwc-color-default-seed)
+      calc(96% + var(--dwc-dark-mode) * -81%)
+      clamp(0, calc(c * 3), 0.004) h
+    );--dwc-surface-2:oklch(from var(--dwc-color-default-seed)
+      calc(97.5% + var(--dwc-dark-mode) * -78%)
+      clamp(0, calc(c * 3), 0.004) h
+    );--dwc-surface-3:oklch(from var(--dwc-color-default-seed)
+      calc(99% + var(--dwc-dark-mode) * -75%)
+      clamp(0, calc(c * 3), 0.004) h
+    );--dwc-cursor-click:default;--dwc-cursor-text:text;--dwc-cursor-disabled:not-allowed;--dwc-cursor-grab:grab;--dwc-cursor-grabbing:grabbing;--dwc-cursor-move:move;--dwc-cursor-resize-row:ew-resize;--dwc-cursor-resize-column:ns-resize;--dwc-cursor-progress:progress;--dwc-cursor-wait:wait;--dwc-shadow-color:oklch(from var(--dwc-color-default-seed)
+      calc(15% + var(--dwc-dark-mode) * -13%)
+      clamp(0, calc(c * 2), 0.03) h
+    );--dwc-shadow-strength:calc(1 + var(--dwc-dark-mode) * 4);--dwc-shadow:var(--dwc-shadow-m);--dwc-shadow-xs:0 1px 2px -1px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.1));--dwc-shadow-s:0 3px 5px -2px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.04)),
+    0 7px 14px -5px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.06));--dwc-shadow-m:0 4px 6px -2px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.03)),
+    0 12px 16px -4px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.06)),
+    0 1px 3px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.02));--dwc-shadow-l:0 4px 6px -2px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.03)),
+    0 12px 16px -4px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.05)),
+    0 20px 25px -5px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.06)),
+    0 1px 3px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.02));--dwc-shadow-xl:0 4px 6px -2px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.03)),
+    0 12px 16px -4px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.04)),
+    0 20px 25px -5px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.05)),
+    0 25px 50px -12px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.07)),
+    0 1px 3px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.02));--dwc-shadow-2xl:0 4px 6px -2px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.03)),
+    0 12px 16px -4px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.04)),
+    0 20px 25px -5px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.05)),
+    0 25px 50px -12px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.06)),
+    0 40px 80px -20px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.08)),
+    0 1px 3px oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.02));--dwc-transition-x-slow:1000ms;--dwc-transition-slow:300ms;--dwc-transition-medium:250ms;--dwc-transition-fast:150ms;--dwc-transition-x-fast:100ms;--dwc-transition:var(--dwc-transition-medium);--dwc-ease:cubic-bezier(0.4, 0, 0.2, 1);--dwc-ease-out:cubic-bezier(0, 0, 0.2, 1);--dwc-ease-in:cubic-bezier(0.4, 0, 1, 1);--dwc-ease-inQuad:cubic-bezier(0.55, 0.085, 0.68, 0.53);--dwc-ease-inCubic:cubic-bezier(0.55, 0.055, 0.675, 0.19);--dwc-ease-inQuart:cubic-bezier(0.895, 0.03, 0.685, 0.22);--dwc-ease-inQuint:cubic-bezier(0.755, 0.05, 0.855, 0.06);--dwc-ease-inExpo:cubic-bezier(0.95, 0.05, 0.795, 0.035);--dwc-ease-inCirc:cubic-bezier(0.6, 0.04, 0.98, 0.335);--dwc-ease-outQuad:cubic-bezier(0.25, 0.46, 0.45, 0.94);--dwc-ease-outCubic:cubic-bezier(0.215, 0.61, 0.355, 1);--dwc-ease-outQuart:cubic-bezier(0.165, 0.84, 0.44, 1);--dwc-ease-outQuint:cubic-bezier(0.23, 1, 0.32, 1);--dwc-ease-outExpo:cubic-bezier(0.19, 1, 0.22, 1);--dwc-ease-outCirc:cubic-bezier(0.075, 0.82, 0.165, 1);--dwc-ease-inOutQuad:cubic-bezier(0.455, 0.03, 0.515, 0.955);--dwc-ease-inOutCubic:cubic-bezier(0.645, 0.045, 0.355, 1);--dwc-ease-inOutQuart:cubic-bezier(0.77, 0, 0.175, 1);--dwc-ease-inOutQuint:cubic-bezier(0.86, 0, 0.07, 1);--dwc-ease-inOutExpo:cubic-bezier(1, 0, 0, 1);--dwc-ease-inOutCirc:cubic-bezier(0.785, 0.135, 0.15, 0.86);--dwc-ease-inBack:cubic-bezier(0.36, 0, 0.66, -0.56);--dwc-ease-outBack:cubic-bezier(0.34, 1.56, 0.64, 1);--dwc-ease-inOutBack:cubic-bezier(0.68, -0.6, 0.32, 1.6);--dwc-ease-outGlide:cubic-bezier(0.32, 0.72, 0, 1);--dwc-zindex-h0:1000;--dwc-zindex-h1:1001;--dwc-zindex-h2:1002;--dwc-zindex-h3:1003;--dwc-zindex-h4:1004;--dwc-zindex-h5:1005;--dwc-focus-ring-a:0.75;--dwc-focus-ring-width:2px;--dwc-focus-ring-gap:2px;--dwc-disabled-opacity:calc(0.35 + var(--dwc-dark-mode) * 0.15);--dwc-disabled-cursor:var(--dwc-cursor-disabled);--dwc-color-black:oklch(from var(--dwc-color-default-seed)
+      calc(12% + var(--dwc-dark-mode) * 86%)
+      calc(c * 1.5) h
+    );--dwc-color-white:oklch(from var(--dwc-color-default-seed)
+      calc(98% + var(--dwc-dark-mode) * -86%)
+      calc(c * 1.5) h
+    );--dwc-color-primary-h:223;--dwc-color-primary-s:91%;--dwc-color-success-h:153;--dwc-color-success-s:60%;--dwc-color-warning-h:35;--dwc-color-warning-s:90%;--dwc-color-danger-h:4;--dwc-color-danger-s:90%;--dwc-color-info-h:262;--dwc-color-info-s:65%;--dwc-color-gray-h:0;--dwc-color-gray-s:0%;--dwc-color-default-h:var(--dwc-color-primary-h);--dwc-color-default-s:3%;--dwc-color-body-text:var(--dwc-color-black);--dwc-color-primary-seed:hsl(
+      var(--dwc-color-primary-h),
+      var(--dwc-color-primary-s),
+      50%
+    );--dwc-color-primary-5:oklch(from var(--dwc-color-primary-seed) 3% calc(c * 0.1) calc(h + var(--dwc-color-hue-rotate, 3) * 0.9));--dwc-color-primary-text-5:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(3% + var(--dwc-dark-mode) * 72%)
+      c h
+    );--dwc-color-on-primary-text-5:oklch(
+      from var(--dwc-color-primary-5)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-10:oklch(from var(--dwc-color-primary-seed) 5% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * 0.8));--dwc-color-primary-text-10:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(5% + var(--dwc-dark-mode) * 70%)
+      c h
+    );--dwc-color-on-primary-text-10:oklch(
+      from var(--dwc-color-primary-10)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-15:oklch(from var(--dwc-color-primary-seed) 8% calc(c * 0.19) calc(h + var(--dwc-color-hue-rotate, 3) * 0.7));--dwc-color-primary-text-15:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(8% + var(--dwc-dark-mode) * 67%)
+      c h
+    );--dwc-color-on-primary-text-15:oklch(
+      from var(--dwc-color-primary-15)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-20:oklch(from var(--dwc-color-primary-seed) 11% calc(c * 0.24) calc(h + var(--dwc-color-hue-rotate, 3) * 0.6));--dwc-color-primary-text-20:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(11% + var(--dwc-dark-mode) * 64%)
+      c h
+    );--dwc-color-on-primary-text-20:oklch(
+      from var(--dwc-color-primary-20)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-25:oklch(from var(--dwc-color-primary-seed) 14% calc(c * 0.33) calc(h + var(--dwc-color-hue-rotate, 3) * 0.5));--dwc-color-primary-text-25:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(14% + var(--dwc-dark-mode) * 61%)
+      c h
+    );--dwc-color-on-primary-text-25:oklch(
+      from var(--dwc-color-primary-25)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-30:oklch(from var(--dwc-color-primary-seed) 20% calc(c * 0.43) calc(h + var(--dwc-color-hue-rotate, 3) * 0.4));--dwc-color-primary-text-30:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(20% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-primary-text-30:oklch(
+      from var(--dwc-color-primary-30)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-35:oklch(from var(--dwc-color-primary-seed) 27% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * 0.3));--dwc-color-primary-text-35:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(27% + var(--dwc-dark-mode) * 48%)
+      c h
+    );--dwc-color-on-primary-text-35:oklch(
+      from var(--dwc-color-primary-35)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-40:oklch(from var(--dwc-color-primary-seed) 35% calc(c * 0.71) calc(h + var(--dwc-color-hue-rotate, 3) * 0.2));--dwc-color-primary-text-40:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(35% + var(--dwc-dark-mode) * 40%)
+      c h
+    );--dwc-color-on-primary-text-40:oklch(
+      from var(--dwc-color-primary-40)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-45:oklch(from var(--dwc-color-primary-seed) 42% calc(c * 0.81) calc(h + var(--dwc-color-hue-rotate, 3) * 0.1));--dwc-color-primary-text-45:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(42% + var(--dwc-dark-mode) * 36.01%)
+      c h
+    );--dwc-color-on-primary-text-45:oklch(
+      from var(--dwc-color-primary-45)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-50:oklch(from var(--dwc-color-primary-seed) 49% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * 0));--dwc-color-primary-text-50:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(44% + var(--dwc-dark-mode) * 37.02%)
+      c h
+    );--dwc-color-on-primary-text-50:oklch(
+      from var(--dwc-color-primary-50)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-55:oklch(from var(--dwc-color-primary-seed) 53% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.1));--dwc-color-primary-text-55:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(44% + var(--dwc-dark-mode) * 38.74%)
+      c h
+    );--dwc-color-on-primary-text-55:oklch(
+      from var(--dwc-color-primary-55)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-60:oklch(from var(--dwc-color-primary-seed) 60% calc(c * 1) calc(h + var(--dwc-color-hue-rotate, 3) * -0.2));--dwc-color-primary-text-60:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(44% + var(--dwc-dark-mode) * 41.75%)
+      c h
+    );--dwc-color-on-primary-text-60:oklch(
+      from var(--dwc-color-primary-60)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-65:oklch(from var(--dwc-color-primary-seed) 63% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.3));--dwc-color-primary-text-65:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(44% + var(--dwc-dark-mode) * 43.04%)
+      c h
+    );--dwc-color-on-primary-text-65:oklch(
+      from var(--dwc-color-primary-65)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-70:oklch(from var(--dwc-color-primary-seed) 68% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * -0.4));--dwc-color-primary-text-70:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(44% + var(--dwc-dark-mode) * 45.19%)
+      c h
+    );--dwc-color-on-primary-text-70:oklch(
+      from var(--dwc-color-primary-70)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-75:oklch(from var(--dwc-color-primary-seed) 74% calc(c * 0.76) calc(h + var(--dwc-color-hue-rotate, 3) * -0.5));--dwc-color-primary-text-75:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(44% + var(--dwc-dark-mode) * 47.77%)
+      c h
+    );--dwc-color-on-primary-text-75:oklch(
+      from var(--dwc-color-primary-75)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-80:oklch(from var(--dwc-color-primary-seed) 80% calc(c * 0.67) calc(h + var(--dwc-color-hue-rotate, 3) * -0.6));--dwc-color-primary-text-80:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(44% + var(--dwc-dark-mode) * 50.35%)
+      c h
+    );--dwc-color-on-primary-text-80:oklch(
+      from var(--dwc-color-primary-80)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-85:oklch(from var(--dwc-color-primary-seed) 88% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * -0.7));--dwc-color-primary-text-85:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(44% + var(--dwc-dark-mode) * 53.79%)
+      c h
+    );--dwc-color-on-primary-text-85:oklch(
+      from var(--dwc-color-primary-85)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-90:oklch(from var(--dwc-color-primary-seed) 95% calc(c * 0.29) calc(h + var(--dwc-color-hue-rotate, 3) * -0.8));--dwc-color-primary-text-90:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-primary-text-90:oklch(
+      from var(--dwc-color-primary-90)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-95:oklch(from var(--dwc-color-primary-seed) 99% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * -0.9));--dwc-color-primary-text-95:oklch(
+      from var(--dwc-color-primary-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-primary-text-95:oklch(
+      from var(--dwc-color-primary-95)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-primary-tint:oklch(from var(--dwc-color-primary-seed) l c h / 0.12);--dwc-border-color-primary:oklch(from var(--dwc-color-primary-seed)
+      calc(90% + var(--dwc-dark-mode) * -58%) calc(c * 0.12) h
+    );--dwc-border-color-primary-emphasis:oklch(from var(--dwc-color-primary-seed)
+      calc(70.8% + var(--dwc-dark-mode) * -15.2%) calc(c * 0.3) h
+    );--dwc-focus-ring-primary:0 0 0 var(--dwc-focus-ring-gap) var(--dwc-surface-1),
+    0 0 0 calc(var(--dwc-focus-ring-gap) + var(--dwc-focus-ring-width))
+    oklch(from var(--dwc-color-primary-seed)
+      calc(55% + var(--dwc-dark-mode) * 25%) c h / var(--dwc-focus-ring-a)
+    );--dwc-color-success-seed:hsl(
+      var(--dwc-color-success-h),
+      var(--dwc-color-success-s),
+      50%
+    );--dwc-color-success-5:oklch(from var(--dwc-color-success-seed) 3% calc(c * 0.1) calc(h + var(--dwc-color-hue-rotate, 3) * 0.9));--dwc-color-success-text-5:oklch(
+      from var(--dwc-color-success-seed)
+      calc(3% + var(--dwc-dark-mode) * 72%)
+      c h
+    );--dwc-color-on-success-text-5:oklch(
+      from var(--dwc-color-success-5)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-10:oklch(from var(--dwc-color-success-seed) 5% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * 0.8));--dwc-color-success-text-10:oklch(
+      from var(--dwc-color-success-seed)
+      calc(5% + var(--dwc-dark-mode) * 70%)
+      c h
+    );--dwc-color-on-success-text-10:oklch(
+      from var(--dwc-color-success-10)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-15:oklch(from var(--dwc-color-success-seed) 8% calc(c * 0.19) calc(h + var(--dwc-color-hue-rotate, 3) * 0.7));--dwc-color-success-text-15:oklch(
+      from var(--dwc-color-success-seed)
+      calc(8% + var(--dwc-dark-mode) * 67%)
+      c h
+    );--dwc-color-on-success-text-15:oklch(
+      from var(--dwc-color-success-15)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-20:oklch(from var(--dwc-color-success-seed) 11% calc(c * 0.24) calc(h + var(--dwc-color-hue-rotate, 3) * 0.6));--dwc-color-success-text-20:oklch(
+      from var(--dwc-color-success-seed)
+      calc(11% + var(--dwc-dark-mode) * 64%)
+      c h
+    );--dwc-color-on-success-text-20:oklch(
+      from var(--dwc-color-success-20)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-25:oklch(from var(--dwc-color-success-seed) 14% calc(c * 0.33) calc(h + var(--dwc-color-hue-rotate, 3) * 0.5));--dwc-color-success-text-25:oklch(
+      from var(--dwc-color-success-seed)
+      calc(14% + var(--dwc-dark-mode) * 61%)
+      c h
+    );--dwc-color-on-success-text-25:oklch(
+      from var(--dwc-color-success-25)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-30:oklch(from var(--dwc-color-success-seed) 20% calc(c * 0.43) calc(h + var(--dwc-color-hue-rotate, 3) * 0.4));--dwc-color-success-text-30:oklch(
+      from var(--dwc-color-success-seed)
+      calc(20% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-success-text-30:oklch(
+      from var(--dwc-color-success-30)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-35:oklch(from var(--dwc-color-success-seed) 27% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * 0.3));--dwc-color-success-text-35:oklch(
+      from var(--dwc-color-success-seed)
+      calc(27% + var(--dwc-dark-mode) * 48%)
+      c h
+    );--dwc-color-on-success-text-35:oklch(
+      from var(--dwc-color-success-35)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-40:oklch(from var(--dwc-color-success-seed) 35% calc(c * 0.71) calc(h + var(--dwc-color-hue-rotate, 3) * 0.2));--dwc-color-success-text-40:oklch(
+      from var(--dwc-color-success-seed)
+      calc(35% + var(--dwc-dark-mode) * 40%)
+      c h
+    );--dwc-color-on-success-text-40:oklch(
+      from var(--dwc-color-success-40)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-45:oklch(from var(--dwc-color-success-seed) 42% calc(c * 0.81) calc(h + var(--dwc-color-hue-rotate, 3) * 0.1));--dwc-color-success-text-45:oklch(
+      from var(--dwc-color-success-seed)
+      calc(42% + var(--dwc-dark-mode) * 36.01%)
+      c h
+    );--dwc-color-on-success-text-45:oklch(
+      from var(--dwc-color-success-45)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-50:oklch(from var(--dwc-color-success-seed) 49% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * 0));--dwc-color-success-text-50:oklch(
+      from var(--dwc-color-success-seed)
+      calc(44% + var(--dwc-dark-mode) * 37.02%)
+      c h
+    );--dwc-color-on-success-text-50:oklch(
+      from var(--dwc-color-success-50)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-55:oklch(from var(--dwc-color-success-seed) 53% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.1));--dwc-color-success-text-55:oklch(
+      from var(--dwc-color-success-seed)
+      calc(44% + var(--dwc-dark-mode) * 38.74%)
+      c h
+    );--dwc-color-on-success-text-55:oklch(
+      from var(--dwc-color-success-55)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-60:oklch(from var(--dwc-color-success-seed) 60% calc(c * 1) calc(h + var(--dwc-color-hue-rotate, 3) * -0.2));--dwc-color-success-text-60:oklch(
+      from var(--dwc-color-success-seed)
+      calc(44% + var(--dwc-dark-mode) * 41.75%)
+      c h
+    );--dwc-color-on-success-text-60:oklch(
+      from var(--dwc-color-success-60)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-65:oklch(from var(--dwc-color-success-seed) 63% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.3));--dwc-color-success-text-65:oklch(
+      from var(--dwc-color-success-seed)
+      calc(44% + var(--dwc-dark-mode) * 43.04%)
+      c h
+    );--dwc-color-on-success-text-65:oklch(
+      from var(--dwc-color-success-65)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-70:oklch(from var(--dwc-color-success-seed) 68% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * -0.4));--dwc-color-success-text-70:oklch(
+      from var(--dwc-color-success-seed)
+      calc(44% + var(--dwc-dark-mode) * 45.19%)
+      c h
+    );--dwc-color-on-success-text-70:oklch(
+      from var(--dwc-color-success-70)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-75:oklch(from var(--dwc-color-success-seed) 74% calc(c * 0.76) calc(h + var(--dwc-color-hue-rotate, 3) * -0.5));--dwc-color-success-text-75:oklch(
+      from var(--dwc-color-success-seed)
+      calc(44% + var(--dwc-dark-mode) * 47.77%)
+      c h
+    );--dwc-color-on-success-text-75:oklch(
+      from var(--dwc-color-success-75)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-80:oklch(from var(--dwc-color-success-seed) 80% calc(c * 0.67) calc(h + var(--dwc-color-hue-rotate, 3) * -0.6));--dwc-color-success-text-80:oklch(
+      from var(--dwc-color-success-seed)
+      calc(44% + var(--dwc-dark-mode) * 50.35%)
+      c h
+    );--dwc-color-on-success-text-80:oklch(
+      from var(--dwc-color-success-80)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-85:oklch(from var(--dwc-color-success-seed) 88% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * -0.7));--dwc-color-success-text-85:oklch(
+      from var(--dwc-color-success-seed)
+      calc(44% + var(--dwc-dark-mode) * 53.79%)
+      c h
+    );--dwc-color-on-success-text-85:oklch(
+      from var(--dwc-color-success-85)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-90:oklch(from var(--dwc-color-success-seed) 95% calc(c * 0.29) calc(h + var(--dwc-color-hue-rotate, 3) * -0.8));--dwc-color-success-text-90:oklch(
+      from var(--dwc-color-success-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-success-text-90:oklch(
+      from var(--dwc-color-success-90)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-95:oklch(from var(--dwc-color-success-seed) 99% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * -0.9));--dwc-color-success-text-95:oklch(
+      from var(--dwc-color-success-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-success-text-95:oklch(
+      from var(--dwc-color-success-95)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-success-tint:oklch(from var(--dwc-color-success-seed) l c h / 0.12);--dwc-border-color-success:oklch(from var(--dwc-color-success-seed)
+      calc(90% + var(--dwc-dark-mode) * -58%) calc(c * 0.12) h
+    );--dwc-border-color-success-emphasis:oklch(from var(--dwc-color-success-seed)
+      calc(70.8% + var(--dwc-dark-mode) * -15.2%) calc(c * 0.3) h
+    );--dwc-focus-ring-success:0 0 0 var(--dwc-focus-ring-gap) var(--dwc-surface-1),
+    0 0 0 calc(var(--dwc-focus-ring-gap) + var(--dwc-focus-ring-width))
+    oklch(from var(--dwc-color-success-seed)
+      calc(55% + var(--dwc-dark-mode) * 25%) c h / var(--dwc-focus-ring-a)
+    );--dwc-color-warning-seed:hsl(
+      var(--dwc-color-warning-h),
+      var(--dwc-color-warning-s),
+      50%
+    );--dwc-color-warning-5:oklch(from var(--dwc-color-warning-seed) 3% calc(c * 0.1) calc(h + var(--dwc-color-hue-rotate, 3) * 0.9));--dwc-color-warning-text-5:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(3% + var(--dwc-dark-mode) * 72%)
+      c h
+    );--dwc-color-on-warning-text-5:oklch(
+      from var(--dwc-color-warning-5)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-10:oklch(from var(--dwc-color-warning-seed) 5% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * 0.8));--dwc-color-warning-text-10:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(5% + var(--dwc-dark-mode) * 70%)
+      c h
+    );--dwc-color-on-warning-text-10:oklch(
+      from var(--dwc-color-warning-10)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-15:oklch(from var(--dwc-color-warning-seed) 8% calc(c * 0.19) calc(h + var(--dwc-color-hue-rotate, 3) * 0.7));--dwc-color-warning-text-15:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(8% + var(--dwc-dark-mode) * 67%)
+      c h
+    );--dwc-color-on-warning-text-15:oklch(
+      from var(--dwc-color-warning-15)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-20:oklch(from var(--dwc-color-warning-seed) 11% calc(c * 0.24) calc(h + var(--dwc-color-hue-rotate, 3) * 0.6));--dwc-color-warning-text-20:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(11% + var(--dwc-dark-mode) * 64%)
+      c h
+    );--dwc-color-on-warning-text-20:oklch(
+      from var(--dwc-color-warning-20)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-25:oklch(from var(--dwc-color-warning-seed) 14% calc(c * 0.33) calc(h + var(--dwc-color-hue-rotate, 3) * 0.5));--dwc-color-warning-text-25:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(14% + var(--dwc-dark-mode) * 61%)
+      c h
+    );--dwc-color-on-warning-text-25:oklch(
+      from var(--dwc-color-warning-25)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-30:oklch(from var(--dwc-color-warning-seed) 20% calc(c * 0.43) calc(h + var(--dwc-color-hue-rotate, 3) * 0.4));--dwc-color-warning-text-30:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(20% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-warning-text-30:oklch(
+      from var(--dwc-color-warning-30)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-35:oklch(from var(--dwc-color-warning-seed) 27% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * 0.3));--dwc-color-warning-text-35:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(27% + var(--dwc-dark-mode) * 48%)
+      c h
+    );--dwc-color-on-warning-text-35:oklch(
+      from var(--dwc-color-warning-35)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-40:oklch(from var(--dwc-color-warning-seed) 35% calc(c * 0.71) calc(h + var(--dwc-color-hue-rotate, 3) * 0.2));--dwc-color-warning-text-40:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(35% + var(--dwc-dark-mode) * 40%)
+      c h
+    );--dwc-color-on-warning-text-40:oklch(
+      from var(--dwc-color-warning-40)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-45:oklch(from var(--dwc-color-warning-seed) 42% calc(c * 0.81) calc(h + var(--dwc-color-hue-rotate, 3) * 0.1));--dwc-color-warning-text-45:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(42% + var(--dwc-dark-mode) * 36.01%)
+      c h
+    );--dwc-color-on-warning-text-45:oklch(
+      from var(--dwc-color-warning-45)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-50:oklch(from var(--dwc-color-warning-seed) 49% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * 0));--dwc-color-warning-text-50:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(44% + var(--dwc-dark-mode) * 37.02%)
+      c h
+    );--dwc-color-on-warning-text-50:oklch(
+      from var(--dwc-color-warning-50)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-55:oklch(from var(--dwc-color-warning-seed) 53% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.1));--dwc-color-warning-text-55:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(44% + var(--dwc-dark-mode) * 38.74%)
+      c h
+    );--dwc-color-on-warning-text-55:oklch(
+      from var(--dwc-color-warning-55)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-60:oklch(from var(--dwc-color-warning-seed) 60% calc(c * 1) calc(h + var(--dwc-color-hue-rotate, 3) * -0.2));--dwc-color-warning-text-60:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(44% + var(--dwc-dark-mode) * 41.75%)
+      c h
+    );--dwc-color-on-warning-text-60:oklch(
+      from var(--dwc-color-warning-60)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-65:oklch(from var(--dwc-color-warning-seed) 63% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.3));--dwc-color-warning-text-65:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(44% + var(--dwc-dark-mode) * 43.04%)
+      c h
+    );--dwc-color-on-warning-text-65:oklch(
+      from var(--dwc-color-warning-65)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-70:oklch(from var(--dwc-color-warning-seed) 68% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * -0.4));--dwc-color-warning-text-70:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(44% + var(--dwc-dark-mode) * 45.19%)
+      c h
+    );--dwc-color-on-warning-text-70:oklch(
+      from var(--dwc-color-warning-70)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-75:oklch(from var(--dwc-color-warning-seed) 74% calc(c * 0.76) calc(h + var(--dwc-color-hue-rotate, 3) * -0.5));--dwc-color-warning-text-75:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(44% + var(--dwc-dark-mode) * 47.77%)
+      c h
+    );--dwc-color-on-warning-text-75:oklch(
+      from var(--dwc-color-warning-75)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-80:oklch(from var(--dwc-color-warning-seed) 80% calc(c * 0.67) calc(h + var(--dwc-color-hue-rotate, 3) * -0.6));--dwc-color-warning-text-80:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(44% + var(--dwc-dark-mode) * 50.35%)
+      c h
+    );--dwc-color-on-warning-text-80:oklch(
+      from var(--dwc-color-warning-80)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-85:oklch(from var(--dwc-color-warning-seed) 88% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * -0.7));--dwc-color-warning-text-85:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(44% + var(--dwc-dark-mode) * 53.79%)
+      c h
+    );--dwc-color-on-warning-text-85:oklch(
+      from var(--dwc-color-warning-85)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-90:oklch(from var(--dwc-color-warning-seed) 95% calc(c * 0.29) calc(h + var(--dwc-color-hue-rotate, 3) * -0.8));--dwc-color-warning-text-90:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-warning-text-90:oklch(
+      from var(--dwc-color-warning-90)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-95:oklch(from var(--dwc-color-warning-seed) 99% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * -0.9));--dwc-color-warning-text-95:oklch(
+      from var(--dwc-color-warning-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-warning-text-95:oklch(
+      from var(--dwc-color-warning-95)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-warning-tint:oklch(from var(--dwc-color-warning-seed) l c h / 0.12);--dwc-border-color-warning:oklch(from var(--dwc-color-warning-seed)
+      calc(90% + var(--dwc-dark-mode) * -58%) calc(c * 0.12) h
+    );--dwc-border-color-warning-emphasis:oklch(from var(--dwc-color-warning-seed)
+      calc(70.8% + var(--dwc-dark-mode) * -15.2%) calc(c * 0.3) h
+    );--dwc-focus-ring-warning:0 0 0 var(--dwc-focus-ring-gap) var(--dwc-surface-1),
+    0 0 0 calc(var(--dwc-focus-ring-gap) + var(--dwc-focus-ring-width))
+    oklch(from var(--dwc-color-warning-seed)
+      calc(55% + var(--dwc-dark-mode) * 25%) c h / var(--dwc-focus-ring-a)
+    );--dwc-color-danger-seed:hsl(
+      var(--dwc-color-danger-h),
+      var(--dwc-color-danger-s),
+      50%
+    );--dwc-color-danger-5:oklch(from var(--dwc-color-danger-seed) 3% calc(c * 0.1) calc(h + var(--dwc-color-hue-rotate, 3) * 0.9));--dwc-color-danger-text-5:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(3% + var(--dwc-dark-mode) * 72%)
+      c h
+    );--dwc-color-on-danger-text-5:oklch(
+      from var(--dwc-color-danger-5)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-10:oklch(from var(--dwc-color-danger-seed) 5% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * 0.8));--dwc-color-danger-text-10:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(5% + var(--dwc-dark-mode) * 70%)
+      c h
+    );--dwc-color-on-danger-text-10:oklch(
+      from var(--dwc-color-danger-10)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-15:oklch(from var(--dwc-color-danger-seed) 8% calc(c * 0.19) calc(h + var(--dwc-color-hue-rotate, 3) * 0.7));--dwc-color-danger-text-15:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(8% + var(--dwc-dark-mode) * 67%)
+      c h
+    );--dwc-color-on-danger-text-15:oklch(
+      from var(--dwc-color-danger-15)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-20:oklch(from var(--dwc-color-danger-seed) 11% calc(c * 0.24) calc(h + var(--dwc-color-hue-rotate, 3) * 0.6));--dwc-color-danger-text-20:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(11% + var(--dwc-dark-mode) * 64%)
+      c h
+    );--dwc-color-on-danger-text-20:oklch(
+      from var(--dwc-color-danger-20)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-25:oklch(from var(--dwc-color-danger-seed) 14% calc(c * 0.33) calc(h + var(--dwc-color-hue-rotate, 3) * 0.5));--dwc-color-danger-text-25:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(14% + var(--dwc-dark-mode) * 61%)
+      c h
+    );--dwc-color-on-danger-text-25:oklch(
+      from var(--dwc-color-danger-25)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-30:oklch(from var(--dwc-color-danger-seed) 20% calc(c * 0.43) calc(h + var(--dwc-color-hue-rotate, 3) * 0.4));--dwc-color-danger-text-30:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(20% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-danger-text-30:oklch(
+      from var(--dwc-color-danger-30)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-35:oklch(from var(--dwc-color-danger-seed) 27% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * 0.3));--dwc-color-danger-text-35:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(27% + var(--dwc-dark-mode) * 48%)
+      c h
+    );--dwc-color-on-danger-text-35:oklch(
+      from var(--dwc-color-danger-35)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-40:oklch(from var(--dwc-color-danger-seed) 35% calc(c * 0.71) calc(h + var(--dwc-color-hue-rotate, 3) * 0.2));--dwc-color-danger-text-40:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(35% + var(--dwc-dark-mode) * 40%)
+      c h
+    );--dwc-color-on-danger-text-40:oklch(
+      from var(--dwc-color-danger-40)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-45:oklch(from var(--dwc-color-danger-seed) 42% calc(c * 0.81) calc(h + var(--dwc-color-hue-rotate, 3) * 0.1));--dwc-color-danger-text-45:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(42% + var(--dwc-dark-mode) * 36.01%)
+      c h
+    );--dwc-color-on-danger-text-45:oklch(
+      from var(--dwc-color-danger-45)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-50:oklch(from var(--dwc-color-danger-seed) 49% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * 0));--dwc-color-danger-text-50:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(44% + var(--dwc-dark-mode) * 37.02%)
+      c h
+    );--dwc-color-on-danger-text-50:oklch(
+      from var(--dwc-color-danger-50)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-55:oklch(from var(--dwc-color-danger-seed) 53% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.1));--dwc-color-danger-text-55:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(44% + var(--dwc-dark-mode) * 38.74%)
+      c h
+    );--dwc-color-on-danger-text-55:oklch(
+      from var(--dwc-color-danger-55)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-60:oklch(from var(--dwc-color-danger-seed) 60% calc(c * 1) calc(h + var(--dwc-color-hue-rotate, 3) * -0.2));--dwc-color-danger-text-60:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(44% + var(--dwc-dark-mode) * 41.75%)
+      c h
+    );--dwc-color-on-danger-text-60:oklch(
+      from var(--dwc-color-danger-60)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-65:oklch(from var(--dwc-color-danger-seed) 63% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.3));--dwc-color-danger-text-65:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(44% + var(--dwc-dark-mode) * 43.04%)
+      c h
+    );--dwc-color-on-danger-text-65:oklch(
+      from var(--dwc-color-danger-65)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-70:oklch(from var(--dwc-color-danger-seed) 68% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * -0.4));--dwc-color-danger-text-70:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(44% + var(--dwc-dark-mode) * 45.19%)
+      c h
+    );--dwc-color-on-danger-text-70:oklch(
+      from var(--dwc-color-danger-70)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-75:oklch(from var(--dwc-color-danger-seed) 74% calc(c * 0.76) calc(h + var(--dwc-color-hue-rotate, 3) * -0.5));--dwc-color-danger-text-75:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(44% + var(--dwc-dark-mode) * 47.77%)
+      c h
+    );--dwc-color-on-danger-text-75:oklch(
+      from var(--dwc-color-danger-75)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-80:oklch(from var(--dwc-color-danger-seed) 80% calc(c * 0.67) calc(h + var(--dwc-color-hue-rotate, 3) * -0.6));--dwc-color-danger-text-80:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(44% + var(--dwc-dark-mode) * 50.35%)
+      c h
+    );--dwc-color-on-danger-text-80:oklch(
+      from var(--dwc-color-danger-80)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-85:oklch(from var(--dwc-color-danger-seed) 88% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * -0.7));--dwc-color-danger-text-85:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(44% + var(--dwc-dark-mode) * 53.79%)
+      c h
+    );--dwc-color-on-danger-text-85:oklch(
+      from var(--dwc-color-danger-85)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-90:oklch(from var(--dwc-color-danger-seed) 95% calc(c * 0.29) calc(h + var(--dwc-color-hue-rotate, 3) * -0.8));--dwc-color-danger-text-90:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-danger-text-90:oklch(
+      from var(--dwc-color-danger-90)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-95:oklch(from var(--dwc-color-danger-seed) 99% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * -0.9));--dwc-color-danger-text-95:oklch(
+      from var(--dwc-color-danger-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-danger-text-95:oklch(
+      from var(--dwc-color-danger-95)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-danger-tint:oklch(from var(--dwc-color-danger-seed) l c h / 0.12);--dwc-border-color-danger:oklch(from var(--dwc-color-danger-seed)
+      calc(90% + var(--dwc-dark-mode) * -58%) calc(c * 0.12) h
+    );--dwc-border-color-danger-emphasis:oklch(from var(--dwc-color-danger-seed)
+      calc(70.8% + var(--dwc-dark-mode) * -15.2%) calc(c * 0.3) h
+    );--dwc-focus-ring-danger:0 0 0 var(--dwc-focus-ring-gap) var(--dwc-surface-1),
+    0 0 0 calc(var(--dwc-focus-ring-gap) + var(--dwc-focus-ring-width))
+    oklch(from var(--dwc-color-danger-seed)
+      calc(55% + var(--dwc-dark-mode) * 25%) c h / var(--dwc-focus-ring-a)
+    );--dwc-color-info-seed:hsl(
+      var(--dwc-color-info-h),
+      var(--dwc-color-info-s),
+      50%
+    );--dwc-color-info-5:oklch(from var(--dwc-color-info-seed) 3% calc(c * 0.1) calc(h + var(--dwc-color-hue-rotate, 3) * 0.9));--dwc-color-info-text-5:oklch(
+      from var(--dwc-color-info-seed)
+      calc(3% + var(--dwc-dark-mode) * 72%)
+      c h
+    );--dwc-color-on-info-text-5:oklch(
+      from var(--dwc-color-info-5)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-10:oklch(from var(--dwc-color-info-seed) 5% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * 0.8));--dwc-color-info-text-10:oklch(
+      from var(--dwc-color-info-seed)
+      calc(5% + var(--dwc-dark-mode) * 70%)
+      c h
+    );--dwc-color-on-info-text-10:oklch(
+      from var(--dwc-color-info-10)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-15:oklch(from var(--dwc-color-info-seed) 8% calc(c * 0.19) calc(h + var(--dwc-color-hue-rotate, 3) * 0.7));--dwc-color-info-text-15:oklch(
+      from var(--dwc-color-info-seed)
+      calc(8% + var(--dwc-dark-mode) * 67%)
+      c h
+    );--dwc-color-on-info-text-15:oklch(
+      from var(--dwc-color-info-15)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-20:oklch(from var(--dwc-color-info-seed) 11% calc(c * 0.24) calc(h + var(--dwc-color-hue-rotate, 3) * 0.6));--dwc-color-info-text-20:oklch(
+      from var(--dwc-color-info-seed)
+      calc(11% + var(--dwc-dark-mode) * 64%)
+      c h
+    );--dwc-color-on-info-text-20:oklch(
+      from var(--dwc-color-info-20)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-25:oklch(from var(--dwc-color-info-seed) 14% calc(c * 0.33) calc(h + var(--dwc-color-hue-rotate, 3) * 0.5));--dwc-color-info-text-25:oklch(
+      from var(--dwc-color-info-seed)
+      calc(14% + var(--dwc-dark-mode) * 61%)
+      c h
+    );--dwc-color-on-info-text-25:oklch(
+      from var(--dwc-color-info-25)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-30:oklch(from var(--dwc-color-info-seed) 20% calc(c * 0.43) calc(h + var(--dwc-color-hue-rotate, 3) * 0.4));--dwc-color-info-text-30:oklch(
+      from var(--dwc-color-info-seed)
+      calc(20% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-info-text-30:oklch(
+      from var(--dwc-color-info-30)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-35:oklch(from var(--dwc-color-info-seed) 27% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * 0.3));--dwc-color-info-text-35:oklch(
+      from var(--dwc-color-info-seed)
+      calc(27% + var(--dwc-dark-mode) * 48%)
+      c h
+    );--dwc-color-on-info-text-35:oklch(
+      from var(--dwc-color-info-35)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-40:oklch(from var(--dwc-color-info-seed) 35% calc(c * 0.71) calc(h + var(--dwc-color-hue-rotate, 3) * 0.2));--dwc-color-info-text-40:oklch(
+      from var(--dwc-color-info-seed)
+      calc(35% + var(--dwc-dark-mode) * 40%)
+      c h
+    );--dwc-color-on-info-text-40:oklch(
+      from var(--dwc-color-info-40)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-45:oklch(from var(--dwc-color-info-seed) 42% calc(c * 0.81) calc(h + var(--dwc-color-hue-rotate, 3) * 0.1));--dwc-color-info-text-45:oklch(
+      from var(--dwc-color-info-seed)
+      calc(42% + var(--dwc-dark-mode) * 36.01%)
+      c h
+    );--dwc-color-on-info-text-45:oklch(
+      from var(--dwc-color-info-45)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-50:oklch(from var(--dwc-color-info-seed) 49% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * 0));--dwc-color-info-text-50:oklch(
+      from var(--dwc-color-info-seed)
+      calc(44% + var(--dwc-dark-mode) * 37.02%)
+      c h
+    );--dwc-color-on-info-text-50:oklch(
+      from var(--dwc-color-info-50)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-55:oklch(from var(--dwc-color-info-seed) 53% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.1));--dwc-color-info-text-55:oklch(
+      from var(--dwc-color-info-seed)
+      calc(44% + var(--dwc-dark-mode) * 38.74%)
+      c h
+    );--dwc-color-on-info-text-55:oklch(
+      from var(--dwc-color-info-55)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-60:oklch(from var(--dwc-color-info-seed) 60% calc(c * 1) calc(h + var(--dwc-color-hue-rotate, 3) * -0.2));--dwc-color-info-text-60:oklch(
+      from var(--dwc-color-info-seed)
+      calc(44% + var(--dwc-dark-mode) * 41.75%)
+      c h
+    );--dwc-color-on-info-text-60:oklch(
+      from var(--dwc-color-info-60)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-65:oklch(from var(--dwc-color-info-seed) 63% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.3));--dwc-color-info-text-65:oklch(
+      from var(--dwc-color-info-seed)
+      calc(44% + var(--dwc-dark-mode) * 43.04%)
+      c h
+    );--dwc-color-on-info-text-65:oklch(
+      from var(--dwc-color-info-65)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-70:oklch(from var(--dwc-color-info-seed) 68% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * -0.4));--dwc-color-info-text-70:oklch(
+      from var(--dwc-color-info-seed)
+      calc(44% + var(--dwc-dark-mode) * 45.19%)
+      c h
+    );--dwc-color-on-info-text-70:oklch(
+      from var(--dwc-color-info-70)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-75:oklch(from var(--dwc-color-info-seed) 74% calc(c * 0.76) calc(h + var(--dwc-color-hue-rotate, 3) * -0.5));--dwc-color-info-text-75:oklch(
+      from var(--dwc-color-info-seed)
+      calc(44% + var(--dwc-dark-mode) * 47.77%)
+      c h
+    );--dwc-color-on-info-text-75:oklch(
+      from var(--dwc-color-info-75)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-80:oklch(from var(--dwc-color-info-seed) 80% calc(c * 0.67) calc(h + var(--dwc-color-hue-rotate, 3) * -0.6));--dwc-color-info-text-80:oklch(
+      from var(--dwc-color-info-seed)
+      calc(44% + var(--dwc-dark-mode) * 50.35%)
+      c h
+    );--dwc-color-on-info-text-80:oklch(
+      from var(--dwc-color-info-80)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-85:oklch(from var(--dwc-color-info-seed) 88% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * -0.7));--dwc-color-info-text-85:oklch(
+      from var(--dwc-color-info-seed)
+      calc(44% + var(--dwc-dark-mode) * 53.79%)
+      c h
+    );--dwc-color-on-info-text-85:oklch(
+      from var(--dwc-color-info-85)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-90:oklch(from var(--dwc-color-info-seed) 95% calc(c * 0.29) calc(h + var(--dwc-color-hue-rotate, 3) * -0.8));--dwc-color-info-text-90:oklch(
+      from var(--dwc-color-info-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-info-text-90:oklch(
+      from var(--dwc-color-info-90)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-95:oklch(from var(--dwc-color-info-seed) 99% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * -0.9));--dwc-color-info-text-95:oklch(
+      from var(--dwc-color-info-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-info-text-95:oklch(
+      from var(--dwc-color-info-95)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-info-tint:oklch(from var(--dwc-color-info-seed) l c h / 0.12);--dwc-border-color-info:oklch(from var(--dwc-color-info-seed)
+      calc(90% + var(--dwc-dark-mode) * -58%) calc(c * 0.12) h
+    );--dwc-border-color-info-emphasis:oklch(from var(--dwc-color-info-seed)
+      calc(70.8% + var(--dwc-dark-mode) * -15.2%) calc(c * 0.3) h
+    );--dwc-focus-ring-info:0 0 0 var(--dwc-focus-ring-gap) var(--dwc-surface-1),
+    0 0 0 calc(var(--dwc-focus-ring-gap) + var(--dwc-focus-ring-width))
+    oklch(from var(--dwc-color-info-seed)
+      calc(55% + var(--dwc-dark-mode) * 25%) c h / var(--dwc-focus-ring-a)
+    );--dwc-color-gray-seed:hsl(
+      var(--dwc-color-gray-h),
+      var(--dwc-color-gray-s),
+      50%
+    );--dwc-color-gray-5:oklch(from var(--dwc-color-gray-seed) 3% calc(c * 0.1) calc(h + var(--dwc-color-hue-rotate, 3) * 0.9));--dwc-color-gray-text-5:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(3% + var(--dwc-dark-mode) * 72%)
+      c h
+    );--dwc-color-on-gray-text-5:oklch(
+      from var(--dwc-color-gray-5)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-10:oklch(from var(--dwc-color-gray-seed) 5% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * 0.8));--dwc-color-gray-text-10:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(5% + var(--dwc-dark-mode) * 70%)
+      c h
+    );--dwc-color-on-gray-text-10:oklch(
+      from var(--dwc-color-gray-10)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-15:oklch(from var(--dwc-color-gray-seed) 8% calc(c * 0.19) calc(h + var(--dwc-color-hue-rotate, 3) * 0.7));--dwc-color-gray-text-15:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(8% + var(--dwc-dark-mode) * 67%)
+      c h
+    );--dwc-color-on-gray-text-15:oklch(
+      from var(--dwc-color-gray-15)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-20:oklch(from var(--dwc-color-gray-seed) 11% calc(c * 0.24) calc(h + var(--dwc-color-hue-rotate, 3) * 0.6));--dwc-color-gray-text-20:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(11% + var(--dwc-dark-mode) * 64%)
+      c h
+    );--dwc-color-on-gray-text-20:oklch(
+      from var(--dwc-color-gray-20)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-25:oklch(from var(--dwc-color-gray-seed) 14% calc(c * 0.33) calc(h + var(--dwc-color-hue-rotate, 3) * 0.5));--dwc-color-gray-text-25:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(14% + var(--dwc-dark-mode) * 61%)
+      c h
+    );--dwc-color-on-gray-text-25:oklch(
+      from var(--dwc-color-gray-25)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-30:oklch(from var(--dwc-color-gray-seed) 20% calc(c * 0.43) calc(h + var(--dwc-color-hue-rotate, 3) * 0.4));--dwc-color-gray-text-30:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(20% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-gray-text-30:oklch(
+      from var(--dwc-color-gray-30)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-35:oklch(from var(--dwc-color-gray-seed) 27% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * 0.3));--dwc-color-gray-text-35:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(27% + var(--dwc-dark-mode) * 48%)
+      c h
+    );--dwc-color-on-gray-text-35:oklch(
+      from var(--dwc-color-gray-35)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-40:oklch(from var(--dwc-color-gray-seed) 35% calc(c * 0.71) calc(h + var(--dwc-color-hue-rotate, 3) * 0.2));--dwc-color-gray-text-40:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(35% + var(--dwc-dark-mode) * 40%)
+      c h
+    );--dwc-color-on-gray-text-40:oklch(
+      from var(--dwc-color-gray-40)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-45:oklch(from var(--dwc-color-gray-seed) 42% calc(c * 0.81) calc(h + var(--dwc-color-hue-rotate, 3) * 0.1));--dwc-color-gray-text-45:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(42% + var(--dwc-dark-mode) * 36.01%)
+      c h
+    );--dwc-color-on-gray-text-45:oklch(
+      from var(--dwc-color-gray-45)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-50:oklch(from var(--dwc-color-gray-seed) 49% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * 0));--dwc-color-gray-text-50:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(44% + var(--dwc-dark-mode) * 37.02%)
+      c h
+    );--dwc-color-on-gray-text-50:oklch(
+      from var(--dwc-color-gray-50)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-55:oklch(from var(--dwc-color-gray-seed) 53% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.1));--dwc-color-gray-text-55:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(44% + var(--dwc-dark-mode) * 38.74%)
+      c h
+    );--dwc-color-on-gray-text-55:oklch(
+      from var(--dwc-color-gray-55)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-60:oklch(from var(--dwc-color-gray-seed) 60% calc(c * 1) calc(h + var(--dwc-color-hue-rotate, 3) * -0.2));--dwc-color-gray-text-60:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(44% + var(--dwc-dark-mode) * 41.75%)
+      c h
+    );--dwc-color-on-gray-text-60:oklch(
+      from var(--dwc-color-gray-60)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-65:oklch(from var(--dwc-color-gray-seed) 63% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.3));--dwc-color-gray-text-65:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(44% + var(--dwc-dark-mode) * 43.04%)
+      c h
+    );--dwc-color-on-gray-text-65:oklch(
+      from var(--dwc-color-gray-65)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-70:oklch(from var(--dwc-color-gray-seed) 68% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * -0.4));--dwc-color-gray-text-70:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(44% + var(--dwc-dark-mode) * 45.19%)
+      c h
+    );--dwc-color-on-gray-text-70:oklch(
+      from var(--dwc-color-gray-70)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-75:oklch(from var(--dwc-color-gray-seed) 74% calc(c * 0.76) calc(h + var(--dwc-color-hue-rotate, 3) * -0.5));--dwc-color-gray-text-75:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(44% + var(--dwc-dark-mode) * 47.77%)
+      c h
+    );--dwc-color-on-gray-text-75:oklch(
+      from var(--dwc-color-gray-75)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-80:oklch(from var(--dwc-color-gray-seed) 80% calc(c * 0.67) calc(h + var(--dwc-color-hue-rotate, 3) * -0.6));--dwc-color-gray-text-80:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(44% + var(--dwc-dark-mode) * 50.35%)
+      c h
+    );--dwc-color-on-gray-text-80:oklch(
+      from var(--dwc-color-gray-80)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-85:oklch(from var(--dwc-color-gray-seed) 88% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * -0.7));--dwc-color-gray-text-85:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(44% + var(--dwc-dark-mode) * 53.79%)
+      c h
+    );--dwc-color-on-gray-text-85:oklch(
+      from var(--dwc-color-gray-85)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-90:oklch(from var(--dwc-color-gray-seed) 95% calc(c * 0.29) calc(h + var(--dwc-color-hue-rotate, 3) * -0.8));--dwc-color-gray-text-90:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-gray-text-90:oklch(
+      from var(--dwc-color-gray-90)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-95:oklch(from var(--dwc-color-gray-seed) 99% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * -0.9));--dwc-color-gray-text-95:oklch(
+      from var(--dwc-color-gray-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-gray-text-95:oklch(
+      from var(--dwc-color-gray-95)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-gray-tint:oklch(from var(--dwc-color-gray-seed) l c h / 0.12);--dwc-border-color-gray:oklch(from var(--dwc-color-gray-seed)
+      calc(90% + var(--dwc-dark-mode) * -58%) calc(c * 0.12) h
+    );--dwc-border-color-gray-emphasis:oklch(from var(--dwc-color-gray-seed)
+      calc(70.8% + var(--dwc-dark-mode) * -15.2%) calc(c * 0.3) h
+    );--dwc-focus-ring-gray:0 0 0 var(--dwc-focus-ring-gap) var(--dwc-surface-1),
+    0 0 0 calc(var(--dwc-focus-ring-gap) + var(--dwc-focus-ring-width))
+    oklch(from var(--dwc-color-gray-seed)
+      calc(55% + var(--dwc-dark-mode) * 25%) c h / var(--dwc-focus-ring-a)
+    );--dwc-color-default-seed:hsl(
+      var(--dwc-color-default-h),
+      var(--dwc-color-default-s),
+      50%
+    );--dwc-color-default-5:oklch(from var(--dwc-color-default-seed) 3% calc(c * 0.1) calc(h + var(--dwc-color-hue-rotate, 3) * 0.9));--dwc-color-default-text-5:oklch(
+      from var(--dwc-color-default-seed)
+      calc(3% + var(--dwc-dark-mode) * 72%)
+      c h
+    );--dwc-color-on-default-text-5:oklch(
+      from var(--dwc-color-default-5)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-10:oklch(from var(--dwc-color-default-seed) 5% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * 0.8));--dwc-color-default-text-10:oklch(
+      from var(--dwc-color-default-seed)
+      calc(5% + var(--dwc-dark-mode) * 70%)
+      c h
+    );--dwc-color-on-default-text-10:oklch(
+      from var(--dwc-color-default-10)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-15:oklch(from var(--dwc-color-default-seed) 8% calc(c * 0.19) calc(h + var(--dwc-color-hue-rotate, 3) * 0.7));--dwc-color-default-text-15:oklch(
+      from var(--dwc-color-default-seed)
+      calc(8% + var(--dwc-dark-mode) * 67%)
+      c h
+    );--dwc-color-on-default-text-15:oklch(
+      from var(--dwc-color-default-15)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-20:oklch(from var(--dwc-color-default-seed) 11% calc(c * 0.24) calc(h + var(--dwc-color-hue-rotate, 3) * 0.6));--dwc-color-default-text-20:oklch(
+      from var(--dwc-color-default-seed)
+      calc(11% + var(--dwc-dark-mode) * 64%)
+      c h
+    );--dwc-color-on-default-text-20:oklch(
+      from var(--dwc-color-default-20)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-25:oklch(from var(--dwc-color-default-seed) 14% calc(c * 0.33) calc(h + var(--dwc-color-hue-rotate, 3) * 0.5));--dwc-color-default-text-25:oklch(
+      from var(--dwc-color-default-seed)
+      calc(14% + var(--dwc-dark-mode) * 61%)
+      c h
+    );--dwc-color-on-default-text-25:oklch(
+      from var(--dwc-color-default-25)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-30:oklch(from var(--dwc-color-default-seed) 20% calc(c * 0.43) calc(h + var(--dwc-color-hue-rotate, 3) * 0.4));--dwc-color-default-text-30:oklch(
+      from var(--dwc-color-default-seed)
+      calc(20% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-default-text-30:oklch(
+      from var(--dwc-color-default-30)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-35:oklch(from var(--dwc-color-default-seed) 27% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * 0.3));--dwc-color-default-text-35:oklch(
+      from var(--dwc-color-default-seed)
+      calc(27% + var(--dwc-dark-mode) * 48%)
+      c h
+    );--dwc-color-on-default-text-35:oklch(
+      from var(--dwc-color-default-35)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-40:oklch(from var(--dwc-color-default-seed) 35% calc(c * 0.71) calc(h + var(--dwc-color-hue-rotate, 3) * 0.2));--dwc-color-default-text-40:oklch(
+      from var(--dwc-color-default-seed)
+      calc(35% + var(--dwc-dark-mode) * 40%)
+      c h
+    );--dwc-color-on-default-text-40:oklch(
+      from var(--dwc-color-default-40)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-45:oklch(from var(--dwc-color-default-seed) 42% calc(c * 0.81) calc(h + var(--dwc-color-hue-rotate, 3) * 0.1));--dwc-color-default-text-45:oklch(
+      from var(--dwc-color-default-seed)
+      calc(42% + var(--dwc-dark-mode) * 36.01%)
+      c h
+    );--dwc-color-on-default-text-45:oklch(
+      from var(--dwc-color-default-45)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-50:oklch(from var(--dwc-color-default-seed) 49% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * 0));--dwc-color-default-text-50:oklch(
+      from var(--dwc-color-default-seed)
+      calc(44% + var(--dwc-dark-mode) * 37.02%)
+      c h
+    );--dwc-color-on-default-text-50:oklch(
+      from var(--dwc-color-default-50)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-55:oklch(from var(--dwc-color-default-seed) 53% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.1));--dwc-color-default-text-55:oklch(
+      from var(--dwc-color-default-seed)
+      calc(44% + var(--dwc-dark-mode) * 38.74%)
+      c h
+    );--dwc-color-on-default-text-55:oklch(
+      from var(--dwc-color-default-55)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-60:oklch(from var(--dwc-color-default-seed) 60% calc(c * 1) calc(h + var(--dwc-color-hue-rotate, 3) * -0.2));--dwc-color-default-text-60:oklch(
+      from var(--dwc-color-default-seed)
+      calc(44% + var(--dwc-dark-mode) * 41.75%)
+      c h
+    );--dwc-color-on-default-text-60:oklch(
+      from var(--dwc-color-default-60)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-65:oklch(from var(--dwc-color-default-seed) 63% calc(c * 0.95) calc(h + var(--dwc-color-hue-rotate, 3) * -0.3));--dwc-color-default-text-65:oklch(
+      from var(--dwc-color-default-seed)
+      calc(44% + var(--dwc-dark-mode) * 43.04%)
+      c h
+    );--dwc-color-on-default-text-65:oklch(
+      from var(--dwc-color-default-65)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-70:oklch(from var(--dwc-color-default-seed) 68% calc(c * 0.9) calc(h + var(--dwc-color-hue-rotate, 3) * -0.4));--dwc-color-default-text-70:oklch(
+      from var(--dwc-color-default-seed)
+      calc(44% + var(--dwc-dark-mode) * 45.19%)
+      c h
+    );--dwc-color-on-default-text-70:oklch(
+      from var(--dwc-color-default-70)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-75:oklch(from var(--dwc-color-default-seed) 74% calc(c * 0.76) calc(h + var(--dwc-color-hue-rotate, 3) * -0.5));--dwc-color-default-text-75:oklch(
+      from var(--dwc-color-default-seed)
+      calc(44% + var(--dwc-dark-mode) * 47.77%)
+      c h
+    );--dwc-color-on-default-text-75:oklch(
+      from var(--dwc-color-default-75)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-80:oklch(from var(--dwc-color-default-seed) 80% calc(c * 0.67) calc(h + var(--dwc-color-hue-rotate, 3) * -0.6));--dwc-color-default-text-80:oklch(
+      from var(--dwc-color-default-seed)
+      calc(44% + var(--dwc-dark-mode) * 50.35%)
+      c h
+    );--dwc-color-on-default-text-80:oklch(
+      from var(--dwc-color-default-80)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-85:oklch(from var(--dwc-color-default-seed) 88% calc(c * 0.57) calc(h + var(--dwc-color-hue-rotate, 3) * -0.7));--dwc-color-default-text-85:oklch(
+      from var(--dwc-color-default-seed)
+      calc(44% + var(--dwc-dark-mode) * 53.79%)
+      c h
+    );--dwc-color-on-default-text-85:oklch(
+      from var(--dwc-color-default-85)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-90:oklch(from var(--dwc-color-default-seed) 95% calc(c * 0.29) calc(h + var(--dwc-color-hue-rotate, 3) * -0.8));--dwc-color-default-text-90:oklch(
+      from var(--dwc-color-default-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-default-text-90:oklch(
+      from var(--dwc-color-default-90)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-95:oklch(from var(--dwc-color-default-seed) 99% calc(c * 0.14) calc(h + var(--dwc-color-hue-rotate, 3) * -0.9));--dwc-color-default-text-95:oklch(
+      from var(--dwc-color-default-seed)
+      calc(44% + var(--dwc-dark-mode) * 55%)
+      c h
+    );--dwc-color-on-default-text-95:oklch(
+      from var(--dwc-color-default-95)
+      clamp(0.13, calc((l - 0.59) * -1000), 0.99)
+      calc(c * clamp(0.05, calc((l - 0.59) * 5 + 0.20), 0.35))
+      h
+    );--dwc-color-default-tint:oklch(from var(--dwc-color-default-seed) l c h / 0.12);--dwc-border-color-default:oklch(from var(--dwc-color-default-seed)
+      calc(90% + var(--dwc-dark-mode) * -58%) calc(c * 0.12) h
+    );--dwc-border-color-default-emphasis:oklch(from var(--dwc-color-default-seed)
+      calc(70.8% + var(--dwc-dark-mode) * -15.2%) calc(c * 0.3) h
+    );--dwc-focus-ring-default:0 0 0 var(--dwc-focus-ring-gap) var(--dwc-surface-1),
+    0 0 0 calc(var(--dwc-focus-ring-gap) + var(--dwc-focus-ring-width))
+    oklch(from var(--dwc-color-default-seed)
+      calc(55% + var(--dwc-dark-mode) * 25%) c h / var(--dwc-focus-ring-a)
+    );--dwc-color-primary-dark:var(--dwc-color-primary-45);--dwc-color-on-primary-text-dark:var(--dwc-color-on-primary-text-45);--dwc-color-primary-text-dark:var(--dwc-color-primary-text-40);--dwc-color-primary:var(--dwc-color-primary-50);--dwc-color-on-primary-text:var(--dwc-color-on-primary-text-50);--dwc-color-primary-text:var(--dwc-color-primary-text-45);--dwc-color-primary-light:var(--dwc-color-primary-55);--dwc-color-on-primary-text-light:var(--dwc-color-on-primary-text-55);--dwc-color-primary-text-light:var(--dwc-color-primary-text-50);--dwc-color-primary-alt:var(--dwc-color-primary-tint);--dwc-color-on-primary-text-alt:var(--dwc-color-primary-text);--dwc-color-success-dark:var(--dwc-color-success-45);--dwc-color-on-success-text-dark:var(--dwc-color-on-success-text-45);--dwc-color-success-text-dark:var(--dwc-color-success-text-40);--dwc-color-success:var(--dwc-color-success-50);--dwc-color-on-success-text:var(--dwc-color-on-success-text-50);--dwc-color-success-text:var(--dwc-color-success-text-45);--dwc-color-success-light:var(--dwc-color-success-55);--dwc-color-on-success-text-light:var(--dwc-color-on-success-text-55);--dwc-color-success-text-light:var(--dwc-color-success-text-50);--dwc-color-success-alt:var(--dwc-color-success-tint);--dwc-color-on-success-text-alt:var(--dwc-color-success-text);--dwc-color-warning-dark:var(--dwc-color-warning-45);--dwc-color-on-warning-text-dark:var(--dwc-color-on-warning-text-45);--dwc-color-warning-text-dark:var(--dwc-color-warning-text-40);--dwc-color-warning:var(--dwc-color-warning-50);--dwc-color-on-warning-text:var(--dwc-color-on-warning-text-50);--dwc-color-warning-text:var(--dwc-color-warning-text-45);--dwc-color-warning-light:var(--dwc-color-warning-55);--dwc-color-on-warning-text-light:var(--dwc-color-on-warning-text-55);--dwc-color-warning-text-light:var(--dwc-color-warning-text-50);--dwc-color-warning-alt:var(--dwc-color-warning-tint);--dwc-color-on-warning-text-alt:var(--dwc-color-warning-text);--dwc-color-danger-dark:var(--dwc-color-danger-45);--dwc-color-on-danger-text-dark:var(--dwc-color-on-danger-text-45);--dwc-color-danger-text-dark:var(--dwc-color-danger-text-40);--dwc-color-danger:var(--dwc-color-danger-50);--dwc-color-on-danger-text:var(--dwc-color-on-danger-text-50);--dwc-color-danger-text:var(--dwc-color-danger-text-45);--dwc-color-danger-light:var(--dwc-color-danger-55);--dwc-color-on-danger-text-light:var(--dwc-color-on-danger-text-55);--dwc-color-danger-text-light:var(--dwc-color-danger-text-50);--dwc-color-danger-alt:var(--dwc-color-danger-tint);--dwc-color-on-danger-text-alt:var(--dwc-color-danger-text);--dwc-color-info-dark:var(--dwc-color-info-45);--dwc-color-on-info-text-dark:var(--dwc-color-on-info-text-45);--dwc-color-info-text-dark:var(--dwc-color-info-text-40);--dwc-color-info:var(--dwc-color-info-50);--dwc-color-on-info-text:var(--dwc-color-on-info-text-50);--dwc-color-info-text:var(--dwc-color-info-text-45);--dwc-color-info-light:var(--dwc-color-info-55);--dwc-color-on-info-text-light:var(--dwc-color-on-info-text-55);--dwc-color-info-text-light:var(--dwc-color-info-text-50);--dwc-color-info-alt:var(--dwc-color-info-tint);--dwc-color-on-info-text-alt:var(--dwc-color-info-text);--dwc-color-gray-dark:color-mix(in oklch,
+    var(--dwc-color-gray-10) calc((1 - var(--dwc-dark-mode)) * 100%),
+    var(--dwc-color-gray-90));--dwc-color-on-gray-text-dark:color-mix(in oklch,
+    var(--dwc-color-on-gray-text-10) calc((1 - var(--dwc-dark-mode)) * 100%),
+    var(--dwc-color-on-gray-text-90));--dwc-color-gray-text-dark:var(--dwc-color-gray-text-40);--dwc-color-gray:color-mix(in oklch,
+    var(--dwc-color-gray-15) calc((1 - var(--dwc-dark-mode)) * 100%),
+    var(--dwc-color-gray-85));--dwc-color-on-gray-text:color-mix(in oklch,
+    var(--dwc-color-on-gray-text-15) calc((1 - var(--dwc-dark-mode)) * 100%),
+    var(--dwc-color-on-gray-text-85));--dwc-color-gray-text:var(--dwc-color-gray-text-45);--dwc-color-gray-light:color-mix(in oklch,
+    var(--dwc-color-gray-20) calc((1 - var(--dwc-dark-mode)) * 100%),
+    var(--dwc-color-gray-80));--dwc-color-on-gray-text-light:color-mix(in oklch,
+    var(--dwc-color-on-gray-text-20) calc((1 - var(--dwc-dark-mode)) * 100%),
+    var(--dwc-color-on-gray-text-80));--dwc-color-gray-text-light:var(--dwc-color-gray-text-50);--dwc-color-gray-alt:var(--dwc-color-gray-tint);--dwc-color-on-gray-text-alt:var(--dwc-color-gray-text);--dwc-color-default-dark:oklch(from var(--dwc-color-default-seed)
+      calc(86% + var(--dwc-dark-mode) * -58%)
+      clamp(0, c * 3, 0.008) h
+    );--dwc-color-on-default-text-dark:oklch(from var(--dwc-color-default-dark)
+      clamp(0.13, (l - 0.59) * -1000, 0.99)
+      calc(c * clamp(0.05, (l - 0.59) * 5 + 0.2, 0.35)) h
+    );--dwc-color-default-text-dark:var(--dwc-color-default-text-40);--dwc-color-default:oklch(from var(--dwc-color-default-seed)
+      calc(90% + var(--dwc-dark-mode) * -58%)
+      clamp(0, c * 3, 0.008) h
+    );--dwc-color-on-default-text:oklch(from var(--dwc-color-default)
+      clamp(0.13, (l - 0.59) * -1000, 0.99)
+      calc(c * clamp(0.05, (l - 0.59) * 5 + 0.2, 0.35)) h
+    );--dwc-color-default-text:var(--dwc-color-default-text-45);--dwc-color-default-light:oklch(from var(--dwc-color-default-seed)
+      calc(94% + var(--dwc-dark-mode) * -58%)
+      clamp(0, c * 3, 0.008) h
+    );--dwc-color-on-default-text-light:oklch(from var(--dwc-color-default-light)
+      clamp(0.13, (l - 0.59) * -1000, 0.99)
+      calc(c * clamp(0.05, (l - 0.59) * 5 + 0.2, 0.35)) h
+    );--dwc-color-default-text-light:var(--dwc-color-default-text-50);--dwc-color-default-alt:var(--dwc-color-primary-alt);--dwc-color-on-default-text-alt:var(--dwc-color-primary-text);--dwc-focus-ring-default:var(--dwc-focus-ring-primary);--dwc-window-background:var(--dwc-surface-2);--dwc-window-border:0.5px solid oklch(from var(--dwc-color-black) l c h / 0.12);--dwc-window-box-shadow:var(--dwc-shadow-s);--dwc-window-border-radius:var(--dwc-border-radius-l);--dwc-window-header-background:var(--dwc-surface-3);--dwc-window-header-color:var(--dwc-color-body-text);--dwc-window-header-font-weight:500;--dwc-window-header-box-shadow:inset 0 -1px 0 oklch(from var(--dwc-shadow-color) l c h / calc(var(--dwc-shadow-strength) * 0.15));color-scheme:light}html{accent-color:var(--dwc-color-primary)}body{background:var(--dwc-surface-1);color:var(--dwc-color-body-text)}html[data-app-theme~=dark],html[data-app-theme~=dark-pure]{--dwc-dark-mode:1;color-scheme:dark}html[data-app-theme~=dark-pure]{--dwc-color-default-s:0%}.dwc-popper{background:var(--dwc-popper-background, var(--dwc-surface-3));border:var(--dwc-popper-border, var(--dwc-border-width) solid var(--dwc-border-color));border-radius:inherit;box-shadow:var(--dwc-popper-shadow, var(--dwc-shadow-xl));color:var(--dwc-popper-color, inherit);opacity:0;overflow:hidden;overscroll-behavior:none;pointer-events:none;transform:scale(0.9) translate3d(0, 0, 0);transition:opacity var(--dwc-transition-fast) var(--dwc-ease-in), transform var(--dwc-transition-fast) var(--dwc-ease-in)}[data-popover-for=font-chooser] .dwc-popper{overflow:hidden}.dwc-popper--menuitem,.dwc-popper--popupmenu{border:0;max-height:100vh;max-width:80vw}.dwc-popper--validation{display:table;max-width:50vw}.dwc-popper--validation dwc-alert{--dwc-alert-color:inherit !important}.dwc-popper--dropdown{--dwc-listbox-background:var(--dwc-popper-background, var(--dwc-surface-3));max-height:var(--dwc-dropdown-max-height, 50vh);max-width:var(--dwc-dropdown-max-width, 100vw);width:var(--dwc-dropdown-width, 200px)}.dwc-popper--dropdown::part(control){overflow:unset}.dwc-popper--dropdown::part(control-wrapper){border:0;border-radius:0;margin:0;overflow:auto}.dwc-popper--popover{max-height:var(--dwc-popover-max-height, 90vh);max-width:var(--dwc-popover-max-width, 90vw);overflow:auto;width:var(--dwc-popover-width, auto)}.dwc-popper--popover>p,.dwc-popper--popover>section,.dwc-popper--popover>article{margin:0;padding:var(--dwc-space-s)}.dwc-popper--popover>section{align-items:center;display:flex;gap:var(--dwc-space-s);padding:var(--dwc-space-s)}.dwc-popper-arrow{z-index:1}.dwc-popper-arrow::before{background:var(--dwc-popper-arrow-background, var(--dwc-popper-background, var(--dwc-surface-3)));border:var(--dwc-popper-border, var(--dwc-border-width) solid var(--dwc-border-color));content:"";height:var(--dwc-popper-arrow-size, 8px);opacity:0;position:absolute;transform:translateZ(0) rotate(45deg);transition:background var(--dwc-transition-fast) var(--dwc-ease-in), opacity var(--dwc-transition-fast) var(--dwc-ease-in);width:var(--dwc-popper-arrow-size, 8px)}.dwc-positioner{border-radius:var(--dwc-border-radius-l);box-sizing:border-box;display:inline-block;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-tap-highlight-color:transparent;text-size-adjust:100%}.dwc-positioner *,.dwc-positioner *::before,.dwc-positioner *::after{box-sizing:inherit}.dwc-positioner[data-popper-placement^=top]>.dwc-popper{transform-origin:bottom}.dwc-positioner[data-popper-placement^=bottom]>.dwc-popper{transform-origin:top}.dwc-positioner[data-popper-placement^=left]>.dwc-popper{transform-origin:right}.dwc-positioner[data-popper-placement^=right]>.dwc-popper{transform-origin:left}.dwc-positioner[data-popper-placement^=top]>.dwc-popper-arrow{bottom:calc(var(--dwc-popper-arrow-size, 8px) / 2)}.dwc-positioner[data-popper-placement^=top]>.dwc-popper-arrow::before{border-left:0;border-top:0}.dwc-positioner[data-popper-placement^=bottom]>.dwc-popper-arrow{top:calc(-1 * var(--dwc-popper-arrow-size, 8px) / 2)}.dwc-positioner[data-popper-placement^=bottom]>.dwc-popper-arrow::before{border-bottom:0;border-right:0}.dwc-positioner[data-popper-placement^=left]>.dwc-popper-arrow{right:calc(var(--dwc-popper-arrow-size, 8px) / 2)}.dwc-positioner[data-popper-placement^=left]>.dwc-popper-arrow::before{border-bottom:0;border-left:0}.dwc-positioner[data-popper-placement^=right]>.dwc-popper-arrow{left:calc(-1 * var(--dwc-popper-arrow-size, 8px) / 2)}.dwc-positioner[data-popper-placement^=right]>.dwc-popper-arrow::before{border-right:0;border-top:0}.dwc-positioner--visible{z-index:var(--dwc-menu-zindex, var(--dwc-zindex-h4))}.dwc-positioner--visible>.dwc-popper{opacity:1;pointer-events:all;transform:scale(1) translate3d(0, 0, 0);transition:opacity var(--dwc-transition-fast) var(--dwc-ease-out), transform var(--dwc-transition-fast) var(--dwc-ease-out)}.dwc-positioner--visible>.dwc-popper-arrow::before{opacity:1;transition:background var(--dwc-transition-fast) var(--dwc-ease-out), opacity var(--dwc-transition-fast) var(--dwc-ease-out)}.dwc-positioner--visible:not(.dwc-positioner--dropdown) .dwc-positioner--visible:not(.dwc-positioner--popover){display:flex}.dwc-positioner--dropdown{z-index:var(--dwc-dropdown-zindex, var(--dwc-zindex-h3))}.dwc-positioner--popover{z-index:var(--dwc-popover-zindex, var(--dwc-zindex-h2))}@media (prefers-reduced-motion: reduce){*,::before,::after{animation-delay:-1ms !important;animation-duration:1ms !important;animation-iteration-count:1 !important;background-attachment:initial !important;scroll-behavior:auto !important;transition-delay:0s !important;transition-duration:0s !important}}[hidden]{display:none !important}.bbj-noscroll{overflow:hidden !important}.bbj-transparent{background:transparent !important}.bbj-noborder{border:unset !important}.bbj-noselect{-webkit-touch-callout:none;user-select:none}.bbj-icon{max-height:100%;padding:var(--bbj-space-xs);vertical-align:middle}html{font-family:var(--dwc-font-family);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:var(--dwc-font-weight);line-height:var(--dwc-font-line-height);text-size-adjust:100%}body{background:var(--dwc-surface-1);color:var(--dwc-color-body-text);font-size:var(--dwc-font-size)}h1,h2,h3,h4,h5,h6{font-weight:var(--dwc-font-weight-bold);line-height:var(--dwc-font-line-height);margin:0}h1{font-size:var(--dwc-font-size-3xl);margin-bottom:var(--dwc-space-m);margin-top:var(--dwc-space-l)}h2{font-size:var(--dwc-font-size-2xl);margin-bottom:var(--dwc-space-s);margin-top:var(--dwc-space-m)}h3{font-size:var(--dwc-font-size-xl);margin-bottom:var(--dwc-space-xs);margin-top:var(--dwc-space-m)}h4{font-size:var(--dwc-font-size-l);margin-bottom:var(--dwc-space-xs);margin-top:var(--dwc-space-s)}h5{font-size:var(--dwc-font-size-m);margin-bottom:var(--dwc-space-xs);margin-top:var(--dwc-space-s)}h6{font-size:var(--dwc-font-size-s);letter-spacing:0.03em;margin-bottom:var(--dwc-space-xs);margin-top:var(--dwc-space-xs);text-transform:uppercase}p,blockquote{line-height:var(--dwc-font-line-height-m);margin:var(--dwc-space-s) 0}a{border-radius:var(--dwc-border-radius-s);color:var(--dwc-color-primary-text);transition:color var(--dwc-transition-fast), box-shadow var(--dwc-transition-fast) var(--dwc-ease), background-color var(--dwc-transition-fast) var(--dwc-ease);}a.focus-visible{box-shadow:var(--dwc-focus-ring-primary)}a:hover,a:focus{border:thin solid var(--dwc-border-color-primary-emphasis);border:0;color:var(--dwc-color-primary-text-light);outline:none}hr{border:0;border-radius:var(--dwc-border-radius-s);border-top:1px solid var(--dwc-border-color);margin:var(--dwc-space-m) 0}blockquote{background:var(--dwc-surface-2);border-left:4px solid var(--dwc-border-color-primary-emphasis);font-style:italic;margin:var(--dwc-space-m) 0;padding:var(--dwc-space-m)}b,strong{font-weight:var(--dwc-font-weight-bold)}table{border-collapse:collapse;border-spacing:0}th,td{border:var(--dwc-border-width) var(--dwc-border-style) var(--dwc-border-color);padding:var(--dwc-space-xs) var(--dwc-space-s);text-align:start}th{background:var(--dwc-surface-2);font-weight:var(--dwc-font-weight-bold)}dwc-dialog [slot=header] h1,dwc-dialog [slot=header] h2,dwc-dialog [slot=header] h3,dwc-dialog [slot=header] h4,dwc-dialog [slot=header] h5,dwc-dialog [slot=header] h6{margin:0}fieldset{border:var(--dwc-border-width) var(--dwc-border-style) var(--dwc-border-color);border-radius:var(--dwc-border-radius-l)}legend{color:var(--dwc-color-primary-text);margin-left:var(--dwc-space-m);margin-right:var(--dwc-space-m);white-space:nowrap}[data-refresher-target-pull],[data-refresher-target-release]{cursor:var(--dwc-cursor-grabbing);-webkit-touch-callout:none;user-select:none}[data-refresher-target-refresh]{cursor:var(--dwc-cursor-progress)}.tippy-box[data-theme~=bbj]{--dwc-tooltip-background:var(--dwc-surface-3);--dwc-tooltip-color:var(--dwc-color-default-text);--dwc-tooltip-border:var(--dwc-border-width) solid var(--dwc-border-color);--dwc-tooltip-shadow:var(--dwc-shadow-m);border-radius:var(--dwc-border-radius)}dwc-alert-popover:not(.hydrated),dwc-app-nav-item:not(.hydrated),dwc-app-nav-label:not(.hydrated),dwc-popover:not(.hydrated),dwc-dialog:not(.hydrated),dwc-drawer:not(.hydrated),dwc-menu:not(.hydrated),dwc-tabbed-pane:not(.hydrated),dwc-toast:not(.hydrated),dwc-toast-group:not(.hydrated){visibility:hidden}dwc-toast:not(.hydrated){pointer-events:none;position:fixed}

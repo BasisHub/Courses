@@ -1,0 +1,43 @@
+@media print {
+  .navbar,
+  .theme-doc-sidebar-container,
+  .theme-doc-toc-desktop,
+  .theme-doc-toc-mobile,
+  .footer,
+  .pagination-nav,
+  .theme-doc-breadcrumbs,
+  .theme-edit-this-page,
+  .theme-doc-footer,
+  [class*="announcementBar"],
+  button[class*="backToTop"],
+  [class*="colorModeToggle"] {
+    display: none !important;
+  }
+
+  [class*="docMainContainer"],
+  [class*="docItemCol"],
+  main {
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html,
+  body,
+  article {
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  pre,
+  pre code {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  table,
+  img {
+    break-inside: avoid;
+  }
+}
