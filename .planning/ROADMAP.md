@@ -151,7 +151,7 @@ Plans:
 **Wave 2** *(blocked on Wave 1 completion)*
 
 - [x] 04-03-PLAN.md — Commit 1: pure relocation from 965da6d, rebuilt overview, colocated images and rename map, stub removed, gate scripts repointed
-- [ ] 04-04-PLAN.md — bbj_check_syntax report for the 44 DWC samples (D-20, needs the BBj MCP)
+- [x] 04-04-PLAN.md — bbj_check_syntax report for the 44 DWC samples (D-20, needs the BBj MCP)
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
@@ -226,7 +226,7 @@ Plans:
 | 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
 | 2. Repo Hygiene & CI | 6/6 | Complete    | 2026-10-03 |
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
-| 4. DWC Book Relocation | 3/6 | In Progress|  |
+| 4. DWC Book Relocation | 4/6 | In Progress|  |
 | 5. Intro-BBj Conversion | 0/TBD | Not started | - |
 | 6. Exercises & DWC Gap Audit | 0/TBD | Not started | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
