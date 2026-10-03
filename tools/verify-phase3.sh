@@ -59,7 +59,10 @@ else
   echo "SKIP  [$SEC] no unknown admonition warning (needs the build log; run without --no-build)"
 fi
 has "$H" 'alert--exercise' && pass "alert--exercise rendered" || fail "alert--exercise rendered"
-count_is "$H" 'Try it yourself' ge 2 && pass "two Try it yourself titles" || fail "two Try it yourself titles"
+# The fixture's only "Try it yourself" comes from the default title; the
+# second box carries a custom title.
+count_is "$H" 'Try it yourself' ge 1 && pass "default title Try it yourself" || fail "default title Try it yourself"
+hasf "$H" 'Change the title' && pass "custom exercise title" || fail "custom exercise title"
 hasf "$CFG" "keywords: ['exercise']" && pass "exercise keyword in config" || fail "exercise keyword in config"
 
 SEC=comp02
