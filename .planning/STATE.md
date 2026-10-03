@@ -4,8 +4,8 @@ milestone: v1.0
 milestone_name: milestone
 status: executing
 stopped_at: Phase 2 context gathered
-last_updated: "2026-10-03T12:50:54.551Z"
-last_activity: 2026-10-03 -- Phase 2 planning complete
+last_updated: "2026-10-03T12:52:45.060Z"
+last_activity: 2026-10-03 -- Phase 02 execution started
 progress:
   total_phases: 8
   completed_phases: 1
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-10-03)
 
 **Core value:** Both books read well and correctly on one public site in the webforJ look, every old DWC-Course link still lands on the right page, and the Markdown is the only source of truth after the migration.
-**Current focus:** Phase 2: Repo Hygiene & CI
+**Current focus:** Phase 02 — repo-hygiene-ci
 
 ## Current Position
 
-Phase: 2 of 8 (repo hygiene & ci)
-Plan: Not started
-Status: Ready to execute
-Last activity: 2026-10-03 -- Phase 2 planning complete
+Phase: 02 (repo-hygiene-ci) — EXECUTING
+Plan: 1 of 6
+Status: Executing Phase 02
+Last activity: 2026-10-03 -- Phase 02 execution started
 
 Progress: [█░░░░░░░░░] 13%
 
