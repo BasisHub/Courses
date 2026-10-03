@@ -132,7 +132,9 @@ check "llms-full.txt non-empty" test -s "$BUILD/llms-full.txt"
 CHROME="${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"
 PDFTOTEXT="$(command -v pdftotext || echo /opt/homebrew/bin/pdftotext)"
 if [ -x "$CHROME" ] && [ -x "$PDFTOTEXT" ] && [ "$up" -eq 1 ]; then
-  pdf="$(mktemp -t verify-phase1).pdf"
+  # mktemp -d with explicit X's works on BSD and GNU; remove the whole dir afterwards.
+  pdfdir="$(mktemp -d "${TMPDIR:-/tmp}/verify-phase1.XXXXXX")"
+  pdf="$pdfdir/out.pdf"
   "$CHROME" --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf="$pdf" \
     "$BASE/Courses/docs/dwc/first-chapter/sample-page" >/dev/null 2>&1
   txt=$("$PDFTOTEXT" "$pdf" - 2>/dev/null)
@@ -141,7 +143,7 @@ if [ -x "$CHROME" ] && [ -x "$PDFTOTEXT" ] && [ "$up" -eq 1 ]; then
   else
     fail "print output has content and no chrome"
   fi
-  rm -f "$pdf"
+  rm -rf "$pdfdir"
 else
   skip "print check (Chrome/pdftotext not found or server down)"
 fi
