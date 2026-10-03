@@ -51,4 +51,13 @@
   img {
     break-inside: avoid;
   }
+
+  .youtube-facade__button,
+  .youtube-facade iframe {
+    display: none !important;
+  }
+
+  .youtube-facade__print {
+    display: block !important;
+  }
 }

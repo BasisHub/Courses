@@ -12,6 +12,7 @@ Copied or adapted files:
 
 - The SCSS partials under `docs/src/css/` and `docs/src/css/mixins/` that carry the header line `Copied from webforj/webforj-documentation`
 - `docs/src/theme/prism-dwc-theme.js`
+- `docs/src/theme/MDXComponents.js` (adapted)
 - `docs/static/js/dwc-theme-switcher.js`
 - `docs/static/js/link-decorator.js`
 - `.vale.ini`
