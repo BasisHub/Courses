@@ -28,7 +28,12 @@ live() { grep -v '^[[:space:]]*#' "$1" 2>/dev/null; }                # file with
 has_live() { live "$1" | grep -qF -- "$2"; }                         # has_live <file> <fixed string>
 code() { curl -s -o /dev/null -w '%{http_code}' --max-time 30 "$1"; }
 
-cleanup() { rm -f "$PROBE" "$D08_PROBE"; }
+PROBE_OWNED=0; PROBE_DIR_MADE=0   # only remove what this script created
+cleanup() {
+  [ "$PROBE_OWNED" -eq 1 ] && rm -f "$PROBE" "$D08_PROBE"
+  [ "$PROBE_DIR_MADE" -eq 1 ] && rmdir "$(dirname "$PROBE")" 2>/dev/null
+  return 0
+}
 trap cleanup EXIT
 
 MODE_LOCAL=0; MODE_DEPLOY=0; MODE_GATES=0
@@ -107,7 +112,11 @@ section_vale() {
   check "no Blog style dir" test ! -e .github/.styles/Blog
   if [ -z "$VALE" ]; then fail "vale docs/docs (no vale)"; fail "probe oaicite (no vale)"; return; fi
   check "vale docs/docs exits 0" "$VALE" docs/docs
-  mkdir -p docs/docs/dwc
+  if [ -e "$PROBE" ] || [ -e "$D08_PROBE" ]; then
+    fail "vale probes ($PROBE or $D08_PROBE already exists; refusing to overwrite)"; return
+  fi
+  if [ ! -d "$(dirname "$PROBE")" ]; then mkdir -p "$(dirname "$PROBE")"; PROBE_DIR_MADE=1; fi
+  PROBE_OWNED=1
   printf -- '---\ntitle: Vale probe\n---\n\n## Probe\n\nSee oaicite here.\n' > "$PROBE"
   local out rc
   out="$("$VALE" "$PROBE" 2>&1)"; rc=$?
