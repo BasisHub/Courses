@@ -1,0 +1,285 @@
+rem /**
+rem  * DWCGrid.bbj
+rem  *
+rem  * This program demonstrate different ways of using CSS Grid
+rem  * to set the layout for an input form made up of static text
+rem  * controls and edit boxes.
+rem  *
+rem  */
+
+
+
+rem If the app is running in BUI, switch it automatically to run in the DWC client instead
+if info(3,6)="5" then
+    bui! = BBjAPI().getBuiManager()
+    url! = bui!.getUrl().replaceAll("apps", "webapp")
+    action! = bui!.urlAction(url!)
+    bui!.setEndAction(action!)
+    release
+endif
+
+rem If the app isn't running in the DWC, then give a warning message and exit
+if info(3,6)<>"6" then
+    msg! = "This app is designed to run in the BASIS Dynamic Web Client (DWC), as it uses CSS layout strategies "
+    msg! = msg! + "to size and position the controls on the window.  Please run the app in the DWC instead."
+    temp = msgbox(msg!, BBjSysGui.MSGBOX_ICON_STOP, "Incorrect Client Environment", mode="theme=danger")
+    release
+endif
+
+webManager! = BBjApi().getWebManager()
+
+rem Create the main window and set CSS styles directly on the window
+window! = BBJAPI().openSysGui("X0").addWindow("BBj DWC CSS Grid Layout Samples", $00180093$)
+window!.maximize()
+
+rem The following shows how to style a BBjControl directly, be executing the BBjControl::setStyle BBjControl::setPanelStyle method
+rem Further down in the "init" subroutine, the app assigns custom CSS to a BBj string variable and uses the BBjWebManager to inject the CSS
+window!.setPanelStyle("width", "100%")
+window!.setPanelStyle("box-sizing", "border-box")
+window!.setPanelStyle("display", "grid")
+window!.setPanelStyle("grid-template-rows", "max-content minmax(16em, 1fr)")
+window!.setPanelStyle("gap", "1em")
+window!.setPanelStyle("padding", "1em")
+window!.setCallback(window!.ON_CLOSE, "onExit")
+gosub init
+
+
+rem Create the Demo Window and add a couple of custom class names to it
+winDemo! = window!.addChildWindow("CSS Layout", $00108000$, BBjAPI().getSysGui().getAvailableContext())
+winDemo!.addClass("winDemo css-layout")
+
+
+rem Build the Contact Form in the Demo Window
+lbl! = winDemo!.addStaticText("First Name:", $8000$)
+editFirstName! = winDemo!.addEditBox(""); editFirstName!.setPlaceholder("First name")
+lbl! = winDemo!.addStaticText("Last Name:", $8000$)
+editLastName! = winDemo!.addEditBox(""); editLastName!.setPlaceholder("Last name")
+lbl! = winDemo!.addStaticText("Company:", $8000$)
+editCompany! = winDemo!.addEditBox(""); editCompany!.setPlaceholder("Company")
+lbl! = winDemo!.addStaticText("Email:", $8000$)
+editEmail! = winDemo!.addEditBox(""); editEmail!.setPlaceholder("Email")
+lbl! = winDemo!.addStaticText("Country:", $8000$)
+editCountry! = winDemo!.addEditBox("USA"); editCountry!.setPlaceholder("Country")
+lbl! = winDemo!.addStaticText("City:", $8000$)
+editCity! = winDemo!.addEditBox("Albuquerque"); editCity!.setPlaceholder("City")
+lbl! = winDemo!.addStaticText("State:", $8000$)
+editState! = winDemo!.addEditBox("New Mexico"); editState!.setPlaceholder("State")
+lbl! = winDemo!.addStaticText("Zip Code:", $8000$)
+editZip! = winDemo!.addEditBox("87109"); editZip!.setPlaceholder("Zip Code")
+
+
+rem Create the options window.  We add the "winOptions" class to it so that the CSS in the init routine can be applied to the control via the ".winOptions" selector that matches the custom class
+winOptions! = window!.addChildWindow("CSS Grid Properties", $00109800$, BBjAPI().getSysGui().getAvailableContext())
+winOptions!.addClass("winOptions")
+
+
+rem List of pre-defined CSS Settings
+winChild! = winOptions!.addChildWindow("Select a CSS Layout", $00109000$, BBjAPI().getSysGui().getAvailableContext())
+winChild!.addClass("winSelectCSS")
+opts! = ""; for i = 1 to 9; opts! = opts! + "CSS Layout " + str(i) + $0a$; next i
+listCssStyles! = winChild!.addListBox(opts!)
+listCssStyles!.setStyle("height", "100%")
+listCssStyles!.selectIndex(0)
+listCssStyles!.setCallback(BBjListBox.ON_LIST_CLICK, "onCssStylesChange")
+
+rem Chosen CSS Style Preview
+winChild! = winOptions!.addChildWindow("CSS Preview", $00109000$, BBjAPI().getSysGui().getAvailableContext())
+winChild!.addClass("winCSSPreview")
+cssPreview! = winChild!.addStaticText(hashStyles!.get("css-layout-1"))
+cssPreview!.setStyle("white-space", "pre-wrap")
+cssPreview!.setStyle("font-family", "Consolas, Monaco, Inconsolata, monospace")
+cssPreview!.setStyle("font-size", "85%")
+cssPreview!.setStyle("overflow", "auto")
+
+
+webManager!.injectStyle(hashStyles!.get("css-layout-1"), 0, "name=app_css")
+
+window!.setVisible(1)
+process_events
+
+
+rem ================================================================================================
+rem Subroutines
+rem ================================================================================================
+
+rem Handle the user exiting the app
+onExit:
+release
+
+
+rem Define all possible CSS styles and stick them in a hashmap for later retrieval
+init:
+    hashStyles! = new HashMap()
+
+    css! = $0a$ + "/* CSS Grid using ""auto 1fr"" where fr beats auto, so inputs wider than labels */" + $0a0a$
+    css! = css! + "dwc-panel.css-layout { " + $0a$
+    css! = css! + "    display: grid; " + $0a$
+    css! = css! + "    grid-template-columns: auto 1fr; " + $0a$
+    css! = css! + "    align-items: center; " + $0a$
+    css! = css! + "    gap: var(--dwc-space); " + $0a$
+    css! = css! + "    padding: 1em; " + $0a$
+    css! = css! + "}" + $0a$
+    hashStyles!.put("css-layout-1", css!)
+
+
+    css! = $0a$ + "/* CSS Grid using ""1fr auto"" where fr beats auto, so labels wider than inputs */" + $0a0a$
+    css! = css! + "dwc-panel.css-layout { " + $0a$
+    css! = css! + "    display: grid; " + $0a$
+    css! = css! + "    grid-template-columns: 1fr auto; " + $0a$
+    css! = css! + "    align-items: center; " + $0a$
+    css! = css! + "    gap: var(--dwc-space); " + $0a$
+    css! = css! + "    padding: 1em; " + $0a$
+    css! = css! + "}" + $0a$
+    hashStyles!.put("css-layout-2", css!)
+
+
+    css! = $0a$ + "/* CSS Grid using percentage and fr, so labels are 25% and inputs are the remaining width */" + $0a0a$
+    css! = css! + "dwc-panel.css-layout { " + $0a$
+    css! = css! + "    display: grid; " + $0a$
+    css! = css! + "    grid-template-columns: 25% 1fr;" + $0a$
+    css! = css! + "    align-items: center; " + $0a$
+    css! = css! + "    gap: var(--dwc-space); " + $0a$
+    css! = css! + "    padding: 1em; " + $0a$
+    css! = css! + "}" + $0a$
+    hashStyles!.put("css-layout-3", css!)
+    window!.setAttribute("@app-style", css!)
+
+
+    css! = $0a$ + "/* CSS Grid using fr units, so inputs are 3 times wider than labels.  Why is this different from the previous?  HINT: percent vs fr */" + $0a0a$
+    css! = css! + "dwc-panel.css-layout { " + $0a$
+    css! = css! + "    display: grid; " + $0a$
+    css! = css! + "    grid-template-columns: 1fr 3fr; " + $0a$
+    css! = css! + "    align-items: center; " + $0a$
+    css! = css! + "    gap: var(--dwc-space); " + $0a$
+    css! = css! + "    padding: 1em; " + $0a$
+    css! = css! + "}" + $0a$
+    hashStyles!.put("css-layout-4", css!)
+
+
+    css! = $0a$ + "/* CSS Grid using auto and fr with a 2-column layout.  Despite changing the browser's width, there will always be two columns. */" + $0a0a$
+    css! = css! + "dwc-panel.css-layout { " + $0a$
+    css! = css! + "    display: grid; " + $0a$
+    css! = css! + "    grid-template-columns: auto 1fr auto 1fr; " + $0a$
+    css! = css! + "    align-items: center; " + $0a$
+    css! = css! + "    gap: var(--dwc-space); " + $0a$
+    css! = css! + "    padding: 1em; " + $0a$
+    css! = css! + "}" + $0a$
+    hashStyles!.put("css-layout-5", css!)
+
+
+    css! = $0a$ + "/* CSS Grid using repeat syntax to do the same thing as the previous 2-column layout */" + $0a0a$
+    css! = css! + "dwc-panel.css-layout { " + $0a$
+    css! = css! + "    display: grid; " + $0a$
+    css! = css! + "    grid-template-columns: repeat(2, auto 1fr); " + $0a$
+    css! = css! + "    align-items: center; " + $0a$
+    css! = css! + "    gap: var(--dwc-space); " + $0a$
+    css! = css! + "    padding: 1em; " + $0a$
+    css! = css! + "}" + $0a$
+    hashStyles!.put("css-layout-6", css!)
+
+
+    css! = $0a$ + "/* CSS Grid using repeat syntax with auto-fit to repeat the columns until the grid is filled. "
+    css! = css! + " Resize your browser's width to affect how many columns are displayed. */" + $0a0a$
+    css! = css! + "dwc-panel.css-layout { " + $0a$
+    css! = css! + "    display: grid; " + $0a$
+    css! = css! + "    grid-template-columns: repeat(auto-fit, 100px 200px); " + $0a$
+    css! = css! + "    align-items: center; " + $0a$
+    css! = css! + "    gap: var(--dwc-space); " + $0a$
+    css! = css! + "    padding: 1em; " + $0a$
+    css! = css! + "}" + $0a$
+    hashStyles!.put("css-layout-7", css!)
+
+
+    css! = $0a$ + "/* CSS Grid with 2 cols and media queries to show 4 and 6 cols when there's more screen space. "
+    css! = css! + " Because the main window is maximized, you'll need to resize your browser window's width for this to work. "
+    css! = css! + " That's because the media queries are based on the viewport width! */" + $0a0a$
+    css! = css! + "dwc-panel.css-layout { " + $0a$
+    css! = css! + "    display: grid; " + $0a$
+    css! = css! + "    grid-template-columns: auto 1fr; " + $0a$
+    css! = css! + "    align-items: center; " + $0a$
+    css! = css! + "    gap: var(--dwc-space); " + $0a$
+    css! = css! + "    padding: 1em; " + $0a$
+    css! = css! + "}" + $0a$
+    css! = css! + "@media (min-width: 600px) { " + $0a$
+    css! = css! + "    dwc-panel.css-layout { grid-template-columns: auto 1fr auto 1fr; } " + $0a$
+    css! = css! + "} " + $0a$
+    css! = css! + "@media (min-width: 900px) { " + $0a$
+    css! = css! + "    dwc-panel.css-layout { grid-template-columns: auto 1fr auto 1fr auto 1fr; } " + $0a$
+    css! = css! + "} " + $0a$
+    hashStyles!.put("css-layout-8", css!)
+
+
+    css! = $0a$ + "/* Grid using repeat syntax with auto-fit and minmax to show columns in multiples of two */" + $0a0a$
+    css! = css! + "dwc-panel.css-layout { " + $0a$
+    css! = css! + "    padding: 1em; " + $0a$
+    css! = css! + "    display: grid; " + $0a$
+    css! = css! + "    grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr) minmax(20ch, 2fr)); " + $0a$
+    css! = css! + "    align-items: center; " + $0a$
+    css! = css! + "    gap: var(--dwc-space); " + $0a$
+    css! = css! + "    padding: 1em; " + $0a$
+    css! = css! + "}" + $0a$
+    hashStyles!.put("css-layout-9", css!)
+
+
+
+    rem Define custom CSS styles for the windows.  Note that we're using selectors that match the custom class that we added to each window.
+    style$ =          ".winSelectCSS, .winCSSPreview {"
+    style$ = style$ + "    display: flex;"
+    style$ = style$ + "    flex-direction: column;"
+    style$ = style$ + "    flex-grow: 1;"
+    style$ = style$ + "    align-items: stretch;"
+    style$ = style$ + "    padding: var(--dwc-space);"
+    style$ = style$ + "    gap: var(--dwc-space: 0.5em);"
+    style$ = style$ + "    border: var(--dwc-border-width) var(--dwc-border-style) var(--dwc-border-color-primary);"
+    style$ = style$ + "    border-radius: var(--dwc-border-radius);"
+    style$ = style$ + "}"
+    style$ =          ".winDemo {"
+    style$ = style$ + "    background: var(--dwc-color-primary-95);"
+    style$ = style$ + "    border: 1px solid var(--dwc-color-primary-75);"
+    style$ = style$ + "}"
+    style$ = style$ + ".winOptions {"
+    style$ = style$ + "    width: 100%;"
+    style$ = style$ + "    height: 100%;"
+    style$ = style$ + "    box-sizing: border-box;"
+    style$ = style$ + "    display: grid;"
+    style$ = style$ + "    grid-template-columns: auto 1fr;"
+    style$ = style$ + "    gap: 1em;"
+    style$ = style$ + "}"
+
+    rem Change the value of a DWC CSS custom property to affect the amount of padding on BBjListBox items
+    style$ = style$ + ":root { --dwc-list-padding: 0.1em; }"
+
+    rem Now inject the CSS by injecting it into the <head> of the DOM
+    webManager!.injectStyle(style$)
+return
+
+
+rem Callback for when the user changes the desired CSS Style
+onCssStylesChange:
+    e! = BBjAPI().getSysGui().getLastEvent()
+    style! = e!.getControl().getText().replaceAll(" ", "-").toLowerCase()
+    css! = hashStyles!.get(style!)
+
+    cssPreview!.setText(css!)
+    webManager!.injectStyle(css!, 0, "name=app_css")
+return
+
+
+declare auto BBjWebManager webManager!
+declare auto BBjTopLevelWindow window!
+declare auto BBjChildWindow winDemo!
+declare auto BBjChildWindow winOptions!
+declare auto BBjChildWindow winConfig!
+declare auto BBjStaticText lbl!
+declare auto BBjEditBox editFirstName!
+declare auto BBjEditBox editLastName!
+declare auto BBjEditBox editCompany!
+declare auto BBjEditBox editEmail!
+declare auto BBjEditBox editCountry!
+declare auto BBjEditBox editCity!
+declare auto BBjEditBox editState!
+declare auto BBjEditBox editZip!
+declare auto BBjListClickEvent e!
+
+rem Use statements
+use java.util.HashMap

@@ -1,0 +1,79 @@
+rem /**
+rem  * SetStyle.bbj
+rem  *
+rem  * This program demonstrates a few different ways to set styles on a BBjButton
+rem  *
+rem  */
+
+
+rem If the app is running in BUI, switch it automatically to run in the DWC client instead
+rem ================================================================================
+if (info(3, 6) = "5") then
+    bui! = BBjAPI().getBuiManager()
+    url! = bui!.getUrl().replaceAll("apps: webapp;
+    action! = bui!.urlAction(url!)
+    bui!.setEndAction(action!)
+    release
+endif
+
+rem Define custom CSS and inject it into the top of the page
+rem ================================================================================
+css! = "dwc-window-content { box-sizing: border-box; width: 100%; height: 100%; padding: var(--dwc-space-l);} "
+css! = css! + "dwc-window-content fieldset[is='dwc-fieldset-panel'] { width: 100%; padding: var(--dwc-space-2xl); display: flex; gap: var(--dwc-space-2xl); align-items: center; } "
+BBjAPI().getWebManager().injectStyle(css!)
+
+rem Create the main window, define its ON_CLOSE callback, and set its layout and other CSS
+rem ================================================================================
+mySysGui! = BBjAPI().openSysGui("X0")
+myWindow! = mySysGui!.addWindow("Setting a BBjButton's Styles", $00100083$)
+myWindow!.setCallback(BBjAPI.ON_CLOSE, "onClose")
+
+rem Add a child window container for sample controls
+myChildWindow! = myWindow!.addChildWindow("Sample Controls", $00109000$, BBjAPI().getSysGui().getAvailableContext())
+
+rem Add a few buttons to the child window
+myButton1! = myChildWindow!.addButton("BBjButton")
+myButton1!.setAttribute("expanse", "l")
+myButton2! = myChildWindow!.addButton("BBjButton")
+myButton2!.setAttribute("expanse", "l")
+myButton3! = myChildWindow!.addButton("BBjButton")
+myButton3!.setAttribute("expanse", "l")
+
+
+
+rem Set the button's style via setStyle() and CSS
+myButton1!.setStyle("background", "purple")
+myButton1!.setStyle("color", "yellow")
+
+rem Set the button's style by adding a classname to the button
+rem then setting the style for that class in CSS and injecting it
+rem into the top of the page.
+myButton2!.addClass("button-2")
+css! = ".button-2 { --dwc-button-background: purple; --dwc-button-color: yellow;} "
+BBjAPI().getWebManager().injectStyle(css!)
+
+rem Set the button's style via a custom class name and referencing its shadow DOM part
+myButton3!.addStyle("button-3")
+css! = ".button-3::part(control) { background: purple; color: yellow;}"
+BBjAPI().getWebManager().injectStyle(css!)
+
+
+rem Process events
+process_events
+
+
+rem Subroutines
+rem ================================================================================
+
+rem Exit the program
+onClose:
+release
+
+
+rem Declares
+declare auto BBjSysGui mySysGui!
+declare auto BBjTopLevelWindow myWindow!
+declare auto BBjChildWindow myChildWindow!
+declare auto BBjButton myButton1!
+declare auto BBjButton myButton2!
+declare auto BBjButton myButton3!

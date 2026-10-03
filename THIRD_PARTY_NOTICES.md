@@ -25,6 +25,19 @@ Copied or adapted files:
 
 The header audit of the remaining site files (`docs/src/css/_print.scss`, `docs/src/css/_book-icons.scss`, `docs/src/plugins/mermaid-elk-stub.js`, `docs/src/clientModules/link-decorator.js`, `docs/src/data/books.js`, `docs/src/data/book-icons-css.js`, `docs/src/pages/index.js`) found no copied code, so they carry no header. The same holds for `docs/src/theme/CodeBlock/index.js`, `docs/src/theme/Admonition/Types.js`, `docs/src/theme/prism-include-languages.js`, `docs/src/prism/bbj-extend.js` and `docs/src/components/YouTube/`, which are original BASIS code.
 
+## PrismJS (vendored in a DWC sample)
+
+- Source: `PrismJS/prism` (https://github.com/PrismJS/prism)
+- Licence: MIT, Copyright (c) 2012 Lea Verou
+- Licence text: [LICENSES/PrismJS-MIT.txt](LICENSES/PrismJS-MIT.txt)
+
+Covered files:
+
+- `docs/examples/dwc/05_CssLayouts/prism.min.js`
+- `docs/examples/dwc/05_CssLayouts/prism.min.css` (adapted: the font stack uses `var(--bbj-font-family-mono)` and the file adds brace-level colors)
+
+The minified files carry no header and no version string, so the version is not stated in the files. The JavaScript is the PrismJS core build and includes a brace-level highlighting plugin. The entry covers both files by path. The ZIPs `docs/static/files/dwc/05_CssLayouts.zip` and `docs/static/files/dwc/dwc-samples.zip` contain them.
+
 ## Google style for Vale
 
 - Source: `errata-ai/Google`

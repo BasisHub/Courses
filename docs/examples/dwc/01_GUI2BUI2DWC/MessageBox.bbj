@@ -1,0 +1,12 @@
+rem /**
+rem  * MessageBox.bbj
+rem  * Exercise 1: Run the program in all three clients: GUI, BUI, and the DWC
+rem  * Exercise 2: Change the msgbox code to set the message box and its button
+rem  * to the DWC's "danger" component theme.
+rem  */
+
+if (info(3,6)="1") then client$ = "GUI"
+if (info(3,6)="5") then client$ = "BUI"
+if (info(3,6)="6") then client$ = "DWC"
+temp = msgbox("Hello from BBj's " + client$ + " client!", BBjSysGui.MSGBOX_ICON_INFORMATION, "Greetings", MODE="theme=primary")
+release
