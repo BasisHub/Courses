@@ -46,8 +46,18 @@ export default function ExpandableCode({
   title,
   previewLines = 40,
 }) {
-  const code = typeof children === 'string' ? children.replace(/\n$/, '') : '';
+  if (typeof children !== 'string') {
+    throw new Error('ExpandableCode: pass the code as a template literal, e.g. {`...`}.');
+  }
+  const code = children.replace(/\n$/, '');
   const lineCount = code.split('\n').length;
+  if (lineCount <= previewLines) {
+    return (
+      <CodeBlock language={language} title={title} noCollapse>
+        {code}
+      </CodeBlock>
+    );
+  }
   return (
     <CollapsibleShell lineCount={lineCount} previewLines={previewLines}>
       <CodeBlock language={language} title={title} noCollapse>
