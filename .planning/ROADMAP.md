@@ -47,7 +47,7 @@ Research suggested 10 phases; standard granularity calls for 5-8. Merges made:
 Plans:
 **Wave 1**
 
-- [ ] 01-01-PLAN.md — Repo hygiene, exact-pinned npm install with legitimacy checkpoint, lockfile, Python pins, webforJ reference clone (wave 1)
+- [x] 01-01-PLAN.md — Repo hygiene, exact-pinned npm install with legitimacy checkpoint, lockfile, Python pins, webforJ reference clone (wave 1)
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -166,7 +166,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Site Scaffold & Quality Gates | 0/4 | Planned | - |
+| 1. Site Scaffold & Quality Gates | 1/4 | In Progress|  |
 | 2. Repo Hygiene & CI | 0/TBD | Not started | - |
 | 3. Content Components & Brand | 0/TBD | Not started | - |
 | 4. DWC Book Relocation | 0/TBD | Not started | - |

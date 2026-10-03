@@ -23,8 +23,8 @@ Spec: `migration-seed.md`, corrected by `.planning/research/SUMMARY.md` where th
 - [ ] **REPO-01**: Every push to `main` builds and deploys the site to GitHub Pages (Node 24, `npm ci` in `docs/`, current Pages actions)
 - [ ] **REPO-02**: Every PR runs the site build without deploying, and runs Vale (Google + BASIS styles, `*.{md,mdx,txt}`, BBj vocabulary and acronym exceptions) failing on errors
 - [ ] **REPO-03**: Repo has `CLAUDE.md` (seed section 7, updated with research corrections), `CONTRIBUTING.md`, `.editorconfig`, and `THIRD_PARTY_NOTICES.md` plus MIT headers on files copied from webforJ
-- [ ] **REPO-04**: The whole `import/` folder (Moodle backups, unpacked trees) is gitignored and never committed or pushed; it is a temporary local workspace that is deleted once the migration is done. Nothing the site or later work depends on lives there
-- [ ] **REPO-05**: Dependencies pinned (Docusaurus 3.10.2 exact, lockfile committed); `tools/requirements.txt` pins the converter's Python packages
+- [x] **REPO-04**: The whole `import/` folder (Moodle backups, unpacked trees) is gitignored and never committed or pushed; it is a temporary local workspace that is deleted once the migration is done. Nothing the site or later work depends on lives there
+- [x] **REPO-05**: Dependencies pinned (Docusaurus 3.10.2 exact, lockfile committed); `tools/requirements.txt` pins the converter's Python packages
 
 ### Content Components
 
@@ -129,8 +129,8 @@ Populated 2026-10-03 during roadmap creation.
 | SITE-06 | Phase 1 | Pending |
 | SITE-07 | Phase 1 | Pending |
 | SITE-08 | Phase 1 | Pending |
-| REPO-04 | Phase 1 | Pending |
-| REPO-05 | Phase 1 | Pending |
+| REPO-04 | Phase 1 | Complete |
+| REPO-05 | Phase 1 | Complete |
 | REPO-01 | Phase 2 | Pending |
 | REPO-02 | Phase 2 | Pending |
 | REPO-03 | Phase 2 | Pending |
@@ -171,6 +171,7 @@ Populated 2026-10-03 during roadmap creation.
 | REDIR-03 | Phase 8 | Pending |
 
 **Coverage:**
+
 - v1 requirements: 47 total
 - Mapped to phases: 47
 - Unmapped: 0 ✓
