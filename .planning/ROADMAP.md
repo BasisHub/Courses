@@ -166,7 +166,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Site Scaffold & Quality Gates | 4/4 | Complete   | 2026-10-03 |
+| 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
 | 2. Repo Hygiene & CI | 0/TBD | Not started | - |
 | 3. Content Components & Brand | 0/TBD | Not started | - |
 | 4. DWC Book Relocation | 0/TBD | Not started | - |
