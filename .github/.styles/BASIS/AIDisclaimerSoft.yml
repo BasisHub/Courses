@@ -1,0 +1,11 @@
+# Adapted from webforj/webforj-documentation AIDisclaimer.yml (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
+extends: existence
+message: "'%s' can be leftover AI text. Check that it is not pasted model output."
+link: "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+level: warning
+ignorecase: true
+# These phrases also appear in legitimate course text (chapters about LLMs,
+# instructor phrases), so they warn instead of failing the required check.
+tokens:
+  - 'language model'
+  - 'let me know'
