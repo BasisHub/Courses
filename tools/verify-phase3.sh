@@ -72,7 +72,11 @@ done
 
 SEC=comp04
 count_is "$H" 'expandable-code--collapsed' eq 2 && pass "exactly 2 collapsed blocks" || fail "exactly 2 collapsed blocks"
-count_is "$H" 'Copy code to clipboard' ge 4 && pass "at least 4 copy buttons" || fail "at least 4 copy buttons"
+# Docusaurus renders the copy button client-side only (BrowserOnly), so the
+# static HTML cannot show it. Check the rendered blocks instead, and use
+# "all lines are in the DOM" as the proxy for "copy copies everything".
+count_is "$H" 'class="prism-code' ge 4 && pass "at least 4 rendered code blocks" || fail "at least 4 rendered code blocks"
+hasf "$H" 'line41' && pass "collapsed block keeps all lines in DOM" || fail "collapsed block keeps all lines in DOM"
 
 SEC=comp05
 hasf "$H" 'tabs__item' && pass "tabs" || fail "tabs"
