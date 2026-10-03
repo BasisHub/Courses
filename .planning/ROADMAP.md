@@ -122,7 +122,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion; runs alone because it reinstalls node_modules)*
 
-- [ ] 03-05-PLAN.md — New deps (search-local, zooming) and all docusaurus.config.js changes: search, zoom, exercise keyword, llms ignore, navbar/footer/favicon/cover
+- [x] 03-05-PLAN.md — New deps (search-local, zooming) and all docusaurus.config.js changes: search, zoom, exercise keyword, llms ignore, navbar/footer/favicon/cover
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
@@ -206,7 +206,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
 | 2. Repo Hygiene & CI | 6/6 | Complete    | 2026-10-03 |
-| 3. Content Components & Brand | 4/6 | In Progress|  |
+| 3. Content Components & Brand | 5/6 | In Progress|  |
 | 4. DWC Book Relocation | 0/TBD | Not started | - |
 | 5. Intro-BBj Conversion | 0/TBD | Not started | - |
 | 6. Exercises & DWC Gap Audit | 0/TBD | Not started | - |

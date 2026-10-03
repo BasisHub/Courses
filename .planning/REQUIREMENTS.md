@@ -33,7 +33,7 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 - [x] **COMP-03**: BBj code fences are highlighted with `$`/`!` variables, labels, `#` fields, `rem` comments and keywords verified against the BBj documentation MCP (extending Prism's built-in grammar)
 - [x] **COMP-04**: Code blocks longer than 40 lines are collapsible (`ExpandableCode`); every code block has a copy button
 - [x] **COMP-05**: Author can use `Tabs`, `DocCardList`, Mermaid diagrams and wrapped tables (`TableWrapper`); images zoom on click
-- [ ] **COMP-06**: Reader can search all books with Cmd+K (local search); the Algolia config sits commented in place
+- [x] **COMP-06**: Reader can search all books with Cmd+K (local search); the Algolia config sits commented in place
 
 ### DWC Book Relocation
 
@@ -139,7 +139,7 @@ Populated 2026-10-03 during roadmap creation.
 | COMP-03 | Phase 3 | Complete |
 | COMP-04 | Phase 3 | Complete |
 | COMP-05 | Phase 3 | Complete |
-| COMP-06 | Phase 3 | Pending |
+| COMP-06 | Phase 3 | Complete |
 | SITE-05 | Phase 3 | Complete |
 | DWC-01 | Phase 4 | Pending |
 | DWC-02 | Phase 4 | Pending |
