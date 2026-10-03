@@ -4,13 +4,7 @@ import './styles.css';
 const ID_PATTERN = /^[A-Za-z0-9_-]{11}$/;
 
 export default function YouTube({id, title}) {
-  if (typeof title !== 'string' || title.trim() === '') {
-    throw new Error('YouTube: the "title" prop is required and must not be empty.');
-  }
-  if (typeof id !== 'string' || !ID_PATTERN.test(id)) {
-    throw new Error(`YouTube: the "id" prop must be an 11 character video id, got "${id}".`);
-  }
-
+  // Hooks first, so they run in the same order on every render.
   const [playing, setPlaying] = useState(false);
   const frameRef = useRef(null);
   // The play button unmounts on click; move focus to the player so keyboard
@@ -20,6 +14,14 @@ export default function YouTube({id, title}) {
       frameRef.current.focus();
     }
   }, [playing]);
+
+  if (typeof title !== 'string' || title.trim() === '') {
+    throw new Error('YouTube: the "title" prop is required and must not be empty.');
+  }
+  if (typeof id !== 'string' || !ID_PATTERN.test(id)) {
+    throw new Error(`YouTube: the "id" prop must be an 11 character video id, got "${id}".`);
+  }
+
   const watchUrl = 'https://www.youtube.com/watch?v=' + id;
 
   if (playing) {
