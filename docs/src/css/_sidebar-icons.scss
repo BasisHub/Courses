@@ -1,0 +1,51 @@
+/* Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ). */
+@mixin _icon($name) {
+  $url: url("../../node_modules/@tabler/icons/icons/outline/#{$name}.svg");
+  -webkit-mask-image: $url;
+  mask-image: $url;
+}
+
+@mixin category-icons {
+  .menu__list > .cat-icon > .menu__list-item-collapsible > .menu__link {
+    align-items: center;
+  }
+
+  .menu__list > .cat-icon > .menu__list-item-collapsible > .menu__link::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-right: 0.5rem;
+    background-color: currentColor;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+}
+
+@mixin experimental-icons {
+  .menu__list-item.experimental-content > .menu__link > span::after,
+  .menu__list-item.experimental-content
+    > .menu__list-item-collapsible
+    > .menu__link
+    > span::after {
+    content: "";
+    display: inline-block;
+    vertical-align: -0.15em;
+    width: 0.9rem;
+    height: 0.9rem;
+    margin-left: 0.35rem;
+    opacity: 0.7;
+    background-color: currentColor;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    @include _icon("flask");
+  }
+}

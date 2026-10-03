@@ -1,0 +1,6 @@
+/* Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ). */
+@mixin content-block() {
+  padding: 2rem;
+  border: none;
+  border-radius: var(--ifm-global-radius);
+}

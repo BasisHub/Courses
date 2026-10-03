@@ -1,0 +1,29 @@
+/* Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ). */
+@use "./mixins/content-block";
+
+#__docusaurus {
+  [class^="docItemContainer"],
+  [class^="generatedIndexPage"] {
+    @include content-block.content-block;
+  }
+
+  img[src$="#rounded-border"] {
+    border-radius: var(--dwc-border-radius-s);
+    border: 1px solid var(--dwc-border-color);
+  }
+}
+
+@media screen and (max-width: 996px) {
+  [class^="docsWrapper"] {
+    background-color: var(--dwc-surface-3) !important;
+  }
+
+  #__docusaurus {
+    [class^="docItemContainer"],
+    [class^="generatedIndexPage"] {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+    }
+  }
+}
