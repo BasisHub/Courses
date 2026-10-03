@@ -8,7 +8,7 @@ Spec: `migration-seed.md`, corrected by `.planning/research/SUMMARY.md`.
 
 ## Phases
 
-- [ ] **Phase 1: Site Scaffold & Quality Gates** - Empty two-book site in the webforJ look, working under `/Courses/`, with throwing build gates
+- [x] **Phase 1: Site Scaffold & Quality Gates** - Empty two-book site in the webforJ look, working under `/Courses/`, with throwing build gates (completed 2026-10-03)
 - [ ] **Phase 2: Repo Hygiene & CI** - Deploy, PR build gate and Vale on PRs; contributor docs; first proven Pages deploy
 - [ ] **Phase 3: Content Components & Brand** - Exercise box, YouTube, BBj highlighting, ExpandableCode, search, brand assets
 - [ ] **Phase 4: DWC Book Relocation** - DWC-Course moved in as a pure relocation under `/docs/dwc/`
@@ -56,7 +56,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 01-04-PLAN.md — First build, tools/prove-gates.sh, tools/verify-phase1.sh with npm ci rebuild, end-of-phase human check (wave 3)
+- [x] 01-04-PLAN.md — First build, tools/prove-gates.sh, tools/verify-phase1.sh with npm ci rebuild, end-of-phase human check (wave 3)
 
 **UI hint**: yes
 
@@ -166,7 +166,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Site Scaffold & Quality Gates | 3/4 | In Progress|  |
+| 1. Site Scaffold & Quality Gates | 4/4 | Complete   | 2026-10-03 |
 | 2. Repo Hygiene & CI | 0/TBD | Not started | - |
 | 3. Content Components & Brand | 0/TBD | Not started | - |
 | 4. DWC Book Relocation | 0/TBD | Not started | - |
