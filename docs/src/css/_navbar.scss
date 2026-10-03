@@ -1,5 +1,6 @@
 /* Copied from webforj/webforj-documentation and modified (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
-   Local change: no filter on the navbar logo; the BASIS logo is already reversed. */
+   Local change: no filter on the navbar logo; the BASIS logo is already reversed.
+   webforJ-only rules (DocSearch, version badge, startforJ link, locale, separator) removed. */
   [data-theme='light'] .menu__list-item .header-github-link::before {
     filter: brightness(0);
   }
@@ -33,138 +34,14 @@
     width: 24px;
   }
 
-  .separator {
-    background: var(--dwc-color-default);
-    height: 1.75rem;
-    width: 1px;
-    filter: brightness(0) invert(1);
-  }
-
-  .DocSearch-Button {
-    background: rgba(0, 0, 0, 0.3) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: var(--dwc-border-radius-pill) !important;
-    font-weight: var(--dwc-font-weight-normal);
-    color: rgba(255, 255, 255, 0.6) !important;
-    transition: border-color var(--dwc-transition-fast) var(--dwc-ease),
-                background-color var(--dwc-transition-fast) var(--dwc-ease);
-
-    & .DocSearch-Search-Icon {
-      color: rgba(255, 255, 255, 0.5) !important;
-    }
-
-    & .DocSearch-Button-Placeholder {
-      color: rgba(255, 255, 255, 0.5) !important;
-    }
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.4) !important;
-      border-color: rgba(255, 255, 255, 0.25) !important;
-    }
-
-    &:focus,
-    &:focus-visible {
-      background: rgba(0, 0, 0, 0.4) !important;
-      border-color: var(--dwc-color-primary-65) !important;
-      box-shadow:
-        0 0 0 var(--dwc-focus-ring-gap) var(--navbar-dark-background-color),
-        0 0 0 calc(var(--dwc-focus-ring-gap) + var(--dwc-focus-ring-width)) oklch(from var(--dwc-color-primary-seed) 80% c h / var(--dwc-focus-ring-a)) !important;
-    }
-  }
-
-  .DocSearch-Button-Key {
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: var(--dwc-border-radius-s) !important;
-    color: rgba(255, 255, 255, 0.5);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: none !important;
-  }
-
   .dropdown__menu {
     border: thin solid var(--dwc-border-color);
   }
 
-  #webforj-version-badge {
-    border: solid 1px var(--dwc-color-default-50);
-    border-radius: var(--dwc-border-radius-pill);
-    transition: border-color var(--dwc-transition-x-fast), color var(--dwc-transition-x-fast);
-
-    svg {
-      display: none;
-    }
-
-    &:hover,
-    &:focus {
-      // border-color: var(--dwc-color-default-65);
-      // color: var(--navbar-dark-link-hover-color);
-      background-color: var(--dwc-color-primary-alt);
-      color: var(--dwc-color-primary-70) !important;
-    }
-  }
-
-  .navbar-sidebar #webforj-version-badge,
-  .navbar-sidebar #startforj-link {
-    display: none;
-  }
-
-  .navbar__item:has(#startforj-link),
-  #startforj-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #startforj-link {
-    height: 34px;
-    padding: 0 var(--dwc-space-m);
-    background-color: var(--dwc-color-primary);
-    color: var(--dwc-color-on-primary-text) !important;
-    border: none;
-    border-radius: var(--dwc-border-radius-m);
-    font-weight: var(--dwc-font-weight-medium);
-    text-decoration: none;
-    transition: background-color var(--dwc-transition-fast) var(--dwc-ease),
-                transform var(--dwc-transition-fast) var(--dwc-ease);
-
-    &:hover {
-      background-color: var(--dwc-color-primary-light);
-      color: var(--dwc-color-on-primary-text-light) !important;
-    }
-
-    &:active {
-      background-color: var(--dwc-color-primary-dark);
-      color: var(--dwc-color-on-primary-text-dark) !important;
-      transform: scale(var(--dwc-scale-press));
-    }
-  }
-
-  @media (max-width: 1450px) {
-    .dropdown--right:not(#startforj-link, div:has(.localeDropdown)) {
-      display: none;
-    }
-  }
-
   @media (max-width: 996px) {
-    div:has(.DocSearch-Button) {
-      position: static;
-      order: 3;
-    }
     .theme-layout-navbar-right {
       width: fit-content;
       justify-content: flex-end;
-    }
-    .separator {
-      display: none;
-    }
-    .dropdown--hoverable:has(.localeDropdown) {
-      display: inline-flex;
-    }
-  }
-
-  @media (max-width: 600px) {
-    #startforj-link,
-    #webforj-version-badge {
-      display: none;
     }
   }
 
