@@ -76,9 +76,9 @@ Plans:
 Plans:
 **Wave 1**
 
-- [ ] 02-01-PLAN.md — Pinned lint-tool installer, tools/verify-phase2.sh harness, Vale config with Google + BASIS styles and BBj vocabulary
-- [ ] 02-02-PLAN.md — Move .planning/migration-seed.md into .planning/ with reference updates; rewrite CLAUDE.md from seed section 7 with slim GSD blocks
-- [ ] 02-03-PLAN.md — .editorconfig, MIT header audit, THIRD_PARTY_NOTICES.md with licence texts, staff-only CONTRIBUTING.md
+- [x] 02-01-PLAN.md — Pinned lint-tool installer, tools/verify-phase2.sh harness, Vale config with Google + BASIS styles and BBj vocabulary
+- [x] 02-02-PLAN.md — Move .planning/migration-seed.md into .planning/ with reference updates; rewrite CLAUDE.md from seed section 7 with slim GSD blocks
+- [x] 02-03-PLAN.md — .editorconfig, MIT header audit, THIRD_PARTY_NOTICES.md with licence texts, staff-only CONTRIBUTING.md
 
 **Wave 2** *(blocked on 02-01)*
 
@@ -186,7 +186,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
-| 2. Repo Hygiene & CI | 0/6 | Planned | - |
+| 2. Repo Hygiene & CI | 3/6 | In Progress|  |
 | 3. Content Components & Brand | 0/TBD | Not started | - |
 | 4. DWC Book Relocation | 0/TBD | Not started | - |
 | 5. Intro-BBj Conversion | 0/TBD | Not started | - |

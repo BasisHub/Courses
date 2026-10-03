@@ -70,6 +70,12 @@ Static checks that were possible (file contents, via Read/Edit): all 12 BASIS ru
 
 None.
 
-## Self-Check: PARTIAL
+## Self-Check: PASSED
 
-Files and both commits exist (verified via git output). Runtime verification not performed, see Status.
+Files and both commits exist (verified via git output). Runtime verification was run by the user in the main checkout after the wave 1 merge (2026-10-03):
+
+- `bash -n` on both scripts: OK.
+- `tools/install-lint-tools.sh`: installed vale 3.24.0 and actionlint 1.7.12, sha256 verified.
+- `vale docs/docs`: 0 errors, 9 warnings (all `Google.WordListCase` on "chapter", expected).
+- `tools/verify-phase2.sh --local`: all `[tools]`, `[vale]` (including the `oaicite` probe), `[docs]`, `[headers]`, `[seed]`, `[hygiene]` checks PASS; the 27 failures are all `[ci]` checks owned by plan 02-04.
+- `git status --porcelain docs/docs`: empty.
