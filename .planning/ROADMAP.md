@@ -105,9 +105,25 @@ Plans:
   4. Cmd+K local search finds fixture content on a production build served locally, with the Algolia config commented in place
   5. Navbar shows the BASIS logo and GitHub link; the favicon, social cover and single-line BASIS footer are in place
 
-**Plans**: TBD
+**Plans**: 6 plans
 **UI hint**: yes
-**Dependency**: Brand assets (BASIS-level logo and social cover) must be supplied by Stephan before SITE-05 can complete; request them at the start of this phase.
+**Dependency**: Brand assets supplied by Stephan in /Users/beff/Downloads/BASISlogo/ (D-01); favicon and social cover need his visual review at the end of the phase.
+
+Plans:
+**Wave 1**
+
+- [ ] 03-01-PLAN.md — Brand assets: recolored navbar logo, logo-derived favicon (SVG + 32 px PNG), 1200x630 social cover
+- [ ] 03-02-PLAN.md — BBj highlighting: local extension of Prism's bbj grammar, verified class list, wrapped swizzle, smoke test, MCP evidence
+- [ ] 03-03-PLAN.md — Exercise admonition, YouTube click-to-load facade, base MDXComponents registry
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 03-04-PLAN.md — ExpandableCode + 40-line auto-collapse, TableWrapper, registry and notices update
+- [ ] 03-05-PLAN.md — New deps (search-local, zooming) and all docusaurus.config.js changes: search, zoom, exercise keyword, llms ignore, navbar/footer/favicon/cover
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
+- [ ] 03-06-PLAN.md — Unlisted component fixture, tools/verify-phase3.sh, CLAUDE.md/CONTRIBUTING.md notes, final regression
 
 ### Phase 4: DWC Book Relocation
 
