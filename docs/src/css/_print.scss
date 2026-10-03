@@ -52,6 +52,18 @@
     break-inside: avoid;
   }
 
+  // Collapsed code blocks print in full: drop the clip, the fade and the toggle.
+  .expandable-code--collapsed .expandable-code__body {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .expandable-code--collapsed .expandable-code__body::after,
+  .expandable-code__toggle,
+  .table-wrapper__expand {
+    display: none !important;
+  }
+
   .youtube-facade__button,
   .youtube-facade iframe {
     display: none !important;
