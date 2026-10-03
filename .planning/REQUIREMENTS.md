@@ -28,11 +28,11 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 
 ### Content Components
 
-- [ ] **COMP-01**: Author can write `:::exercise Try it yourself` and the reader sees a styled exercise box (DWC success palette) in both themes
-- [ ] **COMP-02**: Author can embed `<YouTube id="..." title="..." />` without an import, and the reader gets a responsive, lazy, privacy-enhanced (youtube-nocookie) player
+- [x] **COMP-01**: Author can write `:::exercise Try it yourself` and the reader sees a styled exercise box (DWC success palette) in both themes
+- [x] **COMP-02**: Author can embed `<YouTube id="..." title="..." />` without an import, and the reader gets a responsive, lazy, privacy-enhanced (youtube-nocookie) player
 - [x] **COMP-03**: BBj code fences are highlighted with `$`/`!` variables, labels, `#` fields, `rem` comments and keywords verified against the BBj documentation MCP (extending Prism's built-in grammar)
 - [ ] **COMP-04**: Code blocks longer than 40 lines are collapsible (`ExpandableCode`); every code block has a copy button
-- [ ] **COMP-05**: Author can use `Tabs`, `DocCardList`, Mermaid diagrams and wrapped tables (`TableWrapper`); images zoom on click
+- [x] **COMP-05**: Author can use `Tabs`, `DocCardList`, Mermaid diagrams and wrapped tables (`TableWrapper`); images zoom on click
 - [ ] **COMP-06**: Reader can search all books with Cmd+K (local search); the Algolia config sits commented in place
 
 ### DWC Book Relocation
@@ -134,11 +134,11 @@ Populated 2026-10-03 during roadmap creation.
 | REPO-01 | Phase 2 | Complete |
 | REPO-02 | Phase 2 | Complete |
 | REPO-03 | Phase 2 | Complete |
-| COMP-01 | Phase 3 | Pending |
-| COMP-02 | Phase 3 | Pending |
+| COMP-01 | Phase 3 | Complete |
+| COMP-02 | Phase 3 | Complete |
 | COMP-03 | Phase 3 | Complete |
 | COMP-04 | Phase 3 | Pending |
-| COMP-05 | Phase 3 | Pending |
+| COMP-05 | Phase 3 | Complete |
 | COMP-06 | Phase 3 | Pending |
 | SITE-05 | Phase 3 | Complete |
 | DWC-01 | Phase 4 | Pending |
