@@ -30,6 +30,17 @@
     background: #fff !important;
   }
 
+  // Dark mode keeps the dark palette's light token colors (code, admonitions,
+  // tables). Browsers drop backgrounds when printing, so that text would be
+  // near-invisible on white paper. Force black text on a white page instead.
+  html[data-theme='dark'] {
+    article * {
+      color: #000 !important;
+      background-color: transparent !important;
+      border-color: #999 !important;
+    }
+  }
+
   pre,
   pre code {
     white-space: pre-wrap !important;
