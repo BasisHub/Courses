@@ -146,7 +146,7 @@ Plans:
 **Wave 1**
 
 - [x] 04-01-PLAN.md — Snapshot old DWC-Course routes and anchors (first commit), route/sidebar and anchor checkers
-- [ ] 04-02-PLAN.md — Samples as plain source in docs/examples/dwc, reproducible ZIPs via tools/sync-samples.py, CI drift check, PrismJS notice
+- [x] 04-02-PLAN.md — Samples as plain source in docs/examples/dwc, reproducible ZIPs via tools/sync-samples.py, CI drift check, PrismJS notice
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -226,7 +226,7 @@ Plans:
 | 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
 | 2. Repo Hygiene & CI | 6/6 | Complete    | 2026-10-03 |
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
-| 4. DWC Book Relocation | 1/6 | In Progress|  |
+| 4. DWC Book Relocation | 2/6 | In Progress|  |
 | 5. Intro-BBj Conversion | 0/TBD | Not started | - |
 | 6. Exercises & DWC Gap Audit | 0/TBD | Not started | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
