@@ -4,13 +4,13 @@ milestone: v1.0
 milestone_name: milestone
 status: executing
 stopped_at: Phase 4 context gathered
-last_updated: "2026-10-03T20:09:49.002Z"
-last_activity: 2026-10-03 -- Phase 04 planning complete
+last_updated: "2026-10-03T20:11:58.846Z"
+last_activity: 2026-10-03
 progress:
   total_phases: 8
   completed_phases: 3
   total_plans: 22
-  completed_plans: 16
+  completed_plans: 17
   percent: 38
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-10-03)
 
 **Core value:** Both books read well and correctly on one public site in the webforJ look, every old DWC-Course link still lands on the right page, and the Markdown is the only source of truth after the migration.
-**Current focus:** Phase 03 — content-components-brand
+**Current focus:** Phase 04 — dwc-book-relocation
 
 ## Current Position
 
-Phase: 03 (content-components-brand) — EXECUTING
-Plan: 6 of 6
+Phase: 04 (dwc-book-relocation) — EXECUTING
+Plan: 2 of 6
 Status: Ready to execute
-Last activity: 2026-10-03 -- Phase 04 planning complete
+Last activity: 2026-10-03
 
 Progress: [█░░░░░░░░░] 13%
 
@@ -78,5 +78,5 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-10-03T19:37:42.311Z
+Last session: 2026-10-03T20:11:58.835Z
 Stopped at: Phase 4 context gathered
