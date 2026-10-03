@@ -42,9 +42,19 @@ sha256() {
   else shasum -a 256 "$1" | awk '{print $1}'; fi
 }
 
+# One work directory for all downloads, removed on every exit (also when set -e aborts).
+WORK="$(mktemp -d)"
+trap 'rm -rf "$WORK"' EXIT
+
+has_version() { # has_version <binary> <version>: exact version token, not a substring
+  local re
+  re="$(printf '%s' "$2" | sed 's/\./\\./g')"
+  "$1" --version 2>/dev/null | head -1 | grep -Eq "(^|[^0-9.])${re}([^0-9.]|\$)"
+}
+
 install_tool() { # install_tool <tool> <version> <repo> <tag> <archive> <checksums-file>
   local tool="$1" version="$2" repo="$3" tag="$4" archive="$5" checksums="$6"
-  if [ -x "$BIN/$tool" ] && "$BIN/$tool" --version 2>/dev/null | grep -q "$version"; then
+  if [ -x "$BIN/$tool" ] && has_version "$BIN/$tool" "$version"; then
     echo "$tool $version already installed"
     return 0
   fi
@@ -54,7 +64,8 @@ install_tool() { # install_tool <tool> <version> <repo> <tag> <archive> <checksu
     echo "No pinned SHA-256 for $archive; add it to pinned_sha() first." >&2
     exit 1
   fi
-  tmp="$(mktemp -d)"
+  tmp="$WORK/$tool"
+  mkdir -p "$tmp"
   base="https://github.com/$repo/releases/download/$tag"
   echo "Downloading $archive"
   curl -fsSL -o "$tmp/$archive" "$base/$archive"
@@ -63,13 +74,11 @@ install_tool() { # install_tool <tool> <version> <repo> <tag> <archive> <checksu
   actual="$(sha256 "$tmp/$archive")"
   if [ "$pinned" != "$actual" ] || [ "$expected" != "$actual" ]; then
     echo "Checksum mismatch for $archive (pinned '$pinned', release file '$expected', got '$actual'); aborting." >&2
-    rm -rf "$tmp"
     exit 1
   fi
   tar -xzf "$tmp/$archive" -C "$tmp" "$tool"
   mv "$tmp/$tool" "$BIN/$tool"
   chmod +x "$BIN/$tool"
-  rm -rf "$tmp"
   echo "Installed $tool $version (sha256 verified)"
 }
 
