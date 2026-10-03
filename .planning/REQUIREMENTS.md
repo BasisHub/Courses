@@ -118,15 +118,62 @@ Spec: `migration-seed.md`, corrected by `.planning/research/SUMMARY.md` where th
 
 ## Traceability
 
-Populated during roadmap creation.
+Populated 2026-10-03 during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
+| SITE-01 | Phase 1 | Pending |
+| SITE-02 | Phase 1 | Pending |
+| SITE-03 | Phase 1 | Pending |
+| SITE-04 | Phase 1 | Pending |
+| SITE-06 | Phase 1 | Pending |
+| SITE-07 | Phase 1 | Pending |
+| SITE-08 | Phase 1 | Pending |
+| REPO-04 | Phase 1 | Pending |
+| REPO-05 | Phase 1 | Pending |
+| REPO-01 | Phase 2 | Pending |
+| REPO-02 | Phase 2 | Pending |
+| REPO-03 | Phase 2 | Pending |
+| COMP-01 | Phase 3 | Pending |
+| COMP-02 | Phase 3 | Pending |
+| COMP-03 | Phase 3 | Pending |
+| COMP-04 | Phase 3 | Pending |
+| COMP-05 | Phase 3 | Pending |
+| COMP-06 | Phase 3 | Pending |
+| SITE-05 | Phase 3 | Pending |
+| DWC-01 | Phase 4 | Pending |
+| DWC-02 | Phase 4 | Pending |
+| DWC-03 | Phase 4 | Pending |
+| DWC-04 | Phase 4 | Pending |
+| CONV-01 | Phase 5 | Pending |
+| CONV-02 | Phase 5 | Pending |
+| CONV-03 | Phase 5 | Pending |
+| CONV-04 | Phase 5 | Pending |
+| CONV-05 | Phase 5 | Pending |
+| CONV-06 | Phase 5 | Pending |
+| CONV-07 | Phase 5 | Pending |
+| EXER-01 | Phase 5 | Pending |
+| EXER-02 | Phase 6 | Pending |
+| EXER-03 | Phase 6 | Pending |
+| EXER-04 | Phase 6 | Pending |
+| AUDIT-01 | Phase 6 | Pending |
+| AUDIT-02 | Phase 6 | Pending |
+| AUDIT-03 | Phase 6 | Pending |
+| QUAL-01 | Phase 7 | Pending |
+| QUAL-02 | Phase 7 | Pending |
+| QUAL-03 | Phase 7 | Pending |
+| QUAL-04 | Phase 7 | Pending |
+| QUAL-05 | Phase 7 | Pending |
+| LIVE-01 | Phase 7 | Pending |
+| LIVE-02 | Phase 7 | Pending |
+| REDIR-01 | Phase 8 | Pending |
+| REDIR-02 | Phase 8 | Pending |
+| REDIR-03 | Phase 8 | Pending |
 
 **Coverage:**
 - v1 requirements: 47 total
-- Mapped to phases: 0
-- Unmapped: 47 ⚠️
+- Mapped to phases: 47
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-10-03*
