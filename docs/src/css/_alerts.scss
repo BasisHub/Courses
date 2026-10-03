@@ -1,4 +1,5 @@
-/* Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt). */
+/* Copied from webforj/webforj-documentation and modified (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
+   Local change: .alert--exercise for the BASIS exercise admonition. */
 .alert--primary {
   --ifm-alert-background-color: var(--dwc-color-primary-alt);
   --ifm-alert-background-color-highlight: var(--dwc-color-primary-alt);
@@ -39,4 +40,15 @@
   --ifm-alert-background-color-highlight: var(--dwc-color-danger-alt);
   --ifm-alert-foreground-color: var(--dwc-color-danger-text);
   --ifm-alert-border-color: var(--dwc-color-danger);
+}
+
+.alert--exercise {
+  border-left-width: var(--ifm-alert-border-left-width);
+  margin-top: var(--ifm-spacing-vertical);
+
+  svg {
+    width: 1.25em;
+    height: 1.25em;
+    color: var(--ifm-alert-border-color);
+  }
 }
