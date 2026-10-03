@@ -193,6 +193,9 @@ have_gh() { command -v gh >/dev/null 2>&1 && gh auth status >/dev/null 2>&1; }
 section_deploy() {
   SEC=deploy
   if ! have_gh; then skip "section (gh not authenticated)"; return; fi
+  # The URL loops below split on whitespace; disable globbing so a URL with *, ? or [
+  # never expands to local file names. Restored at the end of the function.
+  set -f
   local v bt concl html url urls css cssurls base img n
   v="$(gh repo view $REPO --json visibility -q .visibility 2>/dev/null)"
   if [ "$v" = "PUBLIC" ]; then pass "repo is PUBLIC"; else fail "repo is PUBLIC (got '$v')"; fi
@@ -244,6 +247,7 @@ section_deploy() {
   if [ "$(code "$SITE/sitemap.xml")" = "200" ]; then pass "sitemap.xml 200"; else fail "sitemap.xml 200"; fi
   if [ "$(code "$SITE/llms.txt")" = "200" ]; then pass "llms.txt 200"; else fail "llms.txt 200"; fi
   if echo "$html" | grep -qE 'fonts\.googleapis\.com|cdn\.webforj\.com'; then fail "no external font/CDN references"; else pass "no external font/CDN references"; fi
+  set +f
 }
 
 section_gates() {
