@@ -26,12 +26,14 @@ Spec: `.planning/migration-seed.md`. Decisions: `.planning/PROJECT.md`. Stack de
 - Language: English, direct, second person. Vale (Google + BASIS styles) is the arbiter for prose. House rule: no em dashes.
 - Copied webforJ files keep their MIT header line and are listed in `THIRD_PARTY_NOTICES.md`.
 - Never reference moodle.basis-europe.eu.
+- `docs/docs/authoring/components.mdx` is an unlisted component fixture, not a book. Keep it out of `books.js` and `sidebars.js`; update it when a shared component changes.
+- BBj code highlighting extends Prism's built-in grammar in `docs/src/prism/bbj-extend.js`; add a keyword or class only after a BBj MCP check, recorded in `tools/data/bbj-token-verification.md`.
 
 ## Before committing
 - `cd docs && npm run build` passes (broken links, anchors, Markdown links and images throw).
 - `tools/.bin/vale docs/docs` (after `bash tools/install-lint-tools.sh`) shows no errors on files you touched.
 - `bash tools/prove-gates.sh` passes after config changes.
-- `bash tools/verify-phase1.sh` and `bash tools/verify-phase2.sh --local` stay green.
+- `bash tools/verify-phase1.sh`, `bash tools/verify-phase2.sh --local` and `bash tools/verify-phase3.sh` stay green.
 - Every `.bbj` under `docs/examples/` passes `bbj_check_syntax`. Fix the sample, not the check.
 
 ## Adding a new book

@@ -8,6 +8,7 @@ This guide is for BASIS staff who write and maintain the books on this site. The
 - `tools/`: scripts. `tools/data/` holds mapping and audit data.
 - `.github/`: workflows and the Vale styles.
 - `.planning/`: GSD planning files. The specification is `.planning/migration-seed.md`.
+- `docs/docs/authoring/components.mdx` is an unlisted component fixture, not a book. Keep it out of the registry and the sidebars, and update it when a shared component changes.
 - `LICENSES/`: licence texts for copied third-party material.
 - `import/` is a local, gitignored workspace.
 
@@ -36,6 +37,17 @@ Never edit `package-lock.json` by hand. The `@docusaurus/*` packages stay exact-
 - Do not use em dashes.
 - Check BBj samples with `bbj_check_syntax`.
 
+These components work in any page without imports. [The components fixture](/docs/authoring/components) shows each one live.
+
+- `:::exercise` for an exercise box.
+- `<YouTube id="..." title="..." />` for a video.
+- `Tabs` and `TabItem` for tabbed content.
+- `DocCardList` for a list of cards.
+- `ExpandableCode` for a collapsible code block.
+- Mermaid fences for diagrams.
+
+Code fences over 40 lines collapse automatically.
+
 To add a book, create a folder under `docs/docs/<book>/`, add an entry in `docs/src/data/books.js` and add the sidebar in `docs/sidebars.js`.
 
 ## Prose linting with Vale
@@ -57,7 +69,7 @@ Vocabulary lives in `.github/.styles/config/vocabularies/BASIS/accept.txt`. Add 
 - The build passes (`cd docs && npm run build`).
 - Vale is clean on the files you touched.
 - After config changes, run `bash tools/prove-gates.sh`.
-- `bash tools/verify-phase1.sh` and `bash tools/verify-phase2.sh --local` are green.
+- `bash tools/verify-phase1.sh`, `bash tools/verify-phase2.sh --local` and `bash tools/verify-phase3.sh` are green.
 - BBj samples pass `bbj_check_syntax`.
 - Workflow edits pass `tools/.bin/actionlint`.
 
