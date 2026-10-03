@@ -50,6 +50,6 @@ User should run both commands.
 
 None.
 
-## Self-Check: PARTIAL
+## Self-Check: PASSED
 
-Files and commits exist (verified by successful commits). actionlint and verify-phase2.sh were not executed.
+Files and commits exist. Run by the user in the main checkout after the plan (2026-10-03): `tools/.bin/actionlint .github/workflows/*.yml` clean; `bash tools/verify-phase2.sh --local` reports ALL CHECKS PASSED.
