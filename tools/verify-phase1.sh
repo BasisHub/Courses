@@ -19,16 +19,21 @@ check() { # check <name> <command...>
   if "$@" >/dev/null 2>&1; then pass "$name"; else fail "$name"; fi
 }
 
+kill_tree() { # kill_tree <pid>: stop a process and all of its descendants
+  local child
+  for child in $(pgrep -P "$1" 2>/dev/null); do kill_tree "$child"; done
+  kill "$1" 2>/dev/null
+  return 0
+}
+
 stop_server() {
+  # npm spawns child processes (sh, node); stop only the tree we started,
+  # never an unrelated process that happens to listen on $PORT.
   if [ -n "$SERVER_PID" ]; then
-    kill "$SERVER_PID" 2>/dev/null
+    kill_tree "$SERVER_PID"
     wait "$SERVER_PID" 2>/dev/null
     SERVER_PID=""
   fi
-  # npm spawns a child node process; stop whatever still listens on our port.
-  local pids
-  pids=$(lsof -tiTCP:"$PORT" -sTCP:LISTEN 2>/dev/null || true)
-  [ -n "$pids" ] && kill $pids 2>/dev/null
   return 0
 }
 trap stop_server EXIT
@@ -62,13 +67,20 @@ check "intro-bbj sidebar lists own chapter" grep -q '/Courses/docs/intro-bbj/get
 check "intro-bbj sidebar omits dwc chapter" bash -c "test -f '$BUILD/docs/intro-bbj/overview.html' && ! grep -q '/Courses/docs/dwc/first-chapter' '$BUILD/docs/intro-bbj/overview.html'"
 
 # 3. Served smoke
-(cd docs && exec npm run serve -- --port "$PORT" --no-open >/dev/null 2>&1) &
-SERVER_PID=$!
 up=0
-for _ in $(seq 1 30); do
-  if curl -fsS -o /dev/null "$BASE/Courses/" 2>/dev/null; then up=1; break; fi
-  sleep 1
-done
+if lsof -tiTCP:"$PORT" -sTCP:LISTEN >/dev/null 2>&1; then
+  # Another process owns the port; probing it would test the wrong server.
+  fail "port $PORT already in use by another process"
+else
+  (cd docs && exec npm run serve -- --port "$PORT" --no-open >/dev/null 2>&1) &
+  SERVER_PID=$!
+  for _ in $(seq 1 30); do
+    # Stop waiting if our server died (for example, it failed to bind).
+    kill -0 "$SERVER_PID" 2>/dev/null || break
+    if curl -fsS -o /dev/null "$BASE/Courses/" 2>/dev/null; then up=1; break; fi
+    sleep 1
+  done
+fi
 if [ "$up" -eq 1 ]; then
   pass "server up on port $PORT"
   for p in /Courses/ /Courses/docs/intro-bbj/overview /Courses/docs/dwc/overview \
