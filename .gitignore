@@ -6,3 +6,6 @@ docs/.docusaurus/
 docs/.cache-loader/
 __pycache__/
 *.pyc
+tools/.bin/
+/.claude/worktrees/
+.claude/settings.local.json
