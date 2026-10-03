@@ -9,7 +9,7 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 ## Phases
 
 - [x] **Phase 1: Site Scaffold & Quality Gates** - Empty two-book site in the webforJ look, working under `/Courses/`, with throwing build gates (completed 2026-10-03)
-- [ ] **Phase 2: Repo Hygiene & CI** - Deploy, PR build gate and Vale on PRs; contributor docs; first proven Pages deploy
+- [x] **Phase 2: Repo Hygiene & CI** - Deploy, PR build gate and Vale on PRs; contributor docs; first proven Pages deploy (completed 2026-10-03)
 - [ ] **Phase 3: Content Components & Brand** - Exercise box, YouTube, BBj highlighting, ExpandableCode, search, brand assets
 - [ ] **Phase 4: DWC Book Relocation** - DWC-Course moved in as a pure relocation under `/docs/dwc/`
 - [ ] **Phase 5: Intro-BBj Conversion** - Throwaway Moodle converter produces the "Introduction to BBj Development" book
@@ -90,7 +90,7 @@ Plans:
 
 **Wave 4** *(blocked on 02-05)*
 
-- [ ] 02-06-PLAN.md — Confirm checkpoint, throwaway Vale probe PRs (in-diff and file mode), main ruleset with admin bypass, cleanup, full verify
+- [x] 02-06-PLAN.md — Confirm checkpoint, throwaway Vale probe PRs (in-diff and file mode), main ruleset with admin bypass, cleanup, full verify
 
 ### Phase 3: Content Components & Brand
 
@@ -186,7 +186,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
-| 2. Repo Hygiene & CI | 5/6 | In Progress|  |
+| 2. Repo Hygiene & CI | 6/6 | Complete   | 2026-10-03 |
 | 3. Content Components & Brand | 0/TBD | Not started | - |
 | 4. DWC Book Relocation | 0/TBD | Not started | - |
 | 5. Intro-BBj Conversion | 0/TBD | Not started | - |
