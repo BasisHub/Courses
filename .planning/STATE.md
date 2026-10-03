@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-10-03)
 
 **Core value:** Both books read well and correctly on one public site in the webforJ look, every old DWC-Course link still lands on the right page, and the Markdown is the only source of truth after the migration.
-**Current focus:** Phase 1: Site Scaffold & Quality Gates
+**Current focus:** Phase 2: Repo Hygiene & CI
 
 ## Current Position
 
 Phase: 2 of 8 (repo hygiene & ci)
 Plan: Not started
-Status: Phase 1 plans complete, awaiting verification
+Status: Phase 1 complete (verified, human UAT approved with 4 items left open in 01-HUMAN-UAT.md); Phase 2 ready to discuss
 Last activity: 2026-10-03
 
 Progress: [█░░░░░░░░░] 13%
