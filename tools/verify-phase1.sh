@@ -43,7 +43,9 @@ if (cd docs && npm run build >/dev/null 2>&1); then pass "build exits 0"; else f
 
 # 2. Static structure
 INDEX="$BUILD/index.html"
-order=$(grep -oE 'href="/Courses/docs/[a-z-]*/overview"' "$INDEX" 2>/dev/null | awk '!s[$0]++' | head -2 | tr '\n' ' ')
+# Only look at the landing cards (class book-card); the navbar links share the same hrefs.
+order=$(grep -oE '<a [^>]*>' "$INDEX" 2>/dev/null | grep -E 'class="[^"]*book-card[^"]*"' \
+  | grep -oE 'href="/Courses/docs/[a-z-]*/overview"' | head -2 | tr '\n' ' ')
 if [ "$order" = 'href="/Courses/docs/intro-bbj/overview" href="/Courses/docs/dwc/overview" ' ]; then
   pass "landing: intro-bbj card before dwc card"
 else
