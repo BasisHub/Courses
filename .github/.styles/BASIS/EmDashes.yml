@@ -1,0 +1,7 @@
+# Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
+extends: occurrence
+message: "An em dash is already on this article. Rewrite one of the sentences."
+level: warning
+scope: summary
+max: 1
+token: '—'
