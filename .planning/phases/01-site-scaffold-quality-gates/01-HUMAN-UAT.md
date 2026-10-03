@@ -3,7 +3,7 @@ status: partial
 phase: 01-site-scaffold-quality-gates
 source: [01-VERIFICATION.md]
 started: 2026-10-03T11:07:10Z
-updated: 2026-10-03T11:07:10Z
+updated: 2026-10-03T11:45:15Z
 ---
 
 ## Current Test
@@ -22,7 +22,7 @@ result: [pending]
 
 ### 3. Re-run acceptance suite after f4d79f5
 expected: `bash tools/verify-phase1.sh --with-ci` ends with ALL CHECKS PASSED (39/39).
-result: [pending]
+result: passed (39/39, ALL CHECKS PASSED, run by Stephan 2026-10-03)
 
 ### 4. Print preview in light and dark mode
 expected: Printing a doc page hides navbar, sidebar and TOC; code stays readable when printed from dark mode (review WR-03).
@@ -35,9 +35,9 @@ result: [pending]
 ## Summary
 
 total: 5
-passed: 0
+passed: 1
 issues: 0
-pending: 5
+pending: 4
 skipped: 0
 blocked: 0
 
