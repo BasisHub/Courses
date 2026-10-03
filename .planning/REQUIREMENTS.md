@@ -3,7 +3,7 @@
 **Defined:** 2026-10-03
 **Core Value:** Both books read well and correctly on one public site in the webforJ look, every old DWC-Course link still lands on the right page, and the Markdown is the only source of truth after the migration.
 
-Spec: `migration-seed.md`, corrected by `.planning/research/SUMMARY.md` where they disagree.
+Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md` where they disagree.
 
 ## v1 Requirements
 

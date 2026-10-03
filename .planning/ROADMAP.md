@@ -4,7 +4,7 @@
 
 One Docusaurus site (`BasisHub/Courses`) in the webforJ look, hosting two books. The path: prove an empty two-book site on `/Courses/`, wire CI and repo hygiene, land the shared content components, then bring in content (DWC pure relocation, then the Moodle-converted intro-bbj book), enrich DWC through exercises and the gap audit, review and go live, and only then cut the redirect-only build for the old DWC-Course repo and archive it.
 
-Spec: `migration-seed.md`, corrected by `.planning/research/SUMMARY.md`.
+Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md`.
 
 ## Phases
 
@@ -77,7 +77,7 @@ Plans:
 **Wave 1**
 
 - [ ] 02-01-PLAN.md — Pinned lint-tool installer, tools/verify-phase2.sh harness, Vale config with Google + BASIS styles and BBj vocabulary
-- [ ] 02-02-PLAN.md — Move migration-seed.md into .planning/ with reference updates; rewrite CLAUDE.md from seed section 7 with slim GSD blocks
+- [ ] 02-02-PLAN.md — Move .planning/migration-seed.md into .planning/ with reference updates; rewrite CLAUDE.md from seed section 7 with slim GSD blocks
 - [ ] 02-03-PLAN.md — .editorconfig, MIT header audit, THIRD_PARTY_NOTICES.md with licence texts, staff-only CONTRIBUTING.md
 
 **Wave 2** *(blocked on 02-01)*

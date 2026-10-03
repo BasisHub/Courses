@@ -4,7 +4,7 @@
 
 One Docusaurus site, `BasisHub/Courses`, that hosts BASIS training "books" as plain reading material for BBj and DWC developers. It looks and behaves like https://docs.webforj.com, mirroring the tooling of `webforj/webforj-documentation`, and is served by GitHub Pages at `https://basishub.github.io/Courses/`. It starts with two books: "BBj DWC Training", moved in from the existing `BasisHub/DWC-Course` site, and "Introduction to BBj Development", converted once from a Moodle backup. More books will follow.
 
-The full specification is `migration-seed.md` at the repo root. Treat it as the authoritative brief. This file records the scope and the decisions taken on top of it.
+The full specification is `.planning/migration-seed.md`. Treat it as the authoritative brief. This file records the scope and the decisions taken on top of it.
 
 ## Core Value
 

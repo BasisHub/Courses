@@ -2,7 +2,7 @@
 
 **Domain:** Public, reading-only, multi-book developer training site (Docusaurus, webforJ docs look)
 **Researched:** 2026-10-03
-**Confidence:** MEDIUM. Scope and tooling come from the project spec (`migration-seed.md`, `PROJECT.md`, HIGH for intent). Claims about docs.webforj.com and comparable course-as-docs sites (Docusaurus docs, Stripe/MDN-style docs, Rust Book/mdBook, freeCodeCamp-style readers) come from prior knowledge and were not re-verified live in this pass (MEDIUM/LOW). Docusaurus-native capabilities are well known (MEDIUM-HIGH). Verify plugin versions against Docusaurus 3.9 during phase planning.
+**Confidence:** MEDIUM. Scope and tooling come from the project spec (`.planning/migration-seed.md`, `PROJECT.md`, HIGH for intent). Claims about docs.webforj.com and comparable course-as-docs sites (Docusaurus docs, Stripe/MDN-style docs, Rust Book/mdBook, freeCodeCamp-style readers) come from prior knowledge and were not re-verified live in this pass (MEDIUM/LOW). Docusaurus-native capabilities are well known (MEDIUM-HIGH). Verify plugin versions against Docusaurus 3.9 during phase planning.
 
 Hard boundary: NO LMS features (login, enrolment, submissions, grading, progress/completion tracking). Anything touching state per reader is out.
 
@@ -149,7 +149,7 @@ Defer:
 
 ## Sources
 
-- `/Users/beff/_workspace/BBjCourses/migration-seed.md` and `.planning/PROJECT.md` (authoritative scope; HIGH)
+- `/Users/beff/_workspace/BBjCourses/.planning/migration-seed.md` and `.planning/PROJECT.md` (authoritative scope; HIGH)
 - Docusaurus 3.x classic preset capabilities (sidebars autogeneration, admonition keywords, sitemap, pagination, edit URL, code block features): https://docusaurus.io/docs (MEDIUM, from prior knowledge, not re-fetched)
 - webforj/webforj-documentation feature set (Algolia + Ask AI, llms plugin, Giscus, theme switcher): https://github.com/webforj/webforj-documentation (as described in the seed; MEDIUM)
 - Plugin docs to verify at phase time: `@easyops-cn/docusaurus-search-local`, `docusaurus-plugin-zooming`, `docusaurus-plugin-llms`, `@docusaurus/plugin-client-redirects` (LOW-MEDIUM, versions unverified)

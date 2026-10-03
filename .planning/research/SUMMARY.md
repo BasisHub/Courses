@@ -15,7 +15,7 @@ This is a static documentation site, not an LMS. The proven build is:
 
 The risk sits in three one-way data flows: the throwaway Moodle converter, the pure DWC-Course relocation, and the redirect-only build for old URLs.
 
-`migration-seed.md` has the right intent but is wrong in about a dozen specifics, which the researchers checked against the real `.mbz` archives, the real DWC-Course checkout and the npm packages. Build on the corrected facts below, not on the seed text.
+`.planning/migration-seed.md` has the right intent but is wrong in about a dozen specifics, which the researchers checked against the real `.mbz` archives, the real DWC-Course checkout and the npm packages. Build on the corrected facts below, not on the seed text.
 
 Recommended approach:
 1. Scaffold the site and prove deployment on an empty site first. The `/Courses/` baseUrl breaks many assumptions in the copied webforJ files.
@@ -50,7 +50,7 @@ Other resolutions:
 - **Relocated top-level pages:** keep them `.md` in the pure relocation. Number them `00-overview`, `00-prerequisites`, `98-samples`, `99-resources`.
 - **Prism BBj:** keep `'bbj'` in `additionalLanguages`, since the built-in grammar exists. Swizzle `prism-include-languages` and extend or overwrite `PrismObject.languages.bbj` after the standard loop, on the passed `PrismObject`, with standard token names only.
 
-## Where Research Contradicts `migration-seed.md`
+## Where Research Contradicts `.planning/migration-seed.md`
 
 | Seed says | Research found | Consequence |
 |---|---|---|
