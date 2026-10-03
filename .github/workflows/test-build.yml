@@ -15,6 +15,7 @@ jobs:
   build:
     name: Test build (no deploy)
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: docs

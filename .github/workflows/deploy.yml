@@ -16,6 +16,7 @@ jobs:
   build:
     name: Build site
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: docs
@@ -44,6 +45,7 @@ jobs:
     # workflow_dispatch can pick any branch; only main is ever published.
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       pages: write
       id-token: write
