@@ -99,6 +99,12 @@ for (const v of ['list!', 'input$', 'start$', 'end$', 'to!'])
   check(`variable ${v} with keyword stem`, stemToks.some((t) => t.type === 'variable' && t.text === v));
 check('keyword stem is not a keyword', !stemToks.some((t) => t.type === 'keyword' && ['list', 'input', 'start', 'end', 'to'].includes(t.text)));
 
+// Strings and mnemonics never span lines; mnemonic parameters follow the tick.
+const lineToks = flat(Prism.tokenize('print "unterminated\nx$ = "a"\nprint \'BOX\'(1,2)', Prism.languages.bbj));
+check('string does not cross a line break', !lineToks.some((t) => (t.type === 'string' || t.type === 'mnemonic') && /[\r\n]/.test(t.text)));
+check('string "a" on the next line', lineToks.some((t) => t.type === 'string' && t.text === '"a"'));
+check("mnemonic 'BOX' before its parameters", lineToks.some((t) => t.type === 'mnemonic' && t.text === "'BOX'"));
+
 const cnRe = new RegExp(reOf(Prism.languages.bbj['class-name']).source);
 check('class-name matches BBjVector', cnRe.test('BBjVector'));
 check('class-name skips BBjGridExWidget', !cnRe.test('BBjGridExWidget'));

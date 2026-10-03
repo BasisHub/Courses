@@ -23,8 +23,9 @@ export default function extendBbj(Prism, classes) {
   }
 
   // (1) Strings: a literal quote is written as two quotes, no backslash escape.
+  // A string never spans lines, so an unbalanced quote colors only its own line.
   Prism.languages.bbj.string = {
-    pattern: /"(?:[^"]|"")*"/,
+    pattern: /"(?:[^"\r\n]|"")*"/,
     greedy: true,
   };
 
@@ -35,7 +36,8 @@ export default function extendBbj(Prism, classes) {
   );
   Prism.languages.insertBefore('bbj', 'number', {
     mnemonic: {
-      pattern: /'[A-Za-z0-9_]+(?:\([^)]*\))?'/,
+      // Parameters follow the closing tick ('BOX'(...)) and tokenize as usual.
+      pattern: /'[A-Za-z0-9_]+'/,
       greedy: true,
       alias: 'builtin',
     },
