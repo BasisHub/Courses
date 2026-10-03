@@ -42,7 +42,11 @@ SEC=build
 if [ "$BUILD" -eq 1 ]; then
   if (cd docs && npm run build) >"$LOG" 2>&1; then pass "npm run build"
   else fail "npm run build"; tail -20 "$LOG"; fi
-elif [ -d "$B" ]; then pass "using existing build (--no-build)"
+elif [ -d "$B" ]; then
+  pass "using existing build (--no-build)"
+  stale=$(find docs/docs docs/src docs/static "$CFG" -newer "$B/index.html" -type f -print 2>/dev/null | head -1)
+  if [ -z "$stale" ] && [ -f "$B/index.html" ]; then pass "existing build is newer than its sources"
+  else fail "existing build is stale (newer source: ${stale:-no index.html}); run without --no-build"; fi
 else fail "no docs/build; run without --no-build"; fi
 
 js_has() { grep -rlF -- "$1" "$B"/assets/js 2>/dev/null | head -1 | grep -q .; }
@@ -96,6 +100,8 @@ hasf "$CFG" 'docusaurus-plugin-zooming' && pass "zoom plugin in config" || fail 
 SEC=comp06
 IDX=$(ls "$B"/search-index*.json 2>/dev/null)
 if [ -n "$IDX" ]; then pass "search index exists"; else fail "search index exists"; fi
+# $IDX is unquoted on purpose: it may hold several index files (SC2086).
+# shellcheck disable=SC2086
 if [ -n "$IDX" ] && python3 - $IDX <<'PY'
 import sys
 t="".join(open(f,encoding="utf-8").read() for f in sys.argv[1:])
@@ -119,7 +125,7 @@ for p in 'img/basis-logo.svg' 'header-github-link' 'github.com/BasisHub/Courses'
 done
 if grep -qE 'og:image"[^>]*/Courses/img/social-cover\.png' "$I" || grep -qE 'content="[^"]*/Courses/img/social-cover\.png"[^>]*og:image' "$I"; then pass "og:image social cover"; else fail "og:image social cover"; fi
 count_is "$I" 'All rights reserved.' eq 1 && pass "copyright once" || fail "copyright once"
-hasf "$I" "$(date +%Y)" && pass "current year" || fail "current year"
+hasf "$I" "Copyright © $(date +%Y)" && pass "copyright has current year" || fail "copyright has current year"
 file docs/static/img/favicon-32.png 2>/dev/null | grep -q '32 x 32' && pass "favicon 32x32" || fail "favicon 32x32"
 file docs/static/img/social-cover.png 2>/dev/null | grep -q '1200 x 630' && pass "social cover 1200x630" || fail "social cover 1200x630"
 if has docs/static/img/basis-logo.svg 'BCC9D2' && ! has docs/static/img/basis-logo.svg '26446B'; then pass "logo colors"; else fail "logo colors"; fi
@@ -129,6 +135,9 @@ if ! find "$B" -name '*.html' 2>/dev/null | grep -q .; then fail "built HTML pre
 elif grep -rlE 'fonts\.googleapis|fonts\.gstatic|cdn\.webforj' "$B" --include='*.html' 2>/dev/null | grep -q .; then fail "no Google Fonts or CDN host"; else pass "no Google Fonts or CDN host"; fi
 bad=$(grep -oE '<link [^>]*>' "$I" | grep 'href=' | grep -vE 'href="/Courses/|rel="(canonical|alternate)"' || true)
 if [ -z "$bad" ]; then pass "link hrefs local or canonical/alternate"; else fail "non-local link hrefs: $bad"; fi
+# Every built page: no <link> or <script> loads from another host.
+bad=$(grep -rhoE '<(link|script)[^>]*>' "$B" --include='*.html' 2>/dev/null | grep -E '(href|src)="(https?:)?//' | grep -vE 'rel="(canonical|alternate)"' | sort -u || true)
+if [ -z "$bad" ]; then pass "no external link or script tags in built HTML"; else fail "external link/script tags: $bad"; fi
 
 SEC=headers
 for f in docs/src/theme/MDXComponents.js docs/src/components/DocsTools/ExpandableCode/index.js docs/src/components/DocsTools/TableWrapper/index.js docs/src/css/_alerts.scss docs/src/css/_navbar.scss; do
