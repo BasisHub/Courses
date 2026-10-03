@@ -38,7 +38,7 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 ### DWC Book Relocation
 
 - [ ] **DWC-01**: All DWC-Course chapters appear under `/Courses/docs/dwc/` with unchanged text (pure relocation commit), flat numbered chapters, overview first
-- [ ] **DWC-02**: DWC images live colocated in each chapter's `img/` with kebab-case names, rendered as plain Markdown images; the rename map is committed as data in `tools/data/`
+- [x] **DWC-02**: DWC images live colocated in each chapter's `img/` with kebab-case names, rendered as plain Markdown images; the rename map is committed as data in `tools/data/`
 - [ ] **DWC-03**: DWC samples are downloadable from `static/files/dwc/` and present as plain source in `examples/dwc/`, kept in sync by script (LICENSE and README kept)
 - [x] **DWC-04**: Old DWC-Course `build/` and `sitemap.xml` are snapshotted before the move as input for redirects
 
@@ -142,7 +142,7 @@ Populated 2026-10-03 during roadmap creation.
 | COMP-06 | Phase 3 | Complete |
 | SITE-05 | Phase 3 | Complete |
 | DWC-01 | Phase 4 | Pending |
-| DWC-02 | Phase 4 | Pending |
+| DWC-02 | Phase 4 | Complete |
 | DWC-03 | Phase 4 | Pending |
 | DWC-04 | Phase 4 | Complete |
 | CONV-01 | Phase 5 | Pending |
