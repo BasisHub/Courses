@@ -53,7 +53,11 @@ check "35 BBj classes" node -e 'process.exit(require("./docs/src/prism/bbj-class
 if [ -f tools/data/bbj-token-verification.md ]; then pass "token verification record"; else fail "token verification record"; fi
 
 SEC=comp01
-if grep -q "No admonition component found" "$LOG" 2>/dev/null; then fail "no unknown admonition warning"; else pass "no unknown admonition warning"; fi
+if [ "$BUILD" -eq 1 ]; then
+  if grep -q "No admonition component found" "$LOG" 2>/dev/null; then fail "no unknown admonition warning"; else pass "no unknown admonition warning"; fi
+else
+  echo "SKIP  [$SEC] no unknown admonition warning (needs the build log; run without --no-build)"
+fi
 has "$H" 'alert--exercise' && pass "alert--exercise rendered" || fail "alert--exercise rendered"
 count_is "$H" 'Try it yourself' ge 2 && pass "two Try it yourself titles" || fail "two Try it yourself titles"
 hasf "$CFG" "keywords: ['exercise']" && pass "exercise keyword in config" || fail "exercise keyword in config"
@@ -99,7 +103,11 @@ if grep -qE '^[[:space:]]*//[[:space:]]*algolia' "$CFG" && ! grep -qE '^[[:space
 
 SEC=unlisted
 hasf "$H" 'noindex' && pass "fixture has noindex" || fail "fixture has noindex"
-if grep -q authoring "$B/sitemap.xml" "$B/llms.txt" "$B/llms-full.txt" 2>/dev/null; then fail "authoring absent from sitemap and llms"; else pass "authoring absent from sitemap and llms"; fi
+for f in "$B/sitemap.xml" "$B/llms.txt" "$B/llms-full.txt"; do
+  if [ ! -f "$f" ]; then fail "missing $f"
+  elif grep -q authoring "$f"; then fail "authoring absent from $f"
+  else pass "authoring absent from $f"; fi
+done
 
 SEC=site05
 I=$B/index.html
@@ -114,7 +122,8 @@ file docs/static/img/social-cover.png 2>/dev/null | grep -q '1200 x 630' && pass
 if has docs/static/img/basis-logo.svg 'BCC9D2' && ! has docs/static/img/basis-logo.svg '26446B'; then pass "logo colors"; else fail "logo colors"; fi
 
 SEC=hosts
-if grep -rlE 'fonts\.googleapis|fonts\.gstatic|cdn\.webforj' "$B" --include='*.html' 2>/dev/null | grep -q .; then fail "no Google Fonts or CDN host"; else pass "no Google Fonts or CDN host"; fi
+if ! find "$B" -name '*.html' 2>/dev/null | grep -q .; then fail "built HTML present for host checks"
+elif grep -rlE 'fonts\.googleapis|fonts\.gstatic|cdn\.webforj' "$B" --include='*.html' 2>/dev/null | grep -q .; then fail "no Google Fonts or CDN host"; else pass "no Google Fonts or CDN host"; fi
 bad=$(grep -oE '<link [^>]*>' "$I" | grep 'href=' | grep -vE 'href="/Courses/|rel="(canonical|alternate)"' || true)
 if [ -z "$bad" ]; then pass "link hrefs local or canonical/alternate"; else fail "non-local link hrefs: $bad"; fi
 
