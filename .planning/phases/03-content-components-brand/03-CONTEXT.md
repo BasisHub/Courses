@@ -53,7 +53,7 @@ Book content (Phases 4 to 6) is not part of this phase.
   - **known BBj class names** (BBjWindow, BBjButton, BBjAPI, ...) as `class-name`, from a list generated from the BBj docs MCP
   - the keywords missing from Prism's list, taken from the seed §6.4 list, e.g. `next`, `wait`, `open`, `close`, `input`, `new`, `cast`, `write`, `release`, `extends`. Each one is verified with `bbj_reserved_word` / `bbj_lookup`, never guessed.
   - Method calls keep the base `function` token.
-- **D-15:** **Claude prepares the upstream PrismJS PR; Stephan submits it** under his account. The phase produces a ready patch against `PrismJS/prism` (v2 `src/languages/bbj.js`, plus the 1.x component if applicable), with tests or examples in Prism's format and PR text, stored under `.planning/` or a fork branch. Nothing is pushed to PrismJS from this repo's automation.
+- **D-15:** [informational] **Superseded 2026-10-03:** Stephan is preparing the upstream PrismJS PR himself, in parallel. This phase produces **no** upstream patch, Prism-format tests or PR text. Keep Prism effort minimal: the local extension (D-13/D-14) only needs to satisfy success criterion 2 and the verified token lists in 03-RESEARCH.md "BBj MCP Verification"; a short `tools/test-bbj-grammar.js` smoke test is enough. Findings worth upstreaming (e.g. `not` in the base `operator`, the backslash string escape) go in one note in the phase SUMMARY for Stephan, nothing more.
 
 ### Claude's Discretion
 - Exercise admonition details beyond the seed (DWC success palette, "Try it yourself" label, all default admonition keywords re-listed): icon, whether the title can be overridden, and spacing.
