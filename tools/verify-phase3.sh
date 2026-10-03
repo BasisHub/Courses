@@ -88,6 +88,8 @@ count_is "$H" 'expandable-code--collapsed' eq 2 && pass "exactly 2 collapsed blo
 # "all lines are in the DOM" as the proxy for "copy copies everything".
 count_is "$H" 'class="prism-code' ge 4 && pass "at least 4 rendered code blocks" || fail "at least 4 rendered code blocks"
 hasf "$H" 'line41' && pass "collapsed block keeps all lines in DOM" || fail "collapsed block keeps all lines in DOM"
+# The 41-line `noCollapse` fence renders; the "exactly 2" count above proves it stays open.
+hasf "$H" 'open41' && pass "noCollapse fence rendered" || fail "noCollapse fence rendered"
 
 SEC=comp05
 hasf "$H" 'tabs__item' && pass "tabs" || fail "tabs"

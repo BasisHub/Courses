@@ -6,7 +6,9 @@ export const COLLAPSE_AFTER_LINES = 40;
 
 export default function CodeBlockWrapper(props) {
   const {noCollapse, ...rest} = props;
-  if (noCollapse || typeof rest.children !== 'string') {
+  // Fences opt out in Markdown with ```lang noCollapse.
+  const metaNoCollapse = /\bnoCollapse\b/.test(rest.metastring ?? '');
+  if (noCollapse || metaNoCollapse || typeof rest.children !== 'string') {
     return <CodeBlock {...rest} />;
   }
   const lineCount = rest.children.replace(/\n$/, '').split('\n').length;
