@@ -6,7 +6,7 @@ import books from '../data/books';
 
 export default function Home() {
   return (
-    <Layout title="Home" description="Training books for BBj and DWC developers.">
+    <Layout description="Training books for BBj and DWC developers.">
       <main className="container margin-vert--xl">
         <Heading as="h1">BASIS Training Books</Heading>
         <p className="margin-bottom--lg">Pick a book and start reading.</p>
