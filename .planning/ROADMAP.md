@@ -86,7 +86,7 @@ Plans:
 
 **Wave 3** *(blocked on Waves 1-2)*
 
-- [ ] 02-05-PLAN.md — Preflight, confirm checkpoint, create public BasisHub/Courses, enable Pages, push, live deep-URL check
+- [x] 02-05-PLAN.md — Preflight, confirm checkpoint, create public BasisHub/Courses, enable Pages, push, live deep-URL check
 
 **Wave 4** *(blocked on 02-05)*
 
@@ -186,7 +186,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
-| 2. Repo Hygiene & CI | 4/6 | In Progress|  |
+| 2. Repo Hygiene & CI | 5/6 | In Progress|  |
 | 3. Content Components & Brand | 0/TBD | Not started | - |
 | 4. DWC Book Relocation | 0/TBD | Not started | - |
 | 5. Intro-BBj Conversion | 0/TBD | Not started | - |
