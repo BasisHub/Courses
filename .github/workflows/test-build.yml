@@ -32,4 +32,6 @@ jobs:
 
       - run: npm ci
 
+      - run: python3 ../tools/sync-samples.py --check
+
       - run: npm run build
