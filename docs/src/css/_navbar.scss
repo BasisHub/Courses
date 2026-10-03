@@ -144,12 +144,6 @@
     }
   }
 
-  @media (max-width: 1260px) {
-    .theme-layout-navbar-left .navbar__item:nth-last-child(-n + 2) {
-      display: none;
-    }
-  }
-
   @media (max-width: 996px) {
     div:has(.DocSearch-Button) {
       position: static;
