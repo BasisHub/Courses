@@ -5,7 +5,9 @@ level: warning
 ignorecase: true
 action:
   name: replace
+# The lookbehind is the set {#, /, -} (hyphen last), not a character range.
+# BASIS terms (BBj, DWC, ...) get their casing from Vale.Terms via accept.txt.
 swap:
-  '(?<![\#-/])webforj(?![-/])': webforJ
-  '(?<![\#-/])startforj(?![-/])': startforJ
-  '(?<![\#-/])craftforj(?![-/])': craftforJ
+  '(?<![#/-])webforj(?![-/])': webforJ
+  '(?<![#/-])startforj(?![-/])': startforJ
+  '(?<![#/-])craftforj(?![-/])': craftforJ
