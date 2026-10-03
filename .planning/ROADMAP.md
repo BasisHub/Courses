@@ -71,7 +71,26 @@ Plans:
   2. A PR runs the site build without deploying, and a PR containing a deliberate Vale violation in an `.mdx` file fails the Vale check
   3. `CLAUDE.md`, `CONTRIBUTING.md`, `.editorconfig` and `THIRD_PARTY_NOTICES.md` exist, and copied webforJ files carry their MIT headers
 
-**Plans**: TBD
+**Plans**: 6 plans
+
+Plans:
+**Wave 1**
+
+- [ ] 02-01-PLAN.md — Pinned lint-tool installer, tools/verify-phase2.sh harness, Vale config with Google + BASIS styles and BBj vocabulary
+- [ ] 02-02-PLAN.md — Move migration-seed.md into .planning/ with reference updates; rewrite CLAUDE.md from seed section 7 with slim GSD blocks
+- [ ] 02-03-PLAN.md — .editorconfig, MIT header audit, THIRD_PARTY_NOTICES.md with licence texts, staff-only CONTRIBUTING.md
+
+**Wave 2** *(blocked on 02-01)*
+
+- [ ] 02-04-PLAN.md — deploy.yml, test-build.yml, reviewdog.yml (verified action pins, least privilege) and tools/data/ruleset-main.json
+
+**Wave 3** *(blocked on Waves 1-2)*
+
+- [ ] 02-05-PLAN.md — Preflight, confirm checkpoint, create public BasisHub/Courses, enable Pages, push, live deep-URL check
+
+**Wave 4** *(blocked on 02-05)*
+
+- [ ] 02-06-PLAN.md — Confirm checkpoint, throwaway Vale probe PRs (in-diff and file mode), main ruleset with admin bypass, cleanup, full verify
 
 ### Phase 3: Content Components & Brand
 
@@ -167,7 +186,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
-| 2. Repo Hygiene & CI | 0/TBD | Not started | - |
+| 2. Repo Hygiene & CI | 0/6 | Planned | - |
 | 3. Content Components & Brand | 0/TBD | Not started | - |
 | 4. DWC Book Relocation | 0/TBD | Not started | - |
 | 5. Intro-BBj Conversion | 0/TBD | Not started | - |
