@@ -55,8 +55,10 @@ export default function extendBbj(Prism, classes) {
     'class-name': classPattern,
   });
 
-  // (3) Variables with $ ! % suffix.
-  Prism.languages.insertBefore('bbj', 'function', {
+  // (3) Variables with $ ! % suffix. They go in front of `keyword`, because the
+  // keyword regex ends in \b, which also matches before $ ! %: without this,
+  // `list!` or `input$` would split into a keyword and a stray suffix.
+  Prism.languages.insertBefore('bbj', 'keyword', {
     variable: /\b[A-Za-z_]\w*[$!%]/,
   });
 

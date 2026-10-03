@@ -93,6 +93,12 @@ const hexToks = flat(hex);
 check('hex-string $0a$', hexToks.some((t) => t.type === 'hex-string' && t.text === '$0a$'));
 check('hex-string is not a variable', !hexToks.some((t) => t.type === 'variable'));
 
+// A keyword used as the stem of a suffixed variable stays one variable token.
+const stemToks = flat(Prism.tokenize('list! = new BBjVector()\ninput$ = start$ + end$\nto! = 1', Prism.languages.bbj));
+for (const v of ['list!', 'input$', 'start$', 'end$', 'to!'])
+  check(`variable ${v} with keyword stem`, stemToks.some((t) => t.type === 'variable' && t.text === v));
+check('keyword stem is not a keyword', !stemToks.some((t) => t.type === 'keyword' && ['list', 'input', 'start', 'end', 'to'].includes(t.text)));
+
 const cnRe = new RegExp(reOf(Prism.languages.bbj['class-name']).source);
 check('class-name matches BBjVector', cnRe.test('BBjVector'));
 check('class-name skips BBjGridExWidget', !cnRe.test('BBjGridExWidget'));
