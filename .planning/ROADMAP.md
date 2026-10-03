@@ -38,7 +38,13 @@ Research suggested 10 phases; standard granularity calls for 5-8. Merges made:
   4. Deliberately introducing a broken link, anchor, Markdown link and Markdown image each makes `npm run build` fail
   5. `sitemap.xml` and `llms.txt`/`llms-full.txt` list both stub books under `/Courses/`, and printing a page hides navbar, sidebar and TOC
   6. `import/` is gitignored, and the lockfile plus exact Docusaurus 3.10.2 pins are committed (with `tools/requirements.txt`)
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Repo hygiene, exact-pinned npm install with legitimacy checkpoint, lockfile, Python pins, webforJ reference clone (wave 1)
+- [ ] 01-02-PLAN.md — webforJ SCSS transplant, book-icon and print partials, theme switcher and link decorator, vendored dwc-ui.css (wave 2)
+- [ ] 01-03-PLAN.md — books.js registry, docusaurus.config.js with throwing gates and baseUrl constant, sidebars, landing page, two stub books (wave 2)
+- [ ] 01-04-PLAN.md — First build, tools/prove-gates.sh, tools/verify-phase1.sh with npm ci rebuild, end-of-phase human check (wave 3)
 **UI hint**: yes
 
 ### Phase 2: Repo Hygiene & CI
@@ -126,7 +132,7 @@ Research suggested 10 phases; standard granularity calls for 5-8. Merges made:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Site Scaffold & Quality Gates | 0/TBD | Not started | - |
+| 1. Site Scaffold & Quality Gates | 0/4 | Planned | - |
 | 2. Repo Hygiene & CI | 0/TBD | Not started | - |
 | 3. Content Components & Brand | 0/TBD | Not started | - |
 | 4. DWC Book Relocation | 0/TBD | Not started | - |
