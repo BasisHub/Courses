@@ -10,7 +10,9 @@ level: warning
 # - optimize "x"
 # - "x" user experience
 # - improve (for performance)
+# Vale concatenates the raw items into one regex and adds no word boundaries,
+# so each alternative carries its own \b and starts with "|" after the first.
 raw:
-  - (?:enhanc|ensur|optimiz|crucial for)(?:e|ed|es|ing)? (the user |the |user )?\w+( and \w+)?|
-  - improv(?:e|ed|es|ing) (the )?(?:performance|scalability)|
-  - \w+ user experience
+  - '\b(?:(?:enhanc|ensur|optimiz)(?:e|ed|es|ing)|crucial for) (?:the user |the |user )?\w+(?: and \w+)?\b'
+  - '|\bimprov(?:e|ed|es|ing) (?:the )?(?:performance|scalability)\b'
+  - '|\b\w+ user experience\b'
