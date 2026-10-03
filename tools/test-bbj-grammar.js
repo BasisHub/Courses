@@ -5,6 +5,8 @@ const path = require('path');
 const vm = require('vm');
 
 const docsDir = path.join(__dirname, '..', 'docs');
+// prismjs is an exact devDependency of docs/ (the same package theme-classic
+// loads prism-bbj from), so this resolves without relying on npm hoisting.
 const req = (id) => require(require.resolve(id, {paths: [docsDir]}));
 const Prism = req('prismjs');
 req('prismjs/components/prism-bbj');
