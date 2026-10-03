@@ -4,10 +4,11 @@ message: "'%s' is a common AI filler word. Use plainer, more specific wording."
 link: "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
 level: warning
 ignorecase: true
+# webforJ's 'underscor*' tokens are left out: "underscores" is a common noun in a
+# programming course (identifiers, CSS classes, file names), and the rule cannot
+# tell it from the filler verb.
 tokens:
   - 'delv(?:e|es|ed|ing)'
   - 'intricate'
   - 'interplay'
   - 'tapestry'
-  - 'underscor(?:es|ed|ing)'
-  - 'underscore the'
