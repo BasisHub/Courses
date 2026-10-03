@@ -113,6 +113,11 @@ section_vale() {
   rm -f "$PROBE"
   if [ "$rc" -ne 0 ] && echo "$out" | grep -q 'BASIS.AIArtifacts'; then pass "probe oaicite fails with BASIS.AIArtifacts"
   else fail "probe oaicite fails with BASIS.AIArtifacts (rc=$rc)"; fi
+  printf -- '---\ntitle: Vale probe\n---\n\n## Probe\n\nUse WebforJ with BBJ here.\n' > "$PROBE"
+  out="$("$VALE" "$PROBE" 2>&1)"; rc=$?
+  rm -f "$PROBE"
+  if [ "$rc" -ne 0 ] && echo "$out" | grep -q 'Vale\.Avoid' && echo "$out" | grep -q 'Vale\.Terms'; then pass "probe vocab fails with Vale.Avoid and Vale.Terms"
+  else fail "probe vocab fails with Vale.Avoid and Vale.Terms (rc=$rc)"; fi
   local f
   for f in CONTRIBUTING.md CLAUDE.md; do
     if [ -f "$f" ]; then
