@@ -1,4 +1,4 @@
-# Moodle course converter (Phase 5)
+# Moodle course converter (Phase 5). Direct deps plus six (markdownify needs six>=1.15,<2); not a full freeze, soupsieve etc. float.
 beautifulsoup4==4.15.0
 lxml==6.1.3
 markdownify==1.2.3
