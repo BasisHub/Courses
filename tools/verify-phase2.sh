@@ -271,7 +271,7 @@ section_gates() {
       if echo "$checks" | grep -qxF 'Test build (no deploy)=success'; then pass "$b: Test build = success"; else fail "$b: Test build = success"; fi
     fi
   done
-  if gh run list -R $REPO -w deploy.yml --json headBranch -q '.[].headBranch' 2>/dev/null | grep -q '^ci-probe/'; then fail "no deploy run from ci-probe/ branches"; else pass "no deploy run from ci-probe/ branches"; fi
+  if gh run list -R $REPO -w deploy.yml -L 1000 --json headBranch -q '.[].headBranch' 2>/dev/null | grep -q '^ci-probe/'; then fail "no deploy run from ci-probe/ branches"; else pass "no deploy run from ci-probe/ branches"; fi
   for b in ci-probe%2Fvale-error ci-probe%2Ffile-mode-base ci-probe%2Ffile-mode-head; do
     if gh api "repos/$REPO/branches/$b" >/dev/null 2>&1; then fail "probe branch deleted: $b"; else pass "probe branch deleted: $b"; fi
   done
