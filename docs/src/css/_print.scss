@@ -64,9 +64,16 @@
     display: none !important;
   }
 
+  // The video prints as one line (title and URL) in both facade states.
   .youtube-facade__button,
+  .youtube-facade__consent,
+  .youtube-facade__link,
   .youtube-facade iframe {
     display: none !important;
+  }
+
+  .youtube-facade--playing {
+    aspect-ratio: auto !important;
   }
 
   .youtube-facade__print {

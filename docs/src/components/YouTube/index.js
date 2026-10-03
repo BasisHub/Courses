@@ -35,6 +35,7 @@ export default function YouTube({id, title}) {
           allowFullScreen
           referrerPolicy="strict-origin-when-cross-origin"
         />
+        <p className="youtube-facade__print">{title + ': ' + watchUrl}</p>
       </figure>
     );
   }
@@ -54,7 +55,7 @@ export default function YouTube({id, title}) {
       <p className="youtube-facade__consent">
         Plays from YouTube (youtube-nocookie.com). Loading the video sends data to Google.
       </p>
-      <a href={watchUrl} rel="noopener noreferrer">
+      <a className="youtube-facade__link" href={watchUrl} rel="noopener noreferrer">
         Watch on YouTube
       </a>
       <p className="youtube-facade__print">{title + ': ' + watchUrl}</p>
