@@ -1,6 +1,10 @@
 /* Copied from webforj/webforj-documentation and modified (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
    Local changes: removed the webforJ-specific .cat-icon--* rules (docs and
-   cookbook categories); the shared category and experimental mixins are kept. */
+   cookbook categories); the shared category and experimental mixins are kept.
+   Status: nothing in this site emits .cat-icon or .experimental-content yet, so
+   these rules currently match nothing. They are kept on purpose for chapter
+   category icons (className "cat-icon cat-icon--<name>" in _category_.json plus a
+   matching _icon() rule). Drop the two @includes in _sidebar.scss if that plan is abandoned. */
 @mixin _icon($name) {
   $url: url("../../node_modules/@tabler/icons/icons/outline/#{$name}.svg");
   -webkit-mask-image: $url;
