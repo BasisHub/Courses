@@ -140,7 +140,26 @@ Plans:
   3. Reader can download each DWC sample from `static/files/dwc/`, and the plain sources sit in `examples/dwc/`, kept in sync by a script
   4. The old DWC-Course `build/` and `sitemap.xml` are snapshotted (in `tools/data/`) before the move, as redirect input
 
-**Plans**: TBD
+**Plans**: 6 plans
+
+Plans:
+**Wave 1**
+
+- [ ] 04-01-PLAN.md — Snapshot old DWC-Course routes and anchors (first commit), route/sidebar and anchor checkers
+- [ ] 04-02-PLAN.md — Samples as plain source in docs/examples/dwc, reproducible ZIPs via tools/sync-samples.py, CI drift check, PrismJS notice
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 04-03-PLAN.md — Commit 1: pure relocation from 965da6d, rebuilt overview, colocated images and rename map, stub removed, gate scripts repointed
+- [ ] 04-04-PLAN.md — bbj_check_syntax report for the 44 DWC samples (D-20, needs the BBj MCP)
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
+- [ ] 04-05-PLAN.md — Commit 2: normalization (H1, descriptions, fence languages, sidebar_position) and samples page downloads
+
+**Wave 4** *(blocked on Wave 3 completion)*
+
+- [ ] 04-06-PLAN.md — Commit 3: Vale error fixes with pinned anchors, tools/verify-phase4.sh, full suite
 
 ### Phase 5: Intro-BBj Conversion
 
