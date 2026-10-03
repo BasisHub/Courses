@@ -13,6 +13,8 @@ Copied or adapted files:
 - The SCSS partials under `docs/src/css/` and `docs/src/css/mixins/` that carry the header line `Copied from webforj/webforj-documentation`
 - `docs/src/theme/prism-dwc-theme.js`
 - `docs/src/theme/MDXComponents.js` (adapted)
+- `docs/src/components/DocsTools/ExpandableCode/` (adapted, MUI removed)
+- `docs/src/components/DocsTools/TableWrapper/` (adapted, MUI removed)
 - `docs/static/js/dwc-theme-switcher.js`
 - `docs/static/js/link-decorator.js`
 - `.vale.ini`
@@ -21,7 +23,7 @@ Copied or adapted files:
 - `.github/.styles/config/vocabularies/BASIS/` (vocabulary files cannot carry a header and are covered by this entry)
 - The structure of `CONTRIBUTING.md` is adapted from webforJ
 
-The header audit of the remaining site files (`docs/src/css/_print.scss`, `docs/src/css/_book-icons.scss`, `docs/src/plugins/mermaid-elk-stub.js`, `docs/src/clientModules/link-decorator.js`, `docs/src/data/books.js`, `docs/src/data/book-icons-css.js`, `docs/src/pages/index.js`) found no copied code, so they carry no header.
+The header audit of the remaining site files (`docs/src/css/_print.scss`, `docs/src/css/_book-icons.scss`, `docs/src/plugins/mermaid-elk-stub.js`, `docs/src/clientModules/link-decorator.js`, `docs/src/data/books.js`, `docs/src/data/book-icons-css.js`, `docs/src/pages/index.js`) found no copied code, so they carry no header. The same holds for `docs/src/theme/CodeBlock/index.js`, `docs/src/theme/Admonition/Types.js`, `docs/src/theme/prism-include-languages.js`, `docs/src/prism/bbj-extend.js` and `docs/src/components/YouTube/`, which are original BASIS code.
 
 ## Google style for Vale
 

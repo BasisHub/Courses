@@ -5,6 +5,8 @@ import DocCardList from '@theme/DocCardList';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import YouTube from '@site/src/components/YouTube';
+import ExpandableCode from '@site/src/components/DocsTools/ExpandableCode';
+import TableWrapper from '@site/src/components/DocsTools/TableWrapper';
 
 export default {
   ...MDXComponents,
@@ -12,4 +14,6 @@ export default {
   Tabs,
   TabItem,
   YouTube,
+  ExpandableCode,
+  table: TableWrapper,
 };
