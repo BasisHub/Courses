@@ -61,10 +61,10 @@ for b in intro-bbj dwc; do
 done
 n=$(grep -o 'navbar-book' "$INDEX" 2>/dev/null | wc -l | tr -d ' ')
 if [ "${n:-0}" -ge 2 ]; then pass "navbar has book items ($n)"; else fail "navbar has book items ($n)"; fi
-check "dwc sidebar lists own chapter" grep -q '/Courses/docs/dwc/first-chapter' "$BUILD/docs/dwc/overview.html"
+check "dwc sidebar lists own chapter" grep -q '/Courses/docs/dwc/gui-to-bui-to-dwc' "$BUILD/docs/dwc/overview.html"
 check "dwc sidebar omits intro-bbj chapter" bash -c "test -f '$BUILD/docs/dwc/overview.html' && ! grep -q '/Courses/docs/intro-bbj/getting-started' '$BUILD/docs/dwc/overview.html'"
 check "intro-bbj sidebar lists own chapter" grep -q '/Courses/docs/intro-bbj/getting-started' "$BUILD/docs/intro-bbj/overview.html"
-check "intro-bbj sidebar omits dwc chapter" bash -c "test -f '$BUILD/docs/intro-bbj/overview.html' && ! grep -q '/Courses/docs/dwc/first-chapter' '$BUILD/docs/intro-bbj/overview.html'"
+check "intro-bbj sidebar omits dwc chapter" bash -c "test -f '$BUILD/docs/intro-bbj/overview.html' && ! grep -q '/Courses/docs/dwc/gui-to-bui-to-dwc''$BUILD/docs/intro-bbj/overview.html'"
 
 # 3. Served smoke
 up=0
@@ -84,7 +84,7 @@ fi
 if [ "$up" -eq 1 ]; then
   pass "server up on port $PORT"
   for p in /Courses/ /Courses/docs/intro-bbj/overview /Courses/docs/dwc/overview \
-           /Courses/docs/dwc/first-chapter/sample-page /Courses/js/dwc-theme-switcher.js \
+           /Courses/docs/dwc/gui-to-bui-to-dwc/registering-launching /Courses/js/dwc-theme-switcher.js \
            /Courses/js/link-decorator.js /Courses/css/dwc-ui.css; do
     code=$(curl -fsS -o /dev/null -w '%{http_code}' "$BASE$p" 2>/dev/null)
     if [ "$code" = "200" ]; then pass "GET $p 200"; else fail "GET $p ($code)"; fi
@@ -136,9 +136,9 @@ if [ -x "$CHROME" ] && [ -x "$PDFTOTEXT" ] && [ "$up" -eq 1 ]; then
   pdfdir="$(mktemp -d "${TMPDIR:-/tmp}/verify-phase1.XXXXXX")"
   pdf="$pdfdir/out.pdf"
   "$CHROME" --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf="$pdf" \
-    "$BASE/Courses/docs/dwc/first-chapter/sample-page" >/dev/null 2>&1
+    "$BASE/Courses/docs/dwc/gui-to-bui-to-dwc/registering-launching" >/dev/null 2>&1
   txt=$("$PDFTOTEXT" "$pdf" - 2>/dev/null)
-  if grep -q 'First steps' <<<"$txt" && ! grep -qE 'BBj Basics|On this page|Edit this page' <<<"$txt"; then
+  if grep -q 'Registering Apps for the Web' <<<"$txt" && ! grep -qE 'BBj Basics|On this page|Edit this page' <<<"$txt"; then
     pass "print output has content and no chrome"
   else
     fail "print output has content and no chrome"

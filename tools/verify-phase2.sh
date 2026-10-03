@@ -9,7 +9,7 @@ cd "$(dirname "$0")/.." || exit 1
 
 REPO=BasisHub/Courses
 SITE=https://basishub.github.io/Courses
-DEEP="$SITE/docs/dwc/first-chapter/sample-page"
+DEEP="$SITE/docs/dwc/gui-to-bui-to-dwc/registering-launching"
 PROBE=docs/docs/dwc/99-vale-probe.mdx
 D08_PROBE=".vale-d08-probe-$$.md"   # repo root, next to CONTRIBUTING.md and CLAUDE.md
 FAILS=0

@@ -23,7 +23,7 @@ probe() {
 }
 
 probe "broken link fails build" '[x](/docs/does-not-exist)' 'found broken links'
-probe "broken anchor fails build" '[x](./01-first-chapter/01-sample-page.md#no-such-anchor)' 'found broken anchors'
+probe "broken anchor fails build" '[x](./01-gui-to-bui-to-dwc/01-registering-launching.md#no-such-anchor)' 'found broken anchors'
 probe "broken Markdown link fails build" '[x](./no-such-file.md)' 'onBrokenMarkdownLinks'
 probe "broken Markdown image fails build" '![x](./img/no-such-image.png)' 'onBrokenMarkdownImages'
 
