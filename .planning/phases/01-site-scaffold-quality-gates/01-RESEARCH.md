@@ -517,19 +517,26 @@ docs/docs/dwc/01-<chapter>/01-<page>.md   H2, a bbj fence, an internal md link a
 | A3 | Redistributing the `dwc-ui.css` snapshot in this repo is acceptable (public CDN file of the same product family as the MIT webforJ docs repo; no explicit licence header found in the file) | Standard Stack / D-10 | Low-medium; ask Stephan to confirm the licence stance, record it in Phase 2 `THIRD_PARTY_NOTICES.md` |
 | A4 | CI Node 24 will behave like local Node 22 for this scaffold | Standard Stack | Low; verified only on Node 22.22.0, CI is Phase 2 |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Does the `@mermaid-js/layout-elk` workaround survive a future 3.10.x patch?**
    - Known: alias to `false` works on 3.10.2; a fixed release would make the stub a harmless no-op.
    - Recommendation: keep the stub in `src/plugins/` with a comment and revisit on any Docusaurus bump. If a bump lands without the bug, delete the plugin.
+   - RESOLVED: 01-03 Task 1 creates `docs/src/plugins/mermaid-elk-stub.js` (aliases `@mermaid-js/layout-elk` to `false`) and registers it in `plugins`, with a comment to revisit on any Docusaurus bump.
 2. **Should the link decorator skip internal links?**
    - Known: upstream decorates all text-only links, so internal links show `↗`; D-12 wants the decorator "working".
    - Recommendation: ship upstream behaviour in Phase 1, flag in the human review; if Stephan dislikes arrows on internal links, a one-line change (`a[href^="http"]` filter in `link-decorator.js`) is the fix, noted as a deliberate deviation from "copy verbatim".
+   - RESOLVED: upstream `link-decorator.js` ships as-is (copied verbatim in 01-02); the arrows on internal links are flagged in the 01-04 end-of-phase human check, where Stephan decides whether to apply the one-line filter later.
 3. **Intro text and card blurbs (D-05).**
    - Source material is reachable: the Moodle course-2 backup unpacks in scratch space and `course/course.xml` holds the summary: "This course is for all who know how to write software in some programming language like Java, C#, or others, and who want to quickly navigate BBj to write for the GUI or for the browser. It explains the very first steps for setting up the development environment and then builds all the basic knowledge that a developer should know to successfully develop in BBj." (fullname "Introduction to BBj Development", shortname "BBj Development Basics"). DWC source: `DWC-Course/docs/index.md` + Hero: "A comprehensive 12-chapter course to master the Dynamic Web Client, from first concepts to production deployment." (tagline "Dynamic Web Client Training Course").
    - Draft (Vale-clean, direct, second person; Stephan reviews): intro-bbj: "You already write software in another language. Learn to set up BBj and build GUI and browser applications with it." dwc: "Build modern browser applications with the Dynamic Web Client, from first concepts to deployment." Intro line: "Pick a book and start reading."
    - Do NOT unpack the `.mbz` into `import/` and commit anything from it; the summary text above is enough, no archive access is needed at execution time.
+   - RESOLVED: 01-03 uses the drafted intro line and card blurbs above verbatim in `books.js`/landing page; Stephan reviews the copy in the 01-04 human check.
 4. **`ubuntu-slim` etc.** are Phase 2; not relevant here.
+4. **`ubuntu-slim` etc.** are Phase 2; not relevant here.
+   - RESOLVED: out of Phase 1 scope; handled by the Phase 2 CI plans.
+5. **`dwc-ui.css` licence stance (local snapshot served from `static/css/`).**
+   - RESOLVED: deferred to Phase 2, which records the snapshot and its source/licence in `THIRD_PARTY_NOTICES.md`; Phase 1 only snapshots the file locally (01-02/01-03) so no CDN request is made (SITE-04).
 
 ## Environment Availability
 
