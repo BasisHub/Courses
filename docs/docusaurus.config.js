@@ -4,6 +4,7 @@ const books = require('./src/data/books');
 const bookIconsCss = require('./src/data/book-icons-css');
 
 const baseUrl = '/Courses/';
+const year = new Date().getFullYear();
 
 /** @type {import('@docusaurus/types').Config} */
 module.exports = {
@@ -31,6 +32,10 @@ module.exports = {
       attributes: {id: 'book-icons'},
       innerHTML: bookIconsCss(),
     },
+    {
+      tagName: 'link',
+      attributes: {rel: 'icon', type: 'image/png', sizes: '32x32', href: `${baseUrl}img/favicon-32.png`},
+    },
   ],
   markdown: {
     mermaid: true,
@@ -46,6 +51,7 @@ module.exports = {
         docs: {
           routeBasePath: 'docs',
           sidebarPath: require.resolve('./sidebars.js'),
+          admonitions: {keywords: ['exercise']},
           editUrl: 'https://github.com/BasisHub/Courses/tree/main/docs/',
         },
         blog: false,
@@ -75,11 +81,27 @@ module.exports = {
         includeBlog: false,
         title: 'BASIS Courses',
         description: 'Training books for BBj and DWC developers.',
+        // docs/docs/authoring is the unlisted component fixture (D-11).
+        ignoreFiles: ['authoring/**'],
       },
     ],
     ['@docusaurus/plugin-client-redirects', {redirects: []}],
+    'docusaurus-plugin-zooming',
   ],
-  themes: ['@docusaurus/theme-mermaid'],
+  themes: [
+    '@docusaurus/theme-mermaid',
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        indexBlog: false,
+        indexPages: false,
+        docsRouteBasePath: '/docs',
+        language: 'en',
+        explicitSearchResultPath: true,
+      },
+    ],
+  ],
   themeConfig: {
     colorMode: {respectPrefersColorScheme: true},
     // D-13: off
@@ -88,16 +110,41 @@ module.exports = {
     //   content: 'DWC-Course has moved here.',
     //   isCloseable: true,
     // },
+    // Local search is active. To switch to Algolia DocSearch, remove the search-local theme and uncomment:
+    // algolia: {
+    //   appId: 'YOUR_APP_ID',
+    //   apiKey: 'YOUR_SEARCH_API_KEY',
+    //   indexName: 'YOUR_INDEX_NAME',
+    //   contextualSearch: true,
+    // },
+    image: 'img/social-cover.png',
     navbar: {
-      title: 'BASIS Courses',
+      title: 'Courses',
+      logo: {alt: 'BASIS International', src: 'img/basis-logo.svg'},
       style: 'dark',
-      items: books.map((b) => ({
-        type: 'docSidebar',
-        sidebarId: `${b.id}Sidebar`,
-        label: b.navLabel,
-        position: 'left',
-        className: `navbar-book book-icon--${b.id}`,
-      })),
+      items: [
+        ...books.map((b) => ({
+          type: 'docSidebar',
+          sidebarId: `${b.id}Sidebar`,
+          label: b.navLabel,
+          position: 'left',
+          className: `navbar-book book-icon--${b.id}`,
+        })),
+        {type: 'search', position: 'right'},
+        {
+          href: 'https://github.com/BasisHub/Courses',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
+        },
+      ],
+    },
+    footer: {
+      links: [
+        {
+          html: `<p>Copyright © ${year} BASIS International Ltd. All rights reserved.</p>`,
+        },
+      ],
     },
     docs: {sidebar: {hideable: false, autoCollapseCategories: false}},
     prism: {

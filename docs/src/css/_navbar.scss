@@ -1,4 +1,5 @@
-/* Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt). */
+/* Copied from webforj/webforj-documentation and modified (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
+   Local change: no filter on the navbar logo; the BASIS logo is already reversed. */
   [data-theme='light'] .menu__list-item .header-github-link::before {
     filter: brightness(0);
   }
@@ -36,10 +37,6 @@
     background: var(--dwc-color-default);
     height: 1.75rem;
     width: 1px;
-    filter: brightness(0) invert(1);
-  }
-
-  .navbar__logo img {
     filter: brightness(0) invert(1);
   }
 
