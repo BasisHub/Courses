@@ -1,4 +1,4 @@
-// Copied from webforj/webforj-documentation and modified (MIT, (c) 2022 webforJ).
+// Copied from webforj/webforj-documentation and modified (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
 // Local changes: tryDecorate() no longer receives the DOM Event as its retry
 // count (upstream polled forever), and the non-existent `pushstate` listener is
 // gone. SPA route changes call window.tryDecorate() from the client module

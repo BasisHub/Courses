@@ -1,4 +1,4 @@
-// Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ).
+// Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
 // PrismJS theme using DWC CSS custom properties
 // Colors are defined via --dwc-code-* vars in custom.scss
 

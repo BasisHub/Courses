@@ -1,4 +1,4 @@
-// Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ).
+// Copied from webforj/webforj-documentation (MIT, (c) 2022 webforJ; see LICENSES/webforJ-MIT.txt).
 function updateAppTheme() {
   var html = document.documentElement;
   if (html.getAttribute('data-theme') === 'dark') {
