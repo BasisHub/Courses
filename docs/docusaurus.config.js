@@ -23,6 +23,7 @@ module.exports = {
     {src: `${baseUrl}js/dwc-theme-switcher.js`, async: false},
     {src: `${baseUrl}js/link-decorator.js`},
   ],
+  clientModules: [require.resolve('./src/clientModules/link-decorator.js')],
   stylesheets: [`${baseUrl}css/dwc-ui.css`],
   headTags: [
     {
