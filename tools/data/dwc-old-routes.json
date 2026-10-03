@@ -1,0 +1,1404 @@
+{
+  "source": "BasisHub/DWC-Course@965da6d",
+  "base": "/DWC-Course",
+  "total_locs": 28,
+  "content_routes": 27,
+  "anchor_count": 307,
+  "routes": [
+    {
+      "route": "/",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "ready-to-get-started"
+        }
+      ]
+    },
+    {
+      "route": "/advanced-responsive",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "sections"
+        },
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "media-queries"
+        },
+        {
+          "tag": "h2",
+          "id": "css-transitions"
+        },
+        {
+          "tag": "h2",
+          "id": "exercises"
+        }
+      ]
+    },
+    {
+      "route": "/advanced-responsive/media-queries",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "basic-syntax"
+        },
+        {
+          "tag": "h2",
+          "id": "common-media-features"
+        },
+        {
+          "tag": "h2",
+          "id": "breakpoint-strategy"
+        },
+        {
+          "tag": "h3",
+          "id": "mobile-first-approach-recommended"
+        },
+        {
+          "tag": "h3",
+          "id": "common-breakpoints"
+        },
+        {
+          "tag": "h2",
+          "id": "combining-conditions"
+        },
+        {
+          "tag": "h2",
+          "id": "example-in-bbj"
+        },
+        {
+          "tag": "h2",
+          "id": "testing-media-queries"
+        },
+        {
+          "tag": "h3",
+          "id": "in-browser-developer-tools"
+        },
+        {
+          "tag": "h2",
+          "id": "exercise-media-queries"
+        }
+      ]
+    },
+    {
+      "route": "/advanced-responsive/transitions",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "basic-syntax"
+        },
+        {
+          "tag": "h2",
+          "id": "transition-properties"
+        },
+        {
+          "tag": "h2",
+          "id": "timing-functions"
+        },
+        {
+          "tag": "h2",
+          "id": "common-use-cases"
+        },
+        {
+          "tag": "h3",
+          "id": "button-hover-effect"
+        },
+        {
+          "tag": "h3",
+          "id": "color-theme-transition"
+        },
+        {
+          "tag": "h3",
+          "id": "expanding-element"
+        },
+        {
+          "tag": "h2",
+          "id": "multiple-transitions"
+        },
+        {
+          "tag": "h2",
+          "id": "example-in-bbj"
+        },
+        {
+          "tag": "h2",
+          "id": "performance-considerations"
+        },
+        {
+          "tag": "h3",
+          "id": "properties-that-animate-well"
+        },
+        {
+          "tag": "h3",
+          "id": "properties-to-avoid-animating"
+        },
+        {
+          "tag": "h2",
+          "id": "exercise-transition-on-button"
+        }
+      ]
+    },
+    {
+      "route": "/browser-constraints",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "handling-client-files"
+        },
+        {
+          "tag": "h3",
+          "id": "file-uploads"
+        },
+        {
+          "tag": "h3",
+          "id": "file-downloads"
+        },
+        {
+          "tag": "h2",
+          "id": "printing-and-print-preview"
+        },
+        {
+          "tag": "h3",
+          "id": "printing-options"
+        },
+        {
+          "tag": "h3",
+          "id": "print-preview"
+        },
+        {
+          "tag": "h2",
+          "id": "security-constraints"
+        },
+        {
+          "tag": "h2",
+          "id": "local-storage"
+        },
+        {
+          "tag": "h2",
+          "id": "clipboard-access"
+        },
+        {
+          "tag": "h2",
+          "id": "best-practices"
+        }
+      ]
+    },
+    {
+      "route": "/browser-developer-tools",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "concepts-covered-in-this-chapter"
+        },
+        {
+          "tag": "h2",
+          "id": "sections"
+        }
+      ]
+    },
+    {
+      "route": "/browser-developer-tools/css-custom-properties",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "concepts-covered-in-this-section"
+        },
+        {
+          "tag": "h2",
+          "id": "the-dwcs-css-custom-properties"
+        },
+        {
+          "tag": "h3",
+          "id": "syntax"
+        },
+        {
+          "tag": "h3",
+          "id": "naming-convention"
+        },
+        {
+          "tag": "h3",
+          "id": "benefits"
+        },
+        {
+          "tag": "h3",
+          "id": "fallback-values"
+        },
+        {
+          "tag": "h2",
+          "id": "example-1---setting-custom-values-for-css-custom-properties"
+        },
+        {
+          "tag": "h3",
+          "id": "step-1-run-the-example"
+        },
+        {
+          "tag": "h3",
+          "id": "step-2-experiment"
+        },
+        {
+          "tag": "h3",
+          "id": "going-the-extra-mile"
+        },
+        {
+          "tag": "h2",
+          "id": "the-dwcs-app-themes"
+        },
+        {
+          "tag": "h3",
+          "id": "setting-themes"
+        },
+        {
+          "tag": "h3",
+          "id": "example-programs"
+        },
+        {
+          "tag": "h2",
+          "id": "example-2---setting-a-dwc-app-to-dark-mode"
+        },
+        {
+          "tag": "h2",
+          "id": "modifying-a-bbjcontrols-style-properties"
+        },
+        {
+          "tag": "h3",
+          "id": "method-1-setstyle-with-css"
+        },
+        {
+          "tag": "h3",
+          "id": "method-2-injectstyle-with-class"
+        },
+        {
+          "tag": "h3",
+          "id": "method-3-css-custom-properties"
+        },
+        {
+          "tag": "h3",
+          "id": "method-4-shadow-dom-parts"
+        },
+        {
+          "tag": "h2",
+          "id": "using-directives-to-inject-javascript-and-css-dynamically"
+        },
+        {
+          "tag": "h3",
+          "id": "reading-external-css-files"
+        },
+        {
+          "tag": "h2",
+          "id": "the-web-component-architecture-and-the-shadow-dom"
+        },
+        {
+          "tag": "h3",
+          "id": "what-are-web-components"
+        },
+        {
+          "tag": "h3",
+          "id": "dwc-vs-bui"
+        },
+        {
+          "tag": "h3",
+          "id": "why-shadow-dom"
+        },
+        {
+          "tag": "h3",
+          "id": "styling-shadow-dom-elements"
+        },
+        {
+          "tag": "h2",
+          "id": "font-size-compatibility"
+        },
+        {
+          "tag": "h3",
+          "id": "making-dwc-look-like-bui"
+        },
+        {
+          "tag": "h2",
+          "id": "example-3---font-sizes"
+        }
+      ]
+    },
+    {
+      "route": "/browser-developer-tools/developer-tools",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "section-files"
+        },
+        {
+          "tag": "h2",
+          "id": "concepts-covered-in-this-section"
+        },
+        {
+          "tag": "h2",
+          "id": "developer-tools-features"
+        },
+        {
+          "tag": "h2",
+          "id": "example-1---opening-the-browsers-developer-tools"
+        },
+        {
+          "tag": "h3",
+          "id": "step-1-run-the-program"
+        },
+        {
+          "tag": "h3",
+          "id": "step-2-open-developer-tools"
+        },
+        {
+          "tag": "h3",
+          "id": "step-3-configure-developer-tools"
+        },
+        {
+          "tag": "h3",
+          "id": "step-4-key-sections-to-know"
+        },
+        {
+          "tag": "h2",
+          "id": "example-2---modifying-a-dwc-app-in-the-developer-tools"
+        },
+        {
+          "tag": "h3",
+          "id": "step-1-find-and-modify-the-title-bar"
+        },
+        {
+          "tag": "h3",
+          "id": "step-2-change-title-color"
+        },
+        {
+          "tag": "h3",
+          "id": "step-3-enabledisable-styles"
+        },
+        {
+          "tag": "h3",
+          "id": "step-4-use-css-custom-properties"
+        },
+        {
+          "tag": "h2",
+          "id": "example-3---setting-css-styles-on-controls"
+        },
+        {
+          "tag": "h3",
+          "id": "step-1-set-color-in-code"
+        },
+        {
+          "tag": "h3",
+          "id": "step-2-use-css-custom-properties"
+        },
+        {
+          "tag": "h2",
+          "id": "going-the-extra-mile"
+        },
+        {
+          "tag": "h3",
+          "id": "change-background-color"
+        },
+        {
+          "tag": "h3",
+          "id": "button-background-considerations"
+        },
+        {
+          "tag": "h3",
+          "id": "complex-background-example"
+        },
+        {
+          "tag": "h2",
+          "id": "more-information-about-the-browsers-developer-tools"
+        },
+        {
+          "tag": "h3",
+          "id": "style-specificity"
+        },
+        {
+          "tag": "h3",
+          "id": "css-grid-visualization"
+        }
+      ]
+    },
+    {
+      "route": "/browser-developer-tools/dwc-themes",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "concepts-covered-in-this-section"
+        },
+        {
+          "tag": "h2",
+          "id": "light-and-dark-themes"
+        },
+        {
+          "tag": "h2",
+          "id": "example-1---adding-a-lightdark-mode-toggle"
+        },
+        {
+          "tag": "h3",
+          "id": "step-1-add-the-toggle-button"
+        },
+        {
+          "tag": "h3",
+          "id": "step-2-add-the-callback"
+        },
+        {
+          "tag": "h3",
+          "id": "step-3-test"
+        },
+        {
+          "tag": "h2",
+          "id": "the-dwc-themer"
+        },
+        {
+          "tag": "h3",
+          "id": "features"
+        },
+        {
+          "tag": "h3",
+          "id": "interface"
+        },
+        {
+          "tag": "h2",
+          "id": "example-2---creating-a-theme-in-the-dwc-themer"
+        },
+        {
+          "tag": "h3",
+          "id": "step-1-create-or-load-a-theme"
+        },
+        {
+          "tag": "h3",
+          "id": "step-2-apply-the-theme"
+        },
+        {
+          "tag": "h2",
+          "id": "theme-customization-examples"
+        }
+      ]
+    },
+    {
+      "route": "/browser-developer-tools/intro-to-css",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "what-is-css"
+        },
+        {
+          "tag": "h2",
+          "id": "how-to-use-css-selectors"
+        },
+        {
+          "tag": "h3",
+          "id": "css-type-selector"
+        },
+        {
+          "tag": "h3",
+          "id": "css-class-selector"
+        },
+        {
+          "tag": "h3",
+          "id": "css-id-selector"
+        },
+        {
+          "tag": "h2",
+          "id": "css-selector-combinators"
+        },
+        {
+          "tag": "h3",
+          "id": "comma-or"
+        },
+        {
+          "tag": "h3",
+          "id": "chaining-and"
+        },
+        {
+          "tag": "h3",
+          "id": "space-descendant"
+        },
+        {
+          "tag": "h3",
+          "id": "greater-than-direct-descendant"
+        },
+        {
+          "tag": "h2",
+          "id": "css-pseudo-classes-states"
+        },
+        {
+          "tag": "h2",
+          "id": "shadow-doms"
+        },
+        {
+          "tag": "h2",
+          "id": "apply-classes-and-inject-css-files-in-bbj"
+        },
+        {
+          "tag": "h3",
+          "id": "adding-classes"
+        },
+        {
+          "tag": "h3",
+          "id": "injecting-css"
+        },
+        {
+          "tag": "h2",
+          "id": "notes"
+        }
+      ]
+    },
+    {
+      "route": "/control-validation",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "validation-attributes"
+        },
+        {
+          "tag": "h2",
+          "id": "setting-validation"
+        },
+        {
+          "tag": "h3",
+          "id": "required-field"
+        },
+        {
+          "tag": "h3",
+          "id": "pattern-validation"
+        },
+        {
+          "tag": "h2",
+          "id": "visual-feedback"
+        },
+        {
+          "tag": "h2",
+          "id": "validation-states"
+        },
+        {
+          "tag": "h2",
+          "id": "checking-validation-in-code"
+        },
+        {
+          "tag": "h2",
+          "id": "custom-validation"
+        },
+        {
+          "tag": "h2",
+          "id": "example---email-validation"
+        },
+        {
+          "tag": "h2",
+          "id": "exercise-adding-validation-to-an-email-field"
+        },
+        {
+          "tag": "h3",
+          "id": "testing-regular-expressions"
+        },
+        {
+          "tag": "h2",
+          "id": "best-practices"
+        }
+      ]
+    },
+    {
+      "route": "/deployment",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "dwc-embedded-deployment"
+        },
+        {
+          "tag": "h3",
+          "id": "basic-embedded-template"
+        },
+        {
+          "tag": "h3",
+          "id": "how-it-works"
+        },
+        {
+          "tag": "h3",
+          "id": "use-cases-for-embedded-deployment"
+        },
+        {
+          "tag": "h3",
+          "id": "limitations"
+        },
+        {
+          "tag": "h2",
+          "id": "bbjpwa---progressive-web-apps"
+        },
+        {
+          "tag": "h3",
+          "id": "why-use-pwas"
+        },
+        {
+          "tag": "h3",
+          "id": "bbjpwa-tool"
+        },
+        {
+          "tag": "h4",
+          "id": "bbjpwa-capabilities"
+        },
+        {
+          "tag": "h3",
+          "id": "the-web-app-manifest"
+        },
+        {
+          "tag": "h3",
+          "id": "getting-started-with-bbjpwa"
+        },
+        {
+          "tag": "h3",
+          "id": "service-workers-and-offline-support"
+        },
+        {
+          "tag": "h2",
+          "id": "choosing-a-deployment-option"
+        },
+        {
+          "tag": "h2",
+          "id": "resources"
+        }
+      ]
+    },
+    {
+      "route": "/dwc-controls",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "concepts-covered-in-this-chapter"
+        },
+        {
+          "tag": "h2",
+          "id": "component-themes"
+        },
+        {
+          "tag": "h3",
+          "id": "color-properties"
+        },
+        {
+          "tag": "h2",
+          "id": "attributes"
+        },
+        {
+          "tag": "h3",
+          "id": "common-attributes"
+        },
+        {
+          "tag": "h3",
+          "id": "bbjtree-search-attributes"
+        },
+        {
+          "tag": "h2",
+          "id": "example-1---setting-attributes-on-bbjtree"
+        },
+        {
+          "tag": "h2",
+          "id": "input-control-labels"
+        },
+        {
+          "tag": "h3",
+          "id": "benefits-of-attribute-labels"
+        },
+        {
+          "tag": "h2",
+          "id": "example-2---comparing-label-types"
+        },
+        {
+          "tag": "h3",
+          "id": "why-attribute-labels-work-better"
+        }
+      ]
+    },
+    {
+      "route": "/dwc-debugging",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "the-dwc-debug-console"
+        },
+        {
+          "tag": "h3",
+          "id": "triggering-the-console"
+        },
+        {
+          "tag": "h3",
+          "id": "example-program-with-console-access"
+        },
+        {
+          "tag": "h2",
+          "id": "using-browser-developer-tools"
+        },
+        {
+          "tag": "h3",
+          "id": "printing-debug-output"
+        },
+        {
+          "tag": "h2",
+          "id": "comparison-bui-vs-dwc-debugging"
+        },
+        {
+          "tag": "h2",
+          "id": "best-practices"
+        }
+      ]
+    },
+    {
+      "route": "/embedding-components",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "embedding-a-javascript-chart-component"
+        },
+        {
+          "tag": "h3",
+          "id": "setup"
+        },
+        {
+          "tag": "h3",
+          "id": "example-chartsjs-integration"
+        },
+        {
+          "tag": "h2",
+          "id": "receiving-events-from-javascript-in-bbj"
+        },
+        {
+          "tag": "h3",
+          "id": "setting-up-event-communication"
+        },
+        {
+          "tag": "h3",
+          "id": "callback-handler"
+        },
+        {
+          "tag": "h2",
+          "id": "working-with-slots"
+        },
+        {
+          "tag": "h3",
+          "id": "using-slots"
+        },
+        {
+          "tag": "h2",
+          "id": "popular-libraries-to-embed"
+        },
+        {
+          "tag": "h2",
+          "id": "exercise-embed-a-3rd-party-component"
+        },
+        {
+          "tag": "h2",
+          "id": "best-practices"
+        }
+      ]
+    },
+    {
+      "route": "/flow-layouts",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "css-layout-options"
+        },
+        {
+          "tag": "h3",
+          "id": "css-flexbox"
+        },
+        {
+          "tag": "h3",
+          "id": "css-grid"
+        },
+        {
+          "tag": "h3",
+          "id": "media-queries"
+        },
+        {
+          "tag": "h2",
+          "id": "css-flexbox-properties"
+        },
+        {
+          "tag": "h2",
+          "id": "css-grid-properties"
+        },
+        {
+          "tag": "h3",
+          "id": "defining-the-grid"
+        },
+        {
+          "tag": "h3",
+          "id": "placing-controls"
+        },
+        {
+          "tag": "h3",
+          "id": "responsive-grids-with-repeat"
+        },
+        {
+          "tag": "h2",
+          "id": "fractional-units-fr"
+        },
+        {
+          "tag": "h2",
+          "id": "example-1---css-flexbox"
+        },
+        {
+          "tag": "h2",
+          "id": "example-2---css-grid-layouts"
+        },
+        {
+          "tag": "h3",
+          "id": "responsive-form-example"
+        },
+        {
+          "tag": "h2",
+          "id": "justification-and-alignment"
+        },
+        {
+          "tag": "h2",
+          "id": "resources"
+        }
+      ]
+    },
+    {
+      "route": "/gui-to-bui-to-dwc",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "how-the-dwc-works"
+        },
+        {
+          "tag": "h2",
+          "id": "concepts-covered-in-this-chapter"
+        },
+        {
+          "tag": "h2",
+          "id": "sections"
+        }
+      ]
+    },
+    {
+      "route": "/gui-to-bui-to-dwc/gui-to-bui-to-dwc",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "concepts-covered-in-this-section"
+        },
+        {
+          "tag": "h2",
+          "id": "sample-code"
+        },
+        {
+          "tag": "h2",
+          "id": "program-notes"
+        },
+        {
+          "tag": "h2",
+          "id": "example-1---running-the-app-in-gui-bui-and-the-dwc"
+        },
+        {
+          "tag": "h2",
+          "id": "example-2---responsive-layouts"
+        },
+        {
+          "tag": "h3",
+          "id": "step-1-enable-flow-layout"
+        },
+        {
+          "tag": "h3",
+          "id": "step-2-add-css-grid-styling"
+        },
+        {
+          "tag": "h4",
+          "id": "method-1-inside-the-bbj-code-used-in-this-exercise"
+        },
+        {
+          "tag": "h4",
+          "id": "method-2-in-an-external-css-file"
+        },
+        {
+          "tag": "h3",
+          "id": "css-grid-explanation"
+        },
+        {
+          "tag": "h3",
+          "id": "step-3-button-spanning"
+        },
+        {
+          "tag": "h3",
+          "id": "step-4-understanding-window-structure"
+        },
+        {
+          "tag": "h2",
+          "id": "example-3---bbjcontrol-attributes"
+        },
+        {
+          "tag": "h3",
+          "id": "step-1-set-expanse"
+        },
+        {
+          "tag": "h3",
+          "id": "step-2-set-theme"
+        },
+        {
+          "tag": "h2",
+          "id": "example-4---making-a-real-web-app"
+        },
+        {
+          "tag": "h3",
+          "id": "step-1-remove-window-chrome"
+        },
+        {
+          "tag": "h3",
+          "id": "step-2-fix-column-widths"
+        },
+        {
+          "tag": "h3",
+          "id": "step-3-clean-up-code"
+        },
+        {
+          "tag": "h2",
+          "id": "going-the-extra-mile"
+        },
+        {
+          "tag": "h3",
+          "id": "auto-switch-to-dwc"
+        },
+        {
+          "tag": "h3",
+          "id": "mobile-device-fixes"
+        },
+        {
+          "tag": "h2",
+          "id": "example-5---error-handling"
+        },
+        {
+          "tag": "h3",
+          "id": "testing-error-handling"
+        }
+      ]
+    },
+    {
+      "route": "/gui-to-bui-to-dwc/hello-world",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "concepts-covered-in-this-section"
+        },
+        {
+          "tag": "h2",
+          "id": "sample-code"
+        },
+        {
+          "tag": "h2",
+          "id": "program-notes"
+        },
+        {
+          "tag": "h3",
+          "id": "dwc-component-themes"
+        },
+        {
+          "tag": "h2",
+          "id": "example-1---running-a-bbj-program-in-gui-bui-and-dwc"
+        },
+        {
+          "tag": "h2",
+          "id": "example-2---dwc-component-themes"
+        },
+        {
+          "tag": "h2",
+          "id": "helpful-links"
+        },
+        {
+          "tag": "h2",
+          "id": "going-the-extra-mile"
+        },
+        {
+          "tag": "h2",
+          "id": "notes"
+        },
+        {
+          "tag": "h3",
+          "id": "running-a-bbj-app-in-the-dynamic-web-client"
+        }
+      ]
+    },
+    {
+      "route": "/gui-to-bui-to-dwc/registering-launching",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "concepts-covered-in-this-section"
+        },
+        {
+          "tag": "h2",
+          "id": "registering-apps-for-the-web"
+        },
+        {
+          "tag": "h2",
+          "id": "launching-from-eclipse"
+        },
+        {
+          "tag": "h3",
+          "id": "using-older-bdt-versions"
+        },
+        {
+          "tag": "h3",
+          "id": "url-examples"
+        },
+        {
+          "tag": "h2",
+          "id": "configuring-eclipse-browser-settings"
+        },
+        {
+          "tag": "h3",
+          "id": "using-an-external-browser"
+        },
+        {
+          "tag": "h2",
+          "id": "registering-via-enterprise-manager"
+        },
+        {
+          "tag": "h3",
+          "id": "registration-steps"
+        },
+        {
+          "tag": "h3",
+          "id": "launching-the-app"
+        },
+        {
+          "tag": "h2",
+          "id": "notes"
+        },
+        {
+          "tag": "h3",
+          "id": "default-bui-and-dwc-contexts"
+        }
+      ]
+    },
+    {
+      "route": "/icon-pools",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "using-icons-in-dwc"
+        },
+        {
+          "tag": "h2",
+          "id": "available-icon-pools"
+        },
+        {
+          "tag": "h2",
+          "id": "icon-syntax"
+        },
+        {
+          "tag": "h3",
+          "id": "basic-usage"
+        },
+        {
+          "tag": "h3",
+          "id": "with-pool-specification"
+        },
+        {
+          "tag": "h2",
+          "id": "common-icons"
+        },
+        {
+          "tag": "h2",
+          "id": "styling-icons"
+        },
+        {
+          "tag": "h2",
+          "id": "example---adding-icons-to-buttons"
+        },
+        {
+          "tag": "h2",
+          "id": "resources"
+        }
+      ]
+    },
+    {
+      "route": "/prerequisites",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "dwc-training-class-prerequisites"
+        },
+        {
+          "tag": "h3",
+          "id": "basis-product-development-in-bdt"
+        },
+        {
+          "tag": "h3",
+          "id": "introduction-to-the-bbx-language"
+        },
+        {
+          "tag": "h2",
+          "id": "online-courses"
+        },
+        {
+          "tag": "h3",
+          "id": "recommended-free-courses"
+        },
+        {
+          "tag": "h2",
+          "id": "course-materials"
+        },
+        {
+          "tag": "h2",
+          "id": "setup-check"
+        },
+        {
+          "tag": "h2",
+          "id": "more-information"
+        }
+      ]
+    },
+    {
+      "route": "/resources",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "course-files"
+        },
+        {
+          "tag": "h2",
+          "id": "basis-documentation"
+        },
+        {
+          "tag": "h2",
+          "id": "dwc-component-reference"
+        },
+        {
+          "tag": "h2",
+          "id": "dwc-related-topics"
+        },
+        {
+          "tag": "h2",
+          "id": "dwc-themer"
+        },
+        {
+          "tag": "h2",
+          "id": "browser-developer-tools-links"
+        },
+        {
+          "tag": "h2",
+          "id": "css-reference-links"
+        }
+      ]
+    },
+    {
+      "route": "/samples",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "getting-the-samples"
+        },
+        {
+          "tag": "h2",
+          "id": "sample-directory-structure"
+        },
+        {
+          "tag": "h2",
+          "id": "running-the-samples"
+        },
+        {
+          "tag": "h2",
+          "id": "sample-file-types"
+        },
+        {
+          "tag": "h2",
+          "id": "tips-for-learning"
+        }
+      ]
+    },
+    {
+      "route": "/search",
+      "content": false,
+      "anchors": []
+    },
+    {
+      "route": "/upgrading-apps",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "concepts-covered-in-this-chapter"
+        },
+        {
+          "tag": "h2",
+          "id": "sections"
+        }
+      ]
+    },
+    {
+      "route": "/upgrading-apps/arc-files",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h2",
+          "id": "concepts-covered-in-this-section"
+        },
+        {
+          "tag": "h2",
+          "id": "arc-files-in-dwc"
+        },
+        {
+          "tag": "h2",
+          "id": "changing-a-window-in-an-arc-file-to-use-flexible-css-based-layout"
+        },
+        {
+          "tag": "h3",
+          "id": "key-points"
+        },
+        {
+          "tag": "h2",
+          "id": "solutions-for-control-order"
+        },
+        {
+          "tag": "h2",
+          "id": "example"
+        },
+        {
+          "tag": "h2",
+          "id": "source-code"
+        }
+      ]
+    },
+    {
+      "route": "/upgrading-apps/upgrading-grids",
+      "content": true,
+      "anchors": [
+        {
+          "tag": "h2",
+          "id": "overview"
+        },
+        {
+          "tag": "h3",
+          "id": "why-no-direct-compatibility"
+        },
+        {
+          "tag": "h2",
+          "id": "bbjgridexwidget-plug-in"
+        },
+        {
+          "tag": "h3",
+          "id": "resources"
+        },
+        {
+          "tag": "h2",
+          "id": "differences-between-bbjstandardgrid-and-bbjgridexwidget"
+        },
+        {
+          "tag": "h3",
+          "id": "data-structure"
+        },
+        {
+          "tag": "h3",
+          "id": "supported-data-types"
+        },
+        {
+          "tag": "h3",
+          "id": "additional-features"
+        },
+        {
+          "tag": "h3",
+          "id": "enhanced-version"
+        },
+        {
+          "tag": "h2",
+          "id": "migration-steps"
+        }
+      ]
+    }
+  ]
+}
