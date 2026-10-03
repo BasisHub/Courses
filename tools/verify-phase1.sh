@@ -22,6 +22,7 @@ check() { # check <name> <command...>
 stop_server() {
   if [ -n "$SERVER_PID" ]; then
     kill "$SERVER_PID" 2>/dev/null
+    wait "$SERVER_PID" 2>/dev/null
     SERVER_PID=""
   fi
   # npm spawns a child node process; stop whatever still listens on our port.
@@ -81,7 +82,8 @@ c=$(grep -c '/Courses/js/dwc-theme-switcher.js' "$INDEX" 2>/dev/null)
 if [ "${c:-0}" = "1" ]; then pass "theme switcher referenced once in index.html"; else fail "theme switcher referenced once in index.html ($c)"; fi
 
 # 4. Self-hosted assets
-if grep -rEl 'fonts\.googleapis|fonts\.gstatic|cdn\.webforj' "$BUILD" 2>/dev/null | grep -q .; then
+# Only the D-10 provenance comment on line 1 of css/dwc-ui.css may name the CDN host.
+if grep -rnE 'fonts\.googleapis|fonts\.gstatic|cdn\.webforj' "$BUILD" 2>/dev/null | grep -vE '^[^:]*/css/dwc-ui\.css:1:/\* Snapshot of ' | grep -q .; then
   fail "no external font/CDN hosts in build"
 else
   pass "no external font/CDN hosts in build"
