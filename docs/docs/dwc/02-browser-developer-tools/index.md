@@ -3,8 +3,6 @@ title: "Browser Developer Tools, CSS, and Themes"
 description: Learn the browser Developer Tools, CSS, CSS custom properties, and DWC themes.
 ---
 
-# Browser Developer Tools, CSS Styles, CSS Custom Properties, and DWC Themes
-
 This chapter covers the browser's Developer Tools, CSS fundamentals, CSS custom properties, and DWC themes.
 
 ## Concepts Covered in This Chapter

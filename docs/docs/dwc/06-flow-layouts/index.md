@@ -3,8 +3,6 @@ title: "Flow Layouts and CSS for Responsive Design"
 description: Compare CSS layout strategies and build responsive BBj apps for the DWC.
 ---
 
-# Flow Layouts and Using CSS for Responsive Design
-
 This chapter covers different CSS layout strategies to make responsive BBj applications in the Dynamic Web Client.
 
 ## Overview
