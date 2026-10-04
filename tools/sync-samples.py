@@ -11,7 +11,8 @@ docs/static/files/<book>/ are generated from it:
   <book>-samples.zip   one top-level "<book>-samples/" with LICENSE, README.md
                        and all sample folders
 
-Entries are sorted, dated 1980-01-01 and carry mode 0644, so the same source
+Only files tracked by git go into the ZIPs, so `git add` a new sample file
+before you run this script. Entries are sorted, dated 1980-01-01 and carry mode 0644, so the same source
 always yields the same bytes. Without --check the ZIPs are (re)written and
 stale ZIPs are removed. With --check nothing is written; the exit code is 1
 when a committed ZIP differs from the source.
@@ -23,6 +24,7 @@ from __future__ import annotations
 import io
 import os
 import re
+import subprocess
 import sys
 import tempfile
 import zipfile
@@ -57,8 +59,22 @@ def validate_book(book: str) -> None:
             die("book path escapes " + str(base.relative_to(ROOT)) + ": " + book)
 
 
-def collect(folder: Path) -> dict[str, bytes]:
-    """Map POSIX relative path -> bytes for every file below folder."""
+def tracked_files(src: Path) -> set[str]:
+    """POSIX paths, relative to src, of the files git tracks below src."""
+    rel = src.relative_to(ROOT).as_posix()
+    r = subprocess.run(["git", "-C", str(ROOT), "ls-files", "-z", "--", rel], capture_output=True)
+    if r.returncode != 0:
+        die("git ls-files failed for " + rel + ": " + r.stderr.decode("utf-8", "replace").strip())
+    names = (n for n in r.stdout.decode("utf-8").split("\0") if n)
+    return {n[len(rel) + 1:] for n in names if n.startswith(rel + "/")}
+
+
+def collect(folder: Path, tracked: set[str]) -> dict[str, bytes]:
+    """Map POSIX relative path -> bytes for every git-tracked file below folder.
+
+    tracked holds paths relative to folder; untracked and ignored files
+    (editor backups, Thumbs.db, build output) never reach a ZIP.
+    """
     files: dict[str, bytes] = {}
     for dirpath, dirnames, filenames in os.walk(folder, followlinks=False):
         dirnames[:] = sorted(d for d in dirnames if not d.startswith("."))
@@ -72,6 +88,8 @@ def collect(folder: Path) -> dict[str, bytes]:
             if os.path.islink(full):
                 die("symlink not allowed: " + full)
             rel = Path(full).relative_to(folder).as_posix()
+            if rel not in tracked:
+                continue
             files[safe_arcname(rel)] = Path(full).read_bytes()
     return files
 
@@ -102,8 +120,14 @@ def expected_zips(book: str) -> dict[str, bytes]:
         if not p.is_file():
             die("missing " + name + " in " + str(src))
         top[name] = p.read_bytes()
+    tracked = tracked_files(src)
+    for name in BOOK_FILES:
+        if name not in tracked:
+            die(name + " in " + str(src) + " is not tracked by git")
     folders = sorted(
-        d.name for d in src.iterdir() if d.is_dir() and not d.name.startswith(".")
+        d.name for d in src.iterdir()
+        if d.is_dir() and not d.name.startswith(".")
+        and any(t.startswith(d.name + "/") for t in tracked)
     )
     for d in src.iterdir():
         if d.is_symlink():
@@ -114,7 +138,8 @@ def expected_zips(book: str) -> dict[str, bytes]:
     for name, data in top.items():
         all_entries[prefix + "/" + name] = data
     for folder in folders:
-        files = collect(src / folder)
+        pre = folder + "/"
+        files = collect(src / folder, {t[len(pre):] for t in tracked if t.startswith(pre)})
         entries = {folder + "/" + n: d for n, d in top.items()}
         for rel, data in files.items():
             entries[folder + "/" + rel] = data
