@@ -45,16 +45,16 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 ### Intro-BBj Conversion
 
 - [x] **CONV-01**: `tools/moodle2docusaurus.py` converts the course-2 backup and prints a report whose unresolved counts (files, `$@…@$` tokens, links, unclassified code) are all zero; every generated file compiles as MDX
-- [ ] **CONV-02**: Reader can read the "Introduction to BBj Development" book with chapter order matching the Moodle outline (28 chapter pages plus overview)
-- [ ] **CONV-03**: Converted code appears in language-tagged fences with no leftover HTML entities or `<br>` artefacts
-- [ ] **CONV-04**: All 10 intro videos appear as `<YouTube>` embeds
-- [ ] **CONV-05**: All 8 referenced intro images appear with hand-written alt text
-- [ ] **CONV-06**: Reader can download the intro sample files (`BetterHelloWorld.bbj`, the OO samples ZIP, `Sample.bbj`, `samples.zip`), each resource unpacked into its own folder in `examples/intro-bbj/`
-- [ ] **CONV-07**: Converter and generated docs are committed separately; afterwards the Markdown is the source of truth
+- [x] **CONV-02**: Reader can read the "Introduction to BBj Development" book with chapter order matching the Moodle outline (28 chapter pages plus overview)
+- [x] **CONV-03**: Converted code appears in language-tagged fences with no leftover HTML entities or `<br>` artefacts
+- [x] **CONV-04**: All 10 intro videos appear as `<YouTube>` embeds
+- [x] **CONV-05**: All 8 referenced intro images appear with hand-written alt text
+- [x] **CONV-06**: Reader can download the intro sample files (`BetterHelloWorld.bbj`, the OO samples ZIP, `Sample.bbj`, `samples.zip`), each resource unpacked into its own folder in `examples/intro-bbj/`
+- [x] **CONV-07**: Converter and generated docs are committed separately; afterwards the Markdown is the source of truth
 
 ### Exercises
 
-- [ ] **EXER-01**: Reader finds every intro-bbj exercise (5 Moodle assignments) as its own `9N-exercise-*.mdx` page after its section's chapters
+- [x] **EXER-01**: Reader finds every intro-bbj exercise (5 Moodle assignments) as its own `9N-exercise-*.mdx` page after its section's chapters
 - [ ] **EXER-02**: Reader finds DWC exercises as exercise pages: inline exercises extracted, missing ones taken from the course-4 assignments
 - [ ] **EXER-03**: Reader can open a per-book exercise index listing all exercises of that book
 - [ ] **EXER-04**: Where a sample solution exists, the exercise page offers it in a collapsed "Possible solution" block
@@ -146,13 +146,13 @@ Populated 2026-10-03 during roadmap creation.
 | DWC-03 | Phase 4 | Complete |
 | DWC-04 | Phase 4 | Complete |
 | CONV-01 | Phase 5 | Complete |
-| CONV-02 | Phase 5 | Pending |
-| CONV-03 | Phase 5 | Pending |
-| CONV-04 | Phase 5 | Pending |
-| CONV-05 | Phase 5 | Pending |
-| CONV-06 | Phase 5 | Pending |
-| CONV-07 | Phase 5 | Pending |
-| EXER-01 | Phase 5 | Pending |
+| CONV-02 | Phase 5 | Complete |
+| CONV-03 | Phase 5 | Complete |
+| CONV-04 | Phase 5 | Complete |
+| CONV-05 | Phase 5 | Complete |
+| CONV-06 | Phase 5 | Complete |
+| CONV-07 | Phase 5 | Complete |
+| EXER-01 | Phase 5 | Complete |
 | EXER-02 | Phase 6 | Pending |
 | EXER-03 | Phase 6 | Pending |
 | EXER-04 | Phase 6 | Pending |
