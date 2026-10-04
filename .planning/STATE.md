@@ -4,16 +4,16 @@ milestone: v1.0
 current_phase: "06.1"
 current_phase_name: Exercise Solutions and Restored Screenshots (INSERTED)
 status: executing
-stopped_at: Completed 06.1-08-PLAN.md
-last_updated: "2026-10-04T16:10:16.257Z"
+stopped_at: Completed 06.1-09-PLAN.md
+last_updated: "2026-10-04T16:13:15.238Z"
 last_activity: 2026-10-04
 last_activity_desc: Phase 06.1 execution started
-state_head: 8ead6dc0b5563ec048a5286f345f0a42151ddf20
+state_head: 95095b2adc1b239590b4b596821a3b9adfb43290
 progress:
   total_phases: 9
   completed_phases: 6
   total_plans: 59
-  completed_plans: 57
+  completed_plans: 58
 milestone_name: milestone
 ---
 
@@ -29,7 +29,7 @@ See: .planning/PROJECT.md (updated 2026-10-03)
 ## Current Position
 
 Phase: 06.1 (Exercise Solutions and Restored Screenshots (INSERTED)) — EXECUTING
-Plan: 9 of 10
+Plan: 10 of 10
 Status: Ready to execute
 Last activity: 2026-10-04 — Phase 06.1 execution started
 
@@ -67,6 +67,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 06.1 P06 | 10 min | 2 tasks | 4 files |
 | Phase 06.1 P07 | n/a (continuation) | 3 tasks | 2 files |
 | Phase 06.1 P08 | 3 min | 3 tasks | 23 files |
+| Phase 06.1 P09 | 9 min | 3 tasks | 24 files |
 
 ## Accumulated Context
 
@@ -90,6 +91,7 @@ Decisions are logged in PROJECT.md Key Decisions table.
 - [Phase 06.1]: Login drafts: demo pair as private static class fields under a user-store comment; responsive draft reads CSS via use java.nio.file.Files and injects it with injectStyle
 - [Phase 06.1]: 06.1-07: DWC token check used webforJ major 26 (dwc-ui.css snapshots cdn.webforj.com/next); all 18 drafts passed, none fixed
 - [Phase 06.1]: Exercises checker matches banned words only at a word start, so upgrading-grids links do not trip the grading ban
+- [Phase 06.1]: Intro-bbj Tic-Tac-Toe page says 'button callbacks' to match TicTacToe.bbj, which uses buttons for the cells
 
 ### Roadmap Evolution
 
@@ -115,5 +117,5 @@ Decisions are logged in PROJECT.md Key Decisions table.
 
 **Resume file:** None
 
-Last session: 2026-10-04T16:10:16.003Z
-Stopped at: Completed 06.1-08-PLAN.md
+Last session: 2026-10-04T16:13:15.045Z
+Stopped at: Completed 06.1-09-PLAN.md

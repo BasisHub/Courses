@@ -291,7 +291,7 @@ Plans:
   4. Screenshots 8B-05 and 8B-07 from the gap audit appear unredacted on the DWC chapter 09 printing section, with alt text, and the audit records them as restored
   5. The phase checker covers all 16 exercise pages (solution present, fence matches file, starter variables and snippets exist), and build, Vale and verify-phase1..6 stay green
 
-**Plans:** 8/10 plans executed
+**Plans:** 9/10 plans executed
 
 Plans:
 **Wave 1**
@@ -310,7 +310,7 @@ Plans:
 **Wave 3** *(blocked on 06.1-01 and 06.1-07)*
 
 - [x] 06.1-08-PLAN.md — DWC slice: install drafts, ZIPs, Sample Code page, syntax record, 5 DWC solution pages
-- [ ] 06.1-09-PLAN.md — intro-bbj slice: install drafts, exercises.zip, checker lists, syntax record, 5 intro solution pages
+- [x] 06.1-09-PLAN.md — intro-bbj slice: install drafts, exercises.zip, checker lists, syntax record, 5 intro solution pages
 
 **Wave 4** *(blocked on Waves 1 to 3)*
 
