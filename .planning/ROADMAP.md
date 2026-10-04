@@ -241,7 +241,7 @@ Plans:
 
 **Wave 6** *(blocked on Wave 5 completion)*
 
-- [ ] 06-12-PLAN.md — Kept material: top-level pages and chapter 01
+- [x] 06-12-PLAN.md — Kept material: top-level pages and chapter 01
 
 **Wave 7** *(blocked on Wave 6 completion)*
 
@@ -305,6 +305,6 @@ Plans:
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
-| 6. Exercises & DWC Gap Audit | 11/17 | In Progress|  |
+| 6. Exercises & DWC Gap Audit | 12/17 | In Progress|  |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |
