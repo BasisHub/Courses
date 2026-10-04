@@ -21,7 +21,7 @@ The most important limitation is probably the need to refactor BBj Grid code to 
 
 ## Changing a Window in an `.arc` File to Use Flexible CSS-based Layout
 
-We have seen that the window creation flag `$00100000$` tells DWC to drop all pixel-based position and size instructions. For an `.arc` file, the same can be achieved by adding the **GRAVITY** flag to the source of the ARC file.
+We have seen that the window creation flag `$00100000$` tells DWC to drop all pixel-based position and size instructions. For an `.arc` file, the same can be achieved by adding the [**GRAVITY**](https://documentation.basis.cloud/BASISHelp/WebHelp/resprops/resource_property_gravity.htm) flag to the source of the ARC file.
 
 ### Key Points
 
