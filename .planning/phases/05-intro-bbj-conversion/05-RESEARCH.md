@@ -406,20 +406,20 @@ Not a rename/refactor phase. Omitted. One note: the previously published stub UR
 | A4 | Parent-folder slugs/labels proposed here are acceptable (Claude's discretion) | Proposed maps | Low, editable |
 | A5 | The ZIP-bundled `Sample.bbj` (1344 bytes, English/German mix) is the "result" and the standalone (753 bytes) the "start" | Backup inventory | Wrong download placement if reversed; both names come from the Moodle resource titles, which support it |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Nine images, but only eight are displayed.**
+1. **Nine image files, but only eight are displayed.** RESOLVED: D-26 (show the 8 referenced images; the duplicate is dropped and recorded; CONV-05 and criterion 3 now say 8).
    - Known: `files.xml` lists 9 `mod_book` image files; chapter HTML references 8. The ninth is ch 24's unannotated `image.png` (same screenshot as the referenced annotated one, without the red box/arrow).
    - Unclear: Roadmap criterion 3 and CONV-05 say "all 9 images appear".
    - Recommendation: Decide at the plan checkpoint. Cheapest: converter copies/maps all 9 (hand alt for each), but renders only the 8 referenced; park the orphan in `docs/docs/intro-bbj/03-web-development/img/` unreferenced is pointless, so instead park it in `tools/data/` like `dwc-unused-img/`, and reword CONV-05/criterion to "all 8 displayed images (9th is an unreferenced duplicate)". Alternative: show the unannotated image before the annotated one in ch 24 (a second `<figure>`), which makes "9 appear" true. verify-phase5 must assert whichever number is chosen.
 
-2. **Is there a Theme Editor shipped with BBj now?**
+2. **Is there a Theme Editor shipped with BBj now?** RESOLVED: D-27 (link to `https://us.bbx.kitchen/webapp/DWCThemer`, provisional, flagged for review in STATE.md).
    - Known: no successor URL found; DWC Overview does not mention it.
    - Recommendation: unlink and keep text in commit 3; ask Stephan; ch 28 is otherwise a stub and may need a short factual sentence or removal later (Phase 7).
 
-3. **LICENSE for `docs/examples/intro-bbj/`** (D-23): reuse DWC MIT (`Copyright (c) 2022 BASIS International`) and confirm with Stephan. The year in the DWC file is 2022; the samples are from 2021. Confirm year too.
+3. **LICENSE for `docs/examples/intro-bbj/`** (D-23). RESOLVED: D-29 (MIT, "Copyright (c) 2021 BASIS International Ltd."). Original note: reuse DWC MIT (`Copyright (c) 2022 BASIS International`) and confirm with Stephan. The year in the DWC file is 2022; the samples are from 2021. Confirm year too.
 
-4. **Video titles keep the "BBx Clues N:" prefix?** Recommended yes (matches YouTube). Confirm during plan review.
+4. **Video titles keep the "BBx Clues N:" prefix?** RESOLVED: D-28 (keep the prefix verbatim, collapse double spaces). Recommended yes (matches YouTube). Confirm during plan review.
 
 ## Environment Availability
 
@@ -451,7 +451,7 @@ Not a rename/refactor phase. Omitted. One note: the previously published stub UR
 | CONV-01 | Every `.mdx` compiles | script | `cd docs && node ../tools/check-mdx.mjs $(find docs/intro-bbj -name '*.mdx')` or `npm run build` | Wave 0 |
 | CONV-02 | 28 chapters + overview + 4 index + 5 exercise pages in order | script | count `find docs/docs/intro-bbj -name '*.mdx'` = 1+28+4+5 = 38 (3 top-level + 20 section chapters... assert with a title-order list from the converter's map); check `sidebar_position`/numeric prefixes | Wave 0 |
 | CONV-02 | Built sidebar order | build | `npm run build` then grep `docs/build/docs/intro-bbj/overview/index.html` for route order | Wave 0 |
-| CONV-03 | No leftovers | grep | `! grep -rEn 'PLUGINFILE|pluginfile.php|moodle\.basis-europe|\$@|&nbsp;|&lt;|&gt;|&amp;|<br' docs/docs/intro-bbj` | Wave 0 |
+| CONV-03 | No leftovers | script | `python3 tools/check-intro-bbj.py content`: PLUGINFILE/pluginfile.php/moodle.basis-europe banned anywhere; `$@`, `&nbsp;`, `&lt;`, `&gt;`, `&amp;`, `<br` banned in prose outside code fences (revised after plan check) | Wave 0 |
 | CONV-03 | Every fence has a language | script | awk over fences: opening ``` must carry a tag (reuse pattern from earlier verify scripts) | Wave 0 |
 | CONV-04 | 10 YouTube embeds, unique ids | grep | `grep -rho '<YouTube id="[^"]*"' docs/docs/intro-bbj | sort -u | wc -l` = 10; no raw `<iframe`, no `<video` | Wave 0 |
 | CONV-05 | N images with non-empty alt, files exist | script | grep `!\[[^]]+\]\(\./img/` count (N = 8 or 9 per Open Question 1); `docs/build` already throws on missing images | Wave 0 |

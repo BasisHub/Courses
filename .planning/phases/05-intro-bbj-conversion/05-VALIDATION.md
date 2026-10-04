@@ -40,11 +40,11 @@ Requirement-level map from RESEARCH.md; the planner binds each row to task IDs.
 
 | Requirement | Behavior | Test Type | Automated Command | File Exists | Status |
 |-------------|----------|-----------|-------------------|-------------|--------|
-| CONV-01 | Converter report shows zero unresolved files, `$@...@$` tokens, links, unclassified code; exit 0 | smoke | `python3 tools/moodle2docusaurus.py ... --check` | ❌ W0 | ⬜ pending |
+| CONV-01 | Converter report shows zero unresolved files, `$@...@$` tokens, links, unclassified code; exit 0 | smoke | `.venv/bin/python tools/moodle2docusaurus.py` into a scratch dir (report lines all zero, exit 0) | ❌ W0 | ⬜ pending |
 | CONV-01 | Every generated `.mdx` compiles | script | MDX compile check or `cd docs && npm run build` | ❌ W0 | ⬜ pending |
 | CONV-01 | Converter is deterministic | script | run twice (offline second run), `diff -r` empty | ❌ W0 | ⬜ pending |
 | CONV-02 | 28 chapters + overview in Moodle order | script | page count and order list in `tools/verify-phase5.sh`; built sidebar order | ❌ W0 | ⬜ pending |
-| CONV-03 | No `PLUGINFILE`, `$@`, `&nbsp;`, `&lt;`, `&gt;`, `&amp;`, `<br`, moodle refs | grep | grep block in `tools/verify-phase5.sh` | ❌ W0 | ⬜ pending |
+| CONV-03 | No `PLUGINFILE`/moodle refs anywhere; no `$@`, `&nbsp;`, `&lt;`, `&gt;`, `&amp;`, `<br`, `<span` in prose outside code fences | script | `python3 tools/check-intro-bbj.py content` (fence-aware) via `tools/verify-phase5.sh` | ❌ W0 | ⬜ pending |
 | CONV-03 | Every code fence carries a language | script | fence awk in `tools/verify-phase5.sh` | ❌ W0 | ⬜ pending |
 | CONV-04 | 10 unique `<YouTube id title>` embeds, no `<iframe`/`<video` | grep | `tools/verify-phase5.sh` | ❌ W0 | ⬜ pending |
 | CONV-05 | 8 images with non-empty alt, files exist, kebab names (D-26) | script | `tools/verify-phase5.sh` + build | ❌ W0 | ⬜ pending |

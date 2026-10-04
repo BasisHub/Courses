@@ -174,7 +174,29 @@ Plans:
   4. Reader can download `BetterHelloWorld.bbj`, the OO samples ZIP, `Sample.bbj` and `samples.zip`, each unpacked into its own folder under `examples/intro-bbj/`
   5. Each of the 5 Moodle assignments is its own `9N-exercise-*.mdx` page after its section; the converter and the generated docs are committed separately
 
-**Plans**: TBD
+**Plans**: 6 plans
+
+Plans:
+**Wave 1**
+
+- [ ] 05-01-PLAN.md — Python pin legitimacy gate, local .venv, MDX compile check (wave 1)
+- [ ] 05-02-PLAN.md — Phase 5 checker and verify-phase5.sh against the output contract (wave 1)
+
+**Wave 2** *(blocked on 05-01)*
+
+- [ ] 05-03-PLAN.md — Converter plus image/video maps, zero-unresolved scratch run, commit C1 (wave 2)
+
+**Wave 3** *(blocked on 05-02, 05-03)*
+
+- [ ] 05-04-PLAN.md — Generated book, samples and ZIPs as verbatim commit C2 (wave 3)
+
+**Wave 4**
+
+- [ ] 05-05-PLAN.md — Hand edits and link map (C3), Vale errors and typos (C4) (wave 4)
+
+**Wave 5**
+
+- [ ] 05-06-PLAN.md — BBj syntax report and fixes (C5), full phase gate (wave 5)
 
 ### Phase 6: Exercises & DWC Gap Audit
 
