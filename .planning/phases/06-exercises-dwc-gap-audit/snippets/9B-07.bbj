@@ -1,0 +1,7 @@
+handleNativeJavascript:
+  event! = sysgui!.getLastEvent()
+  name$ = event!.getEventName()
+  map! = event!.getEventMap()
+  detail! = map!.get("detail")
+  let x=MSGBOX(detail!, 0, "Event Details")
+return

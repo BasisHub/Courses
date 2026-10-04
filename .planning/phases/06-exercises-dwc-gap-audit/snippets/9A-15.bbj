@@ -1,0 +1,32 @@
+handleScriptLoaded:
+  rem after the library is loaded we can work with it
+  rem ' https://www.chartjs.org/docs/latest/getting-started/
+
+  htmlview!.clearCallback(htmlview!.ON_PAGE_LOADED)
+  js$ = ""
+  js$ = js$ + "var chartCanvas = document.getElementById('myChart');"
+  js$ = js$ + "var ctx = chartCanvas.getContext('2d');"
+  js$ = js$ + "var chart = new Chart(ctx, {"
+  js$ = js$ + "    type: 'line',"
+  js$ = js$ + "    data: {"
+  js$ = js$ + "        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],"
+  js$ = js$ + "        datasets: ["
+  js$ = js$ + "         {"
+  js$ = js$ + "            label: 'Year 2021',"
+  js$ = js$ + "            backgroundColor: '#ff1a68',"
+  js$ = js$ + "            borderColor: '#ff1a68',"
+  js$ = js$ + "            data: [40, 20, 33, 22, 25, 15, 7]"
+  js$ = js$ + "         },"
+  js$ = js$ + "         {"
+  js$ = js$ + "            label: 'Year 2022',"
+  js$ = js$ + "            backgroundColor: '#25c2a0',"
+  js$ = js$ + "            borderColor: '#25c2a0',"
+  js$ = js$ + "            data: [2, 10, 5, 2, 20, 30, 45]"
+  js$ = js$ + "         },"
+  js$ = js$ + "        ]"
+  js$ = js$ + "    }"
+  js$ = js$ + "});"
+  js$ = js$ + "window.myChart = chart;"
+
+  htmlview!.injectScript(js$,1)
+return
