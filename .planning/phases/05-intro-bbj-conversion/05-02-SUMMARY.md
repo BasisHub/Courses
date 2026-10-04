@@ -46,3 +46,8 @@ None.
 
 ## Self-Check: PASSED
 Files exist, commit daba925 exists. STATE.md and ROADMAP.md updated via gsd-sdk.
+
+## Post-plan harness checks (run by Stephan, 2026-10-04)
+
+- `chmod +x tools/verify-phase5.sh`; `bash -n` prints SYNTAX-OK.
+- `bash tools/verify-phase5.sh --no-build` exits 1 on the stub tree with `FAIL  [structure]`, `[content]`, `[samples]`, `[edits]`, `[syntax]`; `[commits]` and MDX compile PASS. Matches the plan.
