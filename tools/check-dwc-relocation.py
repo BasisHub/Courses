@@ -95,11 +95,43 @@ def list_new(rev: str | None) -> list[str]:
     return sorted(p.relative_to(ROOT).as_posix() for p in base.rglob("*") if p.is_file())
 
 
-def targets_ok(line: str) -> bool:
-    return all(t.startswith("./") or t.startswith("#") for t in TARGET_RE.findall(line))
+def route_of(new_rel: str) -> str:
+    """Docusaurus route of a page path relative to docs/docs/dwc (same rule as relocate-dwc.py)."""
+    parts = [re.sub(r"^\d+-", "", s) for s in new_rel.split("/")]
+    last = re.sub(r"\.mdx?$", "", parts[-1])
+    parts[-1] = last
+    if last == "index":
+        parts = parts[:-1]
+    return "/".join(parts)
 
 
-def explains(old: str, new: str, kebab_of: dict[str, str], top: bool) -> bool:
+def expected_target(old_t: str, new_rel: str, routes: dict[str, str]) -> str | None:
+    """The target relocate-dwc.py writes for old_t on page new_rel; None if it is never rewritten."""
+    if re.match(r"^(https?:|mailto:|#)", old_t) or old_t.startswith("./img/") or re.search(r"\s", old_t):
+        return None
+    path, _, frag = old_t.partition("#")
+    key = path[2:] if path.startswith("./") else path
+    key = key.strip("/")
+    if key not in routes:
+        return None
+    rel = os.path.relpath(routes[key], os.path.dirname(new_rel) or ".")
+    rel = "./" + rel if not rel.startswith(".") else rel
+    return rel + ("#" + frag if frag else "")
+
+
+def targets_ok(old: str, new: str, new_rel: str, routes: dict[str, str]) -> bool:
+    """Every changed target must be exactly the rewrite relocate-dwc.py produces."""
+    olds, news = TARGET_RE.findall(old), TARGET_RE.findall(new)
+    if len(olds) != len(news):
+        return False
+    for o, n in zip(olds, news):
+        if o != n and expected_target(o, new_rel, routes) != n:
+            return False
+    return True
+
+
+def explains(old: str, new: str, kebab_of: dict[str, str], top: bool,
+             new_rel: str, routes: dict[str, str]) -> bool:
     m = IMAGE_RE.match(old)
     if m:
         pre, name, alt, post = m.groups()
@@ -110,7 +142,8 @@ def explains(old: str, new: str, kebab_of: dict[str, str], top: bool) -> bool:
         pre, alt, name, post = m.groups()
         k = kebab_of.get(name)
         return k is not None and new == f"{pre}![{alt}](./img/{k}){post}"
-    if TARGET_RE.sub("](<>)", old) == TARGET_RE.sub("](<>)", new) and old != new and targets_ok(new):
+    if (TARGET_RE.sub("](<>)", old) == TARGET_RE.sub("](<>)", new) and old != new
+            and targets_ok(old, new, new_rel, routes)):
         return True
     if top and old.startswith("sidebar_position:") and new.startswith("sidebar_position:"):
         return True
@@ -142,6 +175,7 @@ def main() -> None:
             new_rel = rel[:-3] + ".mdx" if "/" not in rel else rel
             pages.append((name, new_rel))
     report(len(pages) == 26, "26 pages in old tree", str(len(pages)))
+    routes = {route_of(n): n for _, n in pages}
     for oname, new_rel in pages:
         new_text = read_new(args.rev, f"{DWC}/{new_rel}")
         if new_text is None:
@@ -160,7 +194,7 @@ def main() -> None:
                 if nonblank == [IMPORT_LINE] and len(ol) - 1 <= 1:
                     continue
             elif tag == "replace" and len(ol) == len(nl):
-                if all(explains(x, y, kebab_of, top) for x, y in zip(ol, nl)):
+                if all(explains(x, y, kebab_of, top, new_rel, routes) for x, y in zip(ol, nl)):
                     continue
             elif tag == "replace":
                 # import removal combined with an adjacent change is not allowed
