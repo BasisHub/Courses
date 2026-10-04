@@ -4,6 +4,7 @@
 # Prints one "PASS|FAIL|SKIP  [section] name" line per check; exits 1 if any check failed.
 # Sections: build structure content samples commits edits syntax.
 # Point-in-time gate: asserts the exact Phase 5 end state (book shape, embeds, images, samples).
+# Phase 6 extended check-intro-bbj.py (exercises.mdx, 39 files); see tools/verify-phase6.sh.
 # Writes only docs/build and a temp build log (removed on exit).
 set -u
 cd "$(dirname "$0")/.." || exit 1

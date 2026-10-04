@@ -4,6 +4,7 @@
 # Prints one "PASS|FAIL|SKIP  [section] name" line per check; exits 1 if any check failed.
 # Sections: build snapshot routes relocation samples content.
 # Point-in-time gate: asserts the exact Phase 4 end state (routes, files, images).
+# Phase 6 extended check-dwc-routes.py (exercise routes, Exercises page); see tools/verify-phase6.sh.
 # Later phases that add dwc pages or move parked images must update the checkers in the same change.
 # Writes only docs/build and a temp build log (removed on exit).
 set -u
