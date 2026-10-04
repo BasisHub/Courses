@@ -48,7 +48,7 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 - [ ] **CONV-02**: Reader can read the "Introduction to BBj Development" book with chapter order matching the Moodle outline (28 chapter pages plus overview)
 - [ ] **CONV-03**: Converted code appears in language-tagged fences with no leftover HTML entities or `<br>` artefacts
 - [ ] **CONV-04**: All 10 intro videos appear as `<YouTube>` embeds
-- [ ] **CONV-05**: All 9 intro images appear with hand-written alt text
+- [ ] **CONV-05**: All 8 referenced intro images appear with hand-written alt text
 - [ ] **CONV-06**: Reader can download the intro sample files (`BetterHelloWorld.bbj`, the OO samples ZIP, `Sample.bbj`, `samples.zip`), each resource unpacked into its own folder in `examples/intro-bbj/`
 - [ ] **CONV-07**: Converter and generated docs are committed separately; afterwards the Markdown is the source of truth
 

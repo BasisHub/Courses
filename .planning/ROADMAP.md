@@ -170,7 +170,7 @@ Plans:
 
   1. `tools/moodle2docusaurus.py` runs against the course-2 backup and prints a report with zero unresolved files, `$@...@$` tokens, links and unclassified code, and every generated file compiles as MDX
   2. The book shows 28 chapter pages plus overview in an order matching the Moodle outline, with language-tagged code fences and no leftover HTML entities or `<br>` artefacts
-  3. All 10 videos appear as `<YouTube>` embeds and all 9 images appear with hand-written alt text
+  3. All 10 videos appear as `<YouTube>` embeds and all 8 referenced images appear with hand-written alt text
   4. Reader can download `BetterHelloWorld.bbj`, the OO samples ZIP, `Sample.bbj` and `samples.zip`, each unpacked into its own folder under `examples/intro-bbj/`
   5. Each of the 5 Moodle assignments is its own `9N-exercise-*.mdx` page after its section; the converter and the generated docs are committed separately
 

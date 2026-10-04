@@ -63,12 +63,11 @@ Decisions are logged in PROJECT.md Key Decisions table.
 
 ### Pending Todos
 
-None yet.
+- [Phase 5 / D-27] Review the provisional Theme Editor link `https://us.bbx.kitchen/webapp/DWCThemer` (chapter 28 of intro-bbj); replace it once a permanent home exists.
 
 ### Blockers/Concerns
 
 - Brand assets (BASIS logo, social cover) from Stephan needed in Phase 3 (SITE-05)
-- Owner decision open: licence of Moodle-derived intro samples (fonts/CSS self-hosted and import/ never committed are already decided)
 - Re-snapshot old DWC-Course sitemap before Phase 4 (route count 26+1 vs 28 unresolved)
 - Spikes needed: Phase 1 (category icon, swizzles on 3.10.2), Phase 3, Phase 5, Phase 6, Phase 8
 

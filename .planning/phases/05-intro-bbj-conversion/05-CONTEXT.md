@@ -78,6 +78,12 @@ These correct or sharpen the seed. They are facts, not choices.
 
   Commits 3 to 5 may be split further but must not be folded into commit 2. Commit 2 must stay reproducible by re-running the converter.
 
+### Decisions after research (Stephan, 2026-10-04)
+- **D-26:** **8 images, not 9.** The book shows the 8 images the chapter HTML references. The 9th file (chapter 24's unannotated `image.png`, a duplicate of the annotated `image (1).png`) is not published; the converter records it as an intentional drop in its report and in `tools/data/intro-bbj-image-map.json`. CONV-05 and roadmap criterion 3 now say 8 images, and D-19 applies to those 8. `verify-phase5.sh` asserts 8.
+- **D-27:** **Theme Editor successor:** `hot.bbx.kitchen/webapp/DWCThemeEditor` maps to `https://us.bbx.kitchen/webapp/DWCThemer` in the D-18 link map. This is provisional: it carries a review TODO (STATE.md Pending Todos) and the link map entry is marked `"review": true`. Chapter 28's "(September 2021) work in progress" / "<temporary chapter ...>" wording is still dropped per D-15.
+- **D-28:** **Video titles keep the "BBx Clues N:" prefix** verbatim from oEmbed; the only cleanup is collapsing double spaces (and whatever is needed for Vale error-level cleanliness). This refines D-20's "sentence case".
+- **D-29:** **`docs/examples/intro-bbj/LICENSE` is MIT, "Copyright (c) 2021 BASIS International Ltd."** (confirmed by Stephan; resolves the D-23 checkpoint, so no plan checkpoint is needed for it).
+
 ### Claude's Discretion
 - The exact slug and title maps (D-05/D-06), section index wording (D-03), and overview prose (D-07). All must be Vale-clean, direct, second person, with no em dashes.
 - The converter's internal structure and CLI (seed suggests `--src import/unpacked/intro --book intro-bbj --title "..."`), its report format, and where it unpacks. `import/` stays uncommitted.
