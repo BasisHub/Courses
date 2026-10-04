@@ -19,9 +19,13 @@ CFG=docs/docusaurus.config.js
 pass() { echo "PASS  [$SEC] $1"; }
 fail() { echo "FAIL  [$SEC] $1"; FAILS=$((FAILS + 1)); }
 skip() { echo "SKIP  [$SEC] $1"; }
-check() { # check <name> <command...>
-  local name="$1"; shift
-  if "$@" >/dev/null 2>&1; then pass "$name"; else fail "$name"; fi
+check() { # check <name> <command...>; on failure prints the checker's FAIL lines (or its last 20 lines)
+  local name="$1" out detail; shift
+  if out=$("$@" </dev/null 2>&1); then pass "$name"; return; fi
+  fail "$name"
+  detail=$(printf '%s\n' "$out" | grep 'FAIL' | head -20)
+  [ -n "$detail" ] || detail=$(printf '%s\n' "$out" | tail -20)
+  [ -z "$detail" ] || printf '%s\n' "$detail" | sed 's/^/    /'
 }
 cleanup() { [ -n "$LOG" ] && rm -f "$LOG"; return 0; }
 trap cleanup EXIT
