@@ -1,0 +1,128 @@
+---
+title: "Exercise: Take an app from GUI to BUI to DWC"
+description: "Practice the basic steps to deploy a BBj program in the DWC: run it in GUI, BUI and DWC, then change its layout and button attributes."
+---
+
+:::exercise
+
+In this exercise you will practice the basic steps to deploy a BBj program in DWC.
+
+1. Load `GUISample.bbj` from [01_GUI2BUI2DWC.zip](pathname:///files/dwc/01_GUI2BUI2DWC.zip) in your IDE. Examine the program and run it in GUI.
+
+2. Start the program in BUI. You can either use Enterprise Manager to deploy it or, if you use BDT in Eclipse, use the spiderweb toolbutton in the toolbar.
+
+3. Run the program in DWC by changing `/apps/` into `/webapp/` in the browser URL.
+
+4. Apply modifications to the program:
+
+   - Set the window creation flag to `$00100000$` and run the program again in DWC in the browser.
+   - Add CSS instructions to apply the layout by CSS, for example a CSS grid layout.
+   - Set the expanse and theme attribute of the Button using `setAttribute`. See the [properties documentation](https://dwc.style/docs/#/dwc/) of the Button element.
+
+:::
+
+<details>
+<summary>Possible solution</summary>
+
+The starter file is `GUISample.bbj`. The solution is in `DWC1.bbj` and `DWC2.bbj`, and you find all files in [01_GUI2BUI2DWC.zip](pathname:///files/dwc/01_GUI2BUI2DWC.zip).
+
+```bbj title="DWC1.bbj"
+rem /**
+rem  * DWC1.bbj
+rem  * This program is the result of starting with the GUISample.bbj program and
+rem  * making several DWC-specific changes to it, including:
+rem  *   - Setting the window's flag to opt-in to flow layout
+rem  *   - Executing setPanelStyle() methods to use CSS Grid for the window's layout
+rem  *   - Executing setStyle() on the [Say Hello] button to place in it the grid's second column
+rem  *   - Executing setAttribute() on the [Say Hello] button to affect its size and theme
+rem  */
+
+wnd! = BBjAPI().openSysGui("X0").addWindow(10,10,450,140,"Hello BBj DWC", $00100083$)
+
+wnd!.setPanelStyle("display","grid")
+wnd!.setPanelStyle("grid-template-columns","180px auto")
+wnd!.setPanelStyle("gap","5px")
+wnd!.setPanelStyle("padding","15px")
+
+st! = wnd!.addStaticText(wnd!.getAvailableControlID(),10,10,200,20,"First Name:")
+ed_firstname! = wnd!.addEditBox(wnd!.getAvailableControlID(),210,10,200,20,"")
+st! = wnd!.addStaticText(wnd!.getAvailableControlID(),10,40,200,20,"Last Name:")
+ed_lastname! = wnd!.addEditBox(wnd!.getAvailableControlID(),210,40,200,20,"")
+btn! = wnd!.addButton(wnd!.getAvailableControlID(),10,70,400,30,"Say Hello")
+
+btn!.setStyle("grid-column","2")
+
+btn!.setAttribute("expanse","xl")
+btn!.setAttribute("theme","success")
+
+wnd!.setCallback(BBjAPI.ON_CLOSE,"byebye")
+btn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"sayhello")
+
+process_events
+
+byebye: bye
+
+sayhello:
+    firstname$=ed_firstname!.getText()
+    lastname$=ed_lastname!.getText()
+    a=msgbox("Hello "+firstname$+" "+lastname$,64,"Hello World")
+return
+```
+
+```bbj title="DWC2.bbj"
+rem /**
+rem  * DWC2.bbj
+rem  * This program is the result of starting with the DWC1.bbj program and
+rem  * making more DWC-specific changes to it, including:
+rem  *   - Adding the window without specifying the x, y, w, and h parameters
+rem  *   - Removing the window's title bar and setting it to be initially maximized
+rem  *   - Adding the controls to the window without specifying the ID, x, y, w, and h parameters
+rem  */
+
+wnd! = BBjAPI().openSysGui("X0").addWindow("Hello BBj DWC", $01101083$)
+
+wnd!.setPanelStyle("display","inline-grid")
+wnd!.setPanelStyle("grid-template-columns","1fr 2fr")
+wnd!.setPanelStyle("gap","5px")
+wnd!.setPanelStyle("padding","15px")
+
+st! = wnd!.addStaticText("First Name:")
+ed_firstname! = wnd!.addEditBox("")
+st! = wnd!.addStaticText("Last Name:")
+ed_lastname! = wnd!.addEditBox("")
+
+rem Use an icon from the tabular pool
+rem @see https://tabler-icons.io/
+rem https://dwc.style/docs/#/dwc/dwc-icon
+btnIcon$ = "<dwc-icon name='speakerphone'></dwc-icon>"
+
+rem Use an icon from the feather pool
+rem @see https://feathericons.com/
+rem btnIcon$ = "<dwc-icon name='speaker' pool='feather'></dwc-icon>"
+
+rem Use an icon from the fontawesome-free pool
+rem @see https://fontawesome.com/v5/search?m=free
+rem btnIcon$ = "<dwc-icon name='fas-microphone-alt' pool='fa'></dwc-icon>"
+
+btn! = wnd!.addButton("<html>Say Hello" + btnIcon$ +"</html>")
+
+btn!.setStyle("grid-column","2")
+
+btn!.setAttribute("expanse","xl")
+btn!.setAttribute("theme","primary")
+
+wnd!.setCallback(BBjAPI.ON_CLOSE,"byebye")
+btn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"sayhello")
+
+process_events
+
+byebye: bye
+
+sayhello:
+    firstname$=ed_firstname!.getText()
+    lastname$=ed_lastname!.getText()
+    a=msgbox("Hello "+firstname$+" "+lastname$,64,"Hello World")
+return
+```
+
+</details>

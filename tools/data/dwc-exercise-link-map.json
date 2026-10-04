@@ -1,0 +1,83 @@
+[
+  {
+    "old": "https://github.com/BasisHub/DWCTraining/blob/main/01_GUI2BUI2DWC/GUISample.bbj",
+    "new": null,
+    "verdict": "unlinked",
+    "pages": [
+      "docs/docs/dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx"
+    ],
+    "note": "D-03: replaced by the file name plus a link to 01_GUI2BUI2DWC.zip in static/files/dwc"
+  },
+  {
+    "old": "https://github.com/BasisHub/DWCTraining",
+    "new": null,
+    "verdict": "unlinked",
+    "pages": [
+      "docs/docs/dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx"
+    ],
+    "note": "D-03: training repository link replaced by the folder ZIP in static/files/dwc"
+  },
+  {
+    "old": "https://basishub.github.io/basis-next/#/dwc/bbj-button?id=properties",
+    "new": "https://dwc.style/docs/#/dwc/",
+    "verdict": "replaced",
+    "pages": [
+      "docs/docs/dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx"
+    ],
+    "note": "https://dwc.style/docs/dwc/bbj-button.md returned 404; fell back to parent route #/dwc/ (dwc/README.md 200); ?id dropped"
+  },
+  {
+    "old": "https://basishub.github.io/basis-next/docs/#/dwc/BBjTree",
+    "new": "https://dwc.style/docs/#/dwc/BBjTree",
+    "verdict": "replaced",
+    "pages": [
+      "docs/docs/dwc/05-dwc-controls/90-exercise-search-bbjtree.mdx"
+    ],
+    "note": "https://dwc.style/docs/dwc/BBjTree.md returned 200"
+  },
+  {
+    "old": "https://us.bbx.kitchen/webapp/DWCThemer",
+    "new": "https://us.bbx.kitchen/webapp/DWCThemer",
+    "verdict": "provisional",
+    "pages": [
+      "docs/docs/dwc/02-browser-developer-tools/90-exercise-theming-support.mdx"
+    ],
+    "note": "P5 D-27 provisional successor; review todo open (HTTP 200 on 2026-10-04)"
+  },
+  {
+    "old": "https://tabler-icons.io/",
+    "new": "https://tabler-icons.io/",
+    "verdict": "kept",
+    "pages": [
+      "docs/docs/dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx"
+    ],
+    "note": "comment line inside the byte-copied DWC2.bbj solution; HTTP 200"
+  },
+  {
+    "old": "https://dwc.style/docs/#/dwc/dwc-icon",
+    "new": "https://dwc.style/docs/#/dwc/dwc-icon",
+    "verdict": "kept",
+    "pages": [
+      "docs/docs/dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx"
+    ],
+    "note": "comment line inside the byte-copied DWC2.bbj solution; HTTP 200 (https://dwc.style/docs/dwc/dwc-icon.md)"
+  },
+  {
+    "old": "https://feathericons.com/",
+    "new": "https://feathericons.com/",
+    "verdict": "kept",
+    "pages": [
+      "docs/docs/dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx"
+    ],
+    "note": "comment line inside the byte-copied DWC2.bbj solution; HTTP 200"
+  },
+  {
+    "old": "https://fontawesome.com/v5/search?m=free",
+    "new": "https://fontawesome.com/v5/search?m=free",
+    "verdict": "kept",
+    "pages": [
+      "docs/docs/dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx"
+    ],
+    "note": "comment line inside the byte-copied DWC2.bbj solution; HTTP 200"
+  }
+]

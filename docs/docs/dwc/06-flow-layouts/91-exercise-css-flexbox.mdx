@@ -1,0 +1,89 @@
+---
+title: "Exercise: Lay out a form with CSS Flexbox"
+description: "Switch a short form from flow layout to a CSS Flexbox column layout by extending the CSS string of the window."
+---
+
+:::exercise
+
+Open `Exercise-ConvertToCssFlexbox.bbj` from [05_CssLayouts.zip](pathname:///files/dwc/05_CssLayouts.zip) for the exercise source code.
+
+This exercise displays a short form in a window with flow layout.
+
+**Goals:**
+
+1. Augment the `css!` variable to set the CSS `display` property of the window to `flex` to switch to a flexbox layout.
+
+2. Augment the `css!` variable to set the CSS `flex-direction` property of the window to `column`, so the controls are laid out vertically.
+
+3. Augment the `css!` variable to add padding around the window and a gap between the controls.
+
+4. Note that the program uses the succinct versions of the `BBjWindow::addEditBox()` methods that take only the contents of the control. It then calls the `BBjControl::setAttribute()` method to give the edit box a label, as shown below:
+
+```bbj
+    myName! = window!.addEditBox("Joe Blow")
+    myName!.setAttribute("label", "Name:")
+```
+
+:::
+
+<details>
+<summary>Possible solution</summary>
+
+The starter file is `Exercise-ConvertToCssFlexbox.bbj`. The solution is in `Exercise-ConvertToCssFlexboxComplete.bbj`, and you find all files in [05_CssLayouts.zip](pathname:///files/dwc/05_CssLayouts.zip).
+
+```bbj title="Exercise-ConvertToCssFlexboxComplete.bbj"
+rem /**
+rem  * Exercise-ConvertToCssFlexboxComplete.bbj
+rem  *
+rem  * This is the completed version of the Exercise-ConvertToCssFlexbox.bbj exercise program.
+rem  */
+
+
+rem If the app is running in BUI, switch it automatically to run in the DWC client instead
+rem ================================================================================
+if (info(3, 6) = "5") then
+    bui! = BBjAPI().getBuiManager()
+    url! = bui!.getUrl().replaceAll("apps", "webapp")
+    action! = bui!.urlAction(url!)
+    bui!.setEndAction(action!)
+    release
+endif
+
+
+sysgui = unt
+open (sysgui)"X0"
+sysgui! = bbjapi().getSysGui()
+window! = sysgui!.addWindow("CSS Flexbox and Label Attributes",$00190083$)
+window!.setCallback(window!.ON_CLOSE, "onClose")
+json! = new JsonObject()
+json!.addProperty("width", "100%")
+json!.addProperty("height", "100%")
+json!.addProperty("box-sizing", "border-box")
+json!.addProperty("display", "flex")
+json!.addProperty("flex-direction", "column")
+json!.addProperty("gap", "var(--bbj-space)")
+json!.addProperty("padding", "1em")
+window!.setPanelStyle("@element", json!.toString())
+
+
+rem Add the controls to the window
+myName! = window!.addEditBox("Joe Blow").setAttribute("label", "Name:")
+myCompany! = window!.addEditBox("BASIS International Ltd.").setAttribute("label", "Company:")
+myEmail! = window!.addEditBox("joeBlow@basis.com").setAttribute("label", "Email:")
+
+
+process_events
+
+onClose:
+release
+
+declare auto BBjSysGui sysgui!
+declare auto BBjTopLevelWindow window!
+declare auto BBjEditBox myName!
+declare auto BBjEditBox myCompany!
+declare auto BBjEditBox myEmail!
+
+use com.google.gson.JsonObject
+```
+
+</details>

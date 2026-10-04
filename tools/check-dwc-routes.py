@@ -25,10 +25,20 @@ TOP_ORDER = [
     "flow-layouts", "icon-pools", "control-validation", "browser-constraints",
     "embedding-components", "advanced-responsive", "deployment",
 ]
+PHASE6_ROUTES = [
+    "gui-to-bui-to-dwc/exercise-gui-to-bui-to-dwc",
+    "browser-developer-tools/exercise-theming-support",
+    "upgrading-apps/exercise-bbjgridexwidget",
+    "dwc-controls/exercise-search-bbjtree",
+    "flow-layouts/exercise-css-grid-layout",
+    "flow-layouts/exercise-css-flexbox",
+]
 SUB_ORDER = {
-    "gui-to-bui-to-dwc": ["registering-launching", "hello-world", "gui-to-bui-to-dwc"],
-    "browser-developer-tools": ["intro-to-css", "developer-tools", "css-custom-properties", "dwc-themes"],
-    "upgrading-apps": ["arc-files", "upgrading-grids"],
+    "gui-to-bui-to-dwc": ["registering-launching", "hello-world", "gui-to-bui-to-dwc", "exercise-gui-to-bui-to-dwc"],
+    "browser-developer-tools": ["intro-to-css", "developer-tools", "css-custom-properties", "dwc-themes", "exercise-theming-support"],
+    "upgrading-apps": ["arc-files", "upgrading-grids", "exercise-bbjgridexwidget"],
+    "dwc-controls": ["exercise-search-bbjtree"],
+    "flow-layouts": ["exercise-css-grid-layout", "exercise-css-flexbox"],
     "advanced-responsive": ["media-queries", "transitions"],
 }
 
@@ -82,6 +92,7 @@ def main() -> int:
            "%d listed, content_routes says %s" % (n_content, snap.get("content_routes")))
     expected = {SITE + r["route"] for r in snap["routes"] if r["content"] and r["route"] != "/"}
     expected.add(SITE + "/overview")
+    expected |= {SITE + "/" + r for r in PHASE6_ROUTES}
     actual = set()
     for e in ET.parse(build / "sitemap.xml").getroot().iter(NS + "loc"):
         loc = e.text.strip()
