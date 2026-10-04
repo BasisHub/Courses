@@ -57,10 +57,18 @@ def main() -> int:
     if not src.is_file():
         print("missing sitemap: %s" % src, file=sys.stderr)
         return 1
-    out.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(src, out / "dwc-old-sitemap.xml")
-
-    locs = [e.text.strip() for e in ET.parse(src).getroot().iter(NS + "loc")]
+    try:
+        loc_elems = list(ET.parse(src).getroot().iter(NS + "loc"))
+    except ET.ParseError as e:
+        print("unreadable sitemap %s: %s" % (src, e), file=sys.stderr)
+        return 2
+    locs = []
+    for e in loc_elems:
+        text = (e.text or "").strip()
+        if not text:
+            print("empty <loc> in %s" % src, file=sys.stderr)
+            return 2
+        locs.append(text)
     routes = []
     for loc in locs:
         if not loc.startswith(PREFIX):
@@ -75,6 +83,9 @@ def main() -> int:
             continue
         name = "index.html" if route == "/" else route.lstrip("/") + ".html"
         page = build / name
+        if not page.is_file():
+            print("missing page for %s: %s" % (route, page), file=sys.stderr)
+            return 2
         parser = AnchorParser()
         parser.feed(page.read_text(encoding="utf-8"))
         routes.append({"route": route, "content": True, "anchors": parser.anchors})
@@ -90,11 +101,17 @@ def main() -> int:
         "anchor_count": count,
         "routes": routes,
     }
+    print("locs=%d content=%d anchors=%d" % (len(locs), content, count))
+    if (len(locs), content) != (28, 27):
+        # Leave the committed snapshot untouched when the counts are wrong.
+        print("expected 28 locs and 27 content routes; nothing written", file=sys.stderr)
+        return 1
+    out.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(src, out / "dwc-old-sitemap.xml")
     (out / "dwc-old-routes.json").write_text(
         json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
-    print("locs=%d content=%d anchors=%d" % (len(locs), content, count))
-    return 0 if (len(locs), content) == (28, 27) else 1
+    return 0
 
 
 if __name__ == "__main__":
