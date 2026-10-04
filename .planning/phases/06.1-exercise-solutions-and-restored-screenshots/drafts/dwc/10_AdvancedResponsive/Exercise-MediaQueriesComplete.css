@@ -1,0 +1,34 @@
+/* Exercise-MediaQueriesComplete.css
+ * Layout for Exercise-MediaQueriesComplete.bbj: a two-column contact form
+ * that becomes a one-column form on narrow screens.
+ */
+
+.contact-form {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: var(--dwc-space-m);
+    padding: var(--dwc-space-l);
+}
+
+/* The Submit button spans every column, in both layouts */
+.contact-form-submit {
+    grid-column: 1 / -1;
+    margin-top: var(--dwc-space-m);
+}
+
+/* The strict less-than keeps the two-column layout at exactly 600px */
+@media (width < 600px) {
+    .contact-form {
+        grid-template-columns: 1fr;
+        gap: var(--dwc-space-s);
+        --dwc-font-size: var(--dwc-font-size-s);
+    }
+
+    .optional-field {
+        display: none;
+    }
+}
