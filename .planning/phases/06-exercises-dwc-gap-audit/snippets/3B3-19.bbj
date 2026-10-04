@@ -1,0 +1,4 @@
+use com.basiscomponents.db.ResultSet
+use com.basiscomponents.bc.SqlQueryBC
+sbc! = new SqlQueryBC(BBjAPI().getJDBCConnection("CDStore"))
+rs! = sbc!.retrieve("SELECT  * FROM CDINVENTORY")
