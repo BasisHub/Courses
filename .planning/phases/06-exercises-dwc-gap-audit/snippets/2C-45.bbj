@@ -1,0 +1,4 @@
+    css! =        ".myButton4::part(control) {"
+    css! = css! + "   background: purple;"
+    css! = css! + "   color: yellow;"
+    css! = css! + "}"
