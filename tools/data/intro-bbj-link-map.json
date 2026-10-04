@@ -1,0 +1,57 @@
+[
+  {
+    "old": "https://basishub.github.io/basis-next/#/dwc/",
+    "new": "https://dwc.style/docs/#/dwc/",
+    "verdict": "replaced",
+    "pages": [
+      "docs/docs/intro-bbj/03-web-development/07-style-attributes.mdx"
+    ],
+    "note": "https://dwc.style/docs/dwc/README.md returned 200"
+  },
+  {
+    "old": "https://basishub.github.io/basis-next/#/dwc/bbj-button?id=shadow-parts",
+    "new": "https://dwc.style/docs/#/dwc/",
+    "verdict": "replaced",
+    "pages": [
+      "docs/docs/intro-bbj/04-theming-and-styling/01-shadow-dom-parts.mdx"
+    ],
+    "note": "https://dwc.style/docs/dwc/bbj-button.md returned 404; fell back to parent route #/dwc/ (dwc/README.md 200); ?id dropped"
+  },
+  {
+    "old": "https://basishub.github.io/basis-next/#/dwc/themes?id=enable-dark-theme",
+    "new": "https://dwc.style/docs/#/theme-engine/themes?id=automatically-enable-dark-mode",
+    "verdict": "replaced",
+    "pages": [
+      "docs/docs/intro-bbj/04-theming-and-styling/02-dark-theme.mdx"
+    ],
+    "note": "https://dwc.style/docs/dwc/themes.md returned 404; theme-engine/themes.md returned 200 and has heading 'Automatically Enable Dark Mode'"
+  },
+  {
+    "old": "https://basishub.github.io/basis-next/#/theme-engine/",
+    "new": "https://dwc.style/docs/#/theme-engine/",
+    "verdict": "replaced",
+    "pages": [
+      "docs/docs/intro-bbj/04-theming-and-styling/04-theming-reference.mdx"
+    ],
+    "note": "https://dwc.style/docs/theme-engine/README.md returned 200"
+  },
+  {
+    "old": "https://hot.bbx.kitchen/webapp/DWCThemeEditor",
+    "new": "https://us.bbx.kitchen/webapp/DWCThemer",
+    "verdict": "replaced",
+    "pages": [
+      "docs/docs/intro-bbj/04-theming-and-styling/03-theme-editor.mdx"
+    ],
+    "note": "provisional per D-27; review tracked in STATE.md Pending Todos; curl returned 200",
+    "review": true
+  },
+  {
+    "old": "https://www.basis.com/eclipseplug-ins",
+    "new": "https://basis.cloud/eclipseplug-ins/",
+    "verdict": "replaced",
+    "pages": [
+      "docs/docs/intro-bbj/01-getting-started/01-setup.mdx"
+    ],
+    "note": "curl -L https://basis.cloud/eclipseplug-ins/ returned 200"
+  }
+]
