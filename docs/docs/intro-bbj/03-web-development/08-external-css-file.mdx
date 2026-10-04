@@ -5,7 +5,7 @@ description: Move your styles into an external CSS file and register it with you
 
 The setStyle / setPanelStyle / setDockStyle instructions directly set the style properties in the element tags of the DOM. Now we learn how to add a CSS class to a control and a window panel, and how to define the properties for such a class in an external CSS file.
 
-Let's first create a simple CSS file "sample.css" with the following content
+Let's first create a simple CSS file `sample.css` with the following content
 
 ```css
 .mypanel{
@@ -17,7 +17,7 @@ Let's first create a simple CSS file "sample.css" with the following content
 
 As you see we have now created a CSS class with the grid instructions we had added to the code before .
 
-Now the three lines with the according "setStyle" instrutions can be changes to the following single line:
+Now the three lines with the according "setStyle" instructions can be changed to the following single line:
 
 ```bbj
 wnd!.addPanelStyle("mypanel")
@@ -35,7 +35,7 @@ Now you can also add more CSS instructions to that CSS file, especially [media-q
 
 Note: If you deploy the CSS file in Enterprise Manager, it will not be reloaded if you change it on disk unless you redeploy it in Enterprise Manager or restart your service. As soon as we will cover BBj Plug-Ins we will learn about a plug-in that you will find helpful for that problem.
 
-For the time being you can add the following to the beginning of your program (adjust the names for the app link name and the css file to your situation):
+For the time being you can add the following to the beginning of your program (adjust the names for the app link name and the CSS file to your situation):
 
 ```bbj
 ::BBUtils.bbj::BBUtils.applyCss("Sample", "sample.css", 1)
@@ -45,4 +45,4 @@ What this does is basically re-register the CSS file with every start. Now after
 
 The two files that contain the results of this lesson.
 
-[Download dwc-lesson-result.zip](pathname:///files/intro-bbj/dwc-lesson-result.zip)
+[Download `dwc-lesson-result.zip`](pathname:///files/intro-bbj/dwc-lesson-result.zip)
