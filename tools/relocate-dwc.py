@@ -8,11 +8,13 @@ transforms (image syntax, link targets, IdealImage import removal), colocates th
 tools/data/dwc-unused-img/ and writes tools/data/dwc-image-map.json.
 
 Re-runnable only until commit 1 of Phase 4 exists; afterwards the Markdown is the
-only source of truth. 00-overview.mdx is never touched (written by hand, D-09).
+only source of truth and the script refuses to run unless --force is given.
+00-overview.mdx is never touched (written by hand, D-09).
 
-Usage: python3 tools/relocate-dwc.py
+Usage: python3 tools/relocate-dwc.py [--force]
 Environment: DWC_SOURCE_REPO overrides the clone location (default ../bbj-dwc-tutorial).
-Exit 0 on success, 1 on a failed count or unresolved link, 2 when the clone is missing.
+Exit 0 on success, 1 on a failed count or unresolved link, 2 when the clone is missing
+or the relocation commit is already in history.
 """
 from __future__ import annotations
 
@@ -34,6 +36,7 @@ SOURCE_SHA = "965da6d"
 DST = ROOT / "docs" / "docs" / "dwc"
 PARK = ROOT / "tools" / "data" / "dwc-unused-img"
 MAP_FILE = ROOT / "tools" / "data" / "dwc-image-map.json"
+COMMIT1_SUBJECT = "feat(04-03): relocate DWC-Course book from BasisHub/DWC-Course@965da6d"
 
 LABELS = {
     "01-gui-to-bui-to-dwc": "GUI to BUI to DWC",
@@ -132,7 +135,23 @@ def route_of(new_rel: str) -> str:
     return "/".join(parts)
 
 
+def check_not_committed() -> None:
+    """Refuse to overwrite the book once the relocation commit is in history (D-05 edits and later)."""
+    args = sys.argv[1:]
+    if any(a != "--force" for a in args):
+        fail("usage: python3 tools/relocate-dwc.py [--force]", 2)
+    if "--force" in args:
+        return
+    r = subprocess.run(["git", "-C", str(ROOT), "log", "--format=%H %s", "--fixed-strings",
+                        "--grep", COMMIT1_SUBJECT], capture_output=True, text=True)
+    if r.returncode != 0:
+        fail("git log failed; cannot tell whether the relocation is committed (use --force to override)", 2)
+    if any(line.split(" ", 1)[1:] == [COMMIT1_SUBJECT] for line in r.stdout.splitlines()):
+        fail("relocation already committed; the Markdown is now the source of truth (use --force to override)", 2)
+
+
 def main() -> None:
+    check_not_committed()
     check_source()
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="dwc-reloc-"))
     try:
