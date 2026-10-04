@@ -1,6 +1,6 @@
 ---
 title: "Exercise: Lay out a form with CSS Flexbox"
-description: "Switch a short form from flow layout to a CSS Flexbox column layout by extending the CSS string of the window."
+description: "Switch a short form from flow layout to a CSS Flexbox column layout by extending the JsonObject of window styles."
 ---
 
 :::exercise
@@ -11,18 +11,17 @@ This exercise displays a short form in a window with flow layout.
 
 **Goals:**
 
-1. Augment the `css!` variable to set the CSS `display` property of the window to `flex` to switch to a flexbox layout.
+1. Augment the `json!` variable to set the CSS `display` property of the window to `flex` to switch to a flexbox layout.
 
-2. Augment the `css!` variable to set the CSS `flex-direction` property of the window to `column`, so the controls are laid out vertically.
+2. Augment the `json!` variable to set the CSS `flex-direction` property of the window to `column`, so the controls are laid out vertically.
 
-3. Augment the `css!` variable to add padding around the window and a gap between the controls.
+3. Augment the `json!` variable to add padding around the window and a gap between the controls.
 
-4. Note that the program uses the succinct versions of the `BBjWindow::addEditBox()` methods that take only the contents of the control. It then calls the `BBjControl::setAttribute()` method to give the edit box a label, as shown below:
+4. Note that the program uses the succinct versions of the `BBjWindow::addEditBox()` methods that take only the contents of the control, and chains the `BBjControl::setAttribute()` method to give each edit box a label in one line of code:
 
-```bbj
-    myName! = window!.addEditBox("Joe Blow")
-    myName!.setAttribute("label", "Name:")
-```
+   ```bbj
+   myName! = window!.addEditBox("Joe Blow").setAttribute("label", "Name:")
+   ```
 
 :::
 
