@@ -257,7 +257,7 @@ Plans:
 
 **Wave 10** *(blocked on Wave 9 completion)*
 
-- [ ] 06-16-PLAN.md — 2022 screenshot markers, exercise indexes for both books (D-18 steps 4, 5)
+- [x] 06-16-PLAN.md — 2022 screenshot markers, exercise indexes for both books (D-18 steps 4, 5)
 
 **Wave 11** *(blocked on Wave 10 completion)*
 
@@ -305,6 +305,6 @@ Plans:
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
-| 6. Exercises & DWC Gap Audit | 15/17 | In Progress|  |
+| 6. Exercises & DWC Gap Audit | 16/17 | In Progress|  |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |

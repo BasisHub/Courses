@@ -56,14 +56,14 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 
 - [x] **EXER-01**: Reader finds every intro-bbj exercise (5 Moodle assignments) as its own `9N-exercise-*.mdx` page after its section's chapters
 - [x] **EXER-02**: Reader finds DWC exercises as exercise pages: inline exercises extracted, missing ones taken from the course-4 assignments
-- [ ] **EXER-03**: Reader can open a per-book exercise index listing all exercises of that book
+- [x] **EXER-03**: Reader can open a per-book exercise index listing all exercises of that book
 - [x] **EXER-04**: Where a sample solution exists, the exercise page offers it in a collapsed "Possible solution" block
 
 ### DWC Gap Audit (before go-live)
 
 - [x] **AUDIT-01**: `tools/data/dwc-gap-audit.md` lists, per Moodle course-4 page/book chapter, the paragraphs, code samples and screenshots missing from the DWC book with a keep / drop / already-covered verdict
 - [x] **AUDIT-02**: Kept material is added to the DWC pages as its own commit series, without renaming existing slugs
-- [ ] **AUDIT-03**: DWC screenshots that originate from 2022-era Moodle images (matched by content hash) carry a `{/* TODO: screenshot outdated? */}` marker
+- [x] **AUDIT-03**: DWC screenshots that originate from 2022-era Moodle images (matched by content hash) carry a `{/* TODO: screenshot outdated? */}` marker
 
 ### Review & Quality
 
@@ -154,11 +154,11 @@ Populated 2026-10-03 during roadmap creation.
 | CONV-07 | Phase 5 | Complete |
 | EXER-01 | Phase 5 | Complete |
 | EXER-02 | Phase 6 | Complete |
-| EXER-03 | Phase 6 | Pending |
+| EXER-03 | Phase 6 | Complete |
 | EXER-04 | Phase 6 | Complete |
 | AUDIT-01 | Phase 6 | Complete |
 | AUDIT-02 | Phase 6 | Complete |
-| AUDIT-03 | Phase 6 | Pending |
+| AUDIT-03 | Phase 6 | Complete |
 | QUAL-01 | Phase 7 | Pending |
 | QUAL-02 | Phase 7 | Pending |
 | QUAL-03 | Phase 7 | Pending |
