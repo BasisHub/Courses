@@ -19,12 +19,12 @@
   },
   {
     "old": "https://basishub.github.io/basis-next/#/dwc/bbj-button?id=properties",
-    "new": "https://dwc.style/docs/#/dwc/",
+    "new": "https://dwc.style/docs/#/dwc/BBjButton",
     "verdict": "replaced",
     "pages": [
       "docs/docs/dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx"
     ],
-    "note": "https://dwc.style/docs/dwc/bbj-button.md returned 404; fell back to parent route #/dwc/ (dwc/README.md 200); ?id dropped"
+    "note": "https://dwc.style/docs/dwc/BBjButton.md returned 200 (2026-10-04); bbj-button.md is 404, the page name is BBjButton like BBjTree; ?id dropped"
   },
   {
     "old": "https://basishub.github.io/basis-next/docs/#/dwc/BBjTree",
