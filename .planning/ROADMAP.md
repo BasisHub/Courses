@@ -249,7 +249,7 @@ Plans:
 
 **Wave 8** *(blocked on Wave 7 completion)*
 
-- [ ] 06-14-PLAN.md — Kept material: chapters 04 to 06
+- [x] 06-14-PLAN.md — Kept material: chapters 04 to 06
 
 **Wave 9** *(blocked on Wave 8 completion)*
 
@@ -305,6 +305,6 @@ Plans:
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
-| 6. Exercises & DWC Gap Audit | 13/17 | In Progress|  |
+| 6. Exercises & DWC Gap Audit | 14/17 | In Progress|  |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |
