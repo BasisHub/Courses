@@ -3,7 +3,8 @@
 # Usage: bash tools/verify-phase6.sh [--no-build]
 # Prints one "PASS|FAIL|SKIP  [section] name" line per check; exits 1 if any check failed.
 # Sections: build exercises pointers solutions indexes audit kept screenshots regression commits.
-# Point-in-time gate: asserts the Phase 6 end state (11 DWC exercise pages, 6 solutions, 2 indexes, gap audit, kept material, 2022 markers).
+# Point-in-time gate: asserts the Phase 6 end state (11 DWC exercise pages, 2 indexes, gap audit, kept material, 2022 markers).
+# Phase 6.1 extended check-dwc-phase6.py to 16 solution pages (11 DWC, 5 intro-bbj), so `solutions` and `indexes` now assert the Phase 6.1 end state; see tools/verify-phase6.1.sh.
 # LIVE-01 (Phase 7): the sidebar diff against the old DWC-Course site must treat the new DWC Exercises page and the 11 exercise sub-pages as intended additions.
 # Writes only docs/build and a temp build log (removed on exit).
 set -u
@@ -87,7 +88,7 @@ check "kept material" python3 $P6 kept
 [ ! -e tools/data/dwc-unused-img ] && pass "dwc-unused-img gone" || fail "dwc-unused-img gone"
 check "samples in sync" python3 tools/sync-samples.py --check
 total=$(find docs/examples/dwc -name '*.bbj' | wc -l | tr -d ' ')
-[ "$total" -eq 44 ] && pass "44 .bbj under docs/examples/dwc" || fail "44 .bbj under docs/examples/dwc ($total found)"
+[ "$total" -ge 44 ] && pass "at least 44 .bbj under docs/examples/dwc ($total found)" || fail "at least 44 .bbj under docs/examples/dwc ($total found)"
 [ "$(git ls-files import | wc -l | tr -d ' ')" = "0" ] && pass "no tracked import/ path" || fail "no tracked import/ path"
 
 SEC=screenshots

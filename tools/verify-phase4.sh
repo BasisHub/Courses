@@ -6,6 +6,7 @@
 # Point-in-time gate: asserts the exact Phase 4 end state (routes, files, images).
 # Phase 6 extended check-dwc-routes.py (exercise routes, Exercises page); see tools/verify-phase6.sh.
 # Later phases that add dwc pages or move parked images must update the checkers in the same change.
+# Phase 6.1 added solution samples; the count is a floor, every sample still needs a syntax row.
 # Writes only docs/build and a temp build log (removed on exit).
 set -u
 cd "$(dirname "$0")/.." || exit 1
@@ -101,7 +102,7 @@ while IFS= read -r f; do
   total=$((total + 1))
   grep -qF "\`$f\`" tools/data/dwc-samples-syntax.md 2>/dev/null || { miss=1; echo "  no syntax row for $f"; }
 done < <(find docs/examples/dwc -name '*.bbj' | sort)
-if [ "$total" -eq 44 ] && [ "$miss" -eq 0 ]; then pass "syntax report covers all 44 samples"; else fail "syntax report covers all 44 samples ($total found)"; fi
+if [ "$total" -ge 44 ] && [ "$miss" -eq 0 ]; then pass "syntax report covers all $total samples"; else fail "syntax report covers all samples ($total found, need at least 44 and a syntax row each)"; fi
 
 SEC=content
 if grep -rIEq 'PLUGINFILE|pluginfile\.php|\$@[A-Z]+|moodle\.basis-europe|DWC-Course/' docs/docs; then
