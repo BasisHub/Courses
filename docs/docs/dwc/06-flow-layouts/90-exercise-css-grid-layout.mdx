@@ -1,23 +1,23 @@
 ---
 title: "Exercise: Convert a form to a CSS grid layout"
-description: "Turn a contact form that uses flow layout into a two-column CSS grid by extending the CSS string and styling the Submit button."
+description: "Turn a contact form that uses flow layout into a two-column CSS grid by extending the JsonObject of window styles and styling the Submit button."
 ---
 
 :::exercise
 
 Open `Exercise-ConvertToCssLayout.bbj` from [05_CssLayouts.zip](pathname:///files/dwc/05_CssLayouts.zip) for the exercise source code.
 
-This exercise for the CSS Layouts chapter consists of a window that has a contact form made up of labels and edit boxes. The window already uses flow control, so if you run the program in this state, the contact form flows from left to right.
+This exercise for the CSS Layouts chapter consists of a window that has a contact form made up of labels and edit boxes. The window already uses flow layout, so if you run the program in this state, the contact form flows from left to right.
 
 **Goals:**
 
-1. Add code to the `css!` variable that is applied to the window to change the CSS `display` to `grid`, so the window adopts a CSS Grid layout.
+1. Add code to the `json!` JsonObject that is applied to the window to change the CSS `display` to `grid`, so the window adopts a CSS Grid layout.
 
-2. Augment the `css!` variable to set the `grid-template-columns` CSS property of the window to a value that forces two columns, such as `auto 1fr`.
+2. Augment the `json!` variable to set the `grid-template-columns` CSS property of the window to a value that forces two columns, such as `auto 1fr`.
 
-3. Augment the `css!` variable to add padding around the window and a gap between the rows and columns of the grid.
+3. Augment the `json!` variable to add padding around the window and a gap between the rows and columns of the grid.
 
-4. Augment the `css!` variable to vertically center the labels and edit boxes by setting the `align-items` CSS property to `center`.
+4. Augment the `json!` variable to vertically center the labels and edit boxes by setting the `align-items` CSS property to `center`.
 
 5. Add a `setStyle()` method call to the **Submit** button that sets the CSS `grid-column` property to a value that makes it span both columns of the grid. Hint: the value is the starting line (not column), followed by a `/`, followed by the ending line (not column). If it were given in columns, you could set the value to `1 / 2`. Since you have to supply grid lines, set the value to `1 / 3` or use the span syntax `1 / span 2`.
 
