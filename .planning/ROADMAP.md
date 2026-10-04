@@ -290,12 +290,13 @@ Plans:
   3. Every exercise page has a line near the top telling the reader that a possible solution is at the end of the page
   4. Screenshots 8B-05 and 8B-07 from the gap audit appear unredacted on the DWC chapter 09 printing section, with alt text, and the audit records them as restored
   5. The phase checker covers all 16 exercise pages (solution present, fence matches file, starter variables and snippets exist), and build, Vale and verify-phase1..6 stay green
-**Plans:** 10 plans
+
+**Plans:** 1/10 plans executed
 
 Plans:
 **Wave 1**
 
-- [ ] 06.1-01-PLAN.md — Tracer: checker covers all 16 pages (pointer line, per-file fences, ZIP membership, token rules), pointer line on the 6 Phase 6 pages, verify-phase6.1.sh
+- [x] 06.1-01-PLAN.md — Tracer: checker covers all 16 pages (pointer line, per-file fences, ZIP membership, token rules), pointer line on the 6 Phase 6 pages, verify-phase6.1.sh
 - [ ] 06.1-02-PLAN.md — Restore screenshots 8B-05 and 8B-07 to chapter 09 Print Preview; audit and image map
 - [ ] 06.1-03-PLAN.md — Drafts: DWC 65 theming (program, layout CSS, theme CSS) and 68 BBjGridExWidget
 - [ ] 06.1-04-PLAN.md — Drafts: DWC 83 Shoelace rating, 122 media queries, 123 button transition
