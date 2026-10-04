@@ -249,7 +249,7 @@ Plans:
 | 2. Repo Hygiene & CI | 6/6 | Complete    | 2026-10-03 |
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
-| 5. Intro-BBj Conversion | 6/6 | Complete   | 2026-10-04 |
+| 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
 | 6. Exercises & DWC Gap Audit | 0/TBD | Not started | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |
