@@ -1,0 +1,129 @@
+file	symbol	source
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	rem	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	if	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	endif	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	info	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	release	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	process_events	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	BBjAPI	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	getBuiManager	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	getUrl	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	replaceAll	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	urlAction	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	setEndAction	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	getWebManager	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	BBjWebManager::injectStyleUrl(url)	ORCH-OK (22.03+)
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	BBjWebManager::injectScriptUrl(url, top, attributes)	ORCH-OK (22.03+, attributes as "type=module"); also https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/BBjBuiManager/BBjBuiManager_injectScriptUrl.htm
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	openSysGui	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	addWindow	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	setPanelStyle	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	BBjAPI.ON_CLOSE	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	setVisible	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	$01101083$ hex string	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	setCallback	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	addStaticText	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	BBjWindow::addWebComponent(String)	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjwindow/BBjWindow_addWebComponent.htm ; https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/BBjWebComponent/BBjWebComponent.htm (BBj 24.00+)
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	BBjWebComponent::setAttribute(name, value)	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/BBjWebComponent/BBjWebComponent.htm
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	BBjWebComponent::newEventOptions()	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/BBjWebComponent/BBjWebComponent_setCallback.htm
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	BBjWebEventOptions::addItem(name, jsExpression)	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/BBjWebComponent/BBjWebComponent_setCallback.htm
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	BBjWebComponent::setCallback(eventType, subroutine, options)	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/BBjWebComponent/BBjWebComponent_setCallback.htm
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	sl-rating (tag, attributes label and max, event sl-change, event.target.value)	https://shoelace.style/components/rating
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	getSysGui	OK-repo docs/examples/dwc/09_EmbeddingOtherComponents/ChartJS.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	getLastEvent	OK-repo docs/examples/dwc/09_EmbeddingOtherComponents/ChartJS.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	BBjWebEvent::getEventMap()	OK-repo docs/examples/dwc/09_EmbeddingOtherComponents/ChartJS.bbj ; ORCH-OK
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	HashMap::get(key)	OK-repo docs/examples/dwc/09_EmbeddingOtherComponents/ChartJS.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	str	OK-repo docs/examples/dwc/09_EmbeddingOtherComponents/ChartJS.bbj (str(item!) on an object); ORCH-OK that str accepts a string object)
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	BBjStaticText::setText(text)	OK-repo docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	declare auto BBjTopLevelWindow	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	declare auto BBjStaticText	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	declare auto BBjWebComponent	ORCH-OK (class name; https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/BBjWebComponent/BBjWebComponent.htm)
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	declare auto BBjWebEventOptions	ORCH-OK (class name; https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/BBjWebComponent/BBjWebComponent.htm)
+docs/examples/dwc/09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj	declare auto BBjWebEvent	ORCH-OK (class name; https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/BBjWebComponent/BBjWebComponent.htm)
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	rem	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	if	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	endif	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	info	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	release	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	process_events	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	len	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	AND	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	return	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	BBjAPI	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	getBuiManager	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	getUrl	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	replaceAll	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	urlAction	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	setEndAction	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	addStaticText	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	$8000$ hex string	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	addEditBox	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	setPlaceholder	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	getText	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	accept	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	msgbox	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	BBjSysGui.MSGBOX_ICON_INFORMATION	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	BBjSysGui.MSGBOX_ICON_STOP	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	mode="theme=..." on msgbox	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	BBjButton.ON_FORM_VALIDATION	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	addButton	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	setAttribute	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	setVisible	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	setCallback	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	window!.ON_CLOSE	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	openSysGui	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	addWindow	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	getSysGui	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	getLastEvent	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	$00180093$ hex string	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	BBjWindow::addPanelStyle(class)	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_ExternalCSS/Sample.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	addStyle(class)	OK-repo docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	getFileSystem	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	resolvePath	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	Files.readAllBytes	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	Paths.get	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	new String	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	BBjWebManager::injectStyle(css)	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj ; ORCH-OK
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	getWebManager	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	use java.nio.file.Files	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	use java.nio.file.Paths	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	declare auto BBjTopLevelWindow	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	declare auto BBjStaticText	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	declare auto BBjEditBox	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	declare auto BBjButton	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj	declare auto BBjFormValidationEvent	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	rem	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	if	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	endif	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	info	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	release	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	process_events	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	return	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	BBjAPI	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	getBuiManager	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	getUrl	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	replaceAll	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	urlAction	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	setEndAction	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	openSysGui	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	addWindow	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	$00100093$ hex string	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	BBjAPI.ON_CLOSE	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	setCallback	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	addButton	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	setAttribute	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	setVisible	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	BBjWindow::addPanelStyle(class)	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_ExternalCSS/Sample.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	addStyle(class)	OK-repo docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	BBjAPI.ON_BUTTON_PUSH	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_ExternalCSS/Sample.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	msgbox(text, 64, title)	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_ExternalCSS/Sample.bbj (msgbox with option 64)
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	getFileSystem	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	resolvePath	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	Files.readAllBytes	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	Paths.get	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	new String	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	BBjWebManager::injectStyle(css)	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj ; ORCH-OK
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	getWebManager	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	use java.nio.file.Files	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	use java.nio.file.Paths	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	declare auto BBjTopLevelWindow	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
+docs/examples/dwc/10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj	declare auto BBjButton	OK-repo docs/examples/dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj
