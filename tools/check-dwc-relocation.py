@@ -7,8 +7,8 @@ Check B: the file set under docs/docs/dwc is exactly the expected one.
 Check C: tools/data/dwc-image-map.json is consistent with the tree and the source blobs.
 
 Usage: python3 tools/check-dwc-relocation.py [--rev REV]
-  --rev REV  read pages from git revision REV instead of the working tree
-             (images are always read from the working tree).
+  --rev REV  read pages, the image map and the images from git revision REV
+             instead of the working tree.
 Environment: DWC_SOURCE_REPO overrides the clone location (default ../bbj-dwc-tutorial).
 Exit 0 on pass, 1 on any failure, 2 when the source clone or commit is missing.
 """
