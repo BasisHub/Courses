@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-10-04T17:13:01.731Z",
+  "phase": "06.1",
+  "phase_name": "exercise-solutions-and-restored-screenshots",
+  "phase_dir": ".planning/phases/06.1-exercise-solutions-and-restored-screenshots",
+  "plan": null,
+  "task": 2,
+  "total_tasks": 12,
+  "status": "paused",
+  "completed_tasks": [
+    {"id": 1, "name": "UAT Test 1: Exercise 65 theming support", "status": "done", "commit": "5b7e011", "progress": "Logged as issue G-06.1-1 (resolvePath resolves against PREFIX, not the program folder)"},
+    {"id": "fast", "name": "Fix resolvePath prose in ResponsiveLoginDialog (page, sample, ZIPs)", "status": "done", "commit": "27afffd"}
+  ],
+  "remaining_tasks": [
+    {"id": 2, "name": "UAT Test 2: Exercise 68 BBjGridExWidget with plug-in and CDStore", "status": "not_started"},
+    {"id": "3-12", "name": "UAT Tests 3 to 12 in 06.1-HUMAN-UAT.md", "status": "not_started"},
+    {"id": "gap", "name": "Mark G-06.1-1 resolved by 27afffd in 06.1-HUMAN-UAT.md (fixed via /gsd-fast, so reconcile_gaps will not find a gap plan)", "status": "not_started"}
+  ],
+  "blockers": [],
+  "async_jobs": [],
+  "human_actions_pending": [
+    {"action": "Run UAT Tests 2 to 12 in a BBj/DWC environment", "context": "Runtime behavior cannot be checked by bbj_check_syntax", "blocking": true}
+  ],
+  "decisions": [
+    {"decision": "resolvePath resolves a relative name against the configured PREFIX (like OPEN); CSS files used by the exercises must be in a PREFIX directory", "rationale": "User correction during UAT Test 1, confirmed by https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/FileSystem/bbjfilesystem/BBjFileSystem_resolvePath.htm", "phase": "06.1"},
+    {"decision": "Only the wrong 'next to this program' comment was fixed; no PREFIX note added to the DWC exercises (Theming support, Media queries, Button transition)", "rationale": "Those pages state no location, so no wrong prose; adding a note is new content and was left for the user to request", "phase": "06.1"}
+  ],
+  "uncommitted_files": [
+    "?? .gsd/",
+    "?? .planning/milestone.lock",
+    "?? .planning/phases/04-dwc-book-relocation/04-VERIFICATION.md",
+    "?? .planning/phases/06.1-exercise-solutions-and-restored-screenshots/.gitkeep",
+    "?? .planning/state.json"
+  ],
+  "next_action": "/gsd-verify-work 06.1, resume at Test 2; first mark G-06.1-1 resolved by 27afffd",
+  "context_notes": "Paused before merging gsd/phase-04-dwc-book-relocation into main and pushing. Untracked files above predate this session and were deliberately not committed."
+}
