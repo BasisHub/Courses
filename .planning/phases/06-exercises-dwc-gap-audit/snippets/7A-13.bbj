@@ -1,0 +1,12 @@
+    OnFormValidation:
+        e! = BBjAPI().getSysGui().getLastEvent()
+        firstName! = e!.getText(editFirstName!)
+        lastName! = e!.getText(editLastName!)
+        if (len(firstName!) AND len(lastName!)) then
+            e!.accept(1)
+            temp = msgbox("You filled in the form successfully!", BBjSysGui.MSGBOX_ICON_INFORMATION, "Form Submitted Successfully", mode="theme=success")
+        else
+            e!.accept(0)
+            temp = msgbox("You didn't fill in your first and last names, which are required", BBjSysGui.MSGBOX_ICON_STOP, "Invalid Input", mode="theme=danger")
+        endif
+    return

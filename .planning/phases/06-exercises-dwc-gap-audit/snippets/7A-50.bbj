@@ -1,0 +1,1 @@
+editLastName!.setAttribute("validation-icon", "fa:thumbs-down")

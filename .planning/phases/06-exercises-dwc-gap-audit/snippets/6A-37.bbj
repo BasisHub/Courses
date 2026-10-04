@@ -1,0 +1,3 @@
+    rem Now create the buttons using the HTML for the title
+        btnIonIcon1! = wnd!.addButton(btnIconIon1$ + "IonIcons's Cloud Download Icon")
+        btnIonIcon2! = wnd!.addButton(btnIconIon2$ + "IonIcons's Cloud Download Icon Filled")

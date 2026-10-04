@@ -1,0 +1,4 @@
+    rem Define the HTML title for the alternate buttons that incorporate the cloud download icons with extra styling for size/color
+        btnIconFeather$ = "<html><dwc-icon pool='feather' name='download-cloud' expanse='l' theme='danger'></dwc-icon>"
+        btnIconTabler$ = "<html><dwc-icon pool='tabler' name='cloud-download' style='width: 0.5em; color: green'></dwc-icon>"
+        btnIconFontAwesome$ = "<html><dwc-icon pool='fa' name='fas-cloud-download-alt' style='width: 1em; color: var(--dwc-color-danger)'></dwc-icon>"

@@ -1,0 +1,1 @@
+    btnSubmit!.setCallback(BBjButton.ON_FORM_VALIDATION, "OnFormValidation")

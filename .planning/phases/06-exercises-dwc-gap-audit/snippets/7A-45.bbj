@@ -1,0 +1,11 @@
+    rem The first example could be written in a much more compact manner, so
+    rem we'll use that version for the last name.  Our function is simply
+    rem using the trim() method to remove leading and trailing spaces, then
+    rem returning the length property of the trimmed input.  That satisfies
+    rem our boolean return value, as an empty string has a zero length and
+    rem thus would be invalid.  Any other length value would resolve to true.
+    rem Additionally, we'll change this message to be inserted in the form
+    rem as an inline element instead of a popover.
+    editLastName!.setClientValidationFunction("return value.trim().length;")
+    editLastName!.setClientValidationMessage("This field is required; please enter your last name before submitting the form")
+    editLastName!.setAttribute("validation-style", "inline")
