@@ -1,0 +1,67 @@
+rem /**
+rem  * Exercise-ButtonTransitionComplete.bbj
+rem  *
+rem  * Possible solution for the exercise Add a transition to a button, written for the BBj DWC Training book.
+rem  * The button carries the CSS class grow-button. The file Exercise-ButtonTransitionComplete.css
+rem  * scales the button up on hover and smooths the change with a transition.
+rem  *
+rem  */
+
+
+rem If the app is running in BUI, switch it automatically to run in the DWC client instead
+rem ================================================================================
+if (info(3, 6) = "5") then
+    bui! = BBjAPI().getBuiManager()
+    url! = bui!.getUrl().replaceAll("apps", "webapp")
+    action! = bui!.urlAction(url!)
+    bui!.setEndAction(action!)
+    release
+endif
+
+
+rem Read the CSS from its file and inject it into the page
+rem ================================================================================
+css! = new String(Files.readAllBytes(Paths.get(BBjAPI().getFileSystem().resolvePath("./Exercise-ButtonTransitionComplete.css"))))
+BBjAPI().getWebManager().injectStyle(css!)
+
+
+rem Create the window and give its panel the layout class
+rem ================================================================================
+window! = BBjAPI().openSysGui("X0").addWindow("Button Transition", $00100093$)
+window!.addPanelStyle("transition-demo")
+window!.setCallback(BBjAPI.ON_CLOSE, "onExit")
+
+
+rem Add the button and give it the class with the hover rule and the transition
+rem ================================================================================
+growButton! = window!.addButton("Hover over me")
+growButton!.setAttribute("theme", "primary")
+growButton!.setAttribute("expanse", "l")
+growButton!.addStyle("grow-button")
+growButton!.setCallback(BBjAPI.ON_BUTTON_PUSH, "onPush")
+
+window!.setVisible(1)
+process_events
+
+
+rem ================================================================================
+rem Subroutines
+rem ================================================================================
+
+rem Handle the button click
+onPush:
+    temp = msgbox("You clicked the growing button.", 64, "Button Transition")
+return
+
+
+rem Handle the user exiting the app
+onExit:
+release
+
+
+declare auto BBjTopLevelWindow window!
+declare auto BBjButton growButton!
+
+rem Use statements
+use java.nio.file.Files
+use java.nio.file.Paths

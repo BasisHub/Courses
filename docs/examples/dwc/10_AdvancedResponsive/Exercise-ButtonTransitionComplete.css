@@ -1,0 +1,27 @@
+/* Exercise-ButtonTransitionComplete.css
+ * Styles for Exercise-ButtonTransitionComplete.bbj: a button that grows on hover.
+ */
+
+.transition-demo {
+    display: grid;
+    place-items: center;
+    min-height: 100%;
+    box-sizing: border-box;
+    padding: var(--dwc-space-xl);
+}
+
+/* Animate transform only. Animating width or height forces the browser to lay out the page again. */
+.grow-button {
+    transition: transform 0.25s ease-in-out;
+}
+
+.grow-button:hover {
+    transform: scale(1.2);
+}
+
+/* Switch the animation off for readers who ask their system for less motion */
+@media (prefers-reduced-motion: reduce) {
+    .grow-button {
+        transition: none;
+    }
+}

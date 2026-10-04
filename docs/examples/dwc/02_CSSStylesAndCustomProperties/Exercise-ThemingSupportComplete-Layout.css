@@ -1,0 +1,28 @@
+dwc-window-content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--dwc-space-l);
+    display: flex;
+    flex-direction: column;
+    gap: var(--dwc-space-2xl);
+    align-items: center;
+    border-color: var(--dwc-color-primary);
+    border-radius: var(--dwc-border-radius);
+}
+
+dwc-window-content fieldset[is='dwc-fieldset-panel'] {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: var(--dwc-space-l);
+    display: grid;
+    gap: var(--dwc-space-2xl);
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+fieldset > legend {
+    color: var(--dwc-color-primary);
+    font-weight: bold;
+}
