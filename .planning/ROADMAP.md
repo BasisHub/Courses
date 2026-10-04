@@ -210,7 +210,7 @@ Plans:
   3. `tools/data/dwc-gap-audit.md` lists per course-4 page the missing paragraphs, code and screenshots with keep/drop/covered verdicts
   4. Kept material appears on the DWC pages (one commit series after the relocation, no slug renames), and screenshots matching 2022-era Moodle images by content hash carry `{/* TODO: screenshot outdated? */}`
 
-**Plans**: 17 plans
+**Plans**: 21 plans (17 + 4 gap closure)
 
 Plans:
 **Wave 1**
@@ -262,6 +262,16 @@ Plans:
 **Wave 11** *(blocked on Wave 10 completion)*
 
 - [x] 06-17-PLAN.md — tools/verify-phase6.sh and full gate (D-18 step 6)
+
+**Gap closure, wave 1** *(after verification gaps_found)*
+
+- [ ] 06-18-PLAN.md — Exercise pages: json! in grid/Flexbox goals, Flexbox goal 4, exercise 01 flags and Button link (CR-01, WR-01..WR-03)
+- [ ] 06-19-PLAN.md — Kept prose: grid material, demo folder, icon sample, wording (WR-04..WR-08, IN-07..IN-09 part)
+- [ ] 06-20-PLAN.md — Chart.js callback in page and samples, validation duplicates, getClientFile (WR-09..WR-11, IN-06, IN-08/09 part)
+
+**Gap closure, wave 2** *(blocked on 06-18..06-20)*
+
+- [ ] 06-21-PLAN.md — Checker hardening: starter variable/snippet checks, WR-12, WR-13, full gate run
 
 **Cross-cutting constraints:**
 
