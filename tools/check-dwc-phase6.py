@@ -5,12 +5,15 @@ Usage:
     python3 tools/check-dwc-phase6.py <command> [--root DIR] [--build DIR]
     python3 tools/check-dwc-phase6.py audit [--fragment PATH [PATH ...]]
     python3 tools/check-dwc-phase6.py kept [--units 1A,1B] [--allow-parked]
+    python3 tools/check-dwc-phase6.py solutions --only 07-icon-pools,06-flow-layouts/90
+                                      (--only: page filter for solutions and exercises while pages land)
 
 Commands:
     exercises    the 11 DWC exercise pages (EXER-02, D-01, D-03, D-08 a-d)
     pointers     exercise pointers in the chapter pages (D-04)
     indexes      exercises.mdx of both books and the overview links (EXER-03, D-09)
-    solutions    inline solutions against docs/examples/dwc (EXER-04, D-06, D-07)
+    solutions    inline solutions of both books (16 pages) against docs/examples: pointer line, per-file
+                 fences, folder and aggregate ZIP entries (EXER-04 extended, D-02, D-04, D-07, D-16, D-21)
     audit        tools/data/dwc-gap-audit.md against 06-AUDIT-FORMAT.md (AUDIT-01)
     kept         kept course-4 material: anchors, image map, orphans (AUDIT-02)
     screenshots  2022 screenshot list and markers (AUDIT-03, D-16, D-17)
@@ -69,6 +72,23 @@ SOLUTIONS = {
     "08-control-validation/90-exercise-email-validation.mdx":
         (["07_ControlValiation/Exercise-BuiltInValidationComplete.bbj"], "07_ControlValiation.zip",
          "Exercise-BuiltInValidation.bbj"),
+    # Phase 6.1: solutions written for this book, no starter file in the folder (D-01)
+    "02-browser-developer-tools/90-exercise-theming-support.mdx":
+        (["02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj",
+          "02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete-Layout.css",
+          "02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete-Theme.css"],
+         "02_CSSStylesAndCustomProperties.zip", None),
+    "04-upgrading-apps/90-exercise-bbjgridexwidget.mdx":
+        (["03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj"], "03C_Grid2GridEx.zip", None),
+    "10-embedding-components/90-exercise-embed-component.mdx":
+        (["09_EmbeddingOtherComponents/Exercise-EmbedComponentComplete.bbj"],
+         "09_EmbeddingOtherComponents.zip", None),
+    "11-advanced-responsive/90-exercise-media-queries.mdx":
+        (["10_AdvancedResponsive/Exercise-MediaQueriesComplete.bbj",
+          "10_AdvancedResponsive/Exercise-MediaQueriesComplete.css"], "10_AdvancedResponsive.zip", None),
+    "11-advanced-responsive/91-exercise-button-transition.mdx":
+        (["10_AdvancedResponsive/Exercise-ButtonTransitionComplete.bbj",
+          "10_AdvancedResponsive/Exercise-ButtonTransitionComplete.css"], "10_AdvancedResponsive.zip", None),
 }
 
 # D-02: the line every solution page carries between the front matter and the exercise box
@@ -91,9 +111,6 @@ POINTERS = {
         ("## Exercises", ["./90-exercise-media-queries.mdx", "./91-exercise-button-transition.mdx"]),
 }
 
-# (book, page map) pairs checked by `solutions`; extended with the intro-bbj book further down
-SOLUTION_BOOKS = [("dwc", SOLUTIONS)]
-
 INTRO_EXERCISES = [
     "01-getting-started/90-exercise-tic-tac-toe.mdx",
     "01-getting-started/91-exercise-computer-player.mdx",
@@ -101,6 +118,40 @@ INTRO_EXERCISES = [
     "02-object-oriented-syntax/91-exercise-oo-tic-tac-toe.mdx",
     "03-web-development/90-exercise-responsive-login-dialog.mdx",
 ]
+
+# Phase 6.1 (D-01, D-21): intro-bbj page -> (solution files under docs/examples/intro-bbj in display order, ZIP, starter)
+INTRO_SOLUTIONS = {
+    "01-getting-started/90-exercise-tic-tac-toe.mdx":
+        (["exercises/TicTacToe.bbj"], "exercises.zip", None),
+    "01-getting-started/91-exercise-computer-player.mdx":
+        (["exercises/TicTacToeComputer.bbj"], "exercises.zip", None),
+    "02-object-oriented-syntax/90-exercise-login-dialog.mdx":
+        (["exercises/LoginDialog.bbj"], "exercises.zip", None),
+    "02-object-oriented-syntax/91-exercise-oo-tic-tac-toe.mdx":
+        (["exercises/oo-tic-tac-toe/Board.bbj", "exercises/oo-tic-tac-toe/Player.bbj",
+          "exercises/oo-tic-tac-toe/GameWindow.bbj", "exercises/oo-tic-tac-toe/PlayTicTacToe.bbj"],
+         "exercises.zip", None),
+    "03-web-development/90-exercise-responsive-login-dialog.mdx":
+        (["exercises/ResponsiveLoginDialog.bbj", "exercises/responsive-login.css"], "exercises.zip", None),
+}
+
+# (book, page map) pairs checked by `solutions`
+SOLUTION_BOOKS = [("dwc", SOLUTIONS), ("intro-bbj", INTRO_SOLUTIONS)]
+
+# solution pages written in Phase 6.1 (no Moodle original); they carry the phrase and the D-03 rules
+NEW_SOLUTION_PAGES = {
+    "dwc/02-browser-developer-tools/90-exercise-theming-support.mdx",
+    "dwc/04-upgrading-apps/90-exercise-bbjgridexwidget.mdx",
+    "dwc/10-embedding-components/90-exercise-embed-component.mdx",
+    "dwc/11-advanced-responsive/90-exercise-media-queries.mdx",
+    "dwc/11-advanced-responsive/91-exercise-button-transition.mdx",
+    "intro-bbj/01-getting-started/90-exercise-tic-tac-toe.mdx",
+    "intro-bbj/01-getting-started/91-exercise-computer-player.mdx",
+    "intro-bbj/02-object-oriented-syntax/90-exercise-login-dialog.mdx",
+    "intro-bbj/02-object-oriented-syntax/91-exercise-oo-tic-tac-toe.mdx",
+    "intro-bbj/03-web-development/90-exercise-responsive-login-dialog.mdx",
+}
+NEW_PAGE_PHRASE = "written for this book"
 
 # 12 parked images: file name -> (SHA-1 prefix, unit code)
 PARKED = {
@@ -333,16 +384,17 @@ def cmd_exercises(root: pathlib.Path, build: pathlib.Path, opts) -> int:
     c = Ctx("exercises")
     dwc = dwc_dir(root)
     need_dir(dwc, "book")
+    only = only_filter(opts)
     actual = {p.relative_to(dwc).as_posix() for p in dwc.glob("*/9[0-9]-exercise-*.mdx")}
     for rel in EXERCISES:
         if rel not in actual:
             c.check(False, f"missing exercise page docs/docs/dwc/{rel}")
     for rel in sorted(actual - set(EXERCISES)):
         c.check(False, f"unexpected exercise page {rel}")
-    present = [r for r in EXERCISES if r in actual]
+    present = [r for r in EXERCISES if r in actual and (not only or any(o in f"dwc/{r}" for o in only))]
 
-    # starter files for the D-08 overlap scan
-    starter_names = {v[2] for v in SOLUTIONS.values()}
+    # starter files for the D-08 overlap scan (None: the page has no starter file, Phase 6.1)
+    starter_names = {v[2] for v in SOLUTIONS.values() if v[2] is not None}
     starter_names |= {f.name for f in examples_dir(root).rglob("Exercise-*.bbj")}
     starters = {}
     starter_text = {}
@@ -357,7 +409,7 @@ def cmd_exercises(root: pathlib.Path, build: pathlib.Path, opts) -> int:
             if all(x.strip() for x in w):
                 wins.add(w)
         starters[f.name] = wins
-    for name in sorted({v[2] for v in SOLUTIONS.values()}):
+    for name in sorted({v[2] for v in SOLUTIONS.values() if v[2] is not None}):
         c.check(name in starters, f"starter {name} not found under docs/examples/dwc")
 
     allowed_new = set()
@@ -429,7 +481,7 @@ def cmd_exercises(root: pathlib.Path, build: pathlib.Path, opts) -> int:
             c.check(hit is None, f"{rel}: 5 or more lines copied from starter {sname} outside details (D-08)")
 
         # D-08 (c) and (d): page content must agree with its starter
-        if rel in SOLUTIONS and SOLUTIONS[rel][2] in starter_text:
+        if rel in SOLUTIONS and SOLUTIONS[rel][2] is not None and SOLUTIONS[rel][2] in starter_text:
             sname = SOLUTIONS[rel][2]
             stext = starter_text[sname]
             out_text = "\n".join(keep)
@@ -561,12 +613,22 @@ def cmd_solutions(root: pathlib.Path, build: pathlib.Path, opts) -> int:
     c = Ctx("solutions")
     only = only_filter(opts)
     zips: dict = {}
+    css_path = root / "docs" / "static" / "css" / "dwc-ui.css"
+    if not css_path.is_file():
+        raise MissingInput(f"missing input: {css_path}")
+    declared = set(re.findall(r"(--dwc-[a-z0-9-]+)\s*:", read_text(css_path)))
 
     def zip_of(path: pathlib.Path):
         if path not in zips:
             zips[path] = zip_entries(path)
         return zips[path]
 
+    if not only:
+        c.check(set(SOLUTIONS) == set(EXERCISES), "SOLUTIONS and EXERCISES list different dwc pages")
+        c.check(set(INTRO_SOLUTIONS) == set(INTRO_EXERCISES), "INTRO_SOLUTIONS and INTRO_EXERCISES list different pages")
+        c.check(len(NEW_SOLUTION_PAGES) == 10 and all(
+            k.split("/", 1)[1] in dict(SOLUTION_BOOKS)[k.split("/", 1)[0]] for k in NEW_SOLUTION_PAGES),
+            "NEW_SOLUTION_PAGES must list 10 pages that SOLUTION_BOOKS maps")
     for book, pages in SOLUTION_BOOKS:
         bdir = book_dir(root, book)
         need_dir(bdir, "book")
@@ -581,6 +643,22 @@ def cmd_solutions(root: pathlib.Path, build: pathlib.Path, opts) -> int:
                 continue
             t = read_text(p)
             lines = t.split("\n")
+            new_page = key in NEW_SOLUTION_PAGES
+            if new_page:
+                # D-03: BBjAPI callbacks, process_events, DWC tokens only, no color literals
+                texts = {f: read_text(book_examples(root, book) / f) for f in files
+                         if (book_examples(root, book) / f).is_file()}
+                bbj = [x for f, x in texts.items() if f.endswith(".bbj")]
+                c.check(any("process_events" in x for x in bbj), f"{pre}no mapped .bbj contains 'process_events'")
+                c.check(any("setCallback(" in x for x in bbj), f"{pre}no mapped .bbj contains 'setCallback('")
+                for f, x in texts.items():
+                    for tok in sorted(set(re.findall(r"--dwc-[a-z0-9-]+", x))):
+                        c.check(tok in declared, f"{pre}{f} uses token {tok} that docs/static/css/dwc-ui.css does not declare")
+                    if f.endswith(".css"):
+                        c.check(re.search(r"#[0-9a-fA-F]{3,8}\b", x) is None, f"{pre}{f} contains a hex color literal")
+                        c.check(re.search(r"\b(?:rgba?|hsla?)\(", x) is None, f"{pre}{f} contains an rgb() or hsl() color")
+            elif NEW_PAGE_PHRASE in t:
+                c.check(False, f"{pre}contains {NEW_PAGE_PHRASE!r}, which only the ten new solution pages carry")
             for marker, name in (("<details>", "<details>"),
                                  ("<summary>Possible solution</summary>", "<summary>"),
                                  ("</details>", "</details>")):
@@ -612,6 +690,9 @@ def cmd_solutions(root: pathlib.Path, build: pathlib.Path, opts) -> int:
                 sm = lines.index("<summary>Possible solution</summary>") \
                     if "<summary>Possible solution</summary>" in lines else -1
                 c.check(sm > close, f"{pre}<summary> is not after the closing ':::'")
+            if new_page:
+                c.check(NEW_PAGE_PHRASE in "\n".join(lines[s:e + 1]),
+                        f"{pre}details block lacks the phrase {NEW_PAGE_PHRASE!r}")
             last = next((l for l in reversed(lines) if l.strip()), "")
             c.check(last == "</details>", f"{pre}last non-blank line of the page is {last!r}, want '</details>'")
             # (c) fences in the details block against the file list, in order, D-07 and D-16
