@@ -32,6 +32,11 @@ PHASE6_ROUTES = [
     "dwc-controls/exercise-search-bbjtree",
     "flow-layouts/exercise-css-grid-layout",
     "flow-layouts/exercise-css-flexbox",
+    "icon-pools/exercise-icon-static-text",
+    "control-validation/exercise-email-validation",
+    "embedding-components/exercise-embed-component",
+    "advanced-responsive/exercise-media-queries",
+    "advanced-responsive/exercise-button-transition",
 ]
 SUB_ORDER = {
     "gui-to-bui-to-dwc": ["registering-launching", "hello-world", "gui-to-bui-to-dwc", "exercise-gui-to-bui-to-dwc"],
@@ -39,7 +44,10 @@ SUB_ORDER = {
     "upgrading-apps": ["arc-files", "upgrading-grids", "exercise-bbjgridexwidget"],
     "dwc-controls": ["exercise-search-bbjtree"],
     "flow-layouts": ["exercise-css-grid-layout", "exercise-css-flexbox"],
-    "advanced-responsive": ["media-queries", "transitions"],
+    "icon-pools": ["exercise-icon-static-text"],
+    "control-validation": ["exercise-email-validation"],
+    "embedding-components": ["exercise-embed-component"],
+    "advanced-responsive": ["media-queries", "transitions", "exercise-media-queries", "exercise-button-transition"],
 }
 
 

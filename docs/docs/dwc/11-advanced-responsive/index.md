@@ -59,5 +59,5 @@ Transitions create smooth animations between states:
 
 ## Exercises
 
-- **Exercise: Media Queries** - Create layouts that adapt to screen size
-- **Exercise: Transition on Button** - Add hover effects to buttons
+- [Exercise: Use media queries](./90-exercise-media-queries.mdx) - Create layouts that adapt to screen size
+- [Exercise: Add a transition to a button](./91-exercise-button-transition.mdx) - Add hover effects to buttons

@@ -132,4 +132,4 @@ Use `transform: scale()` instead of animating `width`/`height`, and `transform: 
 
 ## Exercise: Transition on Button
 
-Run `DWCTraining/10_AdvancedResponsive/Transitions.bbj` to experiment with button transitions.
+Work through [Exercise: Add a transition to a button](./91-exercise-button-transition.mdx).

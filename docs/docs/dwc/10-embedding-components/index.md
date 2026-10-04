@@ -91,7 +91,7 @@ htmlView! = wnd!.addHtmlView(html$)
 
 ## Exercise: Embed a Third-Party Component {#exercise-embed-a-3rd-party-component}
 
-Run the examples in `DWCTraining/09_EmbeddingComponents/` to see various third-party integrations.
+Work through [Exercise: Embed a third-party component](./90-exercise-embed-component.mdx).
 
 ## Best Practices
 

@@ -79,5 +79,23 @@
       "docs/docs/dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx"
     ],
     "note": "comment line inside the byte-copied DWC2.bbj solution; HTTP 200"
+  },
+  {
+    "old": "https://ionicframework.com/docs/components",
+    "new": "https://ionicframework.com/docs/components",
+    "verdict": "kept",
+    "pages": [
+      "docs/docs/dwc/10-embedding-components/90-exercise-embed-component.mdx"
+    ],
+    "note": "HTTP 200 on 2026-10-04"
+  },
+  {
+    "old": "https://shoelace.style/",
+    "new": "https://shoelace.style/",
+    "verdict": "kept",
+    "pages": [
+      "docs/docs/dwc/10-embedding-components/90-exercise-embed-component.mdx"
+    ],
+    "note": "HTTP 200 on 2026-10-04"
   }
 ]

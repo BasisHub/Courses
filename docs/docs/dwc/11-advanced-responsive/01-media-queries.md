@@ -106,4 +106,4 @@ web!.injectStyle(css$)
 
 ## Exercise: Media Queries
 
-Run `DWCTraining/10_AdvancedResponsive/MediaQueries.bbj` to experiment with responsive layouts.
+Work through [Exercise: Use media queries](./90-exercise-media-queries.mdx).

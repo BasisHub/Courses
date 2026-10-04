@@ -102,7 +102,7 @@ email!.setAttribute("invalid-message", "Please enter a valid email")
 
 ## Exercise: Adding Validation to an Email Field
 
-Run `DWCTraining/07_ControlValidation/` examples to see validation in action.
+Work through [Exercise: Validate an email address](./90-exercise-email-validation.mdx).
 
 ![Validation Exercise](./img/validation-6.png)
 
