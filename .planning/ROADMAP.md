@@ -213,23 +213,59 @@ Plans:
 **Plans**: 17 plans
 
 Plans:
+**Wave 1**
+
 - [ ] 06-01-PLAN.md — Phase 6 checker tools/check-dwc-phase6.py (8 subcommands)
 - [ ] 06-02-PLAN.md — Gap audit pre-fill script, unit and assignment drafts, assign-73 snippet
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
 - [ ] 06-03-PLAN.md — Audit fragments: S0, S3 (3A, 3B1-3B4), S8 to S10
 - [ ] 06-04-PLAN.md — Audit fragments: S1 (1A, 1B, 1C)
 - [ ] 06-05-PLAN.md — Audit fragments: 2A, 2B (4 parked), 2D
 - [ ] 06-06-PLAN.md — Audit fragment: 2C
 - [ ] 06-07-PLAN.md — Audit fragments: 4A, 5A (8 parked)
 - [ ] 06-08-PLAN.md — Audit fragments: 6A, 7A
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
 - [ ] 06-09-PLAN.md — Orchestrator BBj MCP check of kept and exercise snippets (non-autonomous)
+
+**Wave 4** *(blocked on Wave 3 completion)*
+
 - [ ] 06-10-PLAN.md — Assemble and commit tools/data/dwc-gap-audit.md (D-18 step 1)
+
+**Wave 5** *(blocked on Wave 4 completion)*
+
 - [ ] 06-11-PLAN.md — 11 DWC exercise pages, 6 solution blocks, pointer sections (D-18 step 2)
+
+**Wave 6** *(blocked on Wave 5 completion)*
+
 - [ ] 06-12-PLAN.md — Kept material: top-level pages and chapter 01
+
+**Wave 7** *(blocked on Wave 6 completion)*
+
 - [ ] 06-13-PLAN.md — Kept material: chapter 02
+
+**Wave 8** *(blocked on Wave 7 completion)*
+
 - [ ] 06-14-PLAN.md — Kept material: chapters 04 to 06
+
+**Wave 9** *(blocked on Wave 8 completion)*
+
 - [ ] 06-15-PLAN.md — Kept material: chapters 07 to 11, remove parked images
+
+**Wave 10** *(blocked on Wave 9 completion)*
+
 - [ ] 06-16-PLAN.md — 2022 screenshot markers, exercise indexes for both books (D-18 steps 4, 5)
+
+**Wave 11** *(blocked on Wave 10 completion)*
+
 - [ ] 06-17-PLAN.md — tools/verify-phase6.sh and full gate (D-18 step 6)
+
+**Cross-cutting constraints:**
+
+- Every kept BBj snippet is saved verbatim for the orchestrator check (D-05, D-14)
 
 ### Phase 7: Review, Acceptance & Go-Live
 
