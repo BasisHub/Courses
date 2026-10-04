@@ -24,6 +24,8 @@ CSS transitions provide a way to animate changes to CSS properties over time, cr
 | `transition-timing-function` | The acceleration curve | `ease`, `linear`, `ease-in-out` |
 | `transition-delay` | Delay before animation starts | `0.1s` |
 
+Not every CSS property can be transitioned. Before you rely on a transition, check in the CSS reference that the property is animatable.
+
 ## Timing Functions
 
 | Function | Description |

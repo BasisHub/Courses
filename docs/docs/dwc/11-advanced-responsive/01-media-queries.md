@@ -7,6 +7,8 @@ description: Use CSS media queries to adapt your DWC app to different screen siz
 
 Media queries are a CSS feature that allows you to apply styles based on the characteristics of the device or viewport.
 
+This page is only a short introduction. For a deeper dive, read [Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) on MDN.
+
 ## Basic Syntax
 
 ```css
