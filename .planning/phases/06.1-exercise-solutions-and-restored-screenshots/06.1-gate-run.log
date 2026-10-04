@@ -1,0 +1,35 @@
+branch: gsd/phase-04-dwc-book-relocation head: a6c9b38e95294fcf6a349073a78e882e8eaef34e
+PASS  [build] npm run build
+PASS  [solutions] 11 DWC exercise pages
+PASS  [solutions] 16 inline solutions match examples and ZIPs
+PASS  [indexes] exercise indexes
+PASS  [indexes] routes and sidebar order
+PASS  [indexes] anchors
+PASS  [audit] gap audit
+PASS  [audit] kept material
+PASS  [audit] 2022 screenshot markers
+PASS  [intro] intro-bbj structure
+PASS  [intro] intro-bbj content
+PASS  [intro] intro-bbj edits
+PASS  [intro] intro-bbj samples
+PASS  [intro] intro-bbj syntax
+PASS  [samples] samples in sync
+PASS  [samples] every DWC sample has a syntax row (49 samples)
+PASS  [samples] dwc-samples-syntax.md Total (49) equals its row count
+PASS  [samples] all 18 drafts are byte-identical to docs/examples
+PASS  [samples] 06.1-bbj-syntax-raw.tsv covers all 18 draft .bbj and .css files
+PASS  [samples] no floating Shoelace version under docs/examples
+PASS  [samples] embed solution pins @shoelace-style/shoelace@2.20.1/cdn/
+PASS  [regression] Vale error level on dwc and intro-bbj
+PASS  [regression] exercise pages, indexes, samples and overview compile as MDX (20 files)
+PASS  [regression] LIVE-01 grep over docs/docs is empty
+PASS  [regression] no tracked import/ path
+PASS  [older] verify-phase1.sh
+FAIL  [older] verify-phase2.sh --local
+    FAIL  [hygiene] branch is main
+    1 CHECK(S) FAILED
+PASS  [older] verify-phase3.sh --no-build
+PASS  [older] verify-phase4.sh --no-build
+PASS  [older] verify-phase5.sh --no-build
+PASS  [older] verify-phase6.sh --no-build
+Phase 6.1: 1 failure(s)
