@@ -4,16 +4,16 @@ milestone: v1.0
 current_phase: "06.1"
 current_phase_name: Exercise Solutions and Restored Screenshots (INSERTED)
 status: executing
-stopped_at: Completed 06.1-07-PLAN.md
-last_updated: "2026-10-04T16:06:26.091Z"
+stopped_at: Completed 06.1-08-PLAN.md
+last_updated: "2026-10-04T16:10:16.257Z"
 last_activity: 2026-10-04
 last_activity_desc: Phase 06.1 execution started
-state_head: c67fc3d6e74df6ad201e9b382f6093a960663f11
+state_head: 8ead6dc0b5563ec048a5286f345f0a42151ddf20
 progress:
   total_phases: 9
   completed_phases: 6
   total_plans: 59
-  completed_plans: 56
+  completed_plans: 57
 milestone_name: milestone
 ---
 
@@ -29,7 +29,7 @@ See: .planning/PROJECT.md (updated 2026-10-03)
 ## Current Position
 
 Phase: 06.1 (Exercise Solutions and Restored Screenshots (INSERTED)) — EXECUTING
-Plan: 8 of 10
+Plan: 9 of 10
 Status: Ready to execute
 Last activity: 2026-10-04 — Phase 06.1 execution started
 
@@ -66,6 +66,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 06.1 P05 | 4 min | 3 tasks | 7 files |
 | Phase 06.1 P06 | 10 min | 2 tasks | 4 files |
 | Phase 06.1 P07 | n/a (continuation) | 3 tasks | 2 files |
+| Phase 06.1 P08 | 3 min | 3 tasks | 23 files |
 
 ## Accumulated Context
 
@@ -88,6 +89,7 @@ Decisions are logged in PROJECT.md Key Decisions table.
 - [Phase 06.1]: Strategy list items double as strategy names, no extra callback needed to switch while playing
 - [Phase 06.1]: Login drafts: demo pair as private static class fields under a user-store comment; responsive draft reads CSS via use java.nio.file.Files and injects it with injectStyle
 - [Phase 06.1]: 06.1-07: DWC token check used webforJ major 26 (dwc-ui.css snapshots cdn.webforj.com/next); all 18 drafts passed, none fixed
+- [Phase 06.1]: Exercises checker matches banned words only at a word start, so upgrading-grids links do not trip the grading ban
 
 ### Roadmap Evolution
 
@@ -113,5 +115,5 @@ Decisions are logged in PROJECT.md Key Decisions table.
 
 **Resume file:** None
 
-Last session: 2026-10-04T16:06:25.927Z
-Stopped at: Completed 06.1-07-PLAN.md
+Last session: 2026-10-04T16:10:16.003Z
+Stopped at: Completed 06.1-08-PLAN.md
