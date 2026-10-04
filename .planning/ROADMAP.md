@@ -210,7 +210,26 @@ Plans:
   3. `tools/data/dwc-gap-audit.md` lists per course-4 page the missing paragraphs, code and screenshots with keep/drop/covered verdicts
   4. Kept material appears on the DWC pages (one commit series after the relocation, no slug renames), and screenshots matching 2022-era Moodle images by content hash carry `{/* TODO: screenshot outdated? */}`
 
-**Plans**: TBD
+**Plans**: 17 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — Phase 6 checker tools/check-dwc-phase6.py (8 subcommands)
+- [ ] 06-02-PLAN.md — Gap audit pre-fill script, unit and assignment drafts, assign-73 snippet
+- [ ] 06-03-PLAN.md — Audit fragments: S0, S3 (3A, 3B1-3B4), S8 to S10
+- [ ] 06-04-PLAN.md — Audit fragments: S1 (1A, 1B, 1C)
+- [ ] 06-05-PLAN.md — Audit fragments: 2A, 2B (4 parked), 2D
+- [ ] 06-06-PLAN.md — Audit fragment: 2C
+- [ ] 06-07-PLAN.md — Audit fragments: 4A, 5A (8 parked)
+- [ ] 06-08-PLAN.md — Audit fragments: 6A, 7A
+- [ ] 06-09-PLAN.md — Orchestrator BBj MCP check of kept and exercise snippets (non-autonomous)
+- [ ] 06-10-PLAN.md — Assemble and commit tools/data/dwc-gap-audit.md (D-18 step 1)
+- [ ] 06-11-PLAN.md — 11 DWC exercise pages, 6 solution blocks, pointer sections (D-18 step 2)
+- [ ] 06-12-PLAN.md — Kept material: top-level pages and chapter 01
+- [ ] 06-13-PLAN.md — Kept material: chapter 02
+- [ ] 06-14-PLAN.md — Kept material: chapters 04 to 06
+- [ ] 06-15-PLAN.md — Kept material: chapters 07 to 11, remove parked images
+- [ ] 06-16-PLAN.md — 2022 screenshot markers, exercise indexes for both books (D-18 steps 4, 5)
+- [ ] 06-17-PLAN.md — tools/verify-phase6.sh and full gate (D-18 step 6)
 
 ### Phase 7: Review, Acceptance & Go-Live
 
