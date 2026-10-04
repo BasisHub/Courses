@@ -13,9 +13,13 @@ The browser environment has certain constraints that differ from traditional GUI
 
 The browser does not support direct access to client files. This section describes how to implement file uploads and downloads with DWC.
 
+BBj cannot read files on the client computer directly. To get a file to the client, you download it as you would from a website. Uploading needs a similar process, in which the user selects the file manually and then confirms manually. The reason is security. The BASIS documentation has a chapter on working with client files in BUI, which also applies to the DWC in most respects.
+
 ![Client Files Handling](./img/client-files.png)
 
 ### File Uploads
+
+Use the `BBjFileChooser` control to select client files. The user can also add files by drag and drop. You can set up the control to upload one file or several, and to show a drop zone.
 
 ```bbj
 rem Create a file chooser for uploads
@@ -25,6 +29,8 @@ fileChooser!.setCallback(BBjFileChooser.ON_FILE_SELECTED, "onFileSelected")
 
 ### File Downloads
 
+Downloading a file is much simpler than uploading one. The [`copyToClient()`](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/bbjclientfile/bbjclientfile_copytoclient.htm) method of `BBjClientFilesystem` does a simple download in BUI and the DWC.
+
 ```bbj
 rem Trigger a file download
 web! = BBjAPI().getWebManager()
@@ -32,6 +38,19 @@ web!.download(serverFilePath$, clientFileName$)
 ```
 
 ## Printing and Print Preview
+
+A browser has no direct access to the local printers on the client. The typical way to print from a modern browser application is through a PDF document that the browser displays in a preview. From there, the browser lets the user print the document on the printer of their choice.
+
+For SysPrint, BBj takes this route automatically. In BUI and the DWC, the following snippet creates a SysPrint output and shows it in the browser, even though the program does not specify `PREVIEW`:
+
+```bbj
+lp = unt
+open (lp,mode="PDF")"LP"
+print (lp)"HELLO"
+close (lp)
+```
+
+From the browser, the user can view and print the document.
 
 The browser does not offer direct access to printers. Modern webapp printing is typically done by:
 
@@ -47,6 +66,8 @@ The browser does not offer direct access to printers. Modern webapp printing is 
 | `Jasper Reports` | Generate PDF reports for download |
 
 ### Print Preview
+
+As a general solution, all BBj printing capabilities (Jasper, SysPrint and `BBjPrinter`) can create PDF documents on the server. Once the document is on the server, the [BBjDocViewer](https://github.com/BBj-Plugins/BBjDocViewer) plug-in can show it in a similar preview on the client. Install it with the Plugin Manager and inspect its `demo.bbj` for more information about how to use it. The BBJasper print preview also works with its known features in the DWC.
 
 ```bbj
 rem Generate a PDF for preview
