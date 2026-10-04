@@ -19,6 +19,8 @@ This section deals with a traditional BBj GUI program that contains fields and a
 
 For this section, you will start by running the `GUISample.bbj` program in GUI (shown below), then in BUI, then in the DWC. You will then make modifications to the code to convert it to a DWC program that uses CSS Grid for layout.
 
+![The sample program in the GUI client: two input fields for first and last name with the sample names Joe and Blow, and a Say Hello button.](./img/gui-sample-gui-client.png)
+
 The training files also include programs named `DWC1.bbj` and `DWC2.bbj` that are the result of modifying the original `GUISample.bbj` program according to the exercises below.
 
 ## Program Notes
@@ -43,7 +45,9 @@ One of the major goals for the DWC was to provide the ability to use CSS for cli
 
 To enable flow layout on a window, set the `$00100000$` creation flag which tells the DWC to ignore all x, y, width, and height settings for the controls contained by the window.
 
-Begin by changing the code to specify the `$00100083$` flags immediately following the window's title string in the line of code that instantiates the BBjTopLevelWindow.
+Begin by changing the code to specify the `$00100083$` flags immediately following the window's title string in the line of code that instantiates the BBjTopLevelWindow. The controls now flow next to each other:
+
+![The sample app with flow layout: the labels, edit boxes and button sit side by side in one row with no spacing.](./img/gui-sample-flow-layout.png)
 
 ### Step 2: Add CSS Grid Styling
 
@@ -85,6 +89,14 @@ In a production system, use the external CSS file method as the client's browser
 - `wnd!.setPanelStyle("gap","5px")` - Sets a 5-pixel gap between rows and columns
 - `wnd!.setPanelStyle("padding","15px")` - Sets 15-pixel padding on the window
 
+After the grid wraps its first row, it places the next controls in a new row. The `gap` value accepts other CSS units too, such as `0.25in` for a quarter of an inch, or a DWC custom property such as `var(--dwc-space-m)`. Custom properties scale with the font size, so they suit themes better than fixed pixels. For padding, `var(--dwc-space-xl)` gives an extra-large space, and `calc(var(--dwc-space-m) * 2)` doubles the medium space.
+
+Both methods are valid, but in production use the external CSS file. With `setPanelStyle()`, the server runs each call in turn and sends the CSS to the client in separate steps, which is slower. For this exercise, adding the lines to the BBj program is easiest, because everything stays in one file.
+
+After these changes, the app looks like this:
+
+![The sample app in a two-column grid: labels in the first column, edit boxes in the second, and the Say Hello button in column 1.](./img/gui-sample-two-column-grid.png)
+
 ### Step 3: Button Spanning
 
 To make the button span both columns, use either of these methods:
@@ -94,11 +106,19 @@ btn!.setStyle("grid-column","1 / 3")  REM Sets button to start in column 1 and e
 btn!.setStyle("grid-column","span 2") REM Sets button to span two grid columns
 ```
 
+The button now spans both columns:
+
+![The Say Hello button stretched across both grid columns below the input fields.](./img/gui-sample-button-spanning-columns.png)
+
 To place the button in the second column only:
 
 ```bbj
 btn!.setStyle("grid-column","2")
 ```
+
+The button now sits in column 2:
+
+![The Say Hello button placed in the second grid column, under the edit boxes.](./img/gui-sample-button-in-column-two.png)
 
 ### Step 4: Understanding Window Structure
 
@@ -115,6 +135,8 @@ BBjTopLevelWindows and traditional BBjChildWindows are created from three nested
 ```
 
 This is why we use `setPanelStyle()` instead of `setStyle()` - we're targeting the innermost panel that contains the controls.
+
+![Diagram of a BBjTopLevelWindow as three nested DIVs, with docked child windows and a status bar around the center panel.](./img/bbj-top-level-window-structure.svg)
 
 :::note
 The DWC offers the ability to create windows using a simplified structure with just one DIV using the `BBjWindow::addChildWindow` method with appropriate flags.
@@ -140,13 +162,17 @@ Set the button's 'theme' attribute to the 'success' component theme (green color
 btn!.setAttribute("theme", "success")
 ```
 
-Try experimenting with 'danger' or 'info' themes as well.
+Try experimenting with 'danger' or 'info' themes as well. With `expanse` set to `xl` and the `success` theme, the button looks like this:
+
+![The Say Hello button as an extra-large green button after setting expanse xl and theme success.](./img/gui-sample-extra-large-success-button.png)
 
 ## Example 4 - Making a Real Web App
 
 ### Step 1: Remove Window Chrome
 
-Change the window's creation flags from `$00100083$` to `$01101083$`. This instructs BBj to create the window without a title bar and initially maximized.
+Change the window's creation flags from `$00100083$` to `$01101083$`. This instructs BBj to create the window without a title bar and initially maximized. The grid now fills the whole browser window and the second column becomes very wide:
+
+![The sample app in Safari without chrome: the grid fills the full width and the second column is far too wide.](./img/gui-sample-wide-column-safari.png)
 
 ### Step 2: Fix Column Widths
 
@@ -156,6 +182,10 @@ Make the layout dynamic:
 wnd!.setPanelStyle("display","inline-grid")  REM Prevents grid from taking full width
 wnd!.setPanelStyle("grid-template-columns","1fr 2fr")  REM Right column is twice as wide as left
 ```
+
+The layout is now compact:
+
+![The sample app in Safari as a narrow inline grid with the second column twice as wide as the first.](./img/gui-sample-inline-grid-safari.png)
 
 ### Step 3: Clean Up Code
 
@@ -195,11 +225,15 @@ When running on iOS, the phone may zoom into the form when focusing on input con
 wnd!.setStyle("font-size","16px")
 ```
 
+iOS zooms into a form when an input control has a font size below 16 pixels. The DWC base font is smaller than that, so the zoom happens unless you raise the size, for example through the `--dwc-font-size` custom property.
+
 **Method 2: Set a meta tag to prevent scaling:**
 ```bbj
 web! = BBjAPI().getWebManager()
 web!.setMeta("viewport","width=device-width,initial-scale=1,user-scalable=no,minimal-ui")
 ```
+
+This method stops users from zooming in and out. Turn off user scaling only when your layout is responsive. Otherwise leave zoom on, because users may need it to read the page.
 
 ## Example 5 - Error Handling
 
@@ -218,11 +252,21 @@ escape
 
 Run the program in the DWC. The button information is displayed both in the BBj console and the Developer Tools' Console tab.
 
+The BBj mini console:
+
+![The BBj mini console in the browser showing the BBjButton object and the READY prompt.](./img/bbj-mini-console-output.png)
+
+The browser Developer Tools Console:
+
+![The Console tab of the browser Developer Tools showing the same BBjButton output.](./img/browser-console-output.png)
+
 Try interacting with the BBj console by printing out the date:
 
 ```bbj
 ? date(0)
 ```
+
+In the browser console, you can run the same check with `answer("? date(0)")`.
 
 :::tip
 The DWC's mini console is still fairly rudimentary compared to the BUI mini console, but it's useful for printing out the value of objects and variables to aid in debugging.

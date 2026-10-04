@@ -31,6 +31,14 @@ If you normally develop code in Eclipse, you're probably familiar with clicking 
 
 Newer versions of the BDT plug-in for Eclipse include a similar toolbar button that does the same thing, except that it launches the program in a browser window or tab and uses the DWC client instead of the BUI client. This is the quickest way to get a DWC app up and running, as it only requires a single click.
 
+The Run BUI Program button looks like this:
+
+![The Run BUI Program toolbar icon in Eclipse.](./img/run-bui-program-toolbar-icon.png)
+
+The Run DWC Program button looks like this:
+
+![The Run DWC Program toolbar icon in Eclipse.](./img/run-dwc-program-toolbar-icon.png)
+
 ### Using Older BDT Versions
 
 If you're still using an older version of the BDT plug-in for Eclipse and it's not feasible to update, then you can accomplish the same task using the **[Run BUI Program]** toolbar button and then making a small change to the URL to change the client from BUI to the DWC.

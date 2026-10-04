@@ -1,0 +1,146 @@
+[
+  {
+    "moodle_name": "Eclipse-RunBUIProgram (1).png",
+    "sha1": "611dc7460b6685b66942751cc00ba5eaed7c1201",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/run-bui-program-toolbar-icon.png",
+    "alt": "The Run BUI Program toolbar icon in Eclipse.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/01-registering-launching.md"
+  },
+  {
+    "moodle_name": "DWCWebIconLarge.png",
+    "sha1": "0f7ea58a15f3fca9474b2a3644e45b3fc7bd8b4c",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/run-dwc-program-toolbar-icon.png",
+    "alt": "The Run DWC Program toolbar icon in Eclipse.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/01-registering-launching.md"
+  },
+  {
+    "moodle_name": "BBj - Greetings- screenshot 2022-07-02 at 14.50.03.png",
+    "sha1": "f40f6a8438231394bfaea7d0d8e5edc039b91188",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/message-box-gui-client.png",
+    "alt": "The Greetings message box in the GUI client, with an information icon and the text Hello from BBj's GUI client",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/02-hello-world.md"
+  },
+  {
+    "moodle_name": "Google Chrome - myApp- screenshot 2022-06-29 at 09.23.53.png",
+    "sha1": "a8e58fa8937d1332870bdc43128d6513282c0bbc",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/message-box-bui-client.png",
+    "alt": "The same message box in the BUI client, drawn in the browser.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/02-hello-world.md"
+  },
+  {
+    "moodle_name": "Google Chrome - myApp- screenshot 2022-06-27 at 15.49.33.png",
+    "sha1": "94c3a51b092f2911b7d57c30c896cffb76ecfe6b",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/message-box-dwc-primary-theme.png",
+    "alt": "The message box in the DWC with the primary theme applied to the title bar and icon.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/02-hello-world.md"
+  },
+  {
+    "moodle_name": "Google Chrome - myApp- screenshot 2022-06-29 at 07.08.09.png",
+    "sha1": "cbf8b2c8aa2f7cbbfcb7c06bd9e27ba2ea31ec34",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/message-box-dwc-danger-theme.png",
+    "alt": "The message box in the DWC with theme=danger, showing a red title bar and a red OK button.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/02-hello-world.md"
+  },
+  {
+    "moodle_name": "Google Chrome - 1A-MessageBox- screenshot 2022-06-30 at 15.15.53.png",
+    "sha1": "5568e3f107a6b68d0bcafd7c0acf3d35cb76f2ec",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/message-box-dwc-default-theme.png",
+    "alt": "The message box in the DWC with the default theme.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/02-hello-world.md"
+  },
+  {
+    "moodle_name": "BBj - Hello BBj DWC- screenshot 2022-06-30 at 15.41.54.png",
+    "sha1": "ce2af7dee48b2515f02abf495f3d688eba593aac",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-gui-client.png",
+    "alt": "The sample program in the GUI client: two input fields for first and last name with the sample names Joe and Blow, and a Say Hello button.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-06-30 at 08.27.21.png",
+    "sha1": "53e227598be4ceac0023216414da7b2203a73d52",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-flow-layout.png",
+    "alt": "The sample app with flow layout: the labels, edit boxes and button sit side by side in one row with no spacing.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 10.50.52.png",
+    "sha1": "955491b58f9903c8e39ed5bc553aa1a61936384c",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-two-column-grid.png",
+    "alt": "The sample app in a two-column grid: labels in the first column, edit boxes in the second, and the Say Hello button in column 1.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 11.20.32.png",
+    "sha1": "eaf16b10e456276d612c139411be422bf870648d",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-button-spanning-columns.png",
+    "alt": "The Say Hello button stretched across both grid columns below the input fields.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 11.23.32.png",
+    "sha1": "d7ff658bfe57115c77017fdf2c1d0d67ebc9dee3",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-button-in-column-two.png",
+    "alt": "The Say Hello button placed in the second grid column, under the edit boxes.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  },
+  {
+    "moodle_name": "BBjTopLevelWindow Structure.svg",
+    "sha1": "18b4c234d9f417d1c7c53a181a15c78c92cfeb59",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/bbj-top-level-window-structure.svg",
+    "alt": "Diagram of a BBjTopLevelWindow as three nested DIVs, with docked child windows and a status bar around the center panel.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 11.30.52.png",
+    "sha1": "bdd03091d96939e126ace5e934117056407da216",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-extra-large-success-button.png",
+    "alt": "The Say Hello button as an extra-large green button after setting expanse xl and theme success.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  },
+  {
+    "moodle_name": "Safari - Hello BBj DWC- screenshot 2022-07-05 at 12.50.54.png",
+    "sha1": "be1a09d022bb65bb604445ec3ebf30643de2b821",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-wide-column-safari.png",
+    "alt": "The sample app in Safari without chrome: the grid fills the full width and the second column is far too wide.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  },
+  {
+    "moodle_name": "Safari - Hello BBj DWC- screenshot 2022-07-05 at 13.10.58.png",
+    "sha1": "f4f0f43608c94cca1ff767fbe67c06b3f750b079",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-inline-grid-safari.png",
+    "alt": "The sample app in Safari as a narrow inline grid with the second column twice as wide as the first.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 18.43.35.png",
+    "sha1": "7241b9357b515e078e2fb017907f881c8211663f",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/bbj-mini-console-output.png",
+    "alt": "The BBj mini console in the browser showing the BBjButton object and the READY prompt.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 18.44.19.png",
+    "sha1": "7cd296fa5fbd5daa572634552df111523c91e578",
+    "source": "moodle",
+    "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/browser-console-output.png",
+    "alt": "The Console tab of the browser Developer Tools showing the same BBjButton output.",
+    "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  }
+]
