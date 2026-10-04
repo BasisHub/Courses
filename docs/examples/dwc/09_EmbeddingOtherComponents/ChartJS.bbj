@@ -37,7 +37,7 @@ handleScriptLoaded:
   rem after the library is loaded we can work with it
   rem ' https://www.chartjs.org/docs/latest/getting-started/
   
-  htmlview!.clearCallback(htmlview!.ON_PAGE_LOADED)
+  htmlview!.clearCallback(htmlview!.ON_SCRIPT_LOADED)
   js$ = ""
   js$ = js$ + "var chartCanvas = document.getElementById('myChart');"
   js$ = js$ + "var ctx = chartCanvas.getContext('2d');"

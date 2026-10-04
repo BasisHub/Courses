@@ -29,7 +29,7 @@ fileChooser!.setCallback(BBjFileChooser.ON_FILE_SELECTED, "onFileSelected")
 
 ### File Downloads
 
-Downloading a file is much simpler than uploading one. The [`copyToClient()`](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/bbjclientfile/bbjclientfile_copytoclient.htm) method of `BBjClientFile` does a simple download in BUI and the DWC. Get the `BBjClientFile` from `BBjAPI().getThinClient().getClientFileSystem().getClientFile()`.
+Downloading a file is much simpler than uploading one. The [`copyToClient()`](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/bbjclientfile/bbjclientfile_copytoclient.htm) method of `BBjClientFile` does a simple download in BUI and the DWC. Get the `BBjClientFile` from `BBjAPI().getThinClient().getClientFileSystem().getClientFile(clientFileName$)`.
 
 ```bbj
 rem Trigger a file download
@@ -52,7 +52,7 @@ close (lp)
 
 From the browser, the user can view and print the document.
 
-The browser does not offer direct access to printers. Modern webapp printing is typically done by:
+Modern webapp printing is typically done by:
 
 1. Displaying the printout in the client
 2. Using the browser's print selection
@@ -67,7 +67,7 @@ The browser does not offer direct access to printers. Modern webapp printing is 
 
 ### Print Preview
 
-As a general solution, all BBj printing capabilities (Jasper, SysPrint and `BBjPrinter`) can create PDF documents on the server. Once the document is on the server, the [BBjDocViewer](https://github.com/BBj-Plugins/BBjDocViewer) plug-in can show it in a similar preview on the client. Install it with the Plugin Manager and inspect its `demo.bbj` for more information about how to use it. The BBJasper print preview also works with its known features in the DWC.
+As a general solution, all BBj printing capabilities (Jasper, SysPrint and `BBjPrinter`) can create PDF documents on the server. Once the document is on the server, the [BBjDocViewer](https://github.com/BBj-Plugins/BBjDocViewer) plug-in can show it in a similar preview on the client. Install it with the Plug-In Manager and inspect its `demo.bbj` for more information about how to use it. The BBJasper print preview also works with its known features in the DWC.
 
 ```bbj
 rem Generate a PDF for preview

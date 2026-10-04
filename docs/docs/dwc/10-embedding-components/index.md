@@ -49,7 +49,7 @@ handleScriptLoaded:
   htmlview!.clearCallback(htmlview!.ON_SCRIPT_LOADED)
   js$ = ""
   js$ = js$ + "var chartCanvas = document.getElementById('myComponent');"
-  js$ = js$ + "/// and further js code to execute...."
+  js$ = js$ + "/* further JavaScript code */"
   htmlview!.injectScript(js$,1)
 return
 ```
@@ -58,7 +58,7 @@ The cascade of events, one for the page loaded followed by one for the script lo
 
 ## Embedding a JavaScript Chart Component
 
-This section explains how to embed a chart from the Charts.js library.
+This section explains how to embed a chart from the Chart.js library.
 
 The example embeds a chart widget with the Chart.js library. It follows the [Getting Started](https://www.chartjs.org/docs/latest/getting-started/) document of Chart.js. The sequence of loading code starts with a `<canvas>` element and gives it an ID that the JavaScript code can address later:
 
@@ -75,7 +75,7 @@ If you plan to embed several similar components on your page, give each one a un
 2. Create a container element
 3. Initialize the chart with data
 
-### Example: Charts.js Integration
+### Example: Chart.js Integration {#example-chartsjs-integration}
 
 ```bbj
 use java.nio.file.Files
@@ -120,7 +120,7 @@ handleScriptLoaded:
   rem after the library is loaded we can work with it
   rem ' https://www.chartjs.org/docs/latest/getting-started/
 
-  htmlview!.clearCallback(htmlview!.ON_PAGE_LOADED)
+  htmlview!.clearCallback(htmlview!.ON_SCRIPT_LOADED)
   js$ = ""
   js$ = js$ + "var chartCanvas = document.getElementById('myChart');"
   js$ = js$ + "var ctx = chartCanvas.getContext('2d');"
