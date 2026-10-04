@@ -192,7 +192,7 @@ Plans:
 
 **Wave 4**
 
-- [ ] 05-05-PLAN.md — Hand edits and link map (C3), Vale errors and typos (C4) (wave 4)
+- [x] 05-05-PLAN.md — Hand edits and link map (C3), Vale errors and typos (C4) (wave 4)
 
 **Wave 5**
 
@@ -249,7 +249,7 @@ Plans:
 | 2. Repo Hygiene & CI | 6/6 | Complete    | 2026-10-03 |
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
-| 5. Intro-BBj Conversion | 4/6 | In Progress|  |
+| 5. Intro-BBj Conversion | 5/6 | In Progress|  |
 | 6. Exercises & DWC Gap Audit | 0/TBD | Not started | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |

@@ -4,13 +4,13 @@ milestone: v1.0
 milestone_name: milestone
 status: executing
 stopped_at: Completed 05-03-PLAN.md
-last_updated: "2026-10-04T07:33:46.799Z"
+last_updated: "2026-10-04T07:45:26.857Z"
 last_activity: 2026-10-04
 progress:
   total_phases: 8
   completed_phases: 4
   total_plans: 28
-  completed_plans: 26
+  completed_plans: 27
   percent: 50
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-10-03)
 ## Current Position
 
 Phase: 05 (intro-bbj-conversion) — EXECUTING
-Plan: 5 of 6
+Plan: 6 of 6
 Status: Ready to execute
 Last activity: 2026-10-04
 
@@ -62,6 +62,7 @@ Decisions are logged in PROJECT.md Key Decisions table.
 - [Roadmap]: Gap audit precedes go-live; redirects and archive strictly follow go-live
 - [Roadmap]: Components land before any content (build throws on unknown components)
 - [Phase 05]: [05-03] Raw fences, YouTube tags and images use placeholder tokens substituted after MDX escaping
+- [Phase 05]: 05-05: Theme Editor link provisional us.bbx.kitchen DWCThemer (D-27, review true); bbj-button route unverifiable so parent used
 
 ### Pending Todos
 
@@ -81,5 +82,5 @@ Decisions are logged in PROJECT.md Key Decisions table.
 
 ## Session Continuity
 
-Last session: 2026-10-04T07:33:46.793Z
+Last session: 2026-10-04T07:45:23.423Z
 Stopped at: Completed 05-03-PLAN.md
