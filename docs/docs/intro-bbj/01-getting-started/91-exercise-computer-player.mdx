@@ -3,6 +3,8 @@ title: "Bonus exercise: Add a computer player"
 description: Turn your Tic-Tac-Toe game into a one-player game where the computer plays the other side.
 ---
 
+A possible solution is at the end of this page.
+
 :::exercise
 
 This is an optional task to get yet more familiar with the BBj language and your new coding tools:
@@ -10,3 +12,293 @@ This is an optional task to get yet more familiar with the BBj language and your
 Make a copy of your Tic-Tac-Toe and try to move it into a one-player version where the computer plays the other player. Play a bit with the computer algorithm, what can you implement? Random moves, MinMax, what else?
 
 :::
+
+<details>
+<summary>Possible solution</summary>
+
+The original course had no solution for this exercise, so this one was written for this book. It starts from the Tic-Tac-Toe solution `TicTacToe.bbj` and is a complete program of its own. The computer plays O, and the list button switches between the strategies Random and MinMax while you play. MinMax looks ahead to the end of the game, so it never loses. MinMax calls itself, and a BBj method keeps its variables local to each call, so both strategies live in the small class `ComputerPlayer` (the next section introduces classes). The program uses plain controls without CSS and also runs in the DWC. The solution is in `TicTacToeComputer.bbj`, and you find all files in the [exercises.zip](pathname:///files/intro-bbj/exercises.zip) link.
+
+```bbj title="TicTacToeComputer.bbj"
+rem TicTacToeComputer.bbj
+rem Possible solution for the bonus exercise Add a computer player, written for the Introduction to BBj Development book
+rem It starts from the two-player solution TicTacToe.bbj. You play X, the computer plays O.
+rem The computer picks its move with a Random or a MinMax strategy behind one method, nextMove, and you switch the strategy while playing.
+rem MinMax calls itself, so both strategies live in a small class whose methods keep their variables local to each call.
+rem It uses plain BBj controls and callbacks, without CSS, and also runs in the DWC.
+
+class public ComputerPlayer
+
+    method public BBjNumber nextMove(BBjString board$, BBjString strategy$)
+        rem the board is a string of nine characters: "X", "O" or a space for a free cell, cell 1 first
+        if strategy$ = "MinMax" then
+            methodret #minMaxMove(board$)
+        else
+            methodret #randomMove(board$)
+        endif
+    methodend
+
+    method private BBjNumber randomMove(BBjString board$)
+        rem Random: pick one of the free cells by chance
+        freeCount = 0
+        for i = 1 to 9
+            if board$(i,1) = " " then
+                freeCount = freeCount + 1
+            endif
+        next i
+        if freeCount = 0 then
+            methodret 0
+        endif
+
+        rem RND(n) returns a whole number from 0 to n-1, so add 1 to count free cells from 1
+        pick = rnd(freeCount) + 1
+        seen = 0
+        for i = 1 to 9
+            if board$(i,1) = " " then
+                seen = seen + 1
+                if seen = pick then
+                    methodret i
+                endif
+            endif
+        next i
+        methodret 0
+    methodend
+
+    method private BBjNumber minMaxMove(BBjString board$)
+        rem MinMax: try every free cell in ascending order and keep the one with the best score.
+        rem A cell replaces the best one only when its score is strictly better, so equal scores go to the lowest cell.
+        best = -2
+        bestCell = 0
+        for i = 1 to 9
+            if board$(i,1) = " " then
+                newBoard$ = #placeMark(board$,i,"O")
+                score = #minimax(newBoard$,"X")
+                if score > best then
+                    best = score
+                    bestCell = i
+                endif
+            endif
+        next i
+        methodret bestCell
+    methodend
+
+    method private BBjNumber minimax(BBjString board$, BBjString turn$)
+        rem score a board from the computer's side: 1 if O wins, -1 if X wins, 0 for a draw.
+        rem turn$ says who moves next. O picks the highest score, X the lowest.
+        w$ = #winner(board$)
+        if w$ = "O" then
+            methodret 1
+        endif
+        if w$ = "X" then
+            methodret -1
+        endif
+
+        freeCount = 0
+        for i = 1 to 9
+            if board$(i,1) = " " then
+                freeCount = freeCount + 1
+            endif
+        next i
+        if freeCount = 0 then
+            methodret 0
+        endif
+
+        if turn$ = "O" then
+            best = -2
+        else
+            best = 2
+        endif
+        for i = 1 to 9
+            if board$(i,1) = " " then
+                if turn$ = "O" then
+                    newBoard$ = #placeMark(board$,i,"O")
+                    score = #minimax(newBoard$,"X")
+                    if score > best then
+                        best = score
+                    endif
+                else
+                    newBoard$ = #placeMark(board$,i,"X")
+                    score = #minimax(newBoard$,"O")
+                    if score < best then
+                        best = score
+                    endif
+                endif
+            endif
+        next i
+        methodret best
+    methodend
+
+    method public BBjString winner(BBjString board$)
+        rem "X" or "O" when that mark has three in a line, otherwise an empty string
+        winLines$ = "123456789147258369159357"
+        for k = 0 to 7
+            a = num(winLines$(k*3+1,1))
+            b = num(winLines$(k*3+2,1))
+            c = num(winLines$(k*3+3,1))
+            if (board$(a,1) <> " ") and (board$(a,1) = board$(b,1)) and (board$(a,1) = board$(c,1)) then
+                methodret board$(a,1)
+            endif
+        next k
+        methodret ""
+    methodend
+
+    method private BBjString placeMark(BBjString board$, BBjNumber cell, BBjString mark$)
+        rem build a new board string with the mark in one cell, one character at a time
+        result$ = ""
+        for i = 1 to 9
+            if i = cell then
+                result$ = result$ + mark$
+            else
+                result$ = result$ + board$(i,1)
+            endif
+        next i
+        methodret result$
+    methodend
+
+classend
+
+declare ComputerPlayer computer!
+declare BBjAPI api!
+declare BBjSysGui sysgui!
+declare BBjTopLevelWindow wnd!
+declare BBjButton btn!
+declare BBjStaticText status!
+declare BBjStaticText strategyLabel!
+declare BBjListButton strategyList!
+declare BBjVector cells!
+
+computer! = new ComputerPlayer()
+
+api! = BBjAPI()
+sysgui! = api!.openSysGui("X0")
+wnd! = sysgui!.addWindow(100,100,320,430,"Tic-Tac-Toe against the computer")
+
+rem the nine cell buttons get the control IDs 101 to 109, laid out in three rows of three
+cells! = api!.makeVector()
+for i = 0 to 8
+    btn! = wnd!.addButton(101+i,10+mod(i,3)*100,10+int(i/3)*100,95,95,"")
+    btn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"cellPushed")
+    cells!.addItem(btn!)
+next i
+
+status! = wnd!.addStaticText(110,10,315,300,25,"")
+
+rem the list button holds the strategy names, the first one is selected at the start
+strategyLabel! = wnd!.addStaticText(113,10,348,115,25,"Computer plays:")
+strategyList! = wnd!.addListButton(112,130,345,180,25,"Random"+$0A$+"MinMax")
+strategyList!.selectIndex(0)
+
+btn! = wnd!.addButton(111,10,380,300,30,"New game")
+btn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"newGame")
+
+wnd!.setCallback(BBjAPI.ON_CLOSE,"byebye")
+
+rem the eight winning lines as cell numbers: three rows, three columns, two diagonals
+winLines$ = "123456789147258369159357"
+
+gosub resetGame
+
+process_events
+
+cellPushed:
+    rem the pushed button tells us its control ID, cell 1 has ID 101
+    ev! = sysgui!.getLastEvent()
+    ctrl! = ev!.getControl()
+    cell = ctrl!.getID() - 100
+
+    rem ignore a click on a taken cell and every click after the game has ended
+    if (gameOver <> 0) or (board$[cell] <> "") then
+        return
+    endif
+
+    player$ = "X"
+    gosub makeMove
+
+    if gameOver = 0 then
+        gosub computerMove
+    endif
+return
+
+computerMove:
+    rem turn the board into a string of nine characters, a space marks a free cell
+    boardStr$ = ""
+    for i = 1 to 9
+        if board$[i] = "" then
+            boardStr$ = boardStr$ + " "
+        else
+            boardStr$ = boardStr$ + board$[i]
+        endif
+    next i
+
+    rem the list button decides the strategy, you can change it at any time
+    strategy$ = strategyList!.getItemAt(strategyList!.getSelectedIndex())
+    cell = computer!.nextMove(boardStr$,strategy$)
+
+    player$ = "O"
+    gosub makeMove
+return
+
+makeMove:
+    rem place the mark player$ in cell. Human and computer both go through here.
+    board$[cell] = player$
+    cellBtn! = cells!.getItem(cell-1)
+    cellBtn!.setText(player$)
+    moves = moves + 1
+
+    rem the win check comes first, so a ninth move that completes a line is a win and not a draw
+    gosub checkWinner
+    if winner$ <> "" then
+        if winner$ = "X" then
+            status!.setText("You win!")
+        else
+            status!.setText("The computer wins!")
+        endif
+        gameOver = 1
+    else
+        if moves = 9 then
+            status!.setText("It's a draw.")
+            gameOver = 1
+        else
+            if player$ = "X" then
+                status!.setText("The computer plays O")
+            else
+                status!.setText("Your move, you play X")
+            endif
+        endif
+    endif
+return
+
+checkWinner:
+    rem look at each line in the table: three cell numbers, all holding the same mark
+    winner$ = ""
+    for k = 0 to 7
+        a = num(winLines$(k*3+1,1))
+        b = num(winLines$(k*3+2,1))
+        c = num(winLines$(k*3+3,1))
+        if (board$[a] <> "") and (board$[a] = board$[b]) and (board$[a] = board$[c]) then
+            winner$ = board$[a]
+        endif
+    next k
+return
+
+newGame:
+    gosub resetGame
+return
+
+resetGame:
+    rem board$[1] to board$[9] hold "X", "O" or an empty string for a free cell
+    dim board$[9]
+    player$ = "X"
+    moves = 0
+    gameOver = 0
+    for i = 1 to 9
+        cellBtn! = cells!.getItem(i-1)
+        cellBtn!.setText("")
+    next i
+    status!.setText("Your move, you play X")
+return
+
+byebye:
+    release
+```
+
+</details>

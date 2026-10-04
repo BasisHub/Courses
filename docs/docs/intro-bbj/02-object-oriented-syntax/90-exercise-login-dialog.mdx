@@ -3,6 +3,8 @@ title: "Exercise: Build a login dialog"
 description: Write a login dialog as a BBj class that checks a user name and password pair.
 ---
 
+A possible solution is at the end of this page.
+
 :::exercise
 
 Write a Login Dialog in BBj. The Dialog should have two buttons - "Login" and "Cancel," a field for a user name and one for a password. It should be encapsulated in a BBj class and check for a correct username/password pair. You can hardcode one or two combinations in this task.
@@ -10,3 +12,83 @@ Write a Login Dialog in BBj. The Dialog should have two buttons - "Login" and "C
 The Dialog should return a Boolean TRUE if the username and password are accepted, and FALSE if the login procedure was canceled. When the user tries to enter an invalid username/password combination, an error message should appear like "Please check your input" and the dialog should remain open.
 
 :::
+
+<details>
+<summary>Possible solution</summary>
+
+The original course had no solution for this exercise, so this one was written for this book. Log in with the user name `demo` and the password `bbj-demo`. These demo credentials sit in the code only for this exercise, and a real app checks a user store instead. `show()` returns `BBjAPI.TRUE` after a correct login and `BBjAPI.FALSE` after Cancel, and a wrong pair shows "Please check your input" while the dialog stays open. The dialog uses plain controls without CSS and also runs in the DWC. The solution is in `LoginDialog.bbj`, and you find all files in the [exercises.zip](pathname:///files/intro-bbj/exercises.zip) link.
+
+```bbj title="LoginDialog.bbj"
+rem LoginDialog.bbj
+rem Possible solution for the exercise Build a login dialog, written for the Introduction to BBj Development book
+rem Plain BBj controls and callbacks, without CSS; it also runs in the DWC.
+
+class public LoginDialog
+
+    rem These are demo credentials for the exercise only.
+    rem A real application checks a user store and never keeps passwords in its code.
+    field private static BBjString DemoUser$ = "demo"
+    field private static BBjString DemoPassword$ = "bbj-demo"
+
+    field private BBjTopLevelWindow wnd!
+    field private BBjEditBox userBox!
+    field private BBjEditBox passwordBox!
+    field private BBjButton loginBtn!
+    field private BBjButton cancelBtn!
+
+    method public BBjNumber show()
+        #wnd! = BBjAPI().openSysGui("X0").addWindow(100,100,360,170,"Login")
+
+        userLabel! = #wnd!.addStaticText(101,10,20,100,25,"User name:")
+        #userBox! = #wnd!.addEditBox(102,120,20,220,25,"")
+        passwordLabel! = #wnd!.addStaticText(103,10,55,100,25,"Password:")
+
+        rem the flag $0400$ replaces the typed characters with asterisks
+        #passwordBox! = #wnd!.addEditBox(104,120,55,220,25,"",$0400$)
+
+        #loginBtn! = #wnd!.addButton(105,120,100,105,30,"Login")
+        #cancelBtn! = #wnd!.addButton(106,235,100,105,30,"Cancel")
+
+        #loginBtn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"login")
+        #cancelBtn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"cancel")
+        #wnd!.setCallback(BBjAPI.ON_CLOSE,"cancel")
+
+        process_events
+
+        login:
+            rem an empty user name or password never matches the demo pair, so it counts as a wrong pair
+            user$ = #userBox!.getText()
+            secret$ = #passwordBox!.getText()
+            if user$ <> "" and secret$ <> "" and user$ = #DemoUser$ and secret$ = #DemoPassword$ then
+                #wnd!.destroy()
+                methodret BBjAPI.TRUE
+            endif
+
+            rem a wrong pair: show a fixed message, clear the password field and keep the dialog open
+            choice = msgbox("Please check your input",48,"Login")
+            #passwordBox!.setText("")
+        return
+
+        cancel:
+            #wnd!.destroy()
+            methodret BBjAPI.FALSE
+
+    methodend
+
+classend
+
+declare LoginDialog dlg!
+dlg! = new LoginDialog()
+ok = dlg!.show()
+
+if ok then
+    note$ = "Login accepted."
+else
+    note$ = "Login canceled."
+endif
+
+choice = msgbox(note$,64,"Login")
+release
+```
+
+</details>

@@ -4,7 +4,7 @@ Result of `bbj_check_syntax` for every `.bbj` sample under `docs/examples/intro-
 
 Checker: BBj Documentation MCP `bbj_check_syntax`, hosted check, stock BBj 26.03 (no bbj-local check registered). Source build: bbj-docs · hosted · docs 2026-09-21 · fd516a9d. Checked 2026-10-04, one call per target with the content passed verbatim, after reading `bbj://primer`.
 
-Pass: 38. Fail: 0. Not checkable: 0. Total: 38.
+Pass: 41. Fail: 0. Not checkable: 0. Total: 41.
 
 The hosted check parses the code with a stock BBj; it does not resolve PREFIX, classpath or `use` targets, so a pass means the code parses, not that it runs.
 
@@ -39,7 +39,10 @@ Phase 6.1 added the exercise solutions under `docs/examples/intro-bbj/exercises/
 | `docs/docs/intro-bbj/01-getting-started/05-loops-and-if-statements.mdx#1` | pass | Fixed in C5 (placeholder pseudocode replaced with PRINT; verified by bbj_check_syntax). Before: line 2 col 1 SyntaxError: syntax error; line 4 col 1 SyntaxError: syntax error. After: No errors found |
 | `docs/docs/intro-bbj/01-getting-started/05-loops-and-if-statements.mdx#2` | pass | Fixed in C5 (placeholder pseudocode replaced with PRINT; verified by bbj_check_syntax). Before: line 1 col 1 SyntaxError: syntax error. After: No errors found |
 | `docs/docs/intro-bbj/01-getting-started/07-multiplying-calculator.mdx#1` | pass | - |
+| `docs/docs/intro-bbj/01-getting-started/90-exercise-tic-tac-toe.mdx#1` | pass | byte-identical to docs/examples/intro-bbj/exercises/TicTacToe.bbj |
+| `docs/docs/intro-bbj/01-getting-started/91-exercise-computer-player.mdx#1` | pass | byte-identical to docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj |
 | `docs/docs/intro-bbj/02-object-oriented-syntax/03-reference-classes.mdx#1` | pass | - |
+| `docs/docs/intro-bbj/02-object-oriented-syntax/90-exercise-login-dialog.mdx#1` | pass | byte-identical to docs/examples/intro-bbj/exercises/LoginDialog.bbj |
 | `docs/docs/intro-bbj/03-web-development/03-developing-for-the-web.mdx#1` | pass | - |
 | `docs/docs/intro-bbj/03-web-development/04-window-layout-mode.mdx#1` | pass | - |
 | `docs/docs/intro-bbj/03-web-development/05-css-layout-instructions.mdx#1` | pass | - |
