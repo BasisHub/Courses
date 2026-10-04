@@ -63,7 +63,10 @@ check "anchors" python3 tools/check-dwc-anchors.py
 SEC=relocation
 SRC="${DWC_SOURCE_REPO:-$PWD/../bbj-dwc-tutorial}"
 export DWC_SOURCE_REPO="$SRC"
-C1=$(git log --format=%H -1 --grep='relocate DWC-Course book from BasisHub/DWC-Course@965da6d')
+# Exact subject match: a revert or a message that quotes the subject must not become C1.
+C1_SUBJECT='feat(04-03): relocate DWC-Course book from BasisHub/DWC-Course@965da6d'
+C1=$(git log --format='%H %s' --fixed-strings --grep="$C1_SUBJECT" \
+  | awk -v s="$C1_SUBJECT" '{ h = $1; sub(/^[^ ]+ /, ""); if ($0 == s) { print h; exit } }')
 if [ ! -d "$SRC" ] || ! git -C "$SRC" rev-parse --verify -q '965da6d^{commit}' >/dev/null 2>&1; then
   skip "source clone not found at $SRC (set DWC_SOURCE_REPO)"
 elif [ -z "$C1" ]; then
