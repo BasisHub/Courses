@@ -4,16 +4,16 @@ milestone: v1.0
 current_phase: "06.1"
 current_phase_name: Exercise Solutions and Restored Screenshots (INSERTED)
 status: executing
-stopped_at: Completed 06.1-01-PLAN.md
-last_updated: "2026-10-04T15:34:46.269Z"
+stopped_at: Completed 06.1-02-PLAN.md
+last_updated: "2026-10-04T15:36:47.906Z"
 last_activity: 2026-10-04
 last_activity_desc: Phase 06.1 execution started
-state_head: 37625a696df9b399015e55458e64bd629a041cb0
+state_head: 183560db6f0f1a79ff7a7c9f035afe3aa8580752
 progress:
   total_phases: 9
   completed_phases: 6
   total_plans: 59
-  completed_plans: 50
+  completed_plans: 51
 milestone_name: milestone
 ---
 
@@ -29,7 +29,7 @@ See: .planning/PROJECT.md (updated 2026-10-03)
 ## Current Position
 
 Phase: 06.1 (Exercise Solutions and Restored Screenshots (INSERTED)) — EXECUTING
-Plan: 2 of 10
+Plan: 3 of 10
 Status: Ready to execute
 Last activity: 2026-10-04 — Phase 06.1 execution started
 
@@ -60,6 +60,7 @@ Progress: [█░░░░░░░░░] 13%
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
 | Phase 06.1 P01 | 20 min | 3 tasks | 10 files |
+| Phase 06.1 P02 | 8 min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -74,6 +75,7 @@ Decisions are logged in PROJECT.md Key Decisions table.
 - [Phase 05]: 05-05: Theme Editor link provisional us.bbx.kitchen DWCThemer (D-27, review true); bbj-button route unverifiable so parent used
 - [Phase 06.1]: 06.1-01: --only skips only completeness assertions, never a per-page rule
 - [Phase 06.1]: 06.1-01: DWC sample count in verify-phase4/6 is a floor of 44 with a syntax row per sample
+- [Phase 06.1]: 06.1-02: Restored 8B-05 and 8B-07 as byte copies with alt text that repeats no demo name or address
 
 ### Roadmap Evolution
 
@@ -99,5 +101,5 @@ Decisions are logged in PROJECT.md Key Decisions table.
 
 **Resume file:** None
 
-Last session: 2026-10-04T15:34:46.098Z
-Stopped at: Completed 06.1-01-PLAN.md
+Last session: 2026-10-04T15:36:47.698Z
+Stopped at: Completed 06.1-02-PLAN.md
