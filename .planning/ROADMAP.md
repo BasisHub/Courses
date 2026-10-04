@@ -291,7 +291,7 @@ Plans:
   4. Screenshots 8B-05 and 8B-07 from the gap audit appear unredacted on the DWC chapter 09 printing section, with alt text, and the audit records them as restored
   5. The phase checker covers all 16 exercise pages (solution present, fence matches file, starter variables and snippets exist), and build, Vale and verify-phase1..6 stay green
 
-**Plans:** 6/10 plans executed
+**Plans:** 7/10 plans executed
 
 Plans:
 **Wave 1**
@@ -305,7 +305,7 @@ Plans:
 
 **Wave 2** *(blocked on 06.1-03 to 06.1-06)*
 
-- [ ] 06.1-07-PLAN.md — Orchestrator BBj MCP and token check of all drafts (non-autonomous)
+- [x] 06.1-07-PLAN.md — Orchestrator BBj MCP and token check of all drafts (non-autonomous)
 
 **Wave 3** *(blocked on 06.1-01 and 06.1-07)*
 
