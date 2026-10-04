@@ -215,8 +215,8 @@ Plans:
 Plans:
 **Wave 1**
 
-- [ ] 06-01-PLAN.md — Phase 6 checker tools/check-dwc-phase6.py (8 subcommands)
-- [ ] 06-02-PLAN.md — Gap audit pre-fill script, unit and assignment drafts, assign-73 snippet
+- [x] 06-01-PLAN.md — Phase 6 checker tools/check-dwc-phase6.py (8 subcommands)
+- [x] 06-02-PLAN.md — Gap audit pre-fill script, unit and assignment drafts, assign-73 snippet
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -305,6 +305,6 @@ Plans:
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
-| 6. Exercises & DWC Gap Audit | 0/TBD | Not started | - |
+| 6. Exercises & DWC Gap Audit | 2/17 | In Progress|  |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |

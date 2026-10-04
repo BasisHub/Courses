@@ -4,8 +4,8 @@ milestone: v1.0
 milestone_name: milestone
 status: executing
 stopped_at: Phase 6 context gathered
-last_updated: "2026-10-04T09:37:05.289Z"
-last_activity: 2026-10-04 -- Phase 6 planning complete
+last_updated: "2026-10-04T09:37:35.507Z"
+last_activity: 2026-10-04 -- Phase 6 execution started
 progress:
   total_phases: 8
   completed_phases: 5
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-10-03)
 
 **Core value:** Both books read well and correctly on one public site in the webforJ look, every old DWC-Course link still lands on the right page, and the Markdown is the only source of truth after the migration.
-**Current focus:** Phase 05 — intro-bbj-conversion
+**Current focus:** Phase 6 — Exercises & DWC Gap Audit
 
 ## Current Position
 
-Phase: 6
-Plan: Not started
-Status: Ready to execute
-Last activity: 2026-10-04 -- Phase 6 planning complete
+Phase: 6 (Exercises & DWC Gap Audit) — EXECUTING
+Plan: 1 of 17
+Status: Executing Phase 6
+Last activity: 2026-10-04 -- Phase 6 execution started
 
 Progress: [█░░░░░░░░░] 13%
 
