@@ -1,74 +1,93 @@
 ---
 phase: 06-exercises-dwc-gap-audit
-verified: 2026-10-04T12:00:00Z
-status: gaps_found
-score: 3/4 roadmap truths verified (SC1 partial)
-gaps:
-  - truth: "Reader finds DWC exercises as 9N-exercise-*.mdx pages that can be completed as written"
-    status: partial
-    reason: "CR-01 confirmed real. The grid and Flexbox exercise pages tell the reader to edit a css! variable. Neither starter file has one; both use a json! JsonObject applied via setPanelStyle."
-    artifacts:
-      - path: "docs/docs/dwc/06-flow-layouts/90-exercise-css-grid-layout.mdx"
-        issue: "Goals 1-4 (lines 14-20) say css! variable; starter Exercise-ConvertToCssLayout.bbj uses json!"
-      - path: "docs/docs/dwc/06-flow-layouts/91-exercise-css-flexbox.mdx"
-        issue: "Goals 1-3 (lines 14-18) say css! variable; starter Exercise-ConvertToCssFlexbox.bbj uses json!"
-    missing:
-      - "Replace css! with json! in the 7 goals (grid 1-4, flexbox 1-3)"
-      - "Also fix WR-01 (Flexbox goal 4 describes unchained setAttribute; fence not indented into list item) and WR-02 (flag $00100000$ vs $00100083$ in exercise 01)"
+verified: 2026-10-04T18:00:00Z
+status: human_needed
+score: 4/4 roadmap truths verified
+re_verification:
+  previous_status: gaps_found
+  previous_score: 3/4
+  gaps_closed:
+    - "CR-01: grid and Flexbox exercise pages told the reader to edit a css! variable that the starters do not have"
+    - "WR-01 (Flexbox goal 4) and WR-02 (flag $00100000$ vs $00100083$) exercise text"
+    - "WR-03..WR-13 content and checker defects, per 06-REVIEW.md re-review"
+  gaps_remaining: []
+  regressions: []
+human_verification:
+  - test: "Open the 'Possible solution' blocks in light and dark mode"
+    expected: "Collapsed by default, readable in both themes"
+    why_human: "Visual rendering"
+  - test: "Look at the screenshots marked with the outdated-screenshot TODO comment, and the hard-coded-fill SVG in chapter 01"
+    expected: "No marker text leaks into the page; SVG legible in dark mode"
+    why_human: "Visual rendering"
+  - test: "Run bash tools/verify-phase2.sh --local on branch main after merge"
+    expected: "Fully green; the only failure so far is the '[hygiene] branch is main' check, which fails because the work sits on gsd/phase-04-dwc-book-relocation"
+    why_human: "Environmental, depends on merge state"
 ---
 
-# Phase 6: Exercises & DWC Gap Audit Verification Report
+# Phase 6: Exercises & DWC Gap Audit Verification Report (re-verification)
 
 **Phase Goal:** The DWC book carries its exercises and all worthwhile course-4 material, and both books have an exercise index
-**Status:** gaps_found
-**Re-verification:** No
+**Status:** human_needed (no gaps; only visual and environmental checks remain)
+**Re-verification:** Yes, after gap closure plans 06-18..06-21
+
+## Previous gaps
+
+| Previous gap | Now | Evidence |
+|---|---|---|
+| CR-01: `css!` in 7 goals of the grid and Flexbox exercises, starters use `json!` | CLOSED | `grep -c 'css!'` on both pages: 0. `grep -c 'json!'`: 15 (grid), 12 (Flexbox). The remaining `css!` hits are in the separate demo `docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj`, not in exercise starters. |
+| WR-02: flag `$00100000$` replaced the `$83` bits | CLOSED | Exercise 01 line 18 now says to add `$00100083$` and explains that this adds the flow-layout bit `$00100000$` to the `$83` flags. |
+| WR-01 (Flexbox goal 4) and WR-03..WR-13 | CLOSED | 06-REVIEW.md re-review (committed) reports all resolved. I did not re-read every paragraph. The checks below back this up. |
 
 ## Goal Achievement
 
 | # | Truth (ROADMAP SC) | Status | Evidence |
 |---|---|---|---|
-| 1 | DWC exercises as 9N-exercise-*.mdx pages; each book has an exercise index | PARTIAL (BLOCKER) | 11 exercise pages and both indexes exist; `check-dwc-phase6.py exercises` (430) and `indexes` (64) pass with 0 failed. But two pages (grid, Flexbox) cannot be completed as written (CR-01, verified by grep: 7 occurrences of `css!` on the pages, 0 in the starter files, which use `json!`). |
-| 2 | Possible solution in collapsed block where a sample exists | VERIFIED | `check-dwc-phase6.py solutions`: 92 checks, 0 failed. |
-| 3 | `tools/data/dwc-gap-audit.md` with keep/drop/covered verdicts per page | VERIFIED | `audit`: 4471 checks, 0 failed. |
-| 4 | Kept material on DWC pages as one commit series, no slug renames; 2022 screenshots marked | VERIFIED | `kept` 978, `commits` 45, `screenshots` 458 checks, 0 failed (59 listed entries, 63 marked references). Weakness: WR-12 says the commit check never confirms the "kept" commits exist. |
+| 1 | DWC exercises as `9N-exercise-*.mdx`; each book has an exercise index | VERIFIED | 11 exercise pages in `docs/docs/dwc/*/9*-exercise-*.mdx`. `check-dwc-phase6.py exercises`: 456 checks, 0 failed. `indexes`: 64, 0 failed. `pointers`: 21, 0 failed. CR-01 is closed, so the grid and Flexbox pages now agree with their starters. |
+| 2 | Possible solution in collapsed block where a sample exists | VERIFIED | `solutions`: 92 checks, 0 failed. |
+| 3 | `tools/data/dwc-gap-audit.md` with keep/drop/covered verdicts | VERIFIED | `audit`: 4471 checks, 0 failed. |
+| 4 | Kept material on DWC pages as a commit series, no slug renames; 2022 screenshots marked | VERIFIED | `kept`: 974, `commits`: 46, `screenshots`: 450 checks, 0 failed. 59 listed entries and 59 marked references. |
 
-**Score:** 3/4
+**Score:** 4/4
 
 ## Requirements Coverage
 
 | ID | Status | Evidence |
 |---|---|---|
-| EXER-02 | BLOCKED (partial) | Pages exist, but the grid and Flexbox exercises are not completable as written (CR-01) |
+| EXER-02 | SATISFIED | 11 exercise pages; CR-01 closed; `exercises` check passes |
 | EXER-03 | SATISFIED | Both `exercises.mdx` indexes; `indexes` check passes |
 | EXER-04 | SATISFIED | `solutions` check passes |
 | AUDIT-01 | SATISFIED | `audit` check passes |
-| AUDIT-02 | SATISFIED | `kept` and `commits` checks pass (see WR-12 caveat) |
-| AUDIT-03 | SATISFIED | `screenshots` check passes |
+| AUDIT-02 | SATISFIED | `kept` and `commits` pass |
+| AUDIT-03 | SATISFIED | `screenshots` pass |
 
-All six IDs are accounted for in REQUIREMENTS.md. No orphaned requirements.
+All six IDs appear in REQUIREMENTS.md and in plan frontmatter. No orphaned requirements.
 
-## Anti-Patterns / Review Warnings (not blockers on their own)
-
-Content paragraphs that contradict the code they describe, none caught by the checkers (full detail in 06-REVIEW.md): WR-01 (Flexbox goal 4), WR-02 (flag replaces `$83` bits), WR-03 (Button link goes to docs root), WR-04 (`inline-grid` vs `grid`), WR-05 (`display: grid;` line missing), WR-06 (wrong `justify-self` claim), WR-07 (`demos` vs `demo`), WR-08 (icon pools misdescribes DWC2.bbj), WR-09 (Chart.js clears ON_PAGE_LOADED instead of ON_SCRIPT_LOADED), WR-10 to WR-13 (duplicate screenshots, getClientFile argument, checker blind spots). Fix these in the same gap-closure pass; WR-01 and WR-02 directly affect exercise completability.
-
-## Behavioral Spot-Checks
+## Behavioral Spot-Checks and Probes
 
 | Check | Result |
 |---|---|
-| `python3 tools/check-dwc-phase6.py all` | All 9 subcommands, 0 failed |
-| grep `css!` in exercise pages vs starters | Pages: 7 hits; starters: 0 (use `json!`) |
+| `python3 tools/check-dwc-phase6.py all --build docs/build` (run by me) | All 8 modes, 0 failed |
+| grep `css!` / `json!` in the grid and Flexbox exercise pages | 0 / 15 and 0 / 12 |
+| Debt markers (TBD, FIXME, XXX) in exercise pages | None |
+| Build, Vale (0 errors), prove-gates, verify-phase1/3/4/5/6, `bbj_check_syntax`, `bbj_lookup` | Reported by the orchestrator. I did not rerun them. |
 
-I did not run `npm run build`, Vale or the verify scripts in this pass. The review reports the build as passing.
+## Review warning: starter-consistency check covers 6 of 11 pages
+
+The check only runs for the 6 pages with a SOLUTIONS entry. The 5 pages without one are theming, bbjgridexwidget, embed-component, media-queries and button-transition. I grepped all 11 pages for backticked `name!` / `name$` identifiers. Only the grid and Flexbox pages contain any (`json!`), and both are covered by the check. The 5 unchecked pages name no starter variable, so the CR-01 failure class cannot currently occur there. **Advisory, not a goal blocker.** Extending the check to a separate `STARTERS` map is worthwhile hardening for Phase 7.
+
+## Anti-Patterns
+
+None blocking. The 5 info items in 06-REVIEW.md are cosmetic (for example dead defensive code in the checker).
 
 ## Human Verification Required
 
-1. **Run `! bash tools/verify-phase6.sh`** (and the phase 1 to 5 verify scripts). Expected: all green. Denied for me.
-2. **Light and dark rendering** of the "Possible solution" blocks. Expected: readable in both themes, collapsed by default.
-3. **Marked screenshots** (`{/* TODO: screenshot outdated? */}`) and the hard-coded-fill SVG in chapter 01. Expected: no marker leaks into the page, and the SVG is legible in dark mode.
+1. **Light and dark rendering of the "Possible solution" blocks.** Expected: collapsed by default, readable in both themes.
+2. **Outdated-screenshot marker comments and the hard-coded-fill SVG in chapter 01.** Expected: no marker leaks into the page; SVG legible in dark mode.
+3. **`verify-phase2.sh --local` on `main`.** The `[hygiene] branch is main` failure is environmental: the work sits on `gsd/phase-04-dwc-book-relocation`. Expected: green after merge.
 
 ## Gaps Summary
 
-One blocker. The Grid and Flexbox exercise pages instruct readers to modify a `css!` variable that does not exist in the provided starter programs, so these exercises cannot be done as written. The fix is small and mechanical (seven goal lines), but the goal "the DWC book carries its exercises" is not met until it is made. Once fixed, plus the WR-01 and WR-02 exercise text corrections, re-verify. Human items 1 to 3 remain after that.
+No gaps. The one blocker from the previous report (CR-01, with WR-01 and WR-02) is closed, and all automated checks pass. Only human visual checks and the post-merge branch check remain.
 
 _Verified: 2026-10-04_
 _Verifier: Claude (gsd-verifier)_
