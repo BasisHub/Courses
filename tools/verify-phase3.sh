@@ -19,7 +19,8 @@ pass() { echo "PASS  [$SEC] $1"; }
 fail() { echo "FAIL  [$SEC] $1"; FAILS=$((FAILS + 1)); }
 check() { # check <name> <command...>
   local name="$1"; shift
-  if "$@" >/dev/null 2>&1; then pass "$name"; else fail "$name"; fi
+  # stdin from /dev/null: a command missing its file argument fails fast instead of hanging.
+  if "$@" </dev/null >/dev/null 2>&1; then pass "$name"; else fail "$name"; fi
 }
 has() { grep -q -- "$2" "$1" 2>/dev/null; }
 hasf() { grep -qF -- "$2" "$1" 2>/dev/null; }

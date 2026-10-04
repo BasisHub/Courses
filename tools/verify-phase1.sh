@@ -16,7 +16,8 @@ fail() { echo "FAIL  $1"; FAILS=$((FAILS + 1)); }
 skip() { echo "SKIP  $1"; }
 check() { # check <name> <command...>
   local name="$1"; shift
-  if "$@" >/dev/null 2>&1; then pass "$name"; else fail "$name"; fi
+  # stdin from /dev/null: a command missing its file argument fails fast instead of hanging.
+  if "$@" </dev/null >/dev/null 2>&1; then pass "$name"; else fail "$name"; fi
 }
 
 kill_tree() { # kill_tree <pid>: stop a process and all of its descendants
