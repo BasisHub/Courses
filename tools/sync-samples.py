@@ -25,6 +25,7 @@ import os
 import sys
 import tempfile
 import zipfile
+import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -117,9 +118,19 @@ def manifest(data: bytes | Path) -> list[tuple]:
     src = io.BytesIO(data) if isinstance(data, bytes) else data
     with zipfile.ZipFile(src) as zf:
         return [
-            (i.filename, i.file_size, i.CRC, i.date_time, i.external_attr)
+            (i.filename, i.file_size, i.CRC, i.date_time, i.external_attr, i.compress_type)
             for i in zf.infolist()
         ]
+
+
+def payload_error(target: Path) -> str | None:
+    """Decompress every entry and verify its CRC; return a reason on failure."""
+    try:
+        with zipfile.ZipFile(target) as zf:
+            bad = zf.testzip()
+    except (zipfile.BadZipFile, zlib.error, OSError, EOFError, ValueError) as e:  # truncated or malformed data
+        return "unreadable payload (" + str(e) + ")"
+    return None if bad is None else "corrupt entry " + bad
 
 
 def sync(book: str) -> None:
@@ -161,6 +172,11 @@ def check(book: str) -> bool:
                     reason = "first difference: %s vs %s" % (h[0], w[0])
                     break
             print("FAIL  " + label + ": " + reason)
+            ok = False
+            continue
+        err = payload_error(target)
+        if err is not None:
+            print("FAIL  " + label + ": " + err)
             ok = False
             continue
         print("PASS  " + label)
