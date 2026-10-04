@@ -4,16 +4,16 @@ milestone: v1.0
 current_phase: "06.1"
 current_phase_name: Exercise Solutions and Restored Screenshots (INSERTED)
 status: executing
-stopped_at: Completed 06.1-03-PLAN.md
-last_updated: "2026-10-04T15:39:53.786Z"
+stopped_at: Completed 06.1-04-PLAN.md
+last_updated: "2026-10-04T15:43:56.180Z"
 last_activity: 2026-10-04
 last_activity_desc: Phase 06.1 execution started
-state_head: 12d4e6ca53775334e8b7428a438378783d48e5ca
+state_head: e7062f0c9fb81f27add7ff1c96552bb85f0d0c51
 progress:
   total_phases: 9
   completed_phases: 6
   total_plans: 59
-  completed_plans: 52
+  completed_plans: 53
 milestone_name: milestone
 ---
 
@@ -29,7 +29,7 @@ See: .planning/PROJECT.md (updated 2026-10-03)
 ## Current Position
 
 Phase: 06.1 (Exercise Solutions and Restored Screenshots (INSERTED)) — EXECUTING
-Plan: 4 of 10
+Plan: 5 of 10
 Status: Ready to execute
 Last activity: 2026-10-04 — Phase 06.1 execution started
 
@@ -62,6 +62,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 06.1 P01 | 20 min | 3 tasks | 10 files |
 | Phase 06.1 P02 | 8 min | 2 tasks | 5 files |
 | Phase 06.1 P03 | 10 min | 2 tasks | 5 files |
+| Phase 06.1 P04 | 3 min | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -78,6 +79,7 @@ Decisions are logged in PROJECT.md Key Decisions table.
 - [Phase 06.1]: 06.1-01: DWC sample count in verify-phase4/6 is a floor of 44 with a syntax row per sample
 - [Phase 06.1]: 06.1-02: Restored 8B-05 and 8B-07 as byte copies with alt text that repeats no demo name or address
 - [Phase 06.1]: 06.1-03: theme CSS seeds hue 262 / 65%; --dwc-border-radius replaces the undeclared --dwc-navigator-button-background in the editable property list
+- [Phase 06.1]: Plan 04: 122 moves the grid into an injected stylesheet class (inline styles beat media queries) and uses the strict breakpoint width < 600px; 83 loads Shoelace only from pinned 2.20.1 cdn/ URLs
 
 ### Roadmap Evolution
 
@@ -103,5 +105,5 @@ Decisions are logged in PROJECT.md Key Decisions table.
 
 **Resume file:** None
 
-Last session: 2026-10-04T15:39:53.615Z
-Stopped at: Completed 06.1-03-PLAN.md
+Last session: 2026-10-04T15:43:56.031Z
+Stopped at: Completed 06.1-04-PLAN.md
