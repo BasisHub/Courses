@@ -1,0 +1,81 @@
+rem Board.bbj
+rem Part of the possible solution for the bonus exercise Make your Tic-Tac-Toe object-oriented, written for the Introduction to BBj Development book
+rem Board holds the state and the rules of the game: which cell has which mark, whether a move is allowed and who has won. It knows nothing about windows.
+
+class public Board
+
+    field private BBjString cells$
+
+    method public Board()
+        rem cells$ holds nine characters, cell 1 first: "X", "O" or a space for a free cell
+        #reset()
+    methodend
+
+    method public void reset()
+        s$ = ""
+        for i = 1 to 9
+            s$ = s$ + " "
+        next i
+        #cells$ = s$
+    methodend
+
+    method public BBjNumber place(BBjNumber cell, BBjString mark$)
+        rem put a mark into a free cell from 1 to 9. Returns 1 when it worked and 0 when the move is not allowed.
+        if (cell < 1) or (cell > 9) then
+            methodret 0
+        endif
+
+        s$ = #cells$
+        if s$(cell,1) <> " " then
+            methodret 0
+        endif
+
+        rem build the new board string one character at a time
+        result$ = ""
+        for i = 1 to 9
+            if i = cell then
+                result$ = result$ + mark$
+            else
+                result$ = result$ + s$(i,1)
+            endif
+        next i
+        #cells$ = result$
+        methodret 1
+    methodend
+
+    method public BBjString getCell(BBjNumber cell)
+        rem the mark in a cell, or an empty string for a free cell
+        s$ = #cells$
+        if s$(cell,1) = " " then
+            methodret ""
+        endif
+        methodret s$(cell,1)
+    methodend
+
+    method public BBjString winner()
+        rem "X" or "O" when that mark has three in a line, otherwise an empty string
+        s$ = #cells$
+        winLines$ = "123456789147258369159357"
+        for k = 0 to 7
+            a = num(winLines$(k*3+1,1))
+            b = num(winLines$(k*3+2,1))
+            c = num(winLines$(k*3+3,1))
+            if (s$(a,1) <> " ") and (s$(a,1) = s$(b,1)) and (s$(a,1) = s$(c,1)) then
+                methodret s$(a,1)
+            endif
+        next k
+        methodret ""
+    methodend
+
+    method public BBjNumber isFull()
+        rem 1 when every cell holds a mark, otherwise 0
+        s$ = #cells$
+        for i = 1 to 9
+            if s$(i,1) = " " then
+                methodret 0
+            endif
+        next i
+        methodret 1
+    methodend
+
+classend

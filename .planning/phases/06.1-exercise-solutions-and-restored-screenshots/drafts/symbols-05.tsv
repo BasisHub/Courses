@@ -1,0 +1,126 @@
+file	symbol	source
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	rem	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	declare	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	BBjAPI	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	openSysGui	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	addWindow	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	addButton	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	addStaticText	OK-repo docs/docs/intro-bbj/01-getting-started/07-multiplying-calculator.mdx
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	setCallback(int,string)	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	BBjAPI.ON_BUTTON_PUSH	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	BBjAPI.ON_CLOSE	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	process_events	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	release	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	BBjControl::setText	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/bbjcontrol_settext.htm
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	BBjSysGui::getLastEvent	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjsysgui/BBjSysGui_getLastEvent.htm ; OK-repo docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	BBjSysGuiEvent::getControl	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjevents/BBjSysGuiEvent/bbjsysguievent_getcontrol.htm
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	BBjControl::getID	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/bbjcontrol_getid.htm
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	BBjAPI::makeVector	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/bbjapi/bbjapi_makevector.htm ; OK-repo docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	BBjVector (declare type)	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/bbjapi/bbjapi_makevector.htm (return type BBjVector)
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	BBjVector::addItem	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/API/bbjvector/bbjvector_additem.htm
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	BBjVector::getItem	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/API/bbjvector/bbjvector_getitem.htm (0-based index) ; OK-repo docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	mod	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/mod_function.htm
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	int	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/int_function.htm
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	num	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/num_function.htm
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	dim (string array, redimension)	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/dim_verb.htm (elements start empty, array may be redimensioned)
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	gosub	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/gosub_verb.htm
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	return	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/return_verb.htm
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	for/next	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/for_next_verbs.htm ; OK-repo docs/examples/dwc/05_CssLayouts/DWCGrid.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	if/else/endif	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/TicTacToe.bbj	substring s$(start,len)	https://documentation.basis.cloud/BASISHelp/WebHelp/usr/Language_Concepts/substrings.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	rem	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	declare	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjAPI	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	openSysGui	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	addWindow	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	addButton	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	addStaticText	OK-repo docs/docs/intro-bbj/01-getting-started/07-multiplying-calculator.mdx
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	setCallback(int,string)	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjAPI.ON_BUTTON_PUSH	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjAPI.ON_CLOSE	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	process_events	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	release	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjControl::setText	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/bbjcontrol_settext.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjSysGui::getLastEvent	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjsysgui/BBjSysGui_getLastEvent.htm ; OK-repo docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjSysGuiEvent::getControl	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjevents/BBjSysGuiEvent/bbjsysguievent_getcontrol.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjControl::getID	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/bbjcontrol_getid.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjAPI::makeVector	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/bbjapi/bbjapi_makevector.htm ; OK-repo docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjVector (declare type)	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/bbjapi/bbjapi_makevector.htm (return type BBjVector)
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjVector::addItem	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/API/bbjvector/bbjvector_additem.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjVector::getItem	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/API/bbjvector/bbjvector_getitem.htm (0-based index) ; OK-repo docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	mod	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/mod_function.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	int	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/int_function.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	num	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/num_function.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	dim (string array, redimension)	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/dim_verb.htm (elements start empty, array may be redimensioned)
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	gosub	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/gosub_verb.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	return	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/return_verb.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	for/next	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/for_next_verbs.htm ; OK-repo docs/examples/dwc/05_CssLayouts/DWCGrid.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	if/else/endif	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	substring s$(start,len)	https://documentation.basis.cloud/BASISHelp/WebHelp/usr/Language_Concepts/substrings.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	class public / classend	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	method public/private / methodend	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj ; https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm (method scope: locals visible only inside the method)
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	methodret	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/methodret_verb.htm (value required unless void)
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjNumber / BBjString / void (types)	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	#field and #method(...) access	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj ; https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm (Payroll example uses #getID())
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	new Class(...)	OK-repo docs/examples/intro-bbj/oo-samples/CarApplication.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	rnd	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/rnd_function.htm (RND(n) returns an integer from 0 to n-1)
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjWindow::addListButton	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjwindow/bbjwindow_addlistbutton.htm (items separated by line feed)
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjListButton::selectIndex	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjlistbutton/bbjlistbutton_selectindex.htm (0-based)
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjListButton::getSelectedIndex	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjlistbutton/bbjlistbutton_getselectedindex.htm (0-based)
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	BBjListButton::getItemAt	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjlistbutton/bbjlistbutton_getitemat.htm
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	$0A$	OK-repo docs/examples/dwc/05_CssLayouts/DWCGrid.bbj ($0a$ line feed in an item string)
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj	rem	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj	class public / classend	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj	field public/private	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj	method public/private / methodend	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj ; https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm (method scope: locals visible only inside the method)
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj	methodret	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/methodret_verb.htm (value required unless void)
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj	BBjNumber / BBjString / void (types)	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj	#field and #method(...) access	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj ; https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm (Payroll example uses #getID())
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj	substring s$(start,len)	https://documentation.basis.cloud/BASISHelp/WebHelp/usr/Language_Concepts/substrings.htm
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj	num	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/num_function.htm
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj	for/next	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/for_next_verbs.htm ; OK-repo docs/examples/dwc/05_CssLayouts/DWCGrid.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj	if/else/endif	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Player.bbj	rem	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Player.bbj	class public / classend	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Player.bbj	field public/private	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Player.bbj	method public/private / methodend	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj ; https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm (method scope: locals visible only inside the method)
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Player.bbj	#field and #method(...) access	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj ; https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm (Payroll example uses #getID())
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Player.bbj	generated getName()/getMark() for public field	OK-repo docs/examples/intro-bbj/oo-samples/CarApplication.bbj (setColor from public field Color$); https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm (Payroll example #getName())
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	rem	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	use ::File.bbj::Class	OK-repo docs/examples/intro-bbj/oo-samples/CarApplication.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	class public / classend	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	field public/private	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	method public/private / methodend	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj ; https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm (method scope: locals visible only inside the method)
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	methodret	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/methodret_verb.htm (value required unless void)
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	#this!	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	#field and #method(...) access	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj ; https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm (Payroll example uses #getID())
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	new Class(...)	OK-repo docs/examples/intro-bbj/oo-samples/CarApplication.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	BBjAPI	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	openSysGui	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	addWindow	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	addButton	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	addStaticText	OK-repo docs/docs/intro-bbj/01-getting-started/07-multiplying-calculator.mdx
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	setCallback(int,object,string)	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj (setCallback(BBjAPI.ON_BUTTON_PUSH,#this!,"method") shape); doc https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/bbjcontrol_setcallback.htm
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	BBjAPI.ON_BUTTON_PUSH	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	BBjAPI.ON_CLOSE	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	BBjButtonPushEvent	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjevents/BBjButtonPushEvent/bbjbuttonpushevent.htm
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	BBjCloseEvent	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjevents/BBjCloseEvent/bbjcloseevent.htm ; https://documentation.basis.cloud/BASISHelp/WebHelp/bbjevents/events_correspondence_table.htm (ON_CLOSE gives BBjCloseEvent)
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	release	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	BBjControl::setText	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/bbjcontrol_settext.htm
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	BBjSysGuiEvent::getControl	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjevents/BBjSysGuiEvent/bbjsysguievent_getcontrol.htm
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	BBjControl::getID	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/bbjcontrol_getid.htm
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	BBjAPI::makeVector	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/bbjapi/bbjapi_makevector.htm ; OK-repo docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	BBjVector::addItem	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/API/bbjvector/bbjvector_additem.htm
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	BBjVector::getItem	https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/API/bbjvector/bbjvector_getitem.htm (0-based index) ; OK-repo docs/examples/dwc/05_CssLayouts/DWCFlexbox.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	mod	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/mod_function.htm
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	int	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/int_function.htm
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	for/next	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/for_next_verbs.htm ; OK-repo docs/examples/dwc/05_CssLayouts/DWCGrid.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	if/else/endif	OK-repo docs/examples/intro-bbj/oo-samples/MyDialog.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	generated getName()/getMark() for public field	OK-repo docs/examples/intro-bbj/oo-samples/CarApplication.bbj (setColor from public field Color$); https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm (Payroll example #getName())
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/PlayTicTacToe.bbj	rem	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/PlayTicTacToe.bbj	use ::File.bbj::Class	OK-repo docs/examples/intro-bbj/oo-samples/CarApplication.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/PlayTicTacToe.bbj	declare	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/PlayTicTacToe.bbj	new Class(...)	OK-repo docs/examples/intro-bbj/oo-samples/CarApplication.bbj
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/PlayTicTacToe.bbj	process_events	OK-repo docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj
+docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj	method-local variables per recursive call (minimax)	https://documentation.basis.cloud/BASISHelp/WebHelp/commands/method_verb.htm says locals are visible only inside the method; per-call isolation under recursion is ORCH-CHECK (RESEARCH A5, run at plan 07)
+docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj	release inside method onClose; #resetGame() as a statement	ORCH-CHECK (bbj_check_syntax and run at plan 07)

@@ -1,0 +1,15 @@
+rem Player.bbj
+rem Part of the possible solution for the bonus exercise Make your Tic-Tac-Toe object-oriented, written for the Introduction to BBj Development book
+rem Player keeps the name and the mark of one player, so the window can ask who is up without knowing about X and O.
+
+class public Player
+
+    field public BBjString Name$
+    field public BBjString Mark$
+
+    method public Player(BBjString playerName$, BBjString playerMark$)
+        #Name$ = playerName$
+        #Mark$ = playerMark$
+    methodend
+
+classend

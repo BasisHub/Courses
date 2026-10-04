@@ -1,0 +1,12 @@
+rem PlayTicTacToe.bbj
+rem Part of the possible solution for the bonus exercise Make your Tic-Tac-Toe object-oriented, written for the Introduction to BBj Development book
+rem The launcher only starts the game: it creates a GameWindow, shows it and waits for events. Run this file.
+
+use ::GameWindow.bbj::GameWindow
+
+declare GameWindow game!
+
+game! = new GameWindow()
+game!.show()
+
+process_events
