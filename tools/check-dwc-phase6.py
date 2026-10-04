@@ -11,7 +11,8 @@ Usage:
 Commands:
     exercises    the 11 DWC exercise pages (EXER-02, D-01, D-03, D-08 a-d)
     pointers     exercise pointers in the chapter pages (D-04)
-    indexes      exercises.mdx of both books and the overview links (EXER-03, D-09)
+    indexes      exercises.mdx of both books: every exercise line marked '(solution included)', overview
+                 links (EXER-03, D-09, D-02)
     solutions    inline solutions of both books (16 pages) against docs/examples: pointer line, per-file
                  fences, folder and aggregate ZIP entries (EXER-04 extended, D-02, D-04, D-07, D-16, D-21)
     audit        tools/data/dwc-gap-audit.md against 06-AUDIT-FORMAT.md (AUDIT-01)
@@ -566,21 +567,18 @@ def cmd_indexes(root: pathlib.Path, build: pathlib.Path, opts) -> int:
         actual = sorted(p.relative_to(book).as_posix() for p in book.glob("*/9[0-9]-exercise-*.mdx"))
         c.check(actual == want, f"{book_name}: exercise files on disk differ from the expected list")
         lines = t.split("\n")
-        if book_name == "dwc":
-            sol_pages = set(SOLUTIONS)
-            marked = [l for l in lines if "(solution included)" in l]
-            c.check(len(marked) == 6, f"dwc/exercises.mdx: '(solution included)' on {len(marked)} lines, want 6")
-            for l in marked:
-                c.check(any(s in l for s in sol_pages), f"dwc/exercises.mdx: marker on a line without a solution "
-                        f"page link: {l[:60]}")
-            for l in lines:
-                if any(s in l for s in sol_pages):
-                    c.check("(solution included)" in l, f"dwc/exercises.mdx: solution page line lacks marker: "
-                            f"{l[:60]}")
-        else:
-            c.check("(solution included)" not in t, "intro-bbj/exercises.mdx: contains '(solution included)'")
-            c.check(not re.search(r"^!\[", t, re.M) and "![" not in t,
-                    "intro-bbj/exercises.mdx: contains an image reference")
+        marked = [l for l in lines if "(solution included)" in l]
+        linked = [l for l in lines if re.search(r"\]\(\.[^)\s#]*/9\d-exercise-[^)\s#]*\.mdx", l)]
+        c.check(len(marked) == len(want), f"{book_name}/exercises.mdx: '(solution included)' on {len(marked)} "
+                f"lines, want {len(want)}")
+        c.check(len(linked) == len(want), f"{book_name}/exercises.mdx: {len(linked)} exercise link lines, "
+                f"want {len(want)}")
+        for l in linked:
+            c.check("(solution included)" in l, f"{book_name}/exercises.mdx: exercise line lacks marker: {l[:60]}")
+        for l in marked:
+            c.check(l in linked, f"{book_name}/exercises.mdx: marker on a line without an exercise link: {l[:60]}")
+        if book_name != "dwc":
+            c.check("![" not in t, "intro-bbj/exercises.mdx: contains an image reference")
         ov = book / "00-overview.mdx"
         if c.check(ov.is_file(), f"{book_name}/00-overview.mdx missing"):
             ot = read_text(ov)
