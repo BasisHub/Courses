@@ -7,7 +7,7 @@ Usage:
     python3 tools/check-dwc-phase6.py kept [--units 1A,1B] [--allow-parked]
 
 Commands:
-    exercises    the 11 DWC exercise pages (EXER-02, D-01, D-03, D-08)
+    exercises    the 11 DWC exercise pages (EXER-02, D-01, D-03, D-08 a-d)
     pointers     exercise pointers in the chapter pages (D-04)
     indexes      exercises.mdx of both books and the overview links (EXER-03, D-09)
     solutions    inline solutions against docs/examples/dwc (EXER-04, D-06, D-07)
@@ -321,17 +321,23 @@ def cmd_exercises(root: pathlib.Path, build: pathlib.Path, opts) -> int:
     present = [r for r in EXERCISES if r in actual]
 
     # starter files for the D-08 overlap scan
+    starter_names = {v[2] for v in SOLUTIONS.values()}
+    starter_names |= {f.name for f in examples_dir(root).rglob("Exercise-*.bbj")}
     starters = {}
-    for f in sorted(examples_dir(root).rglob("Exercise-*.bbj")):
-        if "Complete" in f.name:
+    starter_text = {}
+    for f in sorted(examples_dir(root).rglob("*.bbj")):
+        if f.name not in starter_names or "Complete" in f.name:
             continue
-        ls = [l.rstrip() for l in read_text(f).split("\n")]
+        starter_text[f.name] = read_text(f)
+        ls = [l.rstrip() for l in starter_text[f.name].split("\n")]
         wins = set()
         for i in range(len(ls) - 4):
             w = tuple(ls[i:i + 5])
             if all(x.strip() for x in w):
                 wins.add(w)
         starters[f.name] = wins
+    for name in sorted({v[2] for v in SOLUTIONS.values()}):
+        c.check(name in starters, f"starter {name} not found under docs/examples/dwc")
 
     allowed_new = set()
     banned_old = set()
@@ -400,6 +406,22 @@ def cmd_exercises(root: pathlib.Path, build: pathlib.Path, opts) -> int:
                     hit = i
                     break
             c.check(hit is None, f"{rel}: 5 or more lines copied from starter {sname} outside details (D-08)")
+
+        # D-08 (c) and (d): page content must agree with its starter
+        if rel in SOLUTIONS and SOLUTIONS[rel][2] in starter_text:
+            sname = SOLUTIONS[rel][2]
+            stext = starter_text[sname]
+            out_text = "\n".join(keep)
+            c.check(f"`{sname}`" in out_text, f"{rel}: does not name its starter `{sname}` outside details")
+            for v in sorted(set(re.findall(r"`([A-Za-z_][A-Za-z0-9_]*[!$])`", out_text))):
+                c.check(re.search(r"(?<![A-Za-z0-9_])" + re.escape(v), stext) is not None,
+                        f"{rel}: names variable `{v}` that starter {sname} does not contain (CR-01)")
+            slines = {l.strip() for l in stext.split("\n")}
+            for b in outside:
+                for line in b["body"].split("\n") if isinstance(b["body"], str) else b["body"]:
+                    if line.strip():
+                        c.check(line.strip() in slines,
+                                f"{rel}:{b['open_line']}: snippet line not in starter {sname}: {line.strip()!r}")
 
         # URLs
         for url in re.findall(r"https?://[^\s)>\"'\]]+", t):
@@ -589,7 +611,7 @@ def cmd_commits(root: pathlib.Path, build: pathlib.Path, opts) -> int:
     if not found["audit"]:
         c.skip("commit series not found (squashed history?)")
         return c.done()
-    for name in ("exercise pages", "removal", "markers", "indexes", "verify"):
+    for name in ("exercise pages", "kept", "removal", "markers", "indexes", "verify"):
         c.check(bool(found[name]), f"no commit for step '{name}'")
 
     def before(a: str, b: str) -> None:
