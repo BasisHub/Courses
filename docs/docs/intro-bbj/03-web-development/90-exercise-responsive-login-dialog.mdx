@@ -3,6 +3,8 @@ title: "Exercise: Make your login dialog responsive"
 description: "Make your login dialog responsive with CSS so that it works on phones, tablets and desktops."
 ---
 
+A possible solution is at the end of this page.
+
 :::exercise
 
 In the prior lesson, you wrote a login dialog. Make this one responsive with what you know about CSS responsive design. How do you want it on a phone? Full Screen? On a tablet or desktop? In the centered middle on a wallpaper background?
@@ -10,3 +12,140 @@ In the prior lesson, you wrote a login dialog. Make this one responsive with wha
 Hint: depending on what you want to do you will need a [BBjChildWindow](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjchildwindow/bbjchildwindow.htm), or even a nested series of them The BBjChildWindow also has the same flag $00100000$ we saw for the BBjTopLevelWindow that allows you use the CSS-based positioning and sizing. We will use BBjChildWindows later in this course, but with what you know about BBj and the Documentation you should already be able to figure it out. It has setDockStyle / setStyle / setPanelStyle to directly set style attributes for the outer / mid / inner div, and addStyle and addPanelStyle to set CSS classes to the middle and the inner div. ( *Yes, yes. We know about this inconsistency which is on the roadmap for cleanup. ;-)* )
 
 :::
+
+<details>
+<summary>Possible solution</summary>
+
+The original course had no solution for this exercise, so this one was written for this book. It starts from the login dialog solution `LoginDialog.bbj` and is a complete program of its own. From 600px up the dialog is a centered card of fixed width on a tinted background, and below 600px it fills the screen. The controls sit in a `BBjChildWindow` with the CSS layout flag, and the program reads `responsive-login.css` and injects it with `injectStyle`, so you do not need to register the file in Enterprise Manager. The files are `ResponsiveLoginDialog.bbj` and `responsive-login.css`, and you find them in the [exercises.zip](pathname:///files/intro-bbj/exercises.zip) link.
+
+```bbj title="ResponsiveLoginDialog.bbj"
+rem ResponsiveLoginDialog.bbj
+rem Possible solution for the exercise Make your login dialog responsive, written for the Introduction to BBj Development book
+rem It starts from the solution LoginDialog.bbj and is a complete program of its own.
+rem The card lives in a BBjChildWindow and takes its look from responsive-login.css, so it runs in the DWC only.
+rem Keep responsive-login.css next to this program.
+
+use java.nio.file.Files
+use java.nio.file.Paths
+
+class public ResponsiveLoginDialog
+
+    rem These are demo credentials for the exercise only.
+    rem A real application checks a user store and never keeps passwords in its code.
+    field private static BBjString DemoUser$ = "demo"
+    field private static BBjString DemoPassword$ = "bbj-demo"
+
+    field private BBjTopLevelWindow wnd!
+    field private BBjChildWindow card!
+    field private BBjEditBox userBox!
+    field private BBjEditBox passwordBox!
+    field private BBjButton loginBtn!
+    field private BBjButton cancelBtn!
+
+    method public BBjNumber show()
+        rem read the CSS file and inject it into the page, so the sample runs without any Enterprise Manager setting
+        fs! = BBjAPI().getFileSystem()
+        css! = new String(Files.readAllBytes(Paths.get(fs!.resolvePath("responsive-login.css"))))
+        BBjAPI().getWebManager().injectStyle(css!)
+
+        rem the flags make the window borderless and maximized and switch it to CSS layout
+        #wnd! = BBjAPI().openSysGui("X0").addWindow(10,10,800,600,"Login",$01101083$)
+        #wnd!.addPanelStyle("login-screen")
+
+        rem the card is a child window with the same CSS layout flag
+        #card! = #wnd!.addChildWindow("",$00100000$,BBjAPI().getSysGui().getAvailableContext())
+        #card!.addPanelStyle("login-card")
+
+        userLabel! = #card!.addStaticText("User name:")
+        #userBox! = #card!.addEditBox("")
+        passwordLabel! = #card!.addStaticText("Password:")
+
+        rem the flag $0400$ replaces the typed characters with asterisks
+        #passwordBox! = #card!.addEditBox(#card!.getAvailableControlID(),"",$0400$)
+
+        #loginBtn! = #card!.addButton("Login")
+        #loginBtn!.setAttribute("theme","primary")
+        #cancelBtn! = #card!.addButton("Cancel")
+
+        #loginBtn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"login")
+        #cancelBtn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"cancel")
+        #wnd!.setCallback(BBjAPI.ON_CLOSE,"cancel")
+
+        process_events
+
+        login:
+            rem an empty user name or password never matches the demo pair, so it counts as a wrong pair
+            user$ = #userBox!.getText()
+            secret$ = #passwordBox!.getText()
+            if user$ <> "" and secret$ <> "" and user$ = #DemoUser$ and secret$ = #DemoPassword$ then
+                #wnd!.destroy()
+                methodret BBjAPI.TRUE
+            endif
+
+            rem a wrong pair: show a fixed message, clear the password field and keep the dialog open
+            choice = msgbox("Please check your input",48,"Login")
+            #passwordBox!.setText("")
+        return
+
+        cancel:
+            #wnd!.destroy()
+            methodret BBjAPI.FALSE
+
+    methodend
+
+classend
+
+declare ResponsiveLoginDialog dlg!
+dlg! = new ResponsiveLoginDialog()
+ok = dlg!.show()
+
+if ok then
+    note$ = "Login accepted."
+else
+    note$ = "Login canceled."
+endif
+
+choice = msgbox(note$,64,"Login")
+release
+```
+
+```css title="responsive-login.css"
+/* The screen behind the dialog: the card sits in the middle of a colored background. */
+.login-screen {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: var(--dwc-space-l);
+  background: var(--dwc-color-primary-95);
+}
+
+/* The dialog itself: a card with a fixed width. */
+.login-card {
+  display: grid;
+  gap: var(--dwc-space-m);
+  width: 22rem;
+  padding: var(--dwc-space-xl);
+  border-radius: var(--dwc-border-radius);
+  background: var(--dwc-surface-3);
+  box-shadow: var(--dwc-shadow-m);
+}
+
+/* From 600px up the dialog is a centered card. Below 600px it fills the screen. */
+@media (width < 600px) {
+  .login-screen {
+    padding: 0;
+    place-items: stretch;
+    background: var(--dwc-surface-3);
+  }
+
+  .login-card {
+    width: auto;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+```
+
+</details>
