@@ -52,8 +52,8 @@ The hosted check parses the code with a stock BBj; it does not resolve PREFIX, c
 | `docs/examples/dwc/08_BrowserConstraints/BBjFileChooserUpload.bbj` | pass | - |
 | `docs/examples/dwc/08_BrowserConstraints/DownloadingAFile.bbj` | pass | - |
 | `docs/examples/dwc/08_BrowserConstraints/SysPrint.bbj` | pass | - |
-| `docs/examples/dwc/09_EmbeddingOtherComponents/ChartJS_NoEventFromJS.bbj` | pass | - |
-| `docs/examples/dwc/09_EmbeddingOtherComponents/ChartJS.bbj` | pass | - |
+| `docs/examples/dwc/09_EmbeddingOtherComponents/ChartJS_NoEventFromJS.bbj` | pass | re-checked 2026-10-04 after WR-09 fix |
+| `docs/examples/dwc/09_EmbeddingOtherComponents/ChartJS.bbj` | pass | re-checked 2026-10-04 after WR-09 fix |
 | `docs/examples/dwc/09_EmbeddingOtherComponents/EventMapSample.bbj` | pass | - |
 | `docs/examples/dwc/09_EmbeddingOtherComponents/ShoelaceSplitter.bbj` | pass | - |
 
