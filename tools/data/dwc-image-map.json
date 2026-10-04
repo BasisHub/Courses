@@ -67,9 +67,10 @@
   },
   {
     "old": "static/img/CSS_Layout_Samples_5.png",
-    "new": "tools/data/dwc-unused-img/css-layout-samples-5.png",
-    "verdict": "parked",
-    "page": null
+    "new": null,
+    "verdict": "dropped",
+    "page": null,
+    "note": "Phase 6 gap audit: drop"
   },
   {
     "old": "static/img/CSS_Layout_Samples_6.png",
@@ -121,9 +122,10 @@
   },
   {
     "old": "static/img/DevTools_Screenshot_1.png",
-    "new": "tools/data/dwc-unused-img/dev-tools-screenshot-1.png",
-    "verdict": "parked",
-    "page": null
+    "new": null,
+    "verdict": "dropped",
+    "page": null,
+    "note": "Phase 6 gap audit: drop"
   },
   {
     "old": "static/img/DevTools_Screenshot_2.png",
@@ -265,9 +267,10 @@
   },
   {
     "old": "static/img/Responsive_Demo.png",
-    "new": "tools/data/dwc-unused-img/responsive-demo.png",
-    "verdict": "parked",
-    "page": null
+    "new": null,
+    "verdict": "dropped",
+    "page": null,
+    "note": "Phase 6 gap audit: drop"
   },
   {
     "old": "static/img/TreeSearch.png",
