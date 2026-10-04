@@ -40,7 +40,7 @@ if [ "$BUILD" -eq 1 ]; then
   else fail "npm run build"; tail -20 "$LOG"; fi
 elif [ -d "$B" ]; then
   pass "using existing build (--no-build)"
-  stale=$(find docs/docs docs/src docs/static "$CFG" -newer "$B/index.html" -type f -print 2>/dev/null | head -1)
+  stale=$(find docs/docs docs/src docs/static "$CFG" docs/sidebars.js docs/package.json docs/package-lock.json -newer "$B/index.html" -type f -print 2>/dev/null | head -1)
   if [ -z "$stale" ] && [ -f "$B/index.html" ]; then pass "existing build is newer than its sources"
   else fail "existing build is stale (newer source: ${stale:-no index.html}); run without --no-build"; fi
 else fail "no docs/build; run without --no-build"; fi
