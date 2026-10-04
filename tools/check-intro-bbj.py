@@ -45,6 +45,7 @@ TOP_PAGES = {  # file -> sidebar_position
     "structure.mdx": 0.1,
     "audience.mdx": 0.2,
     "contribute.mdx": 0.3,
+    "exercises.mdx": 0.4,
 }
 
 # folder, label, position, slug, chapter files
@@ -232,7 +233,7 @@ def cmd_structure(root: pathlib.Path, build: pathlib.Path) -> int:
         c.check(False, f"{rel}: missing")
     for rel in sorted(actual - exp):
         c.check(False, f"{rel}: unexpected file")
-    c.check(len([e for e in exp if e.endswith(".mdx")]) == 38, "expected set has 38 .mdx files (contract)")
+    c.check(len([e for e in exp if e.endswith(".mdx")]) == 39, "expected set has 39 .mdx files (contract)")
 
     for rel in sorted(exp & actual):
         if not rel.endswith(".mdx"):

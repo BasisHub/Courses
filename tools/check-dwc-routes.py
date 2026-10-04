@@ -20,12 +20,13 @@ SITE = "https://basishub.github.io/Courses/docs/dwc"
 BASE = "/Courses/docs/dwc"
 
 TOP_ORDER = [
-    "overview", "prerequisites", "samples", "resources", "gui-to-bui-to-dwc",
+    "overview", "prerequisites", "samples", "resources", "exercises", "gui-to-bui-to-dwc",
     "browser-developer-tools", "dwc-debugging", "upgrading-apps", "dwc-controls",
     "flow-layouts", "icon-pools", "control-validation", "browser-constraints",
     "embedding-components", "advanced-responsive", "deployment",
 ]
 PHASE6_ROUTES = [
+    "exercises",
     "gui-to-bui-to-dwc/exercise-gui-to-bui-to-dwc",
     "browser-developer-tools/exercise-theming-support",
     "upgrading-apps/exercise-bbjgridexwidget",
