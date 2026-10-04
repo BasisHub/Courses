@@ -142,5 +142,61 @@
     "path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/browser-console-output.png",
     "alt": "The Console tab of the browser Developer Tools showing the same BBjButton output.",
     "page": "docs/docs/dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 15.16.53.png",
+    "sha1": "2ba367e1fa98b200f9b29522b736a8b8264dd163",
+    "source": "parked",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/button-background-color-corners.png",
+    "alt": "A Say Hello button whose face stays blue-gray after setting background-color, with a faint yellow tint visible only at the rounded corners.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 15.19.27.png",
+    "sha1": "c59d3ba61e5e7a5aeaf25cfaaf97f0bf7ebc173d",
+    "source": "parked",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/button-background-shorthand.png",
+    "alt": "A Say Hello button with a light yellow face after setting the background shorthand property.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-01 at 09.54.59.png",
+    "sha1": "d6db442d8aeb50d2cc926922f879e41e2e32bb64",
+    "source": "parked",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/window-logo-swirl-background.png",
+    "alt": "The Hello BBj DWC window with a swirl pattern across the whole window and the BASIS logo at the bottom left.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
+  },
+  {
+    "moodle_name": "BBjButton-LightMode.png",
+    "sha1": "7550a6df87ee2c9bb0defcf694f2f166a99694be",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/dwc-button-light-mode.png",
+    "alt": "A toolbar-style button showing a sun icon and the text Light.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/04-dwc-themes.md"
+  },
+  {
+    "moodle_name": "BBjButton-DarkMode.png",
+    "sha1": "55116bc4d0e3a05809921f6a613a74084b97cad7",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/dwc-button-dark-mode.png",
+    "alt": "The same button after the toggle, showing a moon icon and the text Dark on a dark background.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/04-dwc-themes.md"
+  },
+  {
+    "moodle_name": "DwcUiKit-NoTheme.png",
+    "sha1": "a1d3171fb3fde2764d547c9cf5dbabfbb6936a45",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/dwc-ui-kit-default-theme.png",
+    "alt": "The DWC UI Kit window with the default theme: blue controls, the default font, and the list box cutting off its second item.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/04-dwc-themes.md"
+  },
+  {
+    "moodle_name": "DwcUIKit-Themed-NicksTheme.png",
+    "sha1": "39f1eb2c159c2521f9dcad9ea49b35dde0a73a5d",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/dwc-ui-kit-saved-theme.png",
+    "alt": "The DWC UI Kit window with a saved theme applied: a different blue, a narrower font, and tighter spacing so the list box shows two items.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/04-dwc-themes.md"
   }
 ]

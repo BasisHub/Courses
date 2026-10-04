@@ -127,21 +127,21 @@
   },
   {
     "old": "static/img/DevTools_Screenshot_2.png",
-    "new": "tools/data/dwc-unused-img/dev-tools-screenshot-2.png",
-    "verdict": "parked",
-    "page": null
+    "new": "docs/docs/dwc/02-browser-developer-tools/img/button-background-color-corners.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
   },
   {
     "old": "static/img/DevTools_Screenshot_3.png",
-    "new": "tools/data/dwc-unused-img/dev-tools-screenshot-3.png",
-    "verdict": "parked",
-    "page": null
+    "new": "docs/docs/dwc/02-browser-developer-tools/img/button-background-shorthand.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
   },
   {
     "old": "static/img/DevTools_Screenshot_4.png",
-    "new": "tools/data/dwc-unused-img/dev-tools-screenshot-4.png",
-    "verdict": "parked",
-    "page": null
+    "new": "docs/docs/dwc/02-browser-developer-tools/img/window-logo-swirl-background.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/02-browser-developer-tools/02-developer-tools.md"
   },
   {
     "old": "static/img/DiscreteLabels.png",

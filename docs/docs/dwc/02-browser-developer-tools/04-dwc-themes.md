@@ -61,11 +61,17 @@ Run the program and test the button. The button displays:
 - **Light mode**: Sun icon with "Light" text
 - **Dark mode**: Moon icon with "Dark" text
 
+![A toolbar-style button showing a sun icon and the text Light.](./img/dwc-button-light-mode.png)
+
+![The same button after the toggle, showing a moon icon and the text Dark on a dark background.](./img/dwc-button-dark-mode.png)
+
 Now users have control over the app's appearance with the click of a button.
 
 ## The DWC Themer
 
 The DWC Themer is a utility that allows you to change various CSS custom properties that the BASIS Dynamic Web Client uses to affect the look and feel of BBj controls.
+
+You can try the Themer online at [us.bbx.kitchen/webapp/DWCThemer](https://us.bbx.kitchen/webapp/DWCThemer).
 
 ### Features
 
@@ -85,6 +91,18 @@ The DWC Themer has three main sections:
 3. **BBjControls Preview** (right) - Displays BBjControls rendered with modified CSS values
 
 Modified properties appear with an orange outline in the Configuration Parameters section.
+
+### Applying a Theme to the DWC UI Kit
+
+Running the TechCon 2022 UI Kit Demo, which shows many BBj controls in one window, without any CSS changes gives you the default DWC look:
+
+![The DWC UI Kit window with the default theme: blue controls, the default font, and the list box cutting off its second item.](./img/dwc-ui-kit-default-theme.png)
+
+After you apply a theme saved from the DWC Themer, the same program looks quite different:
+
+![The DWC UI Kit window with a saved theme applied: a different blue, a narrower font, and tighter spacing so the list box shows two items.](./img/dwc-ui-kit-saved-theme.png)
+
+The primary color and the font have changed. The theme also reduces the spacing, so the list box in the upper right no longer cuts off its second item.
 
 ## Example 2 - Creating a Theme in the DWC Themer
 
