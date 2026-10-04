@@ -4,11 +4,13 @@ Result of `bbj_check_syntax` for every `.bbj` sample under `docs/examples/intro-
 
 Checker: BBj Documentation MCP `bbj_check_syntax`, hosted check, stock BBj 26.03 (no bbj-local check registered). Source build: bbj-docs · hosted · docs 2026-09-21 · fd516a9d. Checked 2026-10-04, one call per target with the content passed verbatim, after reading `bbj://primer`.
 
-Pass: 30. Fail: 0. Not checkable: 0. Total: 30.
+Pass: 38. Fail: 0. Not checkable: 0. Total: 38.
 
 The hosted check parses the code with a stock BBj; it does not resolve PREFIX, classpath or `use` targets, so a pass means the code parses, not that it runs.
 
 Two fences in `05-loops-and-if-statements.mdx` failed first because they used the pseudocode placeholders `dosomething` and `dosomethingelse`. They now use `PRINT` (verified with `bbj_lookup`: https://documentation.basis.cloud/BASISHelp/WebHelp/commands/print_verb.htm) and pass the re-check. No `.bbj` sample needed a change.
+
+Phase 6.1 added the exercise solutions under `docs/examples/intro-bbj/exercises/`. They were checked at plan 06.1-07 after reading `bbj://primer`, with the results in `06.1-bbj-syntax-raw.tsv`; one call per file covers its byte-identical page fence.
 
 | File | Result | Detail |
 |------|--------|--------|
@@ -18,6 +20,14 @@ Two fences in `05-loops-and-if-statements.mdx` failed first because they used th
 | `docs/examples/intro-bbj/oo-samples/Car.bbj` | pass | - |
 | `docs/examples/intro-bbj/oo-samples/CarApplication.bbj` | pass | - |
 | `docs/examples/intro-bbj/oo-samples/MyDialog.bbj` | pass | - |
+| `docs/examples/intro-bbj/exercises/TicTacToe.bbj` | pass | - |
+| `docs/examples/intro-bbj/exercises/TicTacToeComputer.bbj` | pass | - |
+| `docs/examples/intro-bbj/exercises/LoginDialog.bbj` | pass | - |
+| `docs/examples/intro-bbj/exercises/ResponsiveLoginDialog.bbj` | pass | - |
+| `docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj` | pass | - |
+| `docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Player.bbj` | pass | - |
+| `docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj` | pass | - |
+| `docs/examples/intro-bbj/exercises/oo-tic-tac-toe/PlayTicTacToe.bbj` | pass | - |
 | `docs/docs/intro-bbj/01-getting-started/02-first-hello-world.mdx#1` | pass | - |
 | `docs/docs/intro-bbj/01-getting-started/03-syntax-and-variables.mdx#1` | pass | - |
 | `docs/docs/intro-bbj/01-getting-started/03-syntax-and-variables.mdx#2` | pass | - |

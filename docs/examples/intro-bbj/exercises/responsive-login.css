@@ -1,0 +1,36 @@
+/* The screen behind the dialog: the card sits in the middle of a colored background. */
+.login-screen {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: var(--dwc-space-l);
+  background: var(--dwc-color-primary-95);
+}
+
+/* The dialog itself: a card with a fixed width. */
+.login-card {
+  display: grid;
+  gap: var(--dwc-space-m);
+  width: 22rem;
+  padding: var(--dwc-space-xl);
+  border-radius: var(--dwc-border-radius);
+  background: var(--dwc-surface-3);
+  box-shadow: var(--dwc-shadow-m);
+}
+
+/* From 600px up the dialog is a centered card. Below 600px it fills the screen. */
+@media (width < 600px) {
+  .login-screen {
+    padding: 0;
+    place-items: stretch;
+    background: var(--dwc-surface-3);
+  }
+
+  .login-card {
+    width: auto;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

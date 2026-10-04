@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Phase 5 checker: the Introduction to BBj book after the Moodle conversion.
+Phase 6.1 added the exercises folder (nine solution files) and exercises.zip.
 
 Usage: python3 tools/check-intro-bbj.py {structure|content|samples|commits|edits|syntax|all}
                                         [--build docs/build] [--root DIR]
@@ -92,9 +93,14 @@ SAMPLE_FILES = [
     "oo-samples/Car.bbj", "oo-samples/CarApplication.bbj", "oo-samples/MyDialog.bbj",
     "dwc-lesson-start/Sample.bbj",
     "dwc-lesson-result/Sample.bbj", "dwc-lesson-result/sample.css",
+    "exercises/TicTacToe.bbj", "exercises/TicTacToeComputer.bbj",
+    "exercises/LoginDialog.bbj", "exercises/ResponsiveLoginDialog.bbj",
+    "exercises/responsive-login.css",
+    "exercises/oo-tic-tac-toe/Board.bbj", "exercises/oo-tic-tac-toe/Player.bbj",
+    "exercises/oo-tic-tac-toe/GameWindow.bbj", "exercises/oo-tic-tac-toe/PlayTicTacToe.bbj",
 ]
 ZIPS = ["better-hello-world.zip", "oo-samples.zip", "dwc-lesson-start.zip",
-        "dwc-lesson-result.zip", "intro-bbj-samples.zip"]
+        "dwc-lesson-result.zip", "exercises.zip", "intro-bbj-samples.zip"]
 ZIP_LINK_PAGES = {
     "better-hello-world.zip": "01-getting-started/04-better-hello-world.mdx",
     "oo-samples.zip": "02-object-oriented-syntax/04-oo-dialog.mdx",

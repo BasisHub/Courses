@@ -7,3 +7,4 @@ Each folder holds the files for one lesson. Open them in your IDE, run them and 
 - `oo-samples/` holds the Car classes and the dialog class from the object-oriented videos.
 - `dwc-lesson-start/` is the program where the web development lesson starts.
 - `dwc-lesson-result/` is the program and the CSS file as they look after the lesson.
+- `exercises/` holds a possible solution for every exercise, written for this book; `exercises/oo-tic-tac-toe/` holds the object-oriented Tic-Tac-Toe classes.
