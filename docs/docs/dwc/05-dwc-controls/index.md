@@ -40,6 +40,7 @@ Theme colors are defined by CSS custom properties with three main properties:
 
 Colors range from 5% to 95% lightness: `--dwc-color-primary-25` (dark) to `--dwc-color-primary-85` (light).
 
+{/* TODO: screenshot outdated? */}
 ![DWC Themer showing color themes](./img/dwc-themer.png)
 
 ![Color CSS properties](./img/color-css.png)
@@ -52,10 +53,12 @@ Most controls offer the `theme` attribute as an easy way to set the control's ap
 
 In `MessageBox.bbj`, the message box's theme is set to `primary`:
 
+{/* TODO: screenshot outdated? */}
 ![A message box using the primary theme](./img/message-box-primary-theme.png)
 
 In `DWC1.bbj`, the [Say Hello] button's theme is set to `success`:
 
+{/* TODO: screenshot outdated? */}
 ![The Hello window with a green button using the success theme](./img/hello-window-success-theme.png)
 
 ## Attributes
@@ -85,6 +88,7 @@ DWC controls offer attributes providing extra functionality beyond GUI and BUI c
 4. Note custom error messages via `search-nodata` attribute
 5. As time permits, read the source code and look at all the attributes it sets, including `search-input`, `search-placeholder`, `search-nodata`, `icon-collapsed` and `icon-expanded`. The code also injects custom CSS that sets the `--dwc-tree-icon-fill` custom property to a different value for each tree. The first tree paints its icons orange and the second paints them blue.
 
+{/* TODO: screenshot outdated? */}
 ![Tree Search Demo](./img/tree-search.png)
 
 ## Input Control Labels
@@ -118,6 +122,8 @@ BBj input controls offer a "label" attribute that creates and places a label aut
 
 **With BBjStaticText:** Labels are separate elements that can separate from inputs when resizing.
 
+{/* TODO: screenshot outdated? */}
 ![Label Attributes Demo](./img/label-attributes.png)
 
+{/* TODO: screenshot outdated? */}
 ![Discrete Labels Comparison](./img/discrete-labels.png)

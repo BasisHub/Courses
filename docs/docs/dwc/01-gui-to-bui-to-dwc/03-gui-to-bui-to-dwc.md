@@ -19,6 +19,7 @@ This section deals with a traditional BBj GUI program that contains fields and a
 
 For this section, you will start by running the `GUISample.bbj` program in GUI (shown below), then in BUI, then in the DWC. You will then make modifications to the code to convert it to a DWC program that uses CSS Grid for layout.
 
+{/* TODO: screenshot outdated? */}
 ![The sample program in the GUI client: two input fields for first and last name with the sample names Joe and Blow, and a Say Hello button.](./img/gui-sample-gui-client.png)
 
 The training files also include programs named `DWC1.bbj` and `DWC2.bbj` that are the result of modifying the original `GUISample.bbj` program according to the exercises below.
@@ -47,6 +48,7 @@ To enable flow layout on a window, set the `$00100000$` creation flag which tell
 
 Begin by changing the code to specify the `$00100083$` flags immediately following the window's title string in the line of code that instantiates the BBjTopLevelWindow. The controls now flow next to each other:
 
+{/* TODO: screenshot outdated? */}
 ![The sample app with flow layout: the labels, edit boxes and button sit side by side in one row with no spacing.](./img/gui-sample-flow-layout.png)
 
 ### Step 2: Add CSS Grid Styling
@@ -95,6 +97,7 @@ Both methods are valid, but in production use the external CSS file. With `setPa
 
 After these changes, the app looks like this:
 
+{/* TODO: screenshot outdated? */}
 ![The sample app in a two-column grid: labels in the first column, edit boxes in the second, and the Say Hello button in column 1.](./img/gui-sample-two-column-grid.png)
 
 ### Step 3: Button Spanning
@@ -108,6 +111,7 @@ btn!.setStyle("grid-column","span 2") REM Sets button to span two grid columns
 
 The button now spans both columns:
 
+{/* TODO: screenshot outdated? */}
 ![The Say Hello button stretched across both grid columns below the input fields.](./img/gui-sample-button-spanning-columns.png)
 
 To place the button in the second column only:
@@ -118,6 +122,7 @@ btn!.setStyle("grid-column","2")
 
 The button now sits in column 2:
 
+{/* TODO: screenshot outdated? */}
 ![The Say Hello button placed in the second grid column, under the edit boxes.](./img/gui-sample-button-in-column-two.png)
 
 ### Step 4: Understanding Window Structure
@@ -164,6 +169,7 @@ btn!.setAttribute("theme", "success")
 
 Try experimenting with 'danger' or 'info' themes as well. With `expanse` set to `xl` and the `success` theme, the button looks like this:
 
+{/* TODO: screenshot outdated? */}
 ![The Say Hello button as an extra-large green button after setting expanse xl and theme success.](./img/gui-sample-extra-large-success-button.png)
 
 ## Example 4 - Making a Real Web App
@@ -172,6 +178,7 @@ Try experimenting with 'danger' or 'info' themes as well. With `expanse` set to 
 
 Change the window's creation flags from `$00100083$` to `$01101083$`. This instructs BBj to create the window without a title bar and initially maximized. The grid now fills the whole browser window and the second column becomes very wide:
 
+{/* TODO: screenshot outdated? */}
 ![The sample app in Safari without chrome: the grid fills the full width and the second column is far too wide.](./img/gui-sample-wide-column-safari.png)
 
 ### Step 2: Fix Column Widths
@@ -185,6 +192,7 @@ wnd!.setPanelStyle("grid-template-columns","1fr 2fr")  REM Right column is twice
 
 The layout is now compact:
 
+{/* TODO: screenshot outdated? */}
 ![The sample app in Safari as a narrow inline grid with the second column twice as wide as the first.](./img/gui-sample-inline-grid-safari.png)
 
 ### Step 3: Clean Up Code
@@ -254,10 +262,12 @@ Run the program in the DWC. The button information is displayed both in the BBj 
 
 The BBj mini console:
 
+{/* TODO: screenshot outdated? */}
 ![The BBj mini console in the browser showing the BBjButton object and the READY prompt.](./img/bbj-mini-console-output.png)
 
 The browser Developer Tools Console:
 
+{/* TODO: screenshot outdated? */}
 ![The Console tab of the browser Developer Tools showing the same BBjButton output.](./img/browser-console-output.png)
 
 Try interacting with the BBj console by printing out the date:

@@ -160,10 +160,12 @@ btn!.setStyle("background", "var(--dwc-color-warning-90)")
 
 If you set the `background-color` property in this way, the light yellow shows only in the corners of the button:
 
+{/* TODO: screenshot outdated? */}
 ![A Say Hello button whose face stays blue-gray after setting background-color, with a faint yellow tint visible only at the rounded corners.](./img/button-background-color-corners.png)
 
 Change the code to set `background` instead, and the whole button takes the color you expect:
 
+{/* TODO: screenshot outdated? */}
 ![A Say Hello button with a light yellow face after setting the background shorthand property.](./img/button-background-shorthand.png)
 
 :::info Why use `background` instead of `background-color`?
@@ -181,6 +183,7 @@ wnd!.setStyle("background", value$)
 
 This sets two backgrounds: the BASIS logo on the bottom left and a swirly pattern covering the entire window.
 
+{/* TODO: screenshot outdated? */}
 ![The Hello BBj DWC window with a swirl pattern across the whole window and the BASIS logo at the bottom left.](./img/window-logo-swirl-background.png)
 
 ## More Information About the Browser's Developer Tools

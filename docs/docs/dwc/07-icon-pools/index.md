@@ -17,6 +17,7 @@ Icons can be added to controls using HTML syntax:
 button!.setText("<html><dwc-icon name='sun'></dwc-icon> Light Mode")
 ```
 
+{/* TODO: screenshot outdated? */}
 ![Icon Pools Overview](./img/icon-pools-1.png)
 
 ## Scalable Vector Graphics
@@ -66,8 +67,10 @@ To use an icon from a pool you give the control its content in HTML form. Many B
 | `arrow-left` | Navigation |
 | `arrow-right` | Navigation |
 
+{/* TODO: screenshot outdated? */}
 ![Icon Examples](./img/icon-pools-2.png)
 
+{/* TODO: screenshot outdated? */}
 ![More Icon Examples](./img/icon-pools-3.png)
 
 ## Styling Icons
@@ -92,12 +95,16 @@ deleteBtn! = wnd!.addButton("<html><dwc-icon name='trash'></dwc-icon> Delete")
 deleteBtn!.setAttribute("theme", "danger")
 ```
 
+{/* TODO: screenshot outdated? */}
 ![Icons in Buttons](./img/icon-pools-4.png)
 
+{/* TODO: screenshot outdated? */}
 ![Icon Button Examples](./img/icon-pools-5.png)
 
+{/* TODO: screenshot outdated? */}
 ![More Icon Examples](./img/icon-pools-6.png)
 
+{/* TODO: screenshot outdated? */}
 ![Icon Pools Demo](./img/icon-pools-7.png)
 
 ### Looking up an icon in each pool

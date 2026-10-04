@@ -87,6 +87,7 @@ Using an external browser will be the preferred way to launch a DWC app later on
 
 If you don't normally write your code in Eclipse, you can register and launch a DWC application using Enterprise Manager:
 
+{/* TODO: screenshot outdated? */}
 ![Enterprise Manager Registration](./img/em-registration.png)
 
 ### Registration Steps

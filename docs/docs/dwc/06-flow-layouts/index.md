@@ -101,6 +101,7 @@ To try named areas, open the [CSS Grid Playground](https://www.cssgridplayground
 
 To experiment, change the bottom row from `sidebar footer footer` to `sidebar footer aside`. The sidebar still takes up the first column, but the footer now only takes up the second column. The `aside` area extends down into the third column:
 
+{/* TODO: screenshot outdated? */}
 ![The CSS Grid Playground with the bottom row set to sidebar footer aside](./img/css-grid-playground-2.png)
 
 **Method 3: Row and column templates**
@@ -109,6 +110,7 @@ Instead of positioning each item, you can define the row and column templates of
 
 In the following screenshot, `grid-template-columns` is set to `25% 1fr`. That gives two columns: the first takes 25% of the available width and the second takes all the remaining space. `grid-template-rows` is set to `1fr 2fr 2fr 1fr`, which defines four rows. The first and last rows take `1fr` of the height, and the middle two rows are each twice as high.
 
+{/* TODO: screenshot outdated? */}
 ![The CSS Grid Playground with a 25% 1fr column template and a 1fr 2fr 2fr 1fr row template](./img/css-grid-playground-3.png)
 
 The `DWC1.bbj` program from the first chapter uses this method for its layout:
@@ -120,6 +122,7 @@ The `DWC1.bbj` program from the first chapter uses this method for its layout:
 
 That code sets the window to use an inline grid, then defines two template columns: the first is 180 pixels wide and the second takes the remaining space. With two controls in the window, you get a grid with one row and two columns. Each additional control fills the next cell, row by row, until you have the final form. The next screenshot shows the Developer Tools grid overlay on top of the window to visualize the columns:
 
+{/* TODO: screenshot outdated? */}
 ![The Hello window with the Developer Tools grid overlay showing a 180px column and an auto column](./img/hello-window-grid-overlay.png)
 
 ### Responsive Grids with repeat()
@@ -193,6 +196,7 @@ Layouts 1 and 2 use `auto 1fr` and `1fr auto` to show that the grid treats fract
 
 Layout 8 uses media queries to set different column templates based on the width of the viewport. For this to work well, the window must be maximized to take the full width of the browser. To test it, maximize the app in the browser, open the browser's Developer Tools and select the Device Emulation tab. Choose the "Responsive" option. In Responsive mode you can resize the viewport by dragging the handles with the orange outlines, which is easier than resizing the whole browser window, especially when the Developer Tools sit below the page. You can also type exact values for the viewport size, as outlined in purple in the screenshot.
 
+{/* TODO: screenshot outdated? */}
 ![Layout 8 in the browser's Responsive mode with drag handles and a 900 pixel viewport width](./img/css-layout-samples-responsive-mode.png)
 
 As you change the width of the viewport, the DWC app shows 2, 4 or 6 columns of controls. These media queries create the four-column and six-column versions:
@@ -208,10 +212,12 @@ As you change the width of the viewport, the DWC app shows 2, 4 or 6 columns of 
 
 The original grid definition has two columns, followed by the CSS above. Because the media queries appear later, they override the window's original CSS when their condition is true. At a viewport width of 600 pixels or more, `grid-template-columns` becomes `auto 1fr auto 1fr`, the four-column mode. At 900 pixels or more, it becomes the six-column mode. Layouts 7 and 9 can achieve similar results without media queries.
 
+{/* TODO: screenshot outdated? */}
 ![CSS Grid Layout Samples](./img/css-layout-samples-1.png)
 
 You can also experiment with CSS Grid layouts at [cssgridplayground.com](https://www.cssgridplayground.com):
 
+{/* TODO: screenshot outdated? */}
 ![CSS Grid Playground](./img/css-grid-playground-1.png)
 
 ### Responsive Form Example
@@ -219,12 +225,15 @@ You can also experiment with CSS Grid layouts at [cssgridplayground.com](https:/
 Using CSS Grid with `repeat(auto-fit, ...)`, forms automatically adjust columns based on available width:
 
 **Narrow window (2 columns):**
+{/* TODO: screenshot outdated? */}
 ![Narrow form layout](./img/css-layout-samples-2.png)
 
 **Medium window (4 columns):**
+{/* TODO: screenshot outdated? */}
 ![Medium form layout](./img/css-layout-samples-3.png)
 
 **Wide window (6 columns):**
+{/* TODO: screenshot outdated? */}
 ![Wide form layout](./img/css-layout-samples-4.png)
 
 ## Justification and Alignment

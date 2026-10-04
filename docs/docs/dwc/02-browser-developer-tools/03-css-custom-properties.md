@@ -297,10 +297,12 @@ The first highlighted attribute shows that the button uses an HTML `button` elem
 
 Change `control` to `label` in the first line and the selector targets the "label" part of the button instead, which gives a very different result. With `::part(control)` the whole button is purple:
 
+{/* TODO: screenshot outdated? */}
 ![A BBjButton with a purple face and yellow text.](./img/part-control-result.png)
 
 With `::part(label)` only the label area is purple, and the other areas of the button keep their default style:
 
+{/* TODO: screenshot outdated? */}
 ![A BBjButton with a purple band behind the yellow text and the default blue-gray style around it.](./img/part-label-result.png)
 
 :::note
@@ -315,14 +317,17 @@ Each DWC control exposes different CSS custom properties and shadow parts. Use *
 
 The DWC has a larger default font size (14px) compared to BUI (10.6667px / 8pt). When you run the same app in BUI and in the DWC, the text in BUI is noticeably smaller. Compare the same `BBjListBox` in both clients. In BUI, on the left, three entries fit with room to spare:
 
+{/* TODO: screenshot outdated? */}
 ![A BUI BBjListBox, 160 by 55 pixels, showing three items: List Box, Item #1, and Item #2.](./img/bui-listbox-default-font.png)
 
 In the DWC, the list box has exactly the same size of 160 by 55 pixels, but only one item is fully visible. The second item is cut off, and you have to scroll to reach the third:
 
+{/* TODO: screenshot outdated? */}
 ![A DWC BBjListBox, 160 by 55 pixels, showing List Box fully and Item #1 cut off at the bottom.](./img/dwc-listbox-default-font.png)
 
 The difference comes from the default font size and the spacing. The Computed styles section of the Developer Tools shows that the two clients define the CSS `font-size` property very differently. In BUI, the size is 10.6667px, and expanding the property shows that it traces back to 8pt in the `basis.css` file:
 
+{/* TODO: screenshot outdated? */}
 ![The Computed styles for a BUI control showing font-size 10.6667px, set to 8pt on the element style and inherited from the BASIS stylesheet.](./img/bui-computed-font-size.png)
 
 In the DWC, the size comes from the `--dwc-font-size` CSS custom property, which resolves to 14px.

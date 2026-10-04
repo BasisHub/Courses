@@ -1,0 +1,297 @@
+[
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/bbj-mini-console-output.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 18.43.35.png",
+    "sha1": "7241b9357b515e078e2fb017907f881c8211663f"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/browser-console-output.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 18.44.19.png",
+    "sha1": "7cd296fa5fbd5daa572634552df111523c91e578"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/em-registration.png",
+    "moodle_name": "Microsoft Edge - localhost8888bbjememapp- screenshot 2022-07-01 at 13.17.10.png",
+    "sha1": "acc8abf4f8ae143d7caeb0d177c529da6da8eba9"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-button-in-column-two.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 11.23.32.png",
+    "sha1": "d7ff658bfe57115c77017fdf2c1d0d67ebc9dee3"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-button-spanning-columns.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 11.20.32.png",
+    "sha1": "eaf16b10e456276d612c139411be422bf870648d"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-extra-large-success-button.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 11.30.52.png",
+    "sha1": "bdd03091d96939e126ace5e934117056407da216"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-flow-layout.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-06-30 at 08.27.21.png",
+    "sha1": "53e227598be4ceac0023216414da7b2203a73d52"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-gui-client.png",
+    "moodle_name": "BBj - Hello BBj DWC- screenshot 2022-06-30 at 15.41.54.png",
+    "sha1": "ce2af7dee48b2515f02abf495f3d688eba593aac"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-inline-grid-safari.png",
+    "moodle_name": "Safari - Hello BBj DWC- screenshot 2022-07-05 at 13.10.58.png",
+    "sha1": "f4f0f43608c94cca1ff767fbe67c06b3f750b079"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-two-column-grid.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 10.50.52.png",
+    "sha1": "955491b58f9903c8e39ed5bc553aa1a61936384c"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/gui-sample-wide-column-safari.png",
+    "moodle_name": "Safari - Hello BBj DWC- screenshot 2022-07-05 at 12.50.54.png",
+    "sha1": "be1a09d022bb65bb604445ec3ebf30643de2b821"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/message-box-bui-client.png",
+    "moodle_name": "Google Chrome - myApp- screenshot 2022-06-29 at 09.23.53.png",
+    "sha1": "a8e58fa8937d1332870bdc43128d6513282c0bbc"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/message-box-dwc-danger-theme.png",
+    "moodle_name": "Google Chrome - myApp- screenshot 2022-06-29 at 07.08.09.png",
+    "sha1": "cbf8b2c8aa2f7cbbfcb7c06bd9e27ba2ea31ec34"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/message-box-dwc-default-theme.png",
+    "moodle_name": "Google Chrome - 1A-MessageBox- screenshot 2022-06-30 at 15.15.53.png",
+    "sha1": "5568e3f107a6b68d0bcafd7c0acf3d35cb76f2ec"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/message-box-dwc-primary-theme.png",
+    "moodle_name": "Google Chrome - myApp- screenshot 2022-06-27 at 15.49.33.png",
+    "sha1": "94c3a51b092f2911b7d57c30c896cffb76ecfe6b"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/01-gui-to-bui-to-dwc/img/message-box-gui-client.png",
+    "moodle_name": "BBj - Greetings- screenshot 2022-07-02 at 14.50.03.png",
+    "sha1": "f40f6a8438231394bfaea7d0d8e5edc039b91188"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/02-browser-developer-tools/img/bui-computed-font-size.png",
+    "moodle_name": "Google Chrome - BUI UI Kit- screenshot 2022-07-10 at 06.21.19.png",
+    "sha1": "13b08fa543ad136167ad61a4487d5315d25dd78d"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/02-browser-developer-tools/img/bui-listbox-default-font.png",
+    "moodle_name": "Google Chrome - BUI UI Kit- screenshot 2022-07-10 at 06.17.32.png",
+    "sha1": "e9bee9093baa7de1fad10cecd4379ae1b0230bcb"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/02-browser-developer-tools/img/button-background-color-corners.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 15.16.53.png",
+    "sha1": "2ba367e1fa98b200f9b29522b736a8b8264dd163"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/02-browser-developer-tools/img/button-background-shorthand.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-05 at 15.19.27.png",
+    "sha1": "c59d3ba61e5e7a5aeaf25cfaaf97f0bf7ebc173d"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/02-browser-developer-tools/img/dwc-listbox-default-font.png",
+    "moodle_name": "Google Chrome - DWC UI Kit- screenshot 2022-07-10 at 06.17.56.png",
+    "sha1": "e61718b184e1b7f285b942e4d8ce64fc11fd8cd7"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/02-browser-developer-tools/img/part-control-result.png",
+    "moodle_name": "Google Chrome - Setting a BBjButtons Styles- screenshot 2022-07-09 at 11.44.55.png",
+    "sha1": "1f75ba0083e1eab27e79c9d2e68625ff4b8a899b"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/02-browser-developer-tools/img/part-label-result.png",
+    "moodle_name": "Google Chrome - Setting a BBjButtons Styles- screenshot 2022-07-09 at 11.46.11.png",
+    "sha1": "cecab38704296a65b090aaae06c20d3470ba199a"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/02-browser-developer-tools/img/window-logo-swirl-background.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-01 at 09.54.59.png",
+    "sha1": "d6db442d8aeb50d2cc926922f879e41e2e32bb64"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/05-dwc-controls/img/discrete-labels.png",
+    "moodle_name": "Microsoft Edge - Using Discrete Labels- screenshot 2022-07-12 at 16.50.35.png",
+    "sha1": "c00e1f8d65e615474a7f347149b5b3ddbb7de4fe"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/05-dwc-controls/img/dwc-themer.png",
+    "moodle_name": "Microsoft Edge - BBj DWC Themer- screenshot 2022-07-11 at 16.22.00.png",
+    "sha1": "3f22531690492bf396e3e3aeb635139031a25163"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/05-dwc-controls/img/hello-window-success-theme.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-11 at 15.23.51.png",
+    "sha1": "7bcb6d081c6d1d1fe36b74e213c54200b2791713"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/05-dwc-controls/img/label-attributes.png",
+    "moodle_name": "Microsoft Edge - Using Label Attributes- screenshot 2022-07-12 at 16.49.04.png",
+    "sha1": "0dbb11708239c156575140cc60bfdf3a744f9f9f"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/05-dwc-controls/img/message-box-primary-theme.png",
+    "moodle_name": "Microsoft Edge - MessageBox- screenshot 2022-07-11 at 15.22.07.png",
+    "sha1": "37eade8d4ae806270d35b7ae9f6e824283d00955"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/05-dwc-controls/img/tree-search.png",
+    "moodle_name": "Microsoft Edge - BBj Tree Search- screenshot 2022-07-11 at 16.15.12.png",
+    "sha1": "a291d932b05a49dfb8c6626deffea545cd7fbd2a"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/06-flow-layouts/img/css-grid-playground-1.png",
+    "moodle_name": "Safari - CSS Grid Playground- screenshot 2022-07-17 at 13.34.55.png",
+    "sha1": "d019b9dae938a53654a4e544a25e8ed2fa6e48fc"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/06-flow-layouts/img/css-grid-playground-2.png",
+    "moodle_name": "Safari - CSS Grid Playground- screenshot 2022-07-17 at 13.36.14.png",
+    "sha1": "85ee968b585a089ce2124ed2a847df071d18b521"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/06-flow-layouts/img/css-grid-playground-3.png",
+    "moodle_name": "Safari - CSS Grid Playground- screenshot 2022-07-17 at 13.50.26.png",
+    "sha1": "c73eee12e40dfd81236e0183444fc2618e20a2d3"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-1.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-17 at 14.30.19.png",
+    "sha1": "5d7baa17d23a840bef25d3eb1d3ecd7596ac9a03"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-2.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-17 at 14.31.17.png",
+    "sha1": "0c3b458892c42c949440aa052e52e942242de51d"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-3.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-17 at 14.31.50.png",
+    "sha1": "67f8792c60f87d523daf53f340f49f6e7ec1d243"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-4.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-17 at 14.49.56.png",
+    "sha1": "f9a42ee80d5ecaeca639e8606a47c201000ee766"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-responsive-mode.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-17 at 17.42.33.png",
+    "sha1": "6bd7358062ff172fce4ae8c9aa11701185fa3ed2"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/06-flow-layouts/img/hello-window-grid-overlay.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-17 at 13.58.07.png",
+    "sha1": "2ce434e1dbf35127fa1c190452eb3a9a50529f9b"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/07-icon-pools/img/icon-pools-1.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-11 at 18.26.43.png",
+    "sha1": "0b43585e49cb684a14ca78e4ab9636a8ad4eeef8"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/07-icon-pools/img/icon-pools-2.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-11 at 18.28.33.png",
+    "sha1": "873fc56a693e39a0abf6d35f503fab14aa5d1882"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/07-icon-pools/img/icon-pools-3.png",
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-11 at 18.29.12.png",
+    "sha1": "73dbd77682e22ec2bf75950ac293f2741159a1c9"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/07-icon-pools/img/icon-pools-4.png",
+    "moodle_name": "Microsoft Edge - DWC Icon Pools- screenshot 2022-07-12 at 15.55.25.png",
+    "sha1": "2600307395fab30fdff48d3b84dd4c41ae2b1c1e"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/07-icon-pools/img/icon-pools-5.png",
+    "moodle_name": "Microsoft Edge - DWC Icon Pools- screenshot 2022-07-12 at 15.58.16.png",
+    "sha1": "312569a02c887ef3986550390613b159574e5d23"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/07-icon-pools/img/icon-pools-6.png",
+    "moodle_name": "Microsoft Edge - DWC Icon Pools- screenshot 2022-07-12 at 16.38.04.png",
+    "sha1": "f575c3547b6594715f6a02464fc1b16b58818f69"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/07-icon-pools/img/icon-pools-7.png",
+    "moodle_name": "Microsoft Edge - DWC Icon Pools- screenshot 2022-07-12 at 16.46.25.png",
+    "sha1": "b44abe49b789518eee7f90cde56ba92fa4e57cd3"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/regex101.png",
+    "moodle_name": "Google Chrome - regex101 build test and debug regex- screenshot 2022-07-18 at 07.36.14.png",
+    "sha1": "2fabc6c2daaacccf922c9850037b50730d6e8fe9"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-1.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-17 at 19.40.44.png",
+    "sha1": "3f6abc1c62b60f23a283d7558fcf45554a49e2d8"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-2.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-17 at 20.35.11.png",
+    "sha1": "b7c645fcb4c601274bd880d68afa101babe5949b"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-3.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-18 at 07.31.31.png",
+    "sha1": "a2c74e4733272ec280300bcc8a157a453ca1e00e"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-4.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-18 at 08.35.16.png",
+    "sha1": "7bf34d2a52034005eaeda73998483b16d0172f3b"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-5.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-18 at 10.46.11.png",
+    "sha1": "bad61b8e5120520d8bcd05e2615651fb969009b6"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-6.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-18 at 11.21.28.png",
+    "sha1": "e94da338558f053ea15f9c5943944aba38f678cb"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-7.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-18 at 11.22.25.png",
+    "sha1": "452aec4fde5a8f7463d5b379c3e40211c32ec59c"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-8.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-18 at 11.26.37.png",
+    "sha1": "5f3bd7044e42f5238e93acf01d5ff7fcbb63dcaa"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-9.png",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-18 at 12.35.50.png",
+    "sha1": "ee215cbc7b324b459416a12df6042fed68f82706"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-demo.gif",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-17 at 20.30.58.gif",
+    "sha1": "c450a12285b6d0a4c728e57c903a3dd4a0eec10c"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-demo2.gif",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-18 at 11.01.58.gif",
+    "sha1": "27af0af1c707640002b611328172894b4be9bdca"
+  },
+  {
+    "dwc_path": "docs/docs/dwc/08-control-validation/img/validation-demo3.gif",
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-18 at 12.49.24.gif",
+    "sha1": "80e1ee9343c0acbacf8fda855dd8adac70d4dc8f"
+  }
+]

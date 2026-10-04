@@ -44,6 +44,7 @@ The callback starts by getting the contents of the first and last name edit boxe
 
 After the code gets the first and last names, it combines the length of each with AND. If either field or both are empty, the result is false, which means the form content is not valid. In that case the code calls `accept()` on the form validation event with a 0 to reject the form, then tells the user that the first two fields are required.
 
+{/* TODO: screenshot outdated? */}
 ![Alert shown when the first and last name fields are empty](./img/validation-1.png)
 
 This example is simple. The user could enter a space in each name field and pass the check. A real validation routine would `trim()` the strings and compare their length with a minimum acceptable value.
@@ -95,6 +96,7 @@ The `pattern` attribute takes a [regular expression](https://developer.mozilla.o
 
 With that code in place, the edit box is valid only when it holds a regular zip code (87109) or an extended zip code (87109-1234).
 
+{/* TODO: screenshot outdated? */}
 ![Zip code field accepting a five-digit and an extended zip code](./img/validation-4.png)
 
 A field with a pattern is also valid when it is empty, unlike a field that is required, because the pattern does not make the field mandatory. If the zip code were a required address part, you would add the `required` attribute as well.
@@ -103,6 +105,7 @@ A field with a pattern is also valid when it is empty, unlike a field that is re
 
 Use [Regex101](https://regex101.com) to test your validation patterns. It tests a pattern live against sample text and explains each part of it. This is the explanation Regex101 shows for the zip code pattern:
 
+{/* TODO: screenshot outdated? */}
 ![Regex101 explaining the zip code pattern](./img/regex101.png)
 
 ## Visual Feedback
@@ -112,8 +115,10 @@ When validation fails:
 - The label changes color to match
 - An invalid message can be displayed
 
+{/* TODO: screenshot outdated? */}
 ![Validation Visual Feedback](./img/validation-1.png)
 
+{/* TODO: screenshot outdated? */}
 ![Validation States Example](./img/validation-2.png)
 
 ## Validation States
@@ -124,6 +129,7 @@ Controls have three validation states:
 2. **Invalid** - Input fails validation
 3. **Pristine** - Control hasn't been interacted with yet
 
+{/* TODO: screenshot outdated? */}
 ![Validation Demo](./img/validation-demo.gif)
 
 ## Checking Validation in Code
@@ -149,8 +155,10 @@ rem Clear custom validity
 editBox!.setCustomValidity("")
 ```
 
+{/* TODO: screenshot outdated? */}
 ![Custom Validation Example](./img/validation-3.png)
 
+{/* TODO: screenshot outdated? */}
 ![Validation Patterns](./img/validation-4.png)
 
 ## Example - Email Validation
@@ -164,8 +172,10 @@ email!.setAttribute("type", "email")
 email!.setAttribute("invalid-message", "Please enter a valid email")
 ```
 
+{/* TODO: screenshot outdated? */}
 ![Email Validation Example](./img/validation-5.png)
 
+{/* TODO: screenshot outdated? */}
 ![Validation Demo 2](./img/validation-demo2.gif)
 
 ## Controlling When Validation Runs
@@ -208,6 +218,7 @@ This style takes more effort, so use it when the built-in attributes such as `re
     editFirstName!.setClientValidationMessage("This field is required; please enter your first name before submitting the form")
 ```
 
+{/* TODO: screenshot outdated? */}
 ![Custom validation message shown as a popover below the first name field](./img/validation-5.png)
 
 The JavaScript uses an if/else conditional on the length of the trimmed content. The DWC displays the custom message in a popover below the control by default. To change where the message appears relative to the edit box, use the `validation-popover-placement` attribute. The following code shows the popover to the right of the edit box:
@@ -236,6 +247,7 @@ You can also write the function in a much more compact form. This version drops 
 
 With the inline style, the DWC inserts the error message just below the edit box instead of showing it in a small floating window. The following animation shows that clearing the last name box makes the control invalid, and that spaces alone stay invalid because of `trim()`. The next field shifts down and the message appears directly under the associated edit box.
 
+{/* TODO: screenshot outdated? */}
 ![Inline validation message shifting the next field down when the last name is cleared](./img/validation-demo2.gif)
 
 ## Validation Customization
@@ -246,18 +258,21 @@ The previous example changed the validation style from popover to inline and sup
 editLastName!.setAttribute("validation-icon", "fa:thumbs-down")
 ```
 
+{/* TODO: screenshot outdated? */}
 ![Error message with a thumbs-down icon](./img/validation-6.png)
 
 ```bbj
 editLastName!.setAttribute("validation-icon", "fa:hand-paper")
 ```
 
+{/* TODO: screenshot outdated? */}
 ![Error message with a hand icon](./img/validation-7.png)
 
 ```bbj
 editLastName!.setAttribute("validation-icon", "fa:fas-exclamation-circle")
 ```
 
+{/* TODO: screenshot outdated? */}
 ![Error message with an exclamation circle icon](./img/validation-8.png)
 
 These examples use the Font Awesome icon pool, but you can also choose icons from the Tabler, Feather or `bbj` pools. You can also give the icon as a URL or as a data URL with base64-encoded image data. The following code uses a truncated data URL to save space:
@@ -269,6 +284,7 @@ These examples use the Font Awesome icon pool, but you can also choose icons fro
 
 The result is a customized error message with a custom PNG image that was converted to base64.
 
+{/* TODO: screenshot outdated? */}
 ![Error message with a custom icon from a base64 data URL](./img/validation-9.png)
 
 ## Disabling the Submit Button
@@ -285,6 +301,7 @@ To try this, add the following line to the program:
 
 Because the attribute is set on the window, the line uses the `data-` prefix. With it in place, the submit button is disabled while the first or last name field is invalid. Once both pass the client-side JavaScript validation, the DWC enables the button.
 
+{/* TODO: screenshot outdated? */}
 ![Submit button that stays disabled until both name fields are valid](./img/validation-demo3.gif)
 
 ## Exercise: Adding Validation to an Email Field

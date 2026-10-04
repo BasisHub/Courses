@@ -59,14 +59,17 @@ The message box documentation describes the `MODE="property=value"` as:
 
 1. Load the above program (`MessageBox.bbj` in the zip file) into the Eclipse editor and then run it in the GUI client via Eclipse's **[Run]** tool button. The message box looks like this:
 
+{/* TODO: screenshot outdated? */}
 ![The Greetings message box in the GUI client, with an information icon and the text Hello from BBj's GUI client](./img/message-box-gui-client.png)
 
 2. Now register and launch it in BUI using Eclipse's **[Run BUI Program]** tool button. The BUI client draws the same message box in the browser:
 
+{/* TODO: screenshot outdated? */}
 ![The same message box in the BUI client, drawn in the browser.](./img/message-box-bui-client.png)
 
 3. After seeing how the program runs in BUI, change the URL in your browser so that the app runs in the Dynamic Web Client. The DWC shows the message box with the primary theme:
 
+{/* TODO: screenshot outdated? */}
 ![The message box in the DWC with the primary theme applied to the title bar and icon.](./img/message-box-dwc-primary-theme.png)
 
 ## Example 2 - DWC Component Themes
@@ -75,6 +78,7 @@ The DWC offers seven different component themes: `default`, `primary`, `success`
 
 1. Modify the sample program to show the message box in the `danger` theme instead of the `primary` theme. The result looks like this:
 
+{/* TODO: screenshot outdated? */}
 ![The message box in the DWC with theme=danger, showing a red title bar and a red OK button.](./img/message-box-dwc-danger-theme.png)
 
 :::note
@@ -91,6 +95,7 @@ The short sample program used in the exercises included a MODE string in the mes
 
 Try experimenting with the code by first removing the mode string, then by adding it back again but specifying the "default" theme instead of the "primary" theme. With the default theme, the message box looks like this:
 
+{/* TODO: screenshot outdated? */}
 ![The message box in the DWC with the default theme.](./img/message-box-dwc-default-theme.png)
 
 ## Notes
