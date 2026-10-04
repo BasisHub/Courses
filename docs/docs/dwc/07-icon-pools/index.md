@@ -37,7 +37,7 @@ The DWC includes several icon pools:
 
 Tabler and Feather are free-to-use, open-source libraries that keep adding new icons. Tabler and Feather icons use their plain names, such as `speakerphone` and `speaker`. Font Awesome names carry a prefix for the style: `fas-` for solid, and the other styles for regular, light, thin, duotone and brands (company logos). For example, `fas-microphone-alt` is the solid microphone icon.
 
-To use an icon from a pool you give the control its content in HTML form. Many BBj controls render HTML, so this is rarely a limitation. The Hello World program from the first chapter does this on its button, with one icon from each of the three pools.
+To use an icon from a pool you give the control its content in HTML form. Many BBj controls render HTML, so this is rarely a limitation. `DWC2.bbj` from the first chapter puts a Tabler icon on its button and shows the Feather and Font Awesome alternatives as comments.
 
 ## Icon Syntax
 
@@ -172,7 +172,7 @@ The program injects JavaScript that adds another icon pool to the DWC. The pool 
 4. Create the buttons with your custom pool name and the icons from the library:
 
 ```bbj
-    rem Define the HTML title for the buttons that incorporate the bootstrap icons
+    rem Define the HTML title for the buttons that incorporate the Ionicons
         btnIconIon1$ = "<html><dwc-icon pool='ionicons' name='cloud-download-outline'></dwc-icon>"
         btnIconIon2$ = "<html><dwc-icon pool='ionicons' name='cloud-download'></dwc-icon>"
 ```

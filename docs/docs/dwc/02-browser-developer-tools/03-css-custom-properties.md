@@ -315,7 +315,7 @@ Each DWC control exposes different CSS custom properties and shadow parts. Use *
 
 ## Font Size Compatibility
 
-The DWC has a larger default font size (14px) compared to BUI (10.6667px / 8pt). When you run the same app in BUI and in the DWC, the text in BUI is noticeably smaller. Compare the same `BBjListBox` in both clients. In BUI, on the left, three entries fit with room to spare:
+The DWC has a larger default font size (14px) compared to BUI (10.6667px / 8pt). When you run the same app in BUI and in the DWC, the text in BUI is noticeably smaller. Compare the same `BBjListBox` in both clients. In BUI, three entries fit with room to spare:
 
 {/* TODO: screenshot outdated? */}
 ![A BUI BBjListBox, 160 by 55 pixels, showing three items: List Box, Item #1, and Item #2.](./img/bui-listbox-default-font.png)
