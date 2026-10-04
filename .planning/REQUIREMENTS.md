@@ -44,7 +44,7 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 
 ### Intro-BBj Conversion
 
-- [ ] **CONV-01**: `tools/moodle2docusaurus.py` converts the course-2 backup and prints a report whose unresolved counts (files, `$@…@$` tokens, links, unclassified code) are all zero; every generated file compiles as MDX
+- [x] **CONV-01**: `tools/moodle2docusaurus.py` converts the course-2 backup and prints a report whose unresolved counts (files, `$@…@$` tokens, links, unclassified code) are all zero; every generated file compiles as MDX
 - [ ] **CONV-02**: Reader can read the "Introduction to BBj Development" book with chapter order matching the Moodle outline (28 chapter pages plus overview)
 - [ ] **CONV-03**: Converted code appears in language-tagged fences with no leftover HTML entities or `<br>` artefacts
 - [ ] **CONV-04**: All 10 intro videos appear as `<YouTube>` embeds
@@ -145,7 +145,7 @@ Populated 2026-10-03 during roadmap creation.
 | DWC-02 | Phase 4 | Complete |
 | DWC-03 | Phase 4 | Complete |
 | DWC-04 | Phase 4 | Complete |
-| CONV-01 | Phase 5 | Pending |
+| CONV-01 | Phase 5 | Complete |
 | CONV-02 | Phase 5 | Pending |
 | CONV-03 | Phase 5 | Pending |
 | CONV-04 | Phase 5 | Pending |
