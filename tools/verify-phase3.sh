@@ -108,9 +108,9 @@ if [ -n "$IDX" ]; then pass "search index exists"; else fail "search index exist
 if [ -n "$IDX" ] && python3 - $IDX <<'PY'
 import sys
 t="".join(open(f,encoding="utf-8").read() for f in sys.argv[1:])
-sys.exit(0 if "being prepared" in t and "Components fixture" not in t and "authoring/components" not in t else 1)
+sys.exit(0 if "Tic-Tac-Toe" in t and "Components fixture" not in t and "authoring/components" not in t else 1)
 PY
-then pass "index finds stub text, omits fixture"; else fail "index finds stub text, omits fixture"; fi
+then pass "index finds intro-bbj text, omits fixture"; else fail "index finds intro-bbj text, omits fixture"; fi
 if grep -qE '^[[:space:]]*//[[:space:]]*algolia' "$CFG" && ! grep -qE '^[[:space:]]*algolia[[:space:]]*:' "$CFG"; then pass "algolia only commented"; else fail "algolia only commented"; fi
 
 SEC=unlisted

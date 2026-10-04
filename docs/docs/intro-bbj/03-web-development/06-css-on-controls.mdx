@@ -1,0 +1,22 @@
+---
+title: Adding CSS to BBj controls
+description: Style single controls with setStyle and try more CSS properties on controls and windows.
+---
+
+In order to apply styles to controls, you can use [setStyle](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/BBjControl_setStyle.htm).
+
+For instance, to put the Button into grid column two you would use
+
+```bbj
+btn!.setStyle("grid-column","2")
+```
+
+To change the color of the text on the button to red, you would do
+
+```bbj
+btn!.setStyle("color","red")
+```
+
+What other CSS properties do you know? Play with them, using [setStyle](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/BBjControl_setStyle.htm) on the controls, and setStyle and/or setPanelStyle on the Window. Do they all work as you would expect?
+
+*(At the time this page was created, the setPanelStyle was not yet documented)*

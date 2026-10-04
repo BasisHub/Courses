@@ -1,0 +1,30 @@
+---
+title: Styling parts in the shadow DOM
+description: "Style the inner parts of a BBj control with the CSS ::part selector."
+---
+
+BBj Controls are implemented as WebComponents. The advantage of that concept is that they are implemented in a self-contained fashion. Typically an application developer does not need to manipulate its inner components directly as BBj implements theming, and offers a Theme editor to adjust the theme to your liking.
+
+BBj offers certain API methods that are fully implemented in DWC. For instance, in order to change the background color of a BBjButton, you can use
+
+```bbj
+myButton!.setBackColor(BBjAPI().makeColor("YELLOW"))
+```
+
+In one of the prior sections you also learned about
+
+```bbj
+myButton!.setAttribute("theme","success")
+```
+
+which also has an impact on its color. But how to apply CSS directly to the inner elements of the BBjButton?
+
+<YouTube id="9HQBN-PVHWs" title="BBx Clues 10: Styling Parts of the Shadow DOM with CSS" />
+
+The solution is [the ::part selector in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/::part). In combination with the [documented shadow parts for the BBjButton](https://basishub.github.io/basis-next/#/dwc/bbj-button?id=shadow-parts) the CSS part to set the background color of the BBjButton will become
+
+```css
+.yellow-bbj-button::part(control) {
+        background-color:yellow;
+}
+```

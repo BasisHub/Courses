@@ -1,0 +1,41 @@
+---
+title: Switching your BBj app to dark theme
+description: Switch your BBj app to the dark theme and add a toggle that changes the theme at run time.
+---
+
+BBj comes with a built-in theme, that offers a Dark-Mode. Switching to Dark Mode is [documented with the Webcomponents](https://basishub.github.io/basis-next/#/dwc/themes?id=enable-dark-theme) and turns out to be pretty simple:
+
+```bbj
+window!.setAttribute("@app-theme","dark")
+```
+
+switches to dark mode.
+
+With that knowledge, we can improve our HelloButton program by adding a Toggle-Checkbox to switch on Dark-Mode.
+
+```bbj
+wnd! = BBjAPI().openSysGui("X0").addWindow(10,10,800,600,"Hello BBj DWC",$01101083$)
+wnd!.setCallback(BBjAPI.ON_CLOSE,"byebye")
+wnd!.setStyle("margin","20px")
+wnd!.setPanelStyle("display","inline-grid")
+wnd!.setPanelStyle("gap","20px")
+
+cb! = wnd!.addCheckBox(wnd!.getAvailableControlID(),0,0,0,0,"Dark Theme")
+cb!.setCallback(BBjAPI.ON_CHECK_OFF,"toggleLightTheme")
+cb!.setCallback(BBjAPI.ON_CHECK_ON,"toggleDarkTheme")
+btn! = wnd!.addButton(wnd!.getAvailableControlID(),0,0,0,0,"Say Hello")
+btn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"sayhello")
+process_events
+sayhello:
+    a=msgbox("Hello World")
+return
+toggleLightTheme:
+    wnd!.setAttribute("@app-theme","light")
+return
+
+toggleDarkTheme:
+    wnd!.setAttribute("@app-theme","dark")
+return
+```
+
+Copy the code into your IDE and run it in DWC. Examine what happens when you switch to Dark-Mode.

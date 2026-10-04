@@ -1,0 +1,18 @@
+use ::Car.bbj::Car
+use ::Car.bbj::FlyingCar
+
+
+declare Car myCar!
+myCar! = new Car()
+
+myCar!.setColor("RED")
+myCar!.setPrice(15500)
+
+print myCar!
+
+declare FlyingCar myFancyCar!
+myFancyCar! = new FlyingCar()
+myFancyCar!.setColor("GREEN")
+myFancyCar!.setPrice(125000)
+myFancyCar!.setMaxAltitude(30000)
+print myFancyCar!

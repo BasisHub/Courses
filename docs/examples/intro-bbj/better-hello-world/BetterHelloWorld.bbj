@@ -1,0 +1,22 @@
+declare BBjAPI api!
+declare BBjSysGui sysgui!
+declare BBjTopLevelWindow wnd!
+declare BBjButton btn!
+
+api! = BBjAPI()
+sysgui! = api!.openSysGui("X0")
+wnd! = sysgui!.addWindow(10,10,640,480,"Hello World")
+
+btn! = wnd!.addButton(100,10,10,250,25,"Push Me")
+
+wnd!.setCallback(BBjAPI.ON_CLOSE,"byebye")
+btn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"pushed")
+
+process_events
+
+pushed:
+    a=msgbox("Hello World",0,"Greetings!")
+return
+
+byebye:
+    release

@@ -1,0 +1,49 @@
+class public MyDialog
+
+    field public BBjString UserInput$
+    
+    field private BBjTopLevelWindow wnd!
+    field private BBjEditBox ed!
+    field private BBjButton btn!
+    
+    method public MyDialog(BBjString initValue$)
+        #UserInput$ = initValue$
+    methodend
+    
+    method private MyDialog()
+    methodend
+    
+    method public BBjString show()
+        #wnd!= BBjAPI().openSysGui("X0").addWindow(100,100,400,80,"Your Input")
+        #ed! = #wnd!.addEditBox(100,10,10,300,25,#UserInput$)
+        #btn! = #wnd!.addButton(101,320,10,80,25,"Ok")
+        
+        #btn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"okay")
+        #ed!.setCallback(BBjAPI.ON_EDIT_MODIFY,#this!,"onInputChanged")
+        
+        process_events
+        
+        okay:
+            inp$ = #ed!.getText()
+            methodret inp$
+        
+    
+    methodend
+    
+    method public void onInputChanged( BBjEditModifyEvent ev! )
+        
+        v$ = ev!.getText()
+        if v$="" then
+            #btn!.setEnabled(0)
+        else
+            #btn!.setEnabled(1)
+        endif
+    
+    methodend
+
+classend
+
+
+declare MyDialog dlg!
+dlg! = new MyDialog("input")
+print dlg!.show()

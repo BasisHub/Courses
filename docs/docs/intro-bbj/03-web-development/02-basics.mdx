@@ -1,0 +1,18 @@
+---
+title: Basics
+description: Deploy a BBj program as a web application in Enterprise Manager and open it in the browser.
+---
+
+BBj's DWC web client allows to develop for the Web using BBj's comprehensive, simple language. BBj handles backend and frontend, so the developer can simply write a small BBj program, register events, and run it in the browser. BBj will do the rest.
+
+Any of the programs you wrote in this course can be started in the DWC client. To deploy your program in the web follow these steps:
+
+1. Start Enterprise Manager: `http://localhost:8888/bbjem/em`
+2. Log in using admin / admin123 as credentials
+3. Navigate to "Web" - "Applications" and hit the "+" Sign:  
+   ![Enterprise Manager with the Applications list open under Web, App Deployment. Red boxes mark the Applications entry and the plus button that adds an application.](./img/em-applications-list.png)
+4. In the dialog, give your app a Name, point it to the program file and set the working directory. Check "DWC enabled":  
+   ![The Enterprise Manager dialog for a new application named Sample, with its program file, working directory and the DWC Web App Enabled option checked.](./img/em-app-general-settings.png)
+5. The URL pattern would be http://localhost:8888/webapp/Sample for the parameters above.
+
+**Try to configure one of your prior sample programs from the prior sessions. Does it run?**

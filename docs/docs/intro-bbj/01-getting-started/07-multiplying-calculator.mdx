@@ -1,0 +1,44 @@
+---
+title: "Next sample: a multiplying calculator"
+description: Study a small calculator that multiplies two numbers and updates with every keystroke.
+---
+
+This sample shows a simple calculator that multiplies two numbers. It updates with every keystroke due to the EDIT_MODIFY event that is registered for the two BBjInputN.
+
+Create a new program in your IDE and copy this program into your editor. Examine and run it, and play with it. Try to understand how the events work.
+
+```bbj
+wnd! = BBjAPI().openSysGui("X0").addWindow(50,50,400,200,"Multiply")
+
+label1! = wnd!.addStaticText(100,10,12,20,25,"X:")
+field_x! = wnd!.addInputN(101,30,10,50,25,"")
+
+label2! = wnd!.addStaticText(103,10,42,20,25,"Y:")
+field_y! = wnd!.addInputN(104,30,40,50,25,"")
+
+result! = wnd!.addStaticText(105,10,72,200,25,"")
+
+rem register the callback to close the program
+wnd!.setCallback(BBjAPI.ON_CLOSE,"byebye")
+
+rem register the callbacks for ON_EDIT_MODIFY
+field_x!.setCallback(BBjAPI.ON_EDIT_MODIFY,"updateResult")
+field_y!.setCallback(BBjAPI.ON_EDIT_MODIFY,"updateResult")
+
+rem set the focus in the X-Input
+field_x!.focus()
+
+process_events
+
+byebye:
+    bye
+
+updateResult:
+    x = field_x!.getValue()
+    y = field_y!.getValue()
+    r = x*y
+    result!.setText("X * Y = "+str(r))
+return
+```
+
+Exercise: Can you enhance it? Add a button to clear the input in both fields. Hint: the setValue() - Method for BBjInputN can be used to sets their value to "0". Find it in the documentation!

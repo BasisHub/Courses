@@ -1,0 +1,28 @@
+
+class public Car
+
+    field public BBjString Color$
+    field private BBjNumber Price
+    
+    
+    method public void setPrice(BBjNumber price)
+        #Price = price
+    methodend
+    
+    method public BBjString toString()
+        methodret "You have a "+#Color$+" Car which costs "+str(#Price)
+    methodend
+    
+classend
+
+
+class public FlyingCar extends Car
+
+    field public BBjNumber MaxAltitude=3000
+    
+    
+    method public BBjString toString()
+        methodret #super!.toString()+" - it's a flying car which can climb to "+str(#MaxAltitude)+" feet"
+    methodend
+
+classend

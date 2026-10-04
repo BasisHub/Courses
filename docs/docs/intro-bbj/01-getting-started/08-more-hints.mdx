@@ -1,0 +1,18 @@
+---
+title: More hints
+description: "Pick up more hints about control IDs and keyboard navigation, using the calculator sample."
+---
+
+A few more things are noteworthy about BBj that can be explained at the hand of the calculator sample:
+
+## Control IDs
+
+You see that the original sample uses fixed IDs for each control. In many cases, the control ID may not play a role to your control logic. In these cases, you can use the Method [getAvailableControlID](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjwindow/bbjwindow_getavailablecontrolid.htm) of BBjWindow to simply get a unique one that has not been used.
+
+If you have the pleasure of working on legacy code though, you might need to recognize fixed control IDs that had been used in the past. Since they need to be unique, you will need to avoid conflicts when you add new controls to existing programs, so this particular method may not be useful in such scenarios.
+
+## Keyboard Navigation
+
+Did you notice that (in GUI) you couldn't use the Tab-Key to navigate the form? This is because we didn't set any flags on the BBjWIndow.
+
+Have a look at the documentation page of [addWindow](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjsysgui/bbjsysgui_addwindow.htm) and find the flag for keyboard navigation ($00010000$). Have a look at the other flags (they're combined by adding). Play with them. Can you make the Window also allow navigating the fields with the Enter-key?

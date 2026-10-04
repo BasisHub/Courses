@@ -1,0 +1,12 @@
+---
+title: "Exercise: Make your login dialog responsive"
+description: "Make your login dialog responsive with CSS so that it works on phones, tablets and desktops."
+---
+
+:::exercise
+
+In the prior lesson, you wrote a login dialog. Make this one responsive with what you know about CSS responsive design. How do you want it on a phone? Full Screen? On a tablet or desktop? In the centered middle on a wallpaper background?
+
+Hint: depending on what you want to do you will need a [BBjChildWindow](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjchildwindow/bbjchildwindow.htm), or even a nested series of them The BBjChildWindow also has the same flag $00100000$ we saw for the BBjTopLevelWindow that allows you use the CSS-based positioning and sizing. We will use BBjChildWindows later in this course, but with what you know about BBj and the Documentation you should already be able to figure it out. It has setDockStyle / setStyle / setPanelStyle to directly set style attributes for the outer / mid / inner div, and addStyle and addPanelStyle to set CSS classes to the middle and the inner div. ( *Yes, yes. We know about this inconsistency which is on the roadmap for cleanup. ;-)* )
+
+:::

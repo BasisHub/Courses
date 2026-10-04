@@ -1,0 +1,67 @@
+---
+title: Basics about syntax and variables
+description: "Learn the BBj syntax rules and the variable suffixes for strings, numbers, integers and objects."
+---
+
+There are a few rules of thumb in the BBj language that you might find useful in the beginning:
+
+- No or squiggles or similar - BBj is structured by its keywords (`CLASS - CLASSEND, METHOD - METHODEND` etc)
+- No semicolons at the end of lines
+- BBj is a dynamic language. Variables can be used without formal declaration, but you can declare variables that are Object-Types
+- BBj knows a few "built-in" Variables: Numbers, Whole Numbers and Strings. Plus Objects.
+- Comments are in lines that start with `REM` (for "Remark")
+- Variable names and keywords are Case-Insensitive
+- But references to (Java) Classes retain their case-sensistivity
+
+Watch this video about Variables in BBj:
+
+<YouTube id="DRjpwGLKzQA" title="BBx Clues 3: Variables" />
+
+## BBj Variables Cheat Sheet
+
+### Generic Variable Types
+
+Strings end with "$":
+
+```bbj
+MyString$ = "Hello World"
+```
+
+Numbers have no Suffix:
+
+```bbj
+SomeNumber = 3.14
+```
+
+Whole Numbers = Integers end with "%":
+
+```bbj
+SomeIntegerNumber% = 3
+```
+
+### Object Types
+
+Object Types end with "!":
+
+```bbj
+myMap! = new java.util.HashMap()
+```
+
+```bbj
+api! = BBjAPI()
+```
+
+Declare Object Types with "declare"
+
+```bbj
+declare java.util.HashMap myMap!
+myMap! = new java.util.HashMap()
+```
+
+Import Java Types with "use"
+
+```bbj
+use java.util.HashMap
+declare HashMap myMap!
+myMap! = new HashMap()
+```
