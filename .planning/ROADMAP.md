@@ -291,7 +291,7 @@ Plans:
   4. Screenshots 8B-05 and 8B-07 from the gap audit appear unredacted on the DWC chapter 09 printing section, with alt text, and the audit records them as restored
   5. The phase checker covers all 16 exercise pages (solution present, fence matches file, starter variables and snippets exist), and build, Vale and verify-phase1..6 stay green
 
-**Plans:** 9/10 plans executed
+**Plans:** 10/10 plans executed
 
 Plans:
 **Wave 1**
@@ -314,7 +314,7 @@ Plans:
 
 **Wave 4** *(blocked on Waves 1 to 3)*
 
-- [ ] 06.1-10-PLAN.md — Exercise indexes, EXER-04 wording, 06.1-HUMAN-UAT.md, full gate
+- [x] 06.1-10-PLAN.md — Exercise indexes, EXER-04 wording, 06.1-HUMAN-UAT.md, full gate
 
 **Cross-cutting constraints:**
 
