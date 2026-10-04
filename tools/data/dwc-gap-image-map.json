@@ -310,5 +310,37 @@
     "path": "docs/docs/dwc/05-dwc-controls/img/hello-window-success-theme.png",
     "alt": "The Hello BBj DWC window with First Name and Last Name fields and a large green Say Hello button that uses the success theme.",
     "page": "docs/docs/dwc/05-dwc-controls/index.md"
+  },
+  {
+    "moodle_name": "Safari - CSS Grid Playground- screenshot 2022-07-17 at 13.36.14.png",
+    "sha1": "85ee968b585a089ce2124ed2a847df071d18b521",
+    "source": "parked",
+    "path": "docs/docs/dwc/06-flow-layouts/img/css-grid-playground-2.png",
+    "alt": "The CSS Grid Playground showing a named-area grid with header, sidebar, main, footer and aside areas, where the bottom row is defined as sidebar footer aside.",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "moodle_name": "Safari - CSS Grid Playground- screenshot 2022-07-17 at 13.50.26.png",
+    "sha1": "c73eee12e40dfd81236e0183444fc2618e20a2d3",
+    "source": "parked",
+    "path": "docs/docs/dwc/06-flow-layouts/img/css-grid-playground-3.png",
+    "alt": "The CSS Grid Playground with grid-template-columns set to 25% 1fr and grid-template-rows set to 1fr 2fr 2fr 1fr, showing eight numbered items filling four rows of two columns.",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-17 at 13.58.07.png",
+    "sha1": "2ce434e1dbf35127fa1c190452eb3a9a50529f9b",
+    "source": "parked",
+    "path": "docs/docs/dwc/06-flow-layouts/img/hello-window-grid-overlay.png",
+    "alt": "The Hello BBj DWC window with the Developer Tools grid overlay showing a 180px first column and an auto second column.",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - BBj DWC CSS Layout Samples- screenshot 2022-07-17 at 17.42.33.png",
+    "sha1": "6bd7358062ff172fce4ae8c9aa11701185fa3ed2",
+    "source": "parked",
+    "path": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-responsive-mode.png",
+    "alt": "CSS Layout 8 selected in the BBj DWC CSS Layout Samples window, shown in the browser's Responsive mode with orange drag handles and the viewport width of 900 pixels outlined in purple.",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
   }
 ]

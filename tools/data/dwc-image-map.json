@@ -31,15 +31,15 @@
   },
   {
     "old": "static/img/CSS_Grid_Playground_2.png",
-    "new": "tools/data/dwc-unused-img/css-grid-playground-2.png",
-    "verdict": "parked",
-    "page": null
+    "new": "docs/docs/dwc/06-flow-layouts/img/css-grid-playground-2.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
   },
   {
     "old": "static/img/CSS_Grid_Playground_3.png",
-    "new": "tools/data/dwc-unused-img/css-grid-playground-3.png",
-    "verdict": "parked",
-    "page": null
+    "new": "docs/docs/dwc/06-flow-layouts/img/css-grid-playground-3.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
   },
   {
     "old": "static/img/CSS_Layout_Samples_1.png",
@@ -73,9 +73,9 @@
   },
   {
     "old": "static/img/CSS_Layout_Samples_6.png",
-    "new": "tools/data/dwc-unused-img/css-layout-samples-6.png",
-    "verdict": "parked",
-    "page": null
+    "new": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-responsive-mode.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
   },
   {
     "old": "static/img/ChromeDevConsoleView.png",
@@ -181,9 +181,9 @@
   },
   {
     "old": "static/img/Hello_BBj_DWC_Grid.png",
-    "new": "tools/data/dwc-unused-img/hello-bbj-dwc-grid.png",
-    "verdict": "parked",
-    "page": null
+    "new": "docs/docs/dwc/06-flow-layouts/img/hello-window-grid-overlay.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/06-flow-layouts/index.md"
   },
   {
     "old": "static/img/Hello_DWC_4A.png",

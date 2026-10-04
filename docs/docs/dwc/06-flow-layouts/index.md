@@ -36,6 +36,10 @@ A grid-based layout system with **two-dimensional layout** (rows and columns).
 - More control over size and position
 - Controls spanning multiple rows or columns
 
+Flexbox and grid both fit many scenarios, and some cases work better with one than the other. To set the horizontal and vertical alignment of a single control in a window, flexbox is the easiest solution. A single-column or single-row grid works too. If controls in one row of a wrapped flexbox container must line up with the controls above them, the two-dimensional grid is the better choice.
+
+Flexbox supports fewer properties and values than the grid, so the grid model can be much more complex. The CSS grid has 18 properties that affect its configuration, plus 10 more for the items inside the grid. This page does not list all of them. The [CSS-Tricks Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) documents them with examples and drawings.
+
 ### Media Queries
 
 Conditional CSS that changes layout based on screen size:
@@ -47,6 +51,12 @@ Conditional CSS that changes layout based on screen size:
     }
 }
 ```
+
+You can think of a media query as an if/then structure. The `@media` rule holds a block of CSS properties that only take effect when the conditions are true. The conditions can combine `and`, `or` and `not` for flexible logic.
+
+Developers commonly use media queries to change the layout based on the width or height of the screen. For example, a CSS grid can have six columns on a wide screen, four columns on a normal screen and one column on a phone in portrait orientation. Combining CSS grid with media queries makes it easy to define separate layouts for desktop, tablet and phone.
+
+A condition can also test the device orientation, so you can define different layouts for portrait and landscape. Besides changing the size or number of columns, media queries can hide elements on small screens, adjust the font size to the screen size, or adapt content for users with accessibility needs.
 
 ## CSS Flexbox Properties
 
@@ -87,6 +97,31 @@ grid-template-areas:
     "sidebar footer footer";
 ```
 
+To try named areas, open the [CSS Grid Playground](https://www.cssgridplayground.com). In its example, the bottom row is defined as `sidebar footer footer`. The sidebar extends into the bottom row and takes up the first column, which is set to `1fr`. The `fr` unit is a fractional unit, a flexible length that represents a fraction of the leftover space in the grid container. The footer is listed twice, so it starts in the second column and extends into the third. Its width is the width of columns 2 and 3 plus the gap between them, or `5fr + 2.5fr + 1rem`, which is `7.5fr + 1rem`.
+
+To experiment, change the bottom row from `sidebar footer footer` to `sidebar footer aside`. The sidebar still takes up the first column, but the footer now only takes up the second column. The `aside` area extends down into the third column:
+
+![The CSS Grid Playground with the bottom row set to sidebar footer aside](./img/css-grid-playground-2.png)
+
+**Method 3: Row and column templates**
+
+Instead of positioning each item, you can define the row and column templates of the grid. The controls then fill the grid automatically, so you set no styles on the items. For many developers this is the easiest way to work with CSS grid. It is also much more succinct, because you do not set the start, end or span for each item.
+
+In the following screenshot, `grid-template-columns` is set to `25% 1fr`. That gives two columns: the first takes 25% of the available width and the second takes all the remaining space. `grid-template-rows` is set to `1fr 2fr 2fr 1fr`, which defines four rows. The first and last rows take `1fr` of the height, and the middle two rows are each twice as high.
+
+![The CSS Grid Playground with a 25% 1fr column template and a 1fr 2fr 2fr 1fr row template](./img/css-grid-playground-3.png)
+
+The `DWC1.bbj` program from the first chapter uses this method for its layout:
+
+```bbj
+    wnd!.setPanelStyle("display","inline-grid")
+    wnd!.setPanelStyle("grid-template-columns","180px auto")
+```
+
+That code sets the window to use an inline grid, then defines two template columns: the first is 180 pixels wide and the second takes the remaining space. With two controls in the window, you get a grid with one row and two columns. Each additional control fills the next cell, row by row, until you have the final form. The next screenshot shows the Developer Tools grid overlay on top of the window to visualize the columns:
+
+![The Hello window with the Developer Tools grid overlay showing a 180px column and an auto column](./img/hello-window-grid-overlay.png)
+
 ### Responsive Grids with repeat()
 
 ```css
@@ -94,6 +129,24 @@ grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr) minmax(20ch, 2fr));
 ```
 
 This creates columns that repeat as needed to fill the container, with minimum sizes.
+
+The `repeat()` function represents a repeated fragment of the track list. It lets you write a large number of columns or rows with a recurring pattern in a compact form. These two definitions resolve to the same grid:
+
+```css
+grid-template-columns: auto 1fr auto 1fr;
+grid-template-columns: repeat(2, auto 1fr);
+```
+
+The `2` tells the grid to repeat the pattern `auto 1fr` twice. The first value can also be `auto-fit` or `auto-fill`. Then the tracks repeat as many times as needed to fill the grid container. The `minmax()` function defines a size range from a minimum to a maximum value.
+
+Here is how the example breaks down. The first line, `display: grid;`, sets the window to use the CSS grid. In the second line:
+
+- The code sets `grid-template-columns` but not `grid-template-rows`. The grid defines the width and number of columns and keeps adding rows as you add controls.
+- `repeat()` with `auto-fit` repeats the columns as often as needed to fill the grid container, which is the BBjWindow.
+- The first column is `minmax(10ch, 1fr)`. It is at least 10 characters wide and can grow to one fractional unit.
+- The second column is `minmax(20ch, 2fr)`. It is at least 20 characters wide and can grow to two fractional units, so it ends up twice as wide as the first.
+
+In practice, the result depends on the available space. A narrow window only has room for two columns. As the window gets wider, `auto-fit` adds more columns in groups of two, as the three screenshots in the responsive form example below show.
 
 ## Fractional Units (fr)
 
@@ -108,6 +161,10 @@ grid-template-columns: 1fr 3fr;      /* Fractional - adjusts for gaps */
 :::tip
 Use `fr` units instead of percentages to avoid overflow when using gaps and padding.
 :::
+
+Both settings make the first column a third of the size of the second, but percentages are absolute shares of the space. The `fr` unit splits the space that remains after the other content is placed. Once you add a gap between rows and columns or padding around the grid, part of the space is already taken. The width then adds up to `padding + 25% + gap + 75% + padding`, which is more than 100%, so the grid contents exceed the width of the container. With `fr` units, the grid subtracts the padding and the gap from its total width first, then divides the remaining space by 4 to get the value of `1fr`.
+
+The CSS-Tricks article [An Introduction to the fr CSS Unit](https://css-tricks.com/introduction-fr-css-unit/) covers this topic in depth with working examples.
 
 ## Example 1 - CSS Flexbox
 
@@ -131,6 +188,25 @@ Run `DWCTraining/05_CssLayouts/DWCGrid.bbj`:
 4. Layout 7: `repeat(auto-fit, 100px 200px)` - columns increase with width
 5. Layout 8: Media queries for 2/4/6 columns based on viewport
 6. Layout 9: `minmax()` for flexible column widths
+
+Layouts 1 and 2 use `auto 1fr` and `1fr auto` to show that the grid treats fractional units differently from `auto`. When you use both together, the fractional unit wins by grabbing most of the available space. Layouts 5 and 6 always use four columns, so the controls are truncated when the form is narrow. Layouts 7 to 9 solve that problem.
+
+Layout 8 uses media queries to set different column templates based on the width of the viewport. For this to work well, the window must be maximized to take the full width of the browser. To test it, maximize the app in the browser, open the browser's Developer Tools and select the Device Emulation tab. Choose the "Responsive" option. In Responsive mode you can resize the viewport by dragging the handles with the orange outlines, which is easier than resizing the whole browser window, especially when the Developer Tools sit below the page. You can also type exact values for the viewport size, as outlined in purple in the screenshot.
+
+![Layout 8 in the browser's Responsive mode with drag handles and a 900 pixel viewport width](./img/css-layout-samples-responsive-mode.png)
+
+As you change the width of the viewport, the DWC app shows 2, 4 or 6 columns of controls. These media queries create the four-column and six-column versions:
+
+```css
+@media (min-width: 600px) {
+    .css-layout.BBjSimpleWindow { grid-template-columns: auto 1fr auto 1fr; }
+}
+@media (min-width: 900px) {
+    .css-layout.BBjSimpleWindow { grid-template-columns: auto 1fr auto 1fr auto 1fr; }
+}
+```
+
+The original grid definition has two columns, followed by the CSS above. Because the media queries appear later, they override the window's original CSS when their condition is true. At a viewport width of 600 pixels or more, `grid-template-columns` becomes `auto 1fr auto 1fr`, the four-column mode. At 900 pixels or more, it becomes the six-column mode. Layouts 7 and 9 can achieve similar results without media queries.
 
 ![CSS Grid Layout Samples](./img/css-layout-samples-1.png)
 
@@ -161,6 +237,10 @@ Using CSS Grid with `repeat(auto-fit, ...)`, forms automatically adjust columns 
 | `align-content` | Vertical | Entire grid in container |
 | `justify-self` | Horizontal | Override for single item |
 | `align-self` | Vertical | Override for single item |
+
+Justification aligns along the inline axis (rows, horizontal) and alignment aligns along the block axis (columns, vertical). In a grid, justification always deals with rows and alignment always deals with columns. In flexbox, the two flip depending on whether you are in row mode or column mode.
+
+`justify-content` and `align-content` only have an effect when the grid is smaller than its container. If the grid takes up the full size of the container, they do nothing. `justify-self` only matters when you nest grids and want a nested grid aligned differently from the other items of the parent grid.
 
 ## Resources
 
