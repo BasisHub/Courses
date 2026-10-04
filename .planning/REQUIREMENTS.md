@@ -62,7 +62,7 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 ### DWC Gap Audit (before go-live)
 
 - [x] **AUDIT-01**: `tools/data/dwc-gap-audit.md` lists, per Moodle course-4 page/book chapter, the paragraphs, code samples and screenshots missing from the DWC book with a keep / drop / already-covered verdict
-- [ ] **AUDIT-02**: Kept material is added to the DWC pages as its own commit series, without renaming existing slugs
+- [x] **AUDIT-02**: Kept material is added to the DWC pages as its own commit series, without renaming existing slugs
 - [ ] **AUDIT-03**: DWC screenshots that originate from 2022-era Moodle images (matched by content hash) carry a `{/* TODO: screenshot outdated? */}` marker
 
 ### Review & Quality
@@ -157,7 +157,7 @@ Populated 2026-10-03 during roadmap creation.
 | EXER-03 | Phase 6 | Pending |
 | EXER-04 | Phase 6 | Complete |
 | AUDIT-01 | Phase 6 | Complete |
-| AUDIT-02 | Phase 6 | Pending |
+| AUDIT-02 | Phase 6 | Complete |
 | AUDIT-03 | Phase 6 | Pending |
 | QUAL-01 | Phase 7 | Pending |
 | QUAL-02 | Phase 7 | Pending |
