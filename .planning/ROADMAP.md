@@ -184,7 +184,7 @@ Plans:
 
 **Wave 2** *(blocked on 05-01)*
 
-- [ ] 05-03-PLAN.md — Converter plus image/video maps, zero-unresolved scratch run, commit C1 (wave 2)
+- [x] 05-03-PLAN.md — Converter plus image/video maps, zero-unresolved scratch run, commit C1 (wave 2)
 
 **Wave 3** *(blocked on 05-02, 05-03)*
 
@@ -249,7 +249,7 @@ Plans:
 | 2. Repo Hygiene & CI | 6/6 | Complete    | 2026-10-03 |
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
-| 5. Intro-BBj Conversion | 2/6 | In Progress|  |
+| 5. Intro-BBj Conversion | 3/6 | In Progress|  |
 | 6. Exercises & DWC Gap Audit | 0/TBD | Not started | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |
