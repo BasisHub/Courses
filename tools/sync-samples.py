@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import io
 import os
+import re
 import sys
 import tempfile
 import zipfile
@@ -45,6 +46,15 @@ def safe_arcname(name: str) -> str:
     if name.startswith("/") or ".." in parts or "" in parts:
         die("unsafe archive name: " + name)
     return name
+
+
+def validate_book(book: str) -> None:
+    """Book names are kebab-case slugs that stay inside docs/examples and docs/static/files."""
+    if not re.fullmatch(r"[a-z0-9][a-z0-9-]*", book):
+        die("invalid book name: " + repr(book))
+    for base in (EXAMPLES, STATIC):
+        if (base / book).resolve().parent != base.resolve():
+            die("book path escapes " + str(base.relative_to(ROOT)) + ": " + book)
 
 
 def collect(folder: Path) -> dict[str, bytes]:
@@ -197,7 +207,11 @@ def main(argv: list[str]) -> int:
     if any(a.startswith("-") for a in args):
         print(__doc__)
         return 2
-    books = args or sorted(d.name for d in EXAMPLES.iterdir() if d.is_dir())
+    books = args or sorted(
+        d.name for d in EXAMPLES.iterdir() if d.is_dir() and not d.name.startswith(".")
+    )
+    for book in books:
+        validate_book(book)
     ok = True
     for book in books:
         if do_check:
