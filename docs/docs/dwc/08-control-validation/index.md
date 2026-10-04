@@ -116,9 +116,6 @@ When validation fails:
 - An invalid message can be displayed
 
 {/* TODO: screenshot outdated? */}
-![Validation Visual Feedback](./img/validation-1.png)
-
-{/* TODO: screenshot outdated? */}
 ![Validation States Example](./img/validation-2.png)
 
 ## Validation States
@@ -158,9 +155,6 @@ editBox!.setCustomValidity("")
 {/* TODO: screenshot outdated? */}
 ![Custom Validation Example](./img/validation-3.png)
 
-{/* TODO: screenshot outdated? */}
-![Validation Patterns](./img/validation-4.png)
-
 ## Example - Email Validation
 
 ```bbj
@@ -171,12 +165,6 @@ email!.setAttribute("required", "true")
 email!.setAttribute("type", "email")
 email!.setAttribute("invalid-message", "Please enter a valid email")
 ```
-
-{/* TODO: screenshot outdated? */}
-![Email Validation Example](./img/validation-5.png)
-
-{/* TODO: screenshot outdated? */}
-![Validation Demo 2](./img/validation-demo2.gif)
 
 ## Controlling When Validation Runs
 
