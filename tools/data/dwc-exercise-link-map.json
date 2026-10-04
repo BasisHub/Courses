@@ -97,5 +97,23 @@
       "docs/docs/dwc/10-embedding-components/90-exercise-embed-component.mdx"
     ],
     "note": "HTTP 200 on 2026-10-04"
+  },
+  {
+    "old": "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css",
+    "new": "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css",
+    "verdict": "kept",
+    "pages": [
+      "docs/docs/dwc/10-embedding-components/90-exercise-embed-component.mdx"
+    ],
+    "note": "pinned CDN URL inside the byte-copied Exercise-EmbedComponentComplete.bbj solution; HTTP 200 on 2026-10-04"
+  },
+  {
+    "old": "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace.js",
+    "new": "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace.js",
+    "verdict": "kept",
+    "pages": [
+      "docs/docs/dwc/10-embedding-components/90-exercise-embed-component.mdx"
+    ],
+    "note": "pinned CDN URL inside the byte-copied Exercise-EmbedComponentComplete.bbj solution; HTTP 200 on 2026-10-04"
   }
 ]

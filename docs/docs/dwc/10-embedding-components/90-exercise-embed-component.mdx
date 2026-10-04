@@ -3,8 +3,103 @@ title: "Exercise: Embed a third-party component"
 description: "Pick a component from Ionic or Shoelace and embed it in a BBj program."
 ---
 
+A possible solution is at the end of this page.
+
 :::exercise
 
 Visit the [Ionic components](https://ionicframework.com/docs/components) or [Shoelace](https://shoelace.style/) and find a component you like. Embed it in a BBj program.
 
 :::
+
+<details>
+<summary>Possible solution</summary>
+
+The original course had no solution for this exercise, so this one was written for this book. It embeds the Shoelace rating component `sl-rating` with `addWebComponent` and receives its `sl-change` event through `setCallback`, the route BASIS documents for Shoelace in BBj 24.00 and later, instead of the `BBjHTMLView` route shown in this section. It loads Shoelace 2.20.1 with its light theme from jsDelivr, so the browser needs internet access. The solution is in `Exercise-EmbedComponentComplete.bbj`, and you find all files in [09_EmbeddingOtherComponents.zip](pathname:///files/dwc/09_EmbeddingOtherComponents.zip).
+
+```bbj title="Exercise-EmbedComponentComplete.bbj"
+rem /**
+rem  * Exercise-EmbedComponentComplete.bbj
+rem  *
+rem  * Possible solution for the exercise Embed a third-party component, written for the BBj DWC Training book.
+rem  * It embeds the Shoelace rating component (sl-rating) in a DWC window with BBjWindow::addWebComponent
+rem  * and shows the chosen rating in a static text. It needs BBj 24.00 or later in the DWC.
+rem  *
+rem  */
+
+
+rem If the app is running in BUI, switch it automatically to run in the DWC client instead
+rem ================================================================================
+if (info(3, 6) = "5") then
+    bui! = BBjAPI().getBuiManager()
+    url! = bui!.getUrl().replaceAll("apps", "webapp")
+    action! = bui!.urlAction(url!)
+    bui!.setEndAction(action!)
+    release
+endif
+
+
+rem Load the Shoelace theme and the Shoelace library, both pinned to version 2.20.1
+rem ================================================================================
+web! = BBjAPI().getWebManager()
+web!.injectStyleUrl("https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css")
+web!.injectScriptUrl("https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace.js", 1, "type=module")
+
+
+rem Create the window and lay out its content in a column
+rem ================================================================================
+window! = BBjAPI().openSysGui("X0").addWindow("Shoelace Rating", $01101083$)
+window!.setPanelStyle("display", "flex")
+window!.setPanelStyle("flex-direction", "column")
+window!.setPanelStyle("gap", "var(--dwc-space-l)")
+window!.setPanelStyle("padding", "var(--dwc-space-xl)")
+window!.setCallback(BBjAPI.ON_CLOSE, "onExit")
+
+question! = window!.addStaticText("How do you like this course?")
+
+
+rem Add the Shoelace component by its tag name and set its attributes
+rem ================================================================================
+rating! = window!.addWebComponent("sl-rating")
+rating!.setAttribute("label", "Rate this course")
+rating!.setAttribute("max", "5")
+
+result! = window!.addStaticText("You have not rated the course yet.")
+
+
+rem Ship the rating value with the sl-change event. The JavaScript expression is
+rem evaluated in the browser, and String() makes sure the value arrives as text.
+rem ================================================================================
+options! = rating!.newEventOptions()
+options!.addItem("value", "String(event.target.value)")
+rating!.setCallback("sl-change", "onRatingChange", options!)
+
+window!.setVisible(1)
+process_events
+
+
+rem ================================================================================
+rem Subroutines
+rem ================================================================================
+
+rem Show the chosen rating. The text does not start with an html prefix, so it renders as plain text.
+onRatingChange:
+    event! = BBjAPI().getSysGui().getLastEvent()
+    value$ = str(event!.getEventMap().get("value"))
+    result!.setText("You rated the course " + value$ + " of 5 stars.")
+return
+
+
+rem Handle the user exiting the app
+onExit:
+release
+
+
+declare auto BBjTopLevelWindow window!
+declare auto BBjStaticText question!
+declare auto BBjWebComponent rating!
+declare auto BBjWebEventOptions options!
+declare auto BBjStaticText result!
+declare auto BBjWebEvent event!
+```
+
+</details>

@@ -3,6 +3,8 @@ title: "Exercise: Use media queries"
 description: "Pick one of your DWC programs and change its look when the screen width goes below or above a value, using a CSS media query."
 ---
 
+A possible solution is at the end of this page.
+
 :::exercise
 
 Choose one of the programs from this course and change something about it when the screen is below or above a value. Here are a few ideas:
@@ -22,3 +24,161 @@ The following example shows how a media query is structured. The chapter section
 ```
 
 :::
+
+<details>
+<summary>Possible solution</summary>
+
+The original course had no solution for this exercise, so this one was written for this book. It starts from `Exercise-ConvertToCssLayoutComplete-Grid.bbj`, the solution of the CSS grid exercise, and moves the grid into `Exercise-MediaQueriesComplete.css`, because a media query cannot override styles that a program sets directly on an element. Below 600px the form switches to one column, uses a smaller font and hides the optional Company field. The files are `Exercise-MediaQueriesComplete.bbj` and `Exercise-MediaQueriesComplete.css`, and you find all files in [10_AdvancedResponsive.zip](pathname:///files/dwc/10_AdvancedResponsive.zip).
+
+```bbj title="Exercise-MediaQueriesComplete.bbj"
+rem /**
+rem  * Exercise-MediaQueriesComplete.bbj
+rem  *
+rem  * Possible solution for the exercise Use media queries, written for the BBj DWC Training book.
+rem  * It starts from the CSS grid exercise solution (the contact form) and changes the layout
+rem  * below 600px: the form switches to one column and the optional Company field disappears.
+rem  * The grid lives in the file Exercise-MediaQueriesComplete.css, because a media query in a
+rem  * stylesheet cannot override a style that the program sets directly on the element.
+rem  *
+rem  */
+
+
+rem If the app is running in BUI, switch it automatically to run in the DWC client instead
+rem ================================================================================
+if info(3,6)="5" then
+    bui! = BBjAPI().getBuiManager()
+    url! = bui!.getUrl().replaceAll("apps", "webapp")
+    action! = bui!.urlAction(url!)
+    bui!.setEndAction(action!)
+    release
+endif
+
+
+rem Read the layout CSS from its file and inject it into the page
+rem ================================================================================
+css! = new String(Files.readAllBytes(Paths.get(BBjAPI().getFileSystem().resolvePath("./Exercise-MediaQueriesComplete.css"))))
+BBjAPI().getWebManager().injectStyle(css!)
+
+
+rem Create the main window and give its panel the grid class
+rem ================================================================================
+window! = BBjAPI().openSysGui("X0").addWindow("BBj DWC Media Queries", $00180093$)
+window!.addPanelStyle("contact-form")
+window!.setCallback(window!.ON_CLOSE, "onExit")
+
+
+rem Build the Contact Form
+rem ================================================================================
+lbl! = window!.addStaticText("* First Name:", $8000$)
+editFirstName! = window!.addEditBox(""); editFirstName!.setPlaceholder("First name")
+lbl! = window!.addStaticText("* Last Name:", $8000$)
+editLastName! = window!.addEditBox(""); editLastName!.setPlaceholder("Last name")
+
+rem The Company label and edit box carry the class that the media query hides on narrow screens
+lblCompany! = window!.addStaticText("Company:", $8000$)
+editCompany! = window!.addEditBox(""); editCompany!.setPlaceholder("Company")
+lblCompany!.addStyle("optional-field")
+editCompany!.addStyle("optional-field")
+
+lbl! = window!.addStaticText("Email:", $8000$)
+editEmail! = window!.addEditBox(""); editEmail!.setPlaceholder("Email")
+lbl! = window!.addStaticText("Country:", $8000$)
+editCountry! = window!.addEditBox("USA"); editCountry!.setPlaceholder("Country")
+lbl! = window!.addStaticText("City:", $8000$)
+editCity! = window!.addEditBox("Albuquerque"); editCity!.setPlaceholder("City")
+lbl! = window!.addStaticText("State:", $8000$)
+editState! = window!.addEditBox("New Mexico"); editState!.setPlaceholder("State")
+lbl! = window!.addStaticText("Zip Code:", $8000$)
+editZip! = window!.addEditBox("87109"); editZip!.setPlaceholder("Zip Code")
+
+btnSubmit! = window!.addButton("Submit")
+btnSubmit!.setAttribute("theme", "outlined-primary")
+btnSubmit!.setAttribute("expanse", "xl")
+btnSubmit!.addStyle("contact-form-submit")
+btnSubmit!.setCallback(BBjButton.ON_FORM_VALIDATION, "OnFormValidation")
+
+window!.setVisible(1)
+process_events
+
+
+rem ================================================================================
+rem Subroutines
+rem ================================================================================
+
+rem Handle the user exiting the app
+onExit:
+release
+
+
+rem Handle the form validation
+OnFormValidation:
+    e! = BBjAPI().getSysGui().getLastEvent()
+    firstName! = e!.getText(editFirstName!)
+    lastName! = e!.getText(editLastName!)
+    if (len(firstName!) AND len(lastName!)) then
+        e!.accept(1)
+        temp = msgbox("You filled in the form successfully!", BBjSysGui.MSGBOX_ICON_INFORMATION, "Form Submitted Successfully", mode="theme=success")
+    else
+        e!.accept(0)
+        temp = msgbox("You didn't fill in your first and last names, which are required", BBjSysGui.MSGBOX_ICON_STOP, "Invalid Input", mode="theme=danger")
+    endif
+return
+
+
+declare auto BBjTopLevelWindow window!
+declare auto BBjStaticText lbl!
+declare auto BBjStaticText lblCompany!
+declare auto BBjEditBox editFirstName!
+declare auto BBjEditBox editLastName!
+declare auto BBjEditBox editCompany!
+declare auto BBjEditBox editEmail!
+declare auto BBjEditBox editCountry!
+declare auto BBjEditBox editCity!
+declare auto BBjEditBox editState!
+declare auto BBjEditBox editZip!
+declare auto BBjButton btnSubmit!
+declare auto BBjFormValidationEvent e!
+
+rem Use statements
+use java.nio.file.Files
+use java.nio.file.Paths
+```
+
+```css title="Exercise-MediaQueriesComplete.css"
+/* Exercise-MediaQueriesComplete.css
+ * Layout for Exercise-MediaQueriesComplete.bbj: a two-column contact form
+ * that becomes a one-column form on narrow screens.
+ */
+
+.contact-form {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: var(--dwc-space-m);
+    padding: var(--dwc-space-l);
+}
+
+/* The Submit button spans every column, in both layouts */
+.contact-form-submit {
+    grid-column: 1 / -1;
+    margin-top: var(--dwc-space-m);
+}
+
+/* The strict less-than keeps the two-column layout at exactly 600px */
+@media (width < 600px) {
+    .contact-form {
+        grid-template-columns: 1fr;
+        gap: var(--dwc-space-s);
+        --dwc-font-size: var(--dwc-font-size-s);
+    }
+
+    .optional-field {
+        display: none;
+    }
+}
+```
+
+</details>

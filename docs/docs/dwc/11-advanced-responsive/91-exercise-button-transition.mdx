@@ -3,6 +3,8 @@ title: "Exercise: Add a transition to a button"
 description: "Create a BBj program with a button that grows on hover, then add a CSS transition to make the animation smoother."
 ---
 
+A possible solution is at the end of this page.
+
 :::exercise
 
 Create a small BBj file that has a button. Use CSS to make the button bigger when you hover over it, then add a transition to make the animation smoother.
@@ -14,3 +16,110 @@ transition: <property> <duration> <timing-function> <delay>;
 ```
 
 :::
+
+<details>
+<summary>Possible solution</summary>
+
+The original course had no solution for this exercise, so this one was written for this book. It gives a `BBjButton` the CSS class `grow-button`. The hover rule scales the button and the transition smooths the change. Readers whose system asks for reduced motion get the change without the animation. The files are `Exercise-ButtonTransitionComplete.bbj` and `Exercise-ButtonTransitionComplete.css`, and you find all files in [10_AdvancedResponsive.zip](pathname:///files/dwc/10_AdvancedResponsive.zip).
+
+```bbj title="Exercise-ButtonTransitionComplete.bbj"
+rem /**
+rem  * Exercise-ButtonTransitionComplete.bbj
+rem  *
+rem  * Possible solution for the exercise Add a transition to a button, written for the BBj DWC Training book.
+rem  * The button carries the CSS class grow-button. The file Exercise-ButtonTransitionComplete.css
+rem  * scales the button up on hover and smooths the change with a transition.
+rem  *
+rem  */
+
+
+rem If the app is running in BUI, switch it automatically to run in the DWC client instead
+rem ================================================================================
+if (info(3, 6) = "5") then
+    bui! = BBjAPI().getBuiManager()
+    url! = bui!.getUrl().replaceAll("apps", "webapp")
+    action! = bui!.urlAction(url!)
+    bui!.setEndAction(action!)
+    release
+endif
+
+
+rem Read the CSS from its file and inject it into the page
+rem ================================================================================
+css! = new String(Files.readAllBytes(Paths.get(BBjAPI().getFileSystem().resolvePath("./Exercise-ButtonTransitionComplete.css"))))
+BBjAPI().getWebManager().injectStyle(css!)
+
+
+rem Create the window and give its panel the layout class
+rem ================================================================================
+window! = BBjAPI().openSysGui("X0").addWindow("Button Transition", $00100093$)
+window!.addPanelStyle("transition-demo")
+window!.setCallback(BBjAPI.ON_CLOSE, "onExit")
+
+
+rem Add the button and give it the class with the hover rule and the transition
+rem ================================================================================
+growButton! = window!.addButton("Hover over me")
+growButton!.setAttribute("theme", "primary")
+growButton!.setAttribute("expanse", "l")
+growButton!.addStyle("grow-button")
+growButton!.setCallback(BBjAPI.ON_BUTTON_PUSH, "onPush")
+
+window!.setVisible(1)
+process_events
+
+
+rem ================================================================================
+rem Subroutines
+rem ================================================================================
+
+rem Handle the button click
+onPush:
+    temp = msgbox("You clicked the growing button.", 64, "Button Transition")
+return
+
+
+rem Handle the user exiting the app
+onExit:
+release
+
+
+declare auto BBjTopLevelWindow window!
+declare auto BBjButton growButton!
+
+rem Use statements
+use java.nio.file.Files
+use java.nio.file.Paths
+```
+
+```css title="Exercise-ButtonTransitionComplete.css"
+/* Exercise-ButtonTransitionComplete.css
+ * Styles for Exercise-ButtonTransitionComplete.bbj: a button that grows on hover.
+ */
+
+.transition-demo {
+    display: grid;
+    place-items: center;
+    min-height: 100%;
+    box-sizing: border-box;
+    padding: var(--dwc-space-xl);
+}
+
+/* Animate transform only. Animating width or height forces the browser to lay out the page again. */
+.grow-button {
+    transition: transform 0.25s ease-in-out;
+}
+
+.grow-button:hover {
+    transform: scale(1.2);
+}
+
+/* Switch the animation off for readers who ask their system for less motion */
+@media (prefers-reduced-motion: reduce) {
+    .grow-button {
+        transition: none;
+    }
+}
+```
+
+</details>
