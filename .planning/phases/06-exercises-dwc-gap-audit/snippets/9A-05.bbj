@@ -1,0 +1,17 @@
+process_events
+
+handlePageLoaded:
+  rem after the initial HTML is loaded we can inject the library
+  htmlview!.clearCallback(htmlview!.ON_PAGE_LOADED)
+  url$ = "https://cdn.url.for.libary.js"
+  htmlview!.injectUrl(url$,1)
+return
+
+handleScriptLoaded:
+  rem after the library is loaded we can work with it
+  htmlview!.clearCallback(htmlview!.ON_SCRIPT_LOADED)
+  js$ = ""
+  js$ = js$ + "var chartCanvas = document.getElementById('myComponent');"
+  js$ = js" + "/// and further js code to execute...."
+  htmlview!.injectScript(js$,1)
+return

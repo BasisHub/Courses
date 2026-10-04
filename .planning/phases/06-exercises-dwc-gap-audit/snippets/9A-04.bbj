@@ -1,0 +1,4 @@
+html$ = "<html><<body><div id='myComponent'></div></body></html>"
+htmlview! = window!.addHtmlView(102,20,70,760,430,html$,$$)
+htmlview!.setCallback(htmlview!.ON_PAGE_LOADED,"handlePageLoaded")
+htmlview!.setCallback(htmlview!.ON_SCRIPT_LOADED,"handleScriptLoaded")

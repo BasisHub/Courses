@@ -1,0 +1,7 @@
+  js$ = js$ + "        onClick: (evt, item) => {"
+  js$ = js$ + "         Chart.defaults.plugins.legend.onClick.call(this, evt, item, this);"
+  js$ = js$ + "         const customEvent = new CustomEvent('legend-clicked',{"
+  js$ = js$ + "           detail:{text: item.text, index: item.datasetIndex, hidden: item.hidden}"
+  js$ = js$ + "         });"
+  js$ = js$ + "         window.basisDispatchCustomEvent(chartCanvas, customEvent);"
+  js$ = js$ + "        }"
