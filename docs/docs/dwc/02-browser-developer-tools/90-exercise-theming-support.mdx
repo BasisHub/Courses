@@ -3,6 +3,8 @@ title: "Exercise: Add theming support"
 description: "Create a custom DWC theme, add a light and dark mode switch, and move your CSS from the BBj source into a separate file."
 ---
 
+A possible solution is at the end of this page.
+
 :::exercise
 
 Based on your previous work:
@@ -14,3 +16,219 @@ Based on your previous work:
 3. Add a separate CSS file and move the CSS styles from your BBj source file into it.
 
 :::
+
+<details>
+<summary>Possible solution</summary>
+
+The original course had no solution for this exercise, so this one was written for this book. It builds on `CSSCustomProperties.bbj` from this section. The layout CSS moved from the source into `Exercise-ThemingSupportComplete-Layout.css`. `Exercise-ThemingSupportComplete-Theme.css` is a small hand-written theme that sets the primary and default palette hues, in the same shape as a DWC Themer export, so an exported theme goes in the same place. A button switches between the light and dark theme with `setTheme`. You find all files in [02_CSSStylesAndCustomProperties.zip](pathname:///files/dwc/02_CSSStylesAndCustomProperties.zip).
+
+```bbj title="Exercise-ThemingSupportComplete.bbj"
+rem /**
+rem  * Exercise-ThemingSupportComplete.bbj
+rem  *
+rem  * Possible solution for the exercise Add theming support, written for the BBj DWC Training book.
+rem  * It builds on CSSCustomProperties.bbj and solves the three steps of the exercise:
+rem  *
+rem  * Step 1: Applies a custom theme from the file Exercise-ThemingSupportComplete-Theme.css.
+rem  * Step 2: Adds a button that switches the app between the DWC light and dark themes.
+rem  * Step 3: Reads the layout CSS from the file Exercise-ThemingSupportComplete-Layout.css
+rem  *         instead of building it in a string in the source.
+rem  *
+rem  */
+
+use java.nio.file.Files
+use java.nio.file.Paths
+
+
+rem If the app is running in BUI, switch it automatically to run in the DWC client instead
+rem ================================================================================
+if (info(3, 6) = "5") then
+    bui! = BBjAPI().getBuiManager()
+    url! = bui!.getUrl().replaceAll("apps", "webapp")
+    action! = bui!.urlAction(url!)
+    bui!.setEndAction(action!)
+    release
+endif
+
+
+rem Create the main window, define its ON_CLOSE callback, and set its layout and theme via CSS files
+rem ================================================================================
+web! = BBjAPI().getWebManager()
+mySysGui! = BBjAPI().openSysGui("X0")
+myWindow! = mySysGui!.addWindow("CSS Custom Properties", $00100093$)
+myWindow!.setCallback(BBjAPI.ON_CLOSE, "onClose")
+gosub ApplyStylesAndLayout
+
+
+rem Add a toggle button for dark/light mode
+currentTheme$ = "light"
+lightTheme$ = "<html><dwc-icon name='sun'></dwc-icon> Light"
+darkTheme$ = "<html><dwc-icon name='moon'></dwc-icon> Dark"
+
+myThemeToggle! = myWindow!.addButton(lightTheme$)
+myThemeToggle!.setCallback(BBjButton.ON_BUTTON_PUSH, "onThemeToggle")
+
+
+rem Add a child window container for sample controls
+myChildWindow! = myWindow!.addChildWindow("Sample Controls", $00109000$, BBjAPI().getSysGui().getAvailableContext())
+
+myEdit! = myChildWindow!.addEditBox("Edit Box")
+myCheck! = myChildWindow!.addCheckBox("Check Box")
+myCheck!.setSelected(1)
+myRadio! = myChildWindow!.addRadioButton("Radio Button")
+myRadio!.setSelected(1)
+myNav! = myChildWindow!.addNavigator("Navigator")
+
+
+rem Add a child window container for the CSS Custom Property and Value controls
+myChildWindow! = myWindow!.addChildWindow("Set New Values for CSS Custom Properties", $00109000$, BBjAPI().getSysGui().getAvailableContext())
+
+myListEditCSSProps! = myChildWindow!.addListEdit(String.join($0a$, cast(Iterable, myVectCssProps!)))
+myListEditCSSProps!.setAttribute("label", "CSS Property")
+myListEditCSSProps!.setAttribute("expanse", "l")
+myListEditCSSProps!.selectIndex(0)
+currentProperty$ = myListEditCSSProps!.getText()
+myListEditCSSProps!.setCallback(BBjListEdit.ON_EDIT_MODIFY, "OnChangeProperty")
+
+myListEditCSSVals! = myChildWindow!.addListEdit(String.join($0a$, cast(Iterable, myVectCssVals!)))
+myListEditCSSVals!.setAttribute("label", "CSS Value")
+myListEditCSSVals!.setAttribute("expanse", "l")
+myListEditCSSVals!.selectIndex(0)
+currentValue$ = myListEditCSSVals!.getText()
+myListEditCSSVals!.setCallback(BBjListEdit.ON_EDIT_MODIFY, "OnChangeValue")
+
+myButtonSetCSS! = myChildWindow!.addButton("Set CSS Property to Value")
+myButtonSetCSS!.setAttribute("expanse", "l")
+myButtonSetCSS!.setCallback(BBjButton.ON_BUTTON_PUSH, "OnButtonPush")
+
+rem Make the window visible and process events
+myWindow!.setVisible(1)
+process_events
+
+
+rem Subroutines
+rem ================================================================================
+
+rem Exit the program
+onClose:
+release
+
+rem Load the layout CSS and the theme CSS from their files and inject both
+ApplyStylesAndLayout:
+    fs! = BBjAPI().getFileSystem()
+    layoutCss! = new String(Files.readAllBytes(Paths.get(fs!.resolvePath("./Exercise-ThemingSupportComplete-Layout.css"))))
+    themeCss! = new String(Files.readAllBytes(Paths.get(fs!.resolvePath("./Exercise-ThemingSupportComplete-Theme.css"))))
+
+    rem Inject the layout CSS, then the theme CSS
+    web!.injectStyle(layoutCss!)
+    web!.injectStyle(themeCss!)
+
+    rem Define several CSS Custom Properties
+    myVectCssProps! = BBjAPI().makeVector()
+    myVectCssProps!.addItem("--dwc-font-size")
+    myVectCssProps!.addItem("--dwc-font-weight")
+    myVectCssProps!.addItem("--dwc-color-body-text")
+    myVectCssProps!.addItem("--dwc-color-primary-text")
+    myVectCssProps!.addItem("--dwc-color-primary")
+    myVectCssProps!.addItem("--dwc-border-radius")
+
+
+    rem Define several possible values for the above CSS Custom Properties
+    myVectCssVals! = BBjAPI().makeVector()
+    myVectCssVals!.addItem("20px")
+    myVectCssVals!.addItem("12px")
+    myVectCssVals!.addItem("bold")
+    myVectCssVals!.addItem("normal")
+    myVectCssVals!.addItem("light")
+    myVectCssVals!.addItem("orange")
+    myVectCssVals!.addItem("red")
+    myVectCssVals!.addItem("green")
+    myVectCssVals!.addItem("purple")
+    myVectCssVals!.addItem("unset")
+return
+
+OnChangeProperty:
+    event! = mySysGui!.getLastEvent()
+    currentProperty$ = event!.getText()
+return
+
+OnChangeValue:
+    event! = mySysGui!.getLastEvent()
+    currentValue$ = event!.getText()
+return
+
+
+rem Set the CSS Custom Property to the Designated Value
+OnButtonPush:
+    css! = ":root { " + currentProperty$ + ": " + currentValue$ + "; }"
+    web!.injectStyle(css!)
+return
+
+
+rem Switch between the DWC light and dark themes
+onThemeToggle:
+    if (currentTheme$ = "light") then
+        currentTheme$ = "dark"
+        myThemeToggle!.setText(darkTheme$)
+    else
+        currentTheme$ = "light"
+        myThemeToggle!.setText(lightTheme$)
+    endif
+    web!.setTheme(currentTheme$)
+return
+
+
+rem Declares
+declare auto BBjWebManager web!
+declare auto BBjSysGui mySysGui!
+declare auto BBjTopLevelWindow myWindow!
+declare auto BBjChildWindow myChildWindow!
+declare auto BBjButton myThemeToggle!
+declare auto BBjListEdit myListEditCSSProps!
+declare auto BBjListEdit myListEditCSSVals!
+declare auto BBjButton myButtonSetCSS!
+declare auto BBjEditModifyEvent event!
+```
+
+```css title="Exercise-ThemingSupportComplete-Layout.css"
+dwc-window-content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--dwc-space-l);
+    display: flex;
+    flex-direction: column;
+    gap: var(--dwc-space-2xl);
+    align-items: center;
+    border-color: var(--dwc-color-primary);
+    border-radius: var(--dwc-border-radius);
+}
+
+dwc-window-content fieldset[is='dwc-fieldset-panel'] {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: var(--dwc-space-l);
+    display: grid;
+    gap: var(--dwc-space-2xl);
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+fieldset > legend {
+    color: var(--dwc-color-primary);
+    font-weight: bold;
+}
+```
+
+```css title="Exercise-ThemingSupportComplete-Theme.css"
+/* This is a hand-written theme in the shape of a DWC Themer export. A real export from the DWC Themer replaces this file in the same place. */
+
+:root {
+    --dwc-color-primary-h: 262;
+    --dwc-color-primary-s: 65%;
+    --dwc-color-default-h: 262;
+}
+```
+
+</details>

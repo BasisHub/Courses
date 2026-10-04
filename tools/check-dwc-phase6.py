@@ -446,7 +446,9 @@ def cmd_exercises(root: pathlib.Path, build: pathlib.Path, opts) -> int:
             c.check(b not in t, f"{rel}: contains banned text {b!r}")
         low = t.lower()
         for b in EXERCISE_BANS_CI:
-            c.check(b not in low, f"{rel}: contains banned text {b!r}")
+            # a banned word must not match inside another word: "upgrading" is not "grading"
+            c.check(re.search(r"(?<![a-z0-9])" + re.escape(b), low) is None,
+                    f"{rel}: contains banned text {b!r}")
         for name in re.findall(r"pathname:///files/dwc/([^)\s\"'>]+)", t):
             c.check((root / "docs" / "static" / "files" / "dwc" / name).is_file(),
                     f"{rel}: download target docs/static/files/dwc/{name} missing")
