@@ -80,10 +80,6 @@ wnd!.addPanelStyle("mypanel")
 }
 ```
 
-:::tip
-In a production system, use the external CSS file method as the client's browser has all the CSS it needs to determine the layout as soon as the app is loaded.
-:::
-
 ### CSS Grid Explanation
 
 - `wnd!.setPanelStyle("display","grid")` - Sets the window to use CSS Grid for layout

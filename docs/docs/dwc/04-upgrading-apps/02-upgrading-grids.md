@@ -206,7 +206,7 @@ Run this program in the DWC. The grid takes the full browser canvas to display t
 
 ### Styling and Configuring the Grid
 
-With the basic loading of data working, you can look at examples for often needed functionality. You find the demos in the `demos` subfolder of the BBjGridExWidget plug-in on your disk, or you can browse them [online on GitHub](https://github.com/BBj-Plugins/BBjGridExWidget/tree/master/demo).
+With the basic loading of data working, you can look at examples for often needed functionality. You find the demos in the `demo` subfolder of the BBjGridExWidget plug-in on your disk, or you can browse them [online on GitHub](https://github.com/BBj-Plugins/BBjGridExWidget/tree/master/demo).
 
 ## Migration Steps
 
