@@ -1,9 +1,7 @@
 ---
-sidebar_position: 3
 title: "Taking an App From GUI to BUI to DWC"
+description: Take a GUI app, run it as a BUI app, and then run it in the DWC.
 ---
-
-# Taking an App From GUI to BUI to DWC
 
 ## Overview
 

@@ -1,9 +1,7 @@
 ---
-sidebar_position: 4
 title: "DWC Themes"
+description: Learn how DWC themes work and how to choose and adjust one for your app.
 ---
-
-# DWC Themes
 
 ## Overview
 

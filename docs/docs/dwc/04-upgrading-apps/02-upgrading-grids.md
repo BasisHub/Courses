@@ -1,9 +1,7 @@
 ---
-sidebar_position: 2
 title: "Upgrading BBjGrids"
+description: Upgrade code written for BBjStandardGrid to BBjGridExWidget.
 ---
-
-# Upgrading BBjGrids
 
 Learn about the steps needed to upgrade existing code written for BBjStandardGrid to BBjGridExWidget.
 

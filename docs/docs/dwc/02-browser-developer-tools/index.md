@@ -1,6 +1,6 @@
 ---
-sidebar_position: 5
 title: "Browser Developer Tools, CSS, and Themes"
+description: Learn the browser Developer Tools, CSS, CSS custom properties, and DWC themes.
 ---
 
 # Browser Developer Tools, CSS Styles, CSS Custom Properties, and DWC Themes

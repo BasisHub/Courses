@@ -1,9 +1,7 @@
 ---
-sidebar_position: 4
 title: "GUI to BUI to DWC"
+description: Learn how BBj GUI apps move to the Browser User Interface and the Dynamic Web Client.
 ---
-
-# GUI to BUI to DWC
 
 This chapter covers the fundamentals of transitioning from BBj GUI applications to Browser User Interface (BUI) and the Dynamic Web Client (DWC).
 

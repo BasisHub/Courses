@@ -1,9 +1,7 @@
 ---
-sidebar_position: 7
 title: "DWC Controls With Extended Attributes"
+description: Learn which BBj controls are web components in the DWC and how extended attributes change them.
 ---
-
-# DWC Controls With Extended Attributes
 
 This chapter covers BBj controls implemented as web components for the Dynamic Web Client and their extended attributes.
 

@@ -1,9 +1,7 @@
 ---
-sidebar_position: 1
 title: "Introduction to CSS"
+description: Learn the CSS basics you need to style and inspect DWC apps.
 ---
-
-# Introduction to CSS
 
 ## Overview
 

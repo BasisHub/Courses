@@ -1,9 +1,7 @@
 ---
-sidebar_position: 12
 title: "Embedding 3rd Party Components"
+description: Embed third-party JavaScript components, such as charts and maps, in your DWC app.
 ---
-
-# Embedding 3rd Party Components
 
 This chapter covers embedding third-party JavaScript components like charts, maps, and widgets into DWC applications.
 

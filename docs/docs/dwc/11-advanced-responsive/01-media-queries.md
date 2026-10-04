@@ -1,9 +1,7 @@
 ---
-sidebar_position: 1
 title: "Media Queries"
+description: Use CSS media queries to adapt your DWC app to different screen sizes.
 ---
-
-# Media Queries
 
 ## Overview
 

@@ -1,9 +1,7 @@
 ---
-sidebar_position: 6
 title: "DWC Debugging"
+description: Learn the debugging techniques that are specific to the Dynamic Web Client.
 ---
-
-# DWC Debugging
 
 This chapter covers debugging techniques specific to the Dynamic Web Client.
 

@@ -1,9 +1,7 @@
 ---
-sidebar_position: 11
 title: "Browser Constraints"
+description: Learn which browser constraints and limits affect your DWC apps.
 ---
-
-# Browser Constraints
 
 This chapter covers browser constraints and limitations when working with DWC applications.
 

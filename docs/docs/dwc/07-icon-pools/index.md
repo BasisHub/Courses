@@ -1,9 +1,7 @@
 ---
-sidebar_position: 9
 title: "Icon Pools"
+description: Learn how to use icon pools in your DWC apps.
 ---
-
-# Icon Pools
 
 This chapter covers working with icon pools in DWC applications.
 

@@ -1,9 +1,7 @@
 ---
-sidebar_position: 10
 title: "Control Validation"
+description: Learn how to validate control input in your DWC apps.
 ---
-
-# Control Validation
 
 This chapter covers implementing control validation in DWC applications.
 

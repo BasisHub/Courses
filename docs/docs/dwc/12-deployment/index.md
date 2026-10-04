@@ -1,9 +1,7 @@
 ---
-sidebar_position: 15
 title: "Deployment Options"
+description: Learn the advanced deployment options for DWC apps, including embedded deployment and PWAs.
 ---
-
-# Deployment Options
 
 This chapter covers advanced deployment options for DWC applications, including embedded deployment and Progressive Web Apps (PWA).
 
@@ -11,7 +9,7 @@ This chapter covers advanced deployment options for DWC applications, including 
 
 By default, BBj DWC apps are published to URLs in this format:
 
-```
+```text
 http://hostname:8888/webapp/appname
 ```
 
@@ -48,7 +46,7 @@ The `<script>` line tells the `/dwcembed/` servlet to start the DWC app named **
 
 Save this HTML file to the `htdocs` directory under the BASIS home directory. Access it with a URL in the format:
 
-```
+```text
 http://localhost:8888/files/myhtml.html
 ```
 

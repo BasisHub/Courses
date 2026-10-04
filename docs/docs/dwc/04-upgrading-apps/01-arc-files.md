@@ -1,9 +1,7 @@
 ---
-sidebar_position: 1
 title: "Working with ARC Files"
+description: Work with ARC files when you move an existing app to the DWC.
 ---
-
-# Working with ARC Files
 
 ## Overview
 

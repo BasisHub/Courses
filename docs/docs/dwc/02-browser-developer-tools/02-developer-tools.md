@@ -1,9 +1,7 @@
 ---
-sidebar_position: 2
 title: "Introduction to the Browser's Developer Tools"
+description: Use the browser's Developer Tools to inspect elements, styles, and the console in a DWC app.
 ---
-
-# Introduction to the Browser's Developer Tools
 
 ## Overview
 

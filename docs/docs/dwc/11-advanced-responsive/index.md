@@ -1,9 +1,7 @@
 ---
-sidebar_position: 13
 title: "Advanced Responsive Design"
+description: Learn advanced responsive design with media queries and CSS transitions.
 ---
-
-# Advanced Responsive Design
 
 This chapter covers advanced responsive design techniques including media queries and CSS transitions.
 

@@ -1,6 +1,6 @@
 ---
-sidebar_position: 8
 title: "Flow Layouts and CSS for Responsive Design"
+description: Compare CSS layout strategies and build responsive BBj apps for the DWC.
 ---
 
 # Flow Layouts and Using CSS for Responsive Design

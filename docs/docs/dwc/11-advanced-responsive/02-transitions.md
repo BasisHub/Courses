@@ -1,9 +1,7 @@
 ---
-sidebar_position: 2
 title: "Transitions"
+description: Use CSS transitions to animate changes in your DWC app.
 ---
-
-# Transitions
 
 ## Overview
 

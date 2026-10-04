@@ -1,9 +1,7 @@
 ---
-sidebar_position: 3
 title: "CSS Styles and CSS Custom Properties"
+description: Read and change CSS styles and CSS custom properties to restyle DWC controls.
 ---
-
-# CSS Styles and CSS Custom Properties
 
 ## Overview
 

@@ -1,9 +1,7 @@
 ---
-sidebar_position: 1
 title: "Registering and Launching a DWC App"
+description: Register a BBj program as a DWC app and launch it in the browser.
 ---
-
-# Registering and Launching a DWC App
 
 ## Overview
 

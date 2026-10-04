@@ -1,6 +1,6 @@
 ---
-sidebar_position: 6
 title: "Upgrading Apps to DWC"
+description: Learn how to upgrade an existing GUI or BUI app to use DWC features.
 ---
 
 # Upgrading an Existing GUI or BUI App to DWC

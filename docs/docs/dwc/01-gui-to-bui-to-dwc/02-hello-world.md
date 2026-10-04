@@ -1,9 +1,7 @@
 ---
-sidebar_position: 2
 title: 'Running a "Hello World" App in BUI and DWC'
+description: Run a Hello World program in BUI and in the DWC and compare how each one runs.
 ---
-
-# Running a "Hello World" App in BUI and DWC
 
 ## Overview
 
