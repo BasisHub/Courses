@@ -1,0 +1,3 @@
+BBjAPI().getSysGui().executeScript(
+:"document.getElementById('" + sl_splitter!.getAttribute("id") + "').appendChild(document.getElementById('" + top!.getAttribute("id") + "'));"+
+:"document.getElementById('" + sl_splitter!.getAttribute("id") + "').appendChild(document.getElementById('" + bottom!.getAttribute("id") + "'));")
