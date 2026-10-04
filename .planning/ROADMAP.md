@@ -271,7 +271,7 @@ Plans:
 
 **Gap closure, wave 2** *(blocked on 06-18..06-20)*
 
-- [ ] 06-21-PLAN.md — Checker hardening: starter variable/snippet checks, WR-12, WR-13, full gate run
+- [x] 06-21-PLAN.md — Checker hardening: starter variable/snippet checks, WR-12, WR-13, full gate run
 
 **Cross-cutting constraints:**
 
@@ -315,6 +315,6 @@ Plans:
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
-| 6. Exercises & DWC Gap Audit | 20/21 | In Progress|  |
+| 6. Exercises & DWC Gap Audit | 21/21 | Complete   | 2026-10-04 |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |
