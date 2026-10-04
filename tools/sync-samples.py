@@ -153,9 +153,17 @@ def sync(book: str) -> None:
             print("unchanged " + str(target.relative_to(ROOT)))
             continue
         fd, tmp = tempfile.mkstemp(dir=out, suffix=".tmp")
-        with os.fdopen(fd, "wb") as fh:
-            fh.write(data)
-        os.replace(tmp, target)
+        try:
+            with os.fdopen(fd, "wb") as fh:
+                fh.write(data)
+            os.chmod(tmp, 0o644)  # mkstemp creates 0600; served files must be world-readable
+            os.replace(tmp, target)
+        except BaseException:
+            try:
+                os.unlink(tmp)
+            except FileNotFoundError:
+                pass
+            raise
         print("wrote " + str(target.relative_to(ROOT)))
     for stale in sorted(out.glob("*.zip")):
         if stale.name not in want:
