@@ -220,12 +220,12 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 06-03-PLAN.md — Audit fragments: S0, S3 (3A, 3B1-3B4), S8 to S10
-- [ ] 06-04-PLAN.md — Audit fragments: S1 (1A, 1B, 1C)
-- [ ] 06-05-PLAN.md — Audit fragments: 2A, 2B (4 parked), 2D
-- [ ] 06-06-PLAN.md — Audit fragment: 2C
-- [ ] 06-07-PLAN.md — Audit fragments: 4A, 5A (8 parked)
-- [ ] 06-08-PLAN.md — Audit fragments: 6A, 7A
+- [x] 06-03-PLAN.md — Audit fragments: S0, S3 (3A, 3B1-3B4), S8 to S10
+- [x] 06-04-PLAN.md — Audit fragments: S1 (1A, 1B, 1C)
+- [x] 06-05-PLAN.md — Audit fragments: 2A, 2B (4 parked), 2D
+- [x] 06-06-PLAN.md — Audit fragment: 2C
+- [x] 06-07-PLAN.md — Audit fragments: 4A, 5A (8 parked)
+- [x] 06-08-PLAN.md — Audit fragments: 6A, 7A
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
@@ -305,6 +305,6 @@ Plans:
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
-| 6. Exercises & DWC Gap Audit | 2/17 | In Progress|  |
+| 6. Exercises & DWC Gap Audit | 8/17 | In Progress|  |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |
