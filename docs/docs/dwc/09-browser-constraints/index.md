@@ -67,7 +67,13 @@ Modern webapp printing is typically done by:
 
 ### Print Preview
 
-As a general solution, all BBj printing capabilities (Jasper, SysPrint and `BBjPrinter`) can create PDF documents on the server. Once the document is on the server, the [BBjDocViewer](https://github.com/BBj-Plugins/BBjDocViewer) plug-in can show it in a similar preview on the client. Install it with the Plug-In Manager and inspect its `demo.bbj` for more information about how to use it. The BBJasper print preview also works with its known features in the DWC.
+As a general solution, all BBj printing capabilities (Jasper, SysPrint and `BBjPrinter`) can create PDF documents on the server. Once the document is on the server, the [BBjDocViewer](https://github.com/BBj-Plugins/BBjDocViewer) plug-in can show it in a similar preview on the client. Install it with the Plug-In Manager and inspect its `demo.bbj` for more information about how to use it.
+
+![The BBj Document Viewer demo in the DWC: two buttons, Open Document and Open Document (as BLOB), above a PDF viewer that shows page 1 of a 14-page document with a thumbnail strip.](./img/bbj-doc-viewer-demo.png)
+
+The BBJasper print preview also works with its known features in the DWC.
+
+![The BBJasper print preview in the DWC: a toolbar with print, navigation and zoom controls above page 5 of 8 of a customer report grouped by state.](./img/bbjasper-print-preview.png)
 
 ```bbj
 rem Generate a PDF for preview
