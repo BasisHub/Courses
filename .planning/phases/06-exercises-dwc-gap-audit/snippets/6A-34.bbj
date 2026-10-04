@@ -1,0 +1,7 @@
+    rem Add a custom icon pool referencing the ionicons library from a CDN
+    rem @see https://ionic.io/ionicons for the icons
+        iconLibraryName! = "ionicons"
+        resolverPathCdn! = "https://cdnjs.cloudflare.com/ajax/libs/ionicons/7.4.0/svg/${name}.svg"
+        myIconPool! = "(window.Dwc ??= {}).IconsPools ??= []; window.Dwc.IconsPools.push({ name: '" + iconLibraryName! + "', resolver: name => `" + resolverPathCdn! + "` });"
+        web! = BBjAPI().getWebManager()
+        web!.injectScript(myIconPool!)

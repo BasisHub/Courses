@@ -1,0 +1,4 @@
+    rem Define the HTML title for the buttons that incorporate the download icons
+        btnIconFeather$ = "<html><dwc-icon pool='feather' name='download'></dwc-icon>"
+        btnIconTabler$ = "<html><dwc-icon pool='tabler' name='download'></dwc-icon>"
+        btnIconFontAwesome$ = "<html><dwc-icon pool='fa' name='fas-download'></dwc-icon>"

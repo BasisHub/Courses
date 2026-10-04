@@ -1,0 +1,10 @@
+    rem Define the JavaScript function that determines if the provided input
+    rem is valid or not.  Since this replicates the "required" attribute, the
+    rem JavaScript only has to ensure that the control's contents are not empty.
+    js! =       "if (value.trim().length > 0) { "
+    js! = js! + "    return true; "
+    js! = js! + "} else {"
+    js! = js! + "    return false;"
+    js! = js! + "} "
+    editFirstName!.setClientValidationFunction(js!)
+    editFirstName!.setClientValidationMessage("This field is required; please enter your first name before submitting the form")

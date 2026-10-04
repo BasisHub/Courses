@@ -1,0 +1,4 @@
+    rem Now create the buttons using the HTML for the title
+        btnFeather! = wnd!.addButton(btnIconFeather$ + "Feather's Download Icon")
+        btnTabler! = wnd!.addButton(btnIconTabler$ + "Tabler's Download Icon")
+        btnFontAwesome! =  wnd!.addButton(btnIconFontAwesome$ + "Font Awesome's Download Icon")

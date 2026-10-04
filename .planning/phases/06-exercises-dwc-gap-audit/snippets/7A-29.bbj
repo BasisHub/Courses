@@ -1,0 +1,4 @@
+    editFirstName!.setAttribute("required", "true")
+    editFirstName!.setAttribute("auto-validate-on-load", "true")
+    editLastName!.setAttribute("required", "true")
+    editLastName!.setAttribute("auto-validate-on-load", "true")

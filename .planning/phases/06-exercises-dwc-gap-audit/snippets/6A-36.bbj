@@ -1,0 +1,3 @@
+    rem Define the HTML title for the buttons that incorporate the bootstrap icons
+        btnIconIon1$ = "<html><dwc-icon pool='ionicons' name='cloud-download-outline'></dwc-icon>"
+        btnIconIon2$ = "<html><dwc-icon pool='ionicons' name='cloud-download'></dwc-icon>"
