@@ -47,3 +47,11 @@ None in content. Execution gap: the Bash permission system denied running `tools
 None.
 
 ## Self-Check: PASSED
+
+## Gate scripts run by Stephan after C2 (2026-10-04)
+
+The executor was denied these; Stephan ran them on the C2 tree:
+- `bash tools/verify-phase1.sh`: ALL CHECKS PASSED (exit 0)
+- `bash tools/verify-phase3.sh`: all checks passed (exit 0)
+- `bash tools/verify-phase4.sh --no-build`: all checks passed (exit 0)
+- `bash tools/prove-gates.sh`: exit 0
