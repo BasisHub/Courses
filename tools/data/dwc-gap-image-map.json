@@ -342,5 +342,21 @@
     "path": "docs/docs/dwc/06-flow-layouts/img/css-layout-samples-responsive-mode.png",
     "alt": "CSS Layout 8 selected in the BBj DWC CSS Layout Samples window, shown in the browser's Responsive mode with orange drag handles and the viewport width of 900 pixels outlined in purple.",
     "page": "docs/docs/dwc/06-flow-layouts/index.md"
+  },
+  {
+    "moodle_name": "image.png",
+    "sha1": "0b56a33d8e8f66e1b5c6d7e95b0dede12efa3ccd",
+    "source": "moodle",
+    "path": "docs/docs/dwc/10-embedding-components/img/shoelace-split-panel.png",
+    "alt": "Shoelace split panel with a Start area above and an End area below a draggable divider.",
+    "page": "docs/docs/dwc/10-embedding-components/index.md"
+  },
+  {
+    "moodle_name": "Shoelace Splitter.png",
+    "sha1": "18414eb2e43d3c449a6dbca12b15c65ee99bedfc",
+    "source": "moodle",
+    "path": "docs/docs/dwc/10-embedding-components/img/shoelace-splitter-result.png",
+    "alt": "Window with a red top panel and a green bottom panel inside the splitter.",
+    "page": "docs/docs/dwc/10-embedding-components/index.md"
   }
 ]
