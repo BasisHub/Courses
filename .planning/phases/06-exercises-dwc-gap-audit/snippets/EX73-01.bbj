@@ -1,0 +1,1 @@
+    myName! = window!.addEditBox("Joe Blow").setAttribute("label", "Name:")
