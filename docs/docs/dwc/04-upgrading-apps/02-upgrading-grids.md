@@ -15,7 +15,7 @@ These grids were written with a legacy 1-tier architecture in mind. When they we
 
 ## BBjGridExWidget Plug-in
 
-The **BBjGridExWidget Plug-in** has been written with best-possible performance for the Thin Client and the Web Browser in mind. It's built on a leading 3rd party implementation of a powerful data grid, built in JavaScript and TypeScript.
+The **BBjGridExWidget Plug-in** has been written with best-possible performance for the Thin Client and the Web Browser in mind. It's built on a leading third-party implementation of a powerful data grid, built in JavaScript and TypeScript.
 
 The BBjGridExWidget works well in the DWC, which is why this course proposes it as one potential upgrade path for your existing data grids.
 

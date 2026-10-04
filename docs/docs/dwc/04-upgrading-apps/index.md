@@ -9,7 +9,7 @@ This chapter covers upgrading existing GUI or BUI applications to take advantage
 
 ## Concepts Covered in This Chapter
 
-- Useful information about how to upgrade GUI programs that are based on .arc files to DWC
+- Useful information about how to upgrade GUI programs that are based on `.arc` files to DWC
 - Learning how to use the BBjGridExWidget Plug-In to upgrade existing code written for the BBjStandardGrid
 
 ## Sections

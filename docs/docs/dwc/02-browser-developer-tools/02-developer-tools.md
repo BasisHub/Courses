@@ -19,7 +19,7 @@ We'll be using the `DWC1.bbj` file during this section of the course.
 
 ## Developer Tools Features
 
-The browser's Developer Tools are designed to help web developers with any imaginable web-related task, and since we're now running BBj graphical applications in a web browser, we officially qualify as web developers!
+The browser's Developer Tools are designed to help web developers with any imaginable web-related task, and since we're now running BBj graphical applications in a web browser, we officially qualify as web developers.
 
 Even if you've never used the browser's Developer Tools before, after these exercises you'll be able to inspect and edit a BUI or DWC app's Document Object Model (DOM) as well as the DIVs that comprise every BBjControl.
 
@@ -77,7 +77,7 @@ The Developer Tools offer configuration options including:
 Find the element associated with the BBj app's title bar text:
 
 1. Click the element selection tool at the top left of Developer Tools, then click the title bar
-2. Search for "dwc-frame-titlebar-text" using `Ctrl+F` (Windows) or `⌘+F` (macOS)
+2. Search for `dwc-frame-titlebar-text` using `Ctrl+F` (Windows) or `⌘+F` (macOS)
 3. Expand disclosure triangles in the Elements tab until you find the DIV
 
 Change the text by either:
@@ -88,7 +88,7 @@ Change the text by either:
 
 1. Select the correct DOM element
 2. Go to the Styles tab
-3. Find the "dwc-frame-titlebar-text" class definition
+3. Find the `dwc-frame-titlebar-text` class definition
 4. Click the closing curly brace `}` and type `color: green`
 
 ![Title bar text without color](./img/dwc-titlebar-text-nocolor.png)
@@ -158,7 +158,7 @@ btn!.setStyle("color", "var(--dwc-color-info)")
 btn!.setStyle("background", "var(--dwc-color-warning-90)")
 ```
 
-:::info Why use "background" instead of "background-color"?
+:::info Why use `background` instead of `background-color`?
 The `background` property is a CSS shorthand that combines eight constituent properties (attachment, clipping, color, image, origin, position, repeatability, and size). Using `background-color` only affects the color, which may not override other background properties.
 :::
 

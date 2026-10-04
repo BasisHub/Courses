@@ -1,5 +1,5 @@
 ---
-title: "Embedding 3rd Party Components"
+title: "Embedding Third-Party Components"
 description: Embed third-party JavaScript components, such as charts and maps, in your DWC app.
 ---
 
@@ -7,7 +7,7 @@ This chapter covers embedding third-party JavaScript components like charts, map
 
 ## Overview
 
-DWC can embed 3rd party components like charts, maps, and widgets that have been written in JavaScript or TypeScript and run in the browser.
+DWC can embed third-party components like charts, maps, and widgets that have been written in JavaScript or TypeScript and run in the browser.
 
 ## Embedding a JavaScript Chart Component
 
@@ -89,7 +89,7 @@ htmlView! = wnd!.addHtmlView(html$)
 | **FullCalendar** | Calendar widgets |
 | **Quill** | Rich text editor |
 
-## Exercise: Embed a 3rd Party Component
+## Exercise: Embed a Third-Party Component {#exercise-embed-a-3rd-party-component}
 
 Run the examples in `DWCTraining/09_EmbeddingComponents/` to see various third-party integrations.
 

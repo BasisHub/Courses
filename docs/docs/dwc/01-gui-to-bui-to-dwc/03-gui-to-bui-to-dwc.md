@@ -25,9 +25,9 @@ The training files also include programs named `DWC1.bbj` and `DWC2.bbj` that ar
 
 The program displays a dialog with inputs for the user's first and last names and a [Say Hello] button that greets the user by name when pressed.
 
-- **GUISample.bbj** - Can run equally well in all three clients
-- **DWC1.bbj** - Sets the `$00100000$` creation flag on the window to cause the DWC to ignore all size and position information for the controls. It adds styles to the window's panel to layout the controls using CSS Grid and sets attributes on the [Say Hello] button so that it is displayed as a very large green button.
-- **DWC2.bbj** - Sets more window creation flags to hide the window's title bar and to set it to be initially maximized. It removes all the x, y, width, and height parameters from the controls.
+- **`GUISample.bbj`** - Can run equally well in all three clients
+- **`DWC1.bbj`** - Sets the `$00100000$` creation flag on the window to cause the DWC to ignore all size and position information for the controls. It adds styles to the window's panel to layout the controls using CSS Grid and sets attributes on the [Say Hello] button so that it is displayed as a very large green button.
+- **`DWC2.bbj`** - Sets more window creation flags to hide the window's title bar and to set it to be initially maximized. It removes all the x, y, width, and height parameters from the controls.
 
 ## Example 1 - Running the App in GUI, BUI, and the DWC
 

@@ -41,7 +41,7 @@ If you're still using an older version of the BDT plug-in for Eclipse and it's n
 2. Launch the app via the Eclipse toolbar icon:
    - **(New versions)** Click the **[Run DWC Program]** toolbar icon
    - **(Old versions)** Click the **[Run BUI Program]** toolbar icon
-3. In the newly-launched BUI app, change the URL context from `apps` to `webapp`.
+3. In the newly launched BUI app, change the URL context from `apps` to `webapp`.
 
 Alternatively, you can copy the BUI URL, open a new tab in your browser, then paste in the copied URL. After pasting, change the URL context from `apps` to `webapp` and hit the **[Return]** key to relaunch the app in the DWC.
 

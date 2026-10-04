@@ -57,7 +57,7 @@ color: var(--dwc-button-color, red);
 This sets the color to `--dwc-button-color`, or `red` if undefined.
 
 :::tip
-View all DWC CSS custom properties by switching to the Application tab in Developer Tools and viewing the "dwc-ui.css" file.
+View all DWC CSS custom properties by switching to the Application tab in Developer Tools and viewing the `dwc-ui.css` file.
 :::
 
 ## Example 1 - Setting Custom Values for CSS Custom Properties
@@ -109,9 +109,9 @@ web!.setTheme("system")
 
 ### Example Programs
 
-- **UserPreference.bbj** - Follows the client's OS light/dark setting
-- **Themes.bbj** - Always displays using DWC's dark theme
-- **DWCThemer.bbj** - Applies a CSS theme created by the DWC Themer utility
+- **`UserPreference.bbj`** - Follows the client's OS light/dark setting
+- **`Themes.bbj`** - Always displays using DWC's dark theme
+- **`DWCThemer.bbj`** - Applies a CSS theme created by the DWC Themer utility
 
 ## Example 2 - Setting a DWC App to Dark Mode
 
@@ -261,7 +261,7 @@ Inheritable styles (background, color, font, line height, etc.) continue to inhe
 :::
 
 :::tip Finding CSS Properties and Parts
-Each DWC control exposes different CSS custom properties and shadow parts. Use **[dwc.style](https://dwc.style/)** to look up the available properties and parts for any control. Select a control from the sidebar to see its CSS custom properties, shadow parts, and attributes.
+Each DWC control exposes different CSS custom properties and shadow parts. Use **[`dwc.style`](https://dwc.style/)** to look up the available properties and parts for any control. Select a control from the sidebar to see its CSS custom properties, shadow parts, and attributes.
 :::
 
 ## Font Size Compatibility
@@ -289,5 +289,5 @@ myWindow!.setStyle("font-size","8pt")
 1. Compare the app running in BUI (`/apps/` context) vs DWC (`/webapp/` context)
 2. In Developer Tools, select a BBjStaticText control and view Computed styles
 3. DWC default font-size: 14px (from `var(--dwc-font-size)`)
-4. BUI default font-size: 10.6667px (8pt from basis.css)
+4. BUI default font-size: 10.6667px (8pt from `basis.css`)
 5. Use either STBL or setStyle to match sizes if needed

@@ -61,7 +61,7 @@ Run the program and test the button. The button displays:
 - **Light mode**: Sun icon with "Light" text
 - **Dark mode**: Moon icon with "Dark" text
 
-Now users have control over the app's appearance with the click of a button!
+Now users have control over the app's appearance with the click of a button.
 
 ## The DWC Themer
 

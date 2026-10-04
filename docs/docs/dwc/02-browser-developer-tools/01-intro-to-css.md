@@ -112,7 +112,7 @@ Pseudo-classes are CSS selectors that can represent state or other information a
 | `:not()` | Can be used for not matching some other selector |
 
 :::tip
-The inspector tool can toggle pseudo-classes!
+The inspector tool can toggle pseudo-classes.
 :::
 
 For a complete list, see the [MDN List of Pseudo-Classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes).

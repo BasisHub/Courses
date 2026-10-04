@@ -75,11 +75,11 @@ The message box function's MODE parameter may contain any number of key/value pa
 
 ## Helpful Links
 
-- [BASIS Online Help](https://documentation.basis.cloud/BASISHelp/WebHelp/index.htm) - Search for "MSGBOX Function", "BBjMsgBox", or "DWC themes"
+- [BASIS Online Help](https://documentation.basis.cloud/BASISHelp/WebHelp/index.htm) - Search for "MSGBOX Function," "BBjMsgBox," or "DWC themes"
 
 ## Going the Extra Mile
 
-The short sample program used in the exercises included a MODE string in the message box function that set the message box's theme to "primary". This mode string is documented as only affecting programs running in the Dynamic Web Client, so removing it from the code shouldn't make any noticeable difference when running in BUI. But it does make a difference in the DWC, as the message box will revert to using the "default" control theme when we remove the mode string from the code.
+The short sample program used in the exercises included a MODE string in the message box function that set the message box's theme to "primary." This mode string is documented as only affecting programs running in the Dynamic Web Client, so removing it from the code shouldn't make any noticeable difference when running in BUI. But it does make a difference in the DWC, as the message box will revert to using the "default" control theme when we remove the mode string from the code.
 
 Try experimenting with the code by first removing the mode string, then by adding it back again but specifying the "default" theme instead of the "primary" theme.
 
