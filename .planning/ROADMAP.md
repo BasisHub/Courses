@@ -14,6 +14,7 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 - [x] **Phase 4: DWC Book Relocation** - DWC-Course moved in as a pure relocation under `/docs/dwc/` (completed 2026-10-04)
 - [x] **Phase 5: Intro-BBj Conversion** - Throwaway Moodle converter produces the "Introduction to BBj Development" book (completed 2026-10-04)
 - [x] **Phase 6: Exercises & DWC Gap Audit** - Exercise pages in both books; missing course-4 material added to DWC before go-live (completed 2026-10-04)
+- [ ] **Phase 6.1: Exercise Solutions and Restored Screenshots** (INSERTED) - Solutions for all 16 exercises, solution pointers, two restored screenshots
 - [ ] **Phase 7: Review, Acceptance & Go-Live** - Hand review, Vale and syntax checks clean, acceptance gates pass, site public
 - [ ] **Phase 8: Redirects & Archive** - Old DWC-Course URLs redirect to Courses; old repo archived
 
@@ -277,10 +278,51 @@ Plans:
 
 - Every kept BBj snippet is saved verbatim for the orchestrator check (D-05, D-14)
 
+### Phase 06.1: Exercise Solutions and Restored Screenshots (INSERTED)
+
+**Goal**: Every exercise in both books has a solution, and the two dropped print-preview screenshots are back
+**Depends on**: Phase 6
+**Requirements**: EXER-04 (extended to all exercises)
+**Success Criteria** (what must be TRUE):
+
+  1. All 16 exercise pages (11 DWC, 5 intro-bbj) end in a collapsed "Possible solution" block. The 10 new solutions (DWC assignments 65 theming, 68 BBjGridExWidget, 83 embed component, 122 media queries, 123 button transition; intro-bbj tic-tac-toe, computer player, login dialog, OO tic-tac-toe, responsive login dialog) say they were written for this book, not taken from the original course
+  2. Every new solution lives in `docs/examples/<book>/` and in the matching ZIP under `docs/static/files/<book>/`, passes `bbj_check_syntax`, uses only APIs confirmed with `bbj_lookup`, prefers BBjAPI callbacks with `process_events`, and the inline fence matches the file byte for byte
+  3. Every exercise page has a line near the top telling the reader that a possible solution is at the end of the page
+  4. Screenshots 8B-05 and 8B-07 from the gap audit appear unredacted on the DWC chapter 09 printing section, with alt text, and the audit records them as restored
+  5. The phase checker covers all 16 exercise pages (solution present, fence matches file, starter variables and snippets exist), and build, Vale and verify-phase1..6 stay green
+**Plans:** 10 plans
+
+Plans:
+**Wave 1**
+
+- [ ] 06.1-01-PLAN.md — Tracer: checker covers all 16 pages (pointer line, per-file fences, ZIP membership, token rules), pointer line on the 6 Phase 6 pages, verify-phase6.1.sh
+- [ ] 06.1-02-PLAN.md — Restore screenshots 8B-05 and 8B-07 to chapter 09 Print Preview; audit and image map
+- [ ] 06.1-03-PLAN.md — Drafts: DWC 65 theming (program, layout CSS, theme CSS) and 68 BBjGridExWidget
+- [ ] 06.1-04-PLAN.md — Drafts: DWC 83 Shoelace rating, 122 media queries, 123 button transition
+- [ ] 06.1-05-PLAN.md — Drafts: intro-bbj Tic-Tac-Toe, computer player (Random, MinMax), OO Tic-Tac-Toe
+- [ ] 06.1-06-PLAN.md — Drafts: intro-bbj login dialog and responsive login dialog
+
+**Wave 2** *(blocked on 06.1-03 to 06.1-06)*
+
+- [ ] 06.1-07-PLAN.md — Orchestrator BBj MCP and token check of all drafts (non-autonomous)
+
+**Wave 3** *(blocked on 06.1-01 and 06.1-07)*
+
+- [ ] 06.1-08-PLAN.md — DWC slice: install drafts, ZIPs, Sample Code page, syntax record, 5 DWC solution pages
+- [ ] 06.1-09-PLAN.md — intro-bbj slice: install drafts, exercises.zip, checker lists, syntax record, 5 intro solution pages
+
+**Wave 4** *(blocked on Waves 1 to 3)*
+
+- [ ] 06.1-10-PLAN.md — Exercise indexes, EXER-04 wording, 06.1-HUMAN-UAT.md, full gate
+
+**Cross-cutting constraints:**
+
+- New BBj code is staged under the phase `drafts/` folder until plan 06.1-07 has checked it; it enters `docs/examples/` and pages only afterwards (CLAUDE.md tool rule 2)
+
 ### Phase 7: Review, Acceptance & Go-Live
 
 **Goal**: Both books are reviewed, clean and publicly live on GitHub Pages
-**Depends on**: Phase 6
+**Depends on**: Phase 6.1
 **Requirements**: QUAL-01, QUAL-02, QUAL-03, QUAL-04, QUAL-05, LIVE-01, LIVE-02
 **Success Criteria** (what must be TRUE):
 
