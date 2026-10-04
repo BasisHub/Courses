@@ -116,11 +116,11 @@ In the following screenshot, `grid-template-columns` is set to `25% 1fr`. That g
 The `DWC1.bbj` program from the first chapter uses this method for its layout:
 
 ```bbj
-    wnd!.setPanelStyle("display","inline-grid")
+    wnd!.setPanelStyle("display","grid")
     wnd!.setPanelStyle("grid-template-columns","180px auto")
 ```
 
-That code sets the window to use an inline grid, then defines two template columns: the first is 180 pixels wide and the second takes the remaining space. With two controls in the window, you get a grid with one row and two columns. Each additional control fills the next cell, row by row, until you have the final form. The next screenshot shows the Developer Tools grid overlay on top of the window to visualize the columns:
+That code sets the window to use a grid, then defines two template columns: the first is 180 pixels wide and the second takes the remaining space. With two controls in the window, you get a grid with one row and two columns. Each additional control fills the next cell, row by row, until you have the final form. The next screenshot shows the Developer Tools grid overlay on top of the window to visualize the columns:
 
 {/* TODO: screenshot outdated? */}
 ![The Hello window with the Developer Tools grid overlay showing a 180px column and an auto column](./img/hello-window-grid-overlay.png)
@@ -128,6 +128,7 @@ That code sets the window to use an inline grid, then defines two template colum
 ### Responsive Grids with repeat()
 
 ```css
+display: grid;
 grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr) minmax(20ch, 2fr));
 ```
 
@@ -249,7 +250,7 @@ Using CSS Grid with `repeat(auto-fit, ...)`, forms automatically adjust columns 
 
 Justification aligns along the inline axis (rows, horizontal) and alignment aligns along the block axis (columns, vertical). In a grid, justification always deals with rows and alignment always deals with columns. In flexbox, the two flip depending on whether you are in row mode or column mode.
 
-`justify-content` and `align-content` only have an effect when the grid is smaller than its container. If the grid takes up the full size of the container, they do nothing. `justify-self` only matters when you nest grids and want a nested grid aligned differently from the other items of the parent grid.
+`justify-content` and `align-content` only have an effect when the grid is smaller than its container. If the grid takes up the full size of the container, they do nothing. `justify-self` and `align-self` override the container's alignment for a single item, for example to right-align one button in its cell.
 
 ## Resources
 
