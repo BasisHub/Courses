@@ -1,0 +1,2 @@
+    wnd!.setPanelStyle("display","inline-grid")
+    wnd!.setPanelStyle("grid-template-columns","180px auto")
