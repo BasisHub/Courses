@@ -1,0 +1,98 @@
+file	symbol	source
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	rem	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	use	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	if	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	endif	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	release	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	process_events	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	gosub	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	return	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	declare auto	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	cast	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	$0a$ hex string	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	info	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjAPI	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjAPI.ON_CLOSE	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	openSysGui	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	addWindow	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	addChildWindow	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	getSysGui	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	getAvailableContext	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	addEditBox	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	addCheckBox	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	addRadioButton	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	addNavigator	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	setSelected	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	addListEdit	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	setAttribute	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	selectIndex	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	getText	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	getLastEvent	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	setCallback	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjListEdit.ON_EDIT_MODIFY	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjButton.ON_BUTTON_PUSH	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	addButton	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	setVisible	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	makeVector	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	addItem	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	String.join	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	Iterable	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	injectStyle	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjSysGui	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjTopLevelWindow	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjChildWindow	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjListEdit	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjButton	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjEditModifyEvent	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	getBuiManager	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	getUrl	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	replaceAll	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	urlAction	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	setEndAction	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	getFileSystem	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	resolvePath	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	java.nio.file.Files	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	Files.readAllBytes	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	java.nio.file.Paths	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	Paths.get	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	new String	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	getWebManager	OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjWebManager::setTheme(String)	ORCH-OK (22.03+, DWC only); also OK-repo docs/docs/dwc/02-browser-developer-tools/04-dwc-themes.md
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjWebManager::injectStyle(css)	ORCH-OK; also OK-repo docs/examples/dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjWebManager (declare auto type)	ORCH-OK (class of BBjAPI::getWebManager)
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	BBjButton::setText	OK-repo docs/docs/dwc/02-browser-developer-tools/04-dwc-themes.md
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	<dwc-icon name='sun'> and 'moon' in button text	OK-repo docs/docs/dwc/02-browser-developer-tools/04-dwc-themes.md
+docs/examples/dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj	--dwc-border-radius (custom property name)	docs/static/css/dwc-ui.css declares it
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	rem	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	use	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	if	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	endif	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	release	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	process_events	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	declare auto	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	info	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	BBjAPI	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	BBjAPI.ON_CLOSE	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	setCallback	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	getBuiManager	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	getUrl	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	replaceAll	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	urlAction	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	setEndAction	OK-repo docs/examples/dwc/06_IconPools/Exercise-IconPoolsComplete.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	openSysGui	OK-repo docs/examples/dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	addWindow	OK-repo docs/examples/dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	setPanelStyle	OK-repo docs/examples/dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	addChildWindow	OK-repo docs/examples/dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	getSysGui	OK-repo docs/examples/dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	getAvailableContext	OK-repo docs/examples/dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	setStyle	OK-repo docs/examples/dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	use ::BBjGridExWidget/BBjGridExWidget.bbj::BBjGridExWidget	OK-repo docs/examples/dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	BBjGridExWidget (new BBjGridExWidget(BBjChildWindow))	OK-repo docs/examples/dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	com.basiscomponents.db.ResultSet	OK-repo docs/examples/dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	BBjGridExWidget (plug-in class)	https://documentation.basis.cloud/BASISHelp/WebHelp/bbutil/BBjGridExWidget/BBjGridExWidget.htm
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	BBjGridExWidget::setData(ResultSet)	ORCH-OK; https://documentation.basis.cloud/BASISHelp/WebHelp/bbutil/BBjGridExWidget/BBjGridExWidget.htm
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	com.basiscomponents.bc.SqlQueryBC	ORCH-OK; https://documentation.basis.cloud/BASISHelp/WebHelp/bbutil/BBjGridExWidget/BBjGridExWidget.htm
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	SqlQueryBC::retrieve(String)	ORCH-OK; https://documentation.basis.cloud/BASISHelp/WebHelp/bbutil/BBjGridExWidget/BBjGridExWidget.htm
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	BBjAPI::getJDBCConnection("CDStore")	ORCH-OK; https://documentation.basis.cloud/BASISHelp/WebHelp/bbutil/BBjGridExWidget/BBjGridExWidget.htm
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	BBjTopLevelWindow	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj
+docs/examples/dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj	BBjChildWindow	OK-repo docs/examples/dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj

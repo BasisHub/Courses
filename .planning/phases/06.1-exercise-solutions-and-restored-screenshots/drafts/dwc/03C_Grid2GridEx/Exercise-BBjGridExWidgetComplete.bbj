@@ -1,0 +1,63 @@
+rem /**
+rem  * Exercise-BBjGridExWidgetComplete.bbj
+rem  *
+rem  * Possible solution for the exercise Replace a grid with the BBjGridExWidget, written for the BBj DWC Training book.
+rem  * It shows all records of the CDINVENTORY table in a BBjGridExWidget that fills the browser.
+rem  *
+rem  * It needs the BBjGridExWidget plug-in and the CDStore demo database that ships with BBj.
+rem  *
+rem  */
+
+
+rem If the app is running in BUI, switch it automatically to run in the DWC client instead
+rem ================================================================================
+if (info(3, 6) = "5") then
+    bui! = BBjAPI().getBuiManager()
+    url! = bui!.getUrl().replaceAll("apps", "webapp")
+    action! = bui!.urlAction(url!)
+    bui!.setEndAction(action!)
+    release
+endif
+
+
+rem Create a window and a child window that both fill the browser
+rem ================================================================================
+wnd! = BBjAPI().openSysGui("X0").addWindow("CDStore Inventory", $01111083$)
+wnd!.setPanelStyle("height", "100%")
+wnd!.setCallback(BBjAPI.ON_CLOSE, "onExit")
+
+cw! = wnd!.addChildWindow("", $00108000$, BBjAPI().getSysGui().getAvailableContext())
+cw!.setStyle("height", "100%")
+cw!.setStyle("width", "100%")
+
+
+rem Create the grid in the child window
+rem ================================================================================
+grid! = new BBjGridExWidget(cw!)
+
+
+rem Load all CDINVENTORY records from the CDStore database and give them to the grid
+rem ================================================================================
+sbc! = new SqlQueryBC(BBjAPI().getJDBCConnection("CDStore"))
+rs! = sbc!.retrieve("SELECT * FROM CDINVENTORY")
+grid!.setData(rs!)
+
+process_events
+
+
+rem Exit the program
+onExit:
+release
+
+
+rem Declares
+declare auto BBjTopLevelWindow wnd!
+declare auto BBjChildWindow cw!
+declare auto BBjGridExWidget grid!
+declare auto SqlQueryBC sbc!
+declare auto ResultSet rs!
+
+rem Use statements
+use ::BBjGridExWidget/BBjGridExWidget.bbj::BBjGridExWidget
+use com.basiscomponents.bc.SqlQueryBC
+use com.basiscomponents.db.ResultSet
