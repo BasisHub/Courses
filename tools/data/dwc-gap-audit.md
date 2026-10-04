@@ -33,13 +33,13 @@ Every kept BBj snippet carries its `bbj_check_syntax` result and any fix in the 
 | 6A | page_74 | 19 | 10 | 12 |
 | 7A | page_76 | 29 | 19 | 16 |
 | 8A | page_78 | 4 | 1 | 3 |
-| 8B | page_79 | 5 | 0 | 2 |
+| 8B | page_79 | 7 | 0 | 0 |
 | 9A | page_80 | 14 | 0 | 3 |
 | 9B | page_81 | 7 | 0 | 2 |
 | 9C | page_82 | 8 | 0 | 1 |
 | 10A | page_117 | 1 | 7 | 1 |
 | 10B | page_120 | 1 | 4 | 2 |
-| Total | 22 modules | 191 | 259 | 124 |
+| Total | 22 modules | 193 | 259 | 122 |
 
 ## Prerequisites - READ FIRST!
 
@@ -700,9 +700,9 @@ Unit: 8B. Module: page_79. DWC target: `docs/docs/dwc/09-browser-constraints/ind
 | 8B-02 | code (bbj) | `lp = unt` | - | keep | `docs/docs/dwc/09-browser-constraints/index.md#printing-and-print-preview` | minimal SysPrint PDF sample that shows the browser preview; bbj_check_syntax: pass |
 | 8B-03 | paragraph | From the browser, the user can view and also print the document. As a general solution, all BBj printing capabilities... | - | keep | `docs/docs/dwc/09-browser-constraints/index.md#print-preview` | PDF on the server plus the BBjDocViewer Plug-In; the DWC page shows a bare download stub |
 | 8B-04 | link | `https://github.com/BBj-Plugins/BBjDocViewer` | - | keep | `docs/docs/dwc/09-browser-constraints/index.md#print-preview` | official BBj-Plugins repository for BBjDocViewer, linked from the paragraph |
-| 8B-05 | screenshot | `image.png` | 506daf9d4168bb9d1ef4861e648a2e6e0b58a3f0 | drop | - | shows personal data (author names and e-mail addresses in the sample PDF) |
+| 8B-05 | screenshot | `image.png` | 506daf9d4168bb9d1ef4861e648a2e6e0b58a3f0 | keep | `docs/docs/dwc/09-browser-constraints/index.md#print-preview` | restored in Phase 6.1 and shown unredacted: the user confirmed the names and addresses are made-up demo data |
 | 8B-06 | paragraph | **BBJasper Print Preview** The BBJasper Print Preview works with the known features also in DWC: | - | keep | `docs/docs/dwc/09-browser-constraints/index.md#print-preview` | one sentence: BBJasper print preview works in the DWC; the DWC page lists Jasper only as a table row |
-| 8B-07 | screenshot | `image (1).png` | 063dcb00f067f81ce50c6e4ebf25c6daaea8e681 | drop | - | shows personal data (customer names and addresses) and a dated 2022 report |
+| 8B-07 | screenshot | `image (1).png` | 063dcb00f067f81ce50c6e4ebf25c6daaea8e681 | keep | `docs/docs/dwc/09-browser-constraints/index.md#print-preview` | restored in Phase 6.1 and shown unredacted: the user confirmed the names and addresses are made-up demo data; the report date is part of the demo |
 
 ## Embedding a JavaScript Chart Component
 

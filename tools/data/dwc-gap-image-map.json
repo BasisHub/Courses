@@ -358,5 +358,21 @@
     "path": "docs/docs/dwc/10-embedding-components/img/shoelace-splitter-result.png",
     "alt": "Window with a red top panel and a green bottom panel inside the splitter.",
     "page": "docs/docs/dwc/10-embedding-components/index.md"
+  },
+  {
+    "moodle_name": "image.png",
+    "sha1": "506daf9d4168bb9d1ef4861e648a2e6e0b58a3f0",
+    "source": "moodle",
+    "path": "docs/docs/dwc/09-browser-constraints/img/bbj-doc-viewer-demo.png",
+    "alt": "The BBj Document Viewer demo in the DWC: two buttons, Open Document and Open Document (as BLOB), above a PDF viewer that shows page 1 of a 14-page document with a thumbnail strip.",
+    "page": "docs/docs/dwc/09-browser-constraints/index.md"
+  },
+  {
+    "moodle_name": "image (1).png",
+    "sha1": "063dcb00f067f81ce50c6e4ebf25c6daaea8e681",
+    "source": "moodle",
+    "path": "docs/docs/dwc/09-browser-constraints/img/bbjasper-print-preview.png",
+    "alt": "The BBJasper print preview in the DWC: a toolbar with print, navigation and zoom controls above page 5 of 8 of a customer report grouped by state.",
+    "page": "docs/docs/dwc/09-browser-constraints/index.md"
   }
 ]
