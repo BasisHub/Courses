@@ -31,6 +31,7 @@ import pathlib
 import re
 import subprocess
 import sys
+import zipfile
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 
@@ -70,6 +71,11 @@ SOLUTIONS = {
          "Exercise-BuiltInValidation.bbj"),
 }
 
+# D-02: the line every solution page carries between the front matter and the exercise box
+POINTER_LINE = "A possible solution is at the end of this page."
+# D-16: fence language per solution file extension
+FENCE_LANG_BY_EXT = {".bbj": "bbj", ".css": "css"}
+
 # D-04: file -> (exact heading line, required link targets inside that H2 section)
 POINTERS = {
     "08-control-validation/index.md":
@@ -84,6 +90,9 @@ POINTERS = {
     "11-advanced-responsive/index.md":
         ("## Exercises", ["./90-exercise-media-queries.mdx", "./91-exercise-button-transition.mdx"]),
 }
+
+# (book, page map) pairs checked by `solutions`; extended with the intro-bbj book further down
+SOLUTION_BOOKS = [("dwc", SOLUTIONS)]
 
 INTRO_EXERCISES = [
     "01-getting-started/90-exercise-tic-tac-toe.mdx",
@@ -257,10 +266,10 @@ def route_of(rel: str) -> str:
     return "/".join(parts)
 
 
-def built_html(build: pathlib.Path, rel: str):
-    """Built HTML of a docs/docs/dwc source path, or None."""
+def built_html(build: pathlib.Path, rel: str, book: str = "dwc"):
+    """Built HTML of a docs/docs/<book> source path, or None."""
     route = route_of(rel)
-    base = build / "docs" / "dwc"
+    base = build / "docs" / book
     cands = [base / f"{route}.html", base / route / "index.html"] if route else [base / "index.html"]
     for c in cands:
         if c.is_file():
@@ -272,12 +281,24 @@ def sha1_file(p: pathlib.Path) -> str:
     return hashlib.sha1(p.read_bytes()).hexdigest()
 
 
+def book_dir(root: pathlib.Path, book: str) -> pathlib.Path:
+    return root / "docs" / "docs" / book
+
+
+def book_examples(root: pathlib.Path, book: str) -> pathlib.Path:
+    return root / "docs" / "examples" / book
+
+
+def book_static(root: pathlib.Path, book: str) -> pathlib.Path:
+    return root / "docs" / "static" / "files" / book
+
+
 def dwc_dir(root: pathlib.Path) -> pathlib.Path:
-    return root / "docs" / "docs" / "dwc"
+    return book_dir(root, "dwc")
 
 
 def examples_dir(root: pathlib.Path) -> pathlib.Path:
-    return root / "docs" / "examples" / "dwc"
+    return book_examples(root, "dwc")
 
 
 def need_dir(p: pathlib.Path, what: str) -> None:
@@ -521,70 +542,132 @@ def cmd_indexes(root: pathlib.Path, build: pathlib.Path, opts) -> int:
 
 
 # ------------------------------------------------------------------- solutions
+def only_filter(opts) -> list:
+    """--only: comma separated substrings matched against '<book>/<rel>'."""
+    raw = getattr(opts, "only", None) or ""
+    return [s.strip() for s in raw.split(",") if s.strip()]
+
+
+def zip_entries(path: pathlib.Path):
+    """dict entry name -> bytes of a ZIP file, or None when it is missing or unreadable."""
+    try:
+        with zipfile.ZipFile(path) as zf:
+            return {n: zf.read(n) for n in zf.namelist()}
+    except (OSError, zipfile.BadZipFile):
+        return None
+
+
 def cmd_solutions(root: pathlib.Path, build: pathlib.Path, opts) -> int:
     c = Ctx("solutions")
-    dwc = dwc_dir(root)
-    need_dir(dwc, "book")
-    for rel, (files, zipname, starter) in SOLUTIONS.items():
-        p = dwc / rel
-        if not p.is_file():
-            c.check(False, f"missing exercise page docs/docs/dwc/{rel}")
-            continue
-        t = read_text(p)
-        lines = t.split("\n")
-        for marker, name in (("<details>", "<details>"), ("<summary>Possible solution</summary>", "<summary>"),
-                             ("</details>", "</details>")):
-            c.check(lines.count(marker) == 1, f"{rel}: {name} line occurs {lines.count(marker)} times, want 1")
-        close = None
-        if ":::exercise" in lines:
-            i = lines.index(":::exercise")
-            close = next((k for k in range(i + 1, len(lines)) if lines[k] == ":::"), None)
-        c.check(close is not None, f"{rel}: exercise block not closed")
-        dr = details_range(lines)
-        if not c.check(dr is not None, f"{rel}: no <details> block"):
-            continue
-        s, e = dr
-        if close is not None:
-            c.check(close < s, f"{rel}: <details> is not after the line ':::' closing the exercise block")
-            sm = lines.index("<summary>Possible solution</summary>") \
-                if "<summary>Possible solution</summary>" in lines else -1
-            c.check(sm > close, f"{rel}: <summary> is not after the closing ':::'")
-        blocks = [b for b in fence_blocks(t) if s < b["open_line"] - 1 < e and b["lang"] == "bbj"]
-        c.check(len(blocks) == len(files), f"{rel}: {len(blocks)} bbj fences in details, want {len(files)}")
-        for b, f in zip(blocks, files):
-            base = pathlib.PurePosixPath(f).name
-            c.check(b["line"] == f'```bbj title="{base}"',
-                    f"{rel}:{b['open_line']}: fence opening is {b['line']!r}, want ```bbj title=\"{base}\"")
-            fp = examples_dir(root) / f
-            if not c.check(fp.is_file(), f"{rel}: solution file docs/examples/dwc/{f} missing"):
+    only = only_filter(opts)
+    zips: dict = {}
+
+    def zip_of(path: pathlib.Path):
+        if path not in zips:
+            zips[path] = zip_entries(path)
+        return zips[path]
+
+    for book, pages in SOLUTION_BOOKS:
+        bdir = book_dir(root, book)
+        need_dir(bdir, "book")
+        for rel, (files, zipname, starter) in pages.items():
+            key = f"{book}/{rel}"
+            if only and not any(o in key for o in only):
                 continue
-            ft = "\n".join(b["body"]).rstrip("\n")
-            xt = read_text(fp).rstrip("\n")
-            if ft != xt:
-                fl, xl = ft.split("\n"), xt.split("\n")
-                d = next((k for k in range(min(len(fl), len(xl))) if fl[k] != xl[k]), min(len(fl), len(xl)))
-                c.check(False, f"{rel}: solution fence differs from docs/examples/dwc/{f} at fence line {d + 1} "
-                        f"(page line {b['open_line'] + 1 + d})")
-            else:
-                c.check(True, "")
-        c.check(f"pathname:///files/dwc/{zipname}" in t, f"{rel}: download link for {zipname} missing")
-        c.check(starter in t, f"{rel}: starter file name {starter} missing")
-        if build.is_dir():
-            h = built_html(build, rel)
-            if h is None:
-                c.check(False, f"{rel}: built HTML not found under {build}")
-            else:
-                c.check("Possible solution" in read_text(h), f"{rel}: built HTML lacks 'Possible solution'")
-        else:
-            c.skip(f"{rel}: no build directory, built HTML not checked")
-    for rel in EXERCISES:
-        if rel in SOLUTIONS:
-            continue
-        p = dwc / rel
-        if p.is_file():
+            pre = f"{key}: "
+            p = bdir / rel
+            if not p.is_file():
+                c.check(False, f"{pre}missing exercise page docs/docs/{key}")
+                continue
             t = read_text(p)
-            c.check("<details>" not in t and "Possible solution" not in t,
-                    f"{rel}: has a solution block but is not a solution page")
+            lines = t.split("\n")
+            for marker, name in (("<details>", "<details>"),
+                                 ("<summary>Possible solution</summary>", "<summary>"),
+                                 ("</details>", "</details>")):
+                c.check(lines.count(marker) == 1, f"{pre}{name} line occurs {lines.count(marker)} times, want 1")
+            # (a) pointer line, D-02
+            fm_end = next((k for k in range(1, len(lines)) if lines[k] == "---"), None) \
+                if lines and lines[0] == "---" else None
+            first = None
+            if fm_end is not None:
+                first = next((k for k in range(fm_end + 1, len(lines)) if lines[k].strip()), None)
+            c.check(first is not None and lines[first] == POINTER_LINE,
+                    f"{pre}pointer line {POINTER_LINE!r} is not the first line after the front matter")
+            c.check(lines.count(POINTER_LINE) == 1,
+                    f"{pre}pointer line occurs {lines.count(POINTER_LINE)} times, want 1")
+            ex_at = lines.index(":::exercise") if ":::exercise" in lines else None
+            if POINTER_LINE in lines and ex_at is not None:
+                c.check(lines.index(POINTER_LINE) < ex_at, f"{pre}pointer line is not before ':::exercise'")
+            # (b) details block, summary and order
+            close = None
+            if ex_at is not None:
+                close = next((k for k in range(ex_at + 1, len(lines)) if lines[k] == ":::"), None)
+            c.check(close is not None, f"{pre}exercise block not closed")
+            dr = details_range(lines)
+            if not c.check(dr is not None, f"{pre}no <details> block"):
+                continue
+            s, e = dr
+            if close is not None:
+                c.check(close < s, f"{pre}<details> is not after the line ':::' closing the exercise block")
+                sm = lines.index("<summary>Possible solution</summary>") \
+                    if "<summary>Possible solution</summary>" in lines else -1
+                c.check(sm > close, f"{pre}<summary> is not after the closing ':::'")
+            last = next((l for l in reversed(lines) if l.strip()), "")
+            c.check(last == "</details>", f"{pre}last non-blank line of the page is {last!r}, want '</details>'")
+            # (c) fences in the details block against the file list, in order, D-07 and D-16
+            blocks = [b for b in fence_blocks(t) if s < b["open_line"] - 1 < e]
+            c.check(len(blocks) == len(files), f"{pre}{len(blocks)} fences in details, want {len(files)}")
+            for b, f in zip(blocks, files):
+                base = pathlib.PurePosixPath(f).name
+                lang = FENCE_LANG_BY_EXT.get(pathlib.PurePosixPath(f).suffix)
+                if not c.check(lang is not None, f"{pre}no fence language for {f}"):
+                    continue
+                want_open = f'```{lang} title="{base}"'
+                c.check(b["line"] == want_open,
+                        f"{pre}{b['open_line']}: fence opening is {b['line']!r}, want {want_open}")
+                fp = book_examples(root, book) / f
+                if not c.check(fp.is_file(), f"{pre}solution file docs/examples/{book}/{f} missing"):
+                    continue
+                ft = "\n".join(b["body"]).rstrip("\n")
+                xt = read_text(fp).rstrip("\n")
+                if ft != xt:
+                    fl, xl = ft.split("\n"), xt.split("\n")
+                    d = next((k for k in range(min(len(fl), len(xl))) if fl[k] != xl[k]), min(len(fl), len(xl)))
+                    c.check(False, f"{pre}solution fence differs from docs/examples/{book}/{f} at fence line "
+                            f"{d + 1} (page line {b['open_line'] + 1 + d})")
+                else:
+                    c.check(True, "")
+            # (d) ZIP membership, D-04
+            sdir = book_static(root, book)
+            for f in files:
+                folder_zip = f.split("/")[0] + ".zip"
+                c.check(folder_zip == zipname, f"{pre}file {f} belongs to {folder_zip}, mapped ZIP is {zipname}")
+                fp = book_examples(root, book) / f
+                want = fp.read_bytes() if fp.is_file() else None
+                for zpath, entry in ((sdir / folder_zip, f), (sdir / f"{book}-samples.zip", f"{book}-samples/{f}")):
+                    zname = zpath.relative_to(root).as_posix()
+                    ents = zip_of(zpath)
+                    if not c.check(ents is not None, f"{pre}ZIP {zname} missing or unreadable"):
+                        continue
+                    if not c.check(entry in ents, f"{pre}ZIP {zname} lacks entry {entry}"):
+                        continue
+                    if want is not None:
+                        c.check(ents[entry] == want, f"{pre}ZIP {zname} entry {entry} differs from the example file")
+            # (e) download link and starter
+            c.check(f"pathname:///files/{book}/{zipname}" in t, f"{pre}download link for {zipname} missing")
+            if starter is not None:
+                c.check(starter in t, f"{pre}starter file name {starter} missing")
+            # (f) built HTML
+            if build.is_dir():
+                h = built_html(build, rel, book)
+                if h is None:
+                    c.check(False, f"{pre}built HTML not found under {build}")
+                else:
+                    ht = read_text(h)
+                    c.check("Possible solution" in ht, f"{pre}built HTML lacks 'Possible solution'")
+                    c.check(POINTER_LINE in ht, f"{pre}built HTML lacks the pointer line")
+            else:
+                c.skip(f"{pre}no build directory, built HTML not checked")
     return c.done()
 
 
@@ -972,6 +1055,8 @@ def main(argv: list) -> int:
     ap.add_argument("--root", default=str(REPO), help="repository root")
     ap.add_argument("--fragment", nargs="+", metavar="PATH",
                     help="audit: check these fragment files instead of tools/data/dwc-gap-audit.md")
+    ap.add_argument("--only", metavar="SUBSTR[,SUBSTR]",
+                    help="solutions, exercises: only pages whose '<book>/<path>' contains one of these substrings")
     ap.add_argument("--units", help="kept: comma separated unit codes to check")
     ap.add_argument("--allow-parked", action="store_true",
                     help="kept: do not fail while tools/data/dwc-unused-img still exists")
