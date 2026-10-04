@@ -84,6 +84,8 @@ done
 if [ "$n" -ge 11 ] && [ "$bad" -eq 0 ]; then pass "download targets exist ($n)"; else fail "download targets exist ($n found)"; fi
 grep -qF 'sync-samples.py --check' .github/workflows/test-build.yml 2>/dev/null \
   && pass "test-build.yml runs sync-samples check" || fail "test-build.yml runs sync-samples check"
+grep -qF 'sync-samples.py --check' .github/workflows/deploy.yml 2>/dev/null \
+  && pass "deploy.yml runs sync-samples check" || fail "deploy.yml runs sync-samples check"
 grep -qF '05_CssLayouts/prism.min.js' THIRD_PARTY_NOTICES.md 2>/dev/null \
   && pass "THIRD_PARTY_NOTICES lists prism.min.js" || fail "THIRD_PARTY_NOTICES lists prism.min.js"
 miss=0; total=0
