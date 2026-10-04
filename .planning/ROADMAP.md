@@ -291,7 +291,7 @@ Plans:
   4. Screenshots 8B-05 and 8B-07 from the gap audit appear unredacted on the DWC chapter 09 printing section, with alt text, and the audit records them as restored
   5. The phase checker covers all 16 exercise pages (solution present, fence matches file, starter variables and snippets exist), and build, Vale and verify-phase1..6 stay green
 
-**Plans:** 4/10 plans executed
+**Plans:** 5/10 plans executed
 
 Plans:
 **Wave 1**
@@ -300,7 +300,7 @@ Plans:
 - [x] 06.1-02-PLAN.md — Restore screenshots 8B-05 and 8B-07 to chapter 09 Print Preview; audit and image map
 - [x] 06.1-03-PLAN.md — Drafts: DWC 65 theming (program, layout CSS, theme CSS) and 68 BBjGridExWidget
 - [x] 06.1-04-PLAN.md — Drafts: DWC 83 Shoelace rating, 122 media queries, 123 button transition
-- [ ] 06.1-05-PLAN.md — Drafts: intro-bbj Tic-Tac-Toe, computer player (Random, MinMax), OO Tic-Tac-Toe
+- [x] 06.1-05-PLAN.md — Drafts: intro-bbj Tic-Tac-Toe, computer player (Random, MinMax), OO Tic-Tac-Toe
 - [ ] 06.1-06-PLAN.md — Drafts: intro-bbj login dialog and responsive login dialog
 
 **Wave 2** *(blocked on 06.1-03 to 06.1-06)*
