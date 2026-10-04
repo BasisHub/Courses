@@ -55,9 +55,9 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 ### Exercises
 
 - [x] **EXER-01**: Reader finds every intro-bbj exercise (5 Moodle assignments) as its own `9N-exercise-*.mdx` page after its section's chapters
-- [ ] **EXER-02**: Reader finds DWC exercises as exercise pages: inline exercises extracted, missing ones taken from the course-4 assignments
+- [x] **EXER-02**: Reader finds DWC exercises as exercise pages: inline exercises extracted, missing ones taken from the course-4 assignments
 - [ ] **EXER-03**: Reader can open a per-book exercise index listing all exercises of that book
-- [ ] **EXER-04**: Where a sample solution exists, the exercise page offers it in a collapsed "Possible solution" block
+- [x] **EXER-04**: Where a sample solution exists, the exercise page offers it in a collapsed "Possible solution" block
 
 ### DWC Gap Audit (before go-live)
 
@@ -153,9 +153,9 @@ Populated 2026-10-03 during roadmap creation.
 | CONV-06 | Phase 5 | Complete |
 | CONV-07 | Phase 5 | Complete |
 | EXER-01 | Phase 5 | Complete |
-| EXER-02 | Phase 6 | Pending |
+| EXER-02 | Phase 6 | Complete |
 | EXER-03 | Phase 6 | Pending |
-| EXER-04 | Phase 6 | Pending |
+| EXER-04 | Phase 6 | Complete |
 | AUDIT-01 | Phase 6 | Complete |
 | AUDIT-02 | Phase 6 | Pending |
 | AUDIT-03 | Phase 6 | Pending |
