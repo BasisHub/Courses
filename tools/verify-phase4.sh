@@ -94,10 +94,10 @@ done < <(find docs/examples/dwc -name '*.bbj' | sort)
 if [ "$total" -eq 44 ] && [ "$miss" -eq 0 ]; then pass "syntax report covers all 44 samples"; else fail "syntax report covers all 44 samples ($total found)"; fi
 
 SEC=content
-if grep -rEq 'PLUGINFILE|pluginfile\.php|\$@[A-Z]+|moodle\.basis-europe|DWC-Course/' docs/docs; then
-  fail "LIVE-01 grep over docs/docs is empty"; grep -rEn 'PLUGINFILE|pluginfile\.php|\$@[A-Z]+|moodle\.basis-europe|DWC-Course/' docs/docs | head -5
+if grep -rIEq 'PLUGINFILE|pluginfile\.php|\$@[A-Z]+|moodle\.basis-europe|DWC-Course/' docs/docs; then
+  fail "LIVE-01 grep over docs/docs is empty"; grep -rIEn 'PLUGINFILE|pluginfile\.php|\$@[A-Z]+|moodle\.basis-europe|DWC-Course/' docs/docs | head -5
 else pass "LIVE-01 grep over docs/docs is empty"; fi
-if grep -rEq '<Image|IdealImage' docs/docs; then fail "no <Image or IdealImage in docs/docs"; else pass "no <Image or IdealImage in docs/docs"; fi
+if grep -rIEq '<Image|IdealImage' docs/docs; then fail "no <Image or IdealImage in docs/docs"; else pass "no <Image or IdealImage in docs/docs"; fi
 if [ -z "$(find docs/docs/dwc docs/examples/dwc -name '.*' ! -name . ! -name .. 2>/dev/null)" ]; then pass "no dotfiles in dwc"; else fail "no dotfiles in dwc"; fi
 [ ! -e docs/docs/dwc/01-first-chapter ] && pass "stub chapter 01-first-chapter gone" || fail "stub chapter 01-first-chapter gone"
 if grep -q first-chapter tools/prove-gates.sh tools/verify-phase1.sh tools/verify-phase2.sh; then fail "no first-chapter in gate scripts"; else pass "no first-chapter in gate scripts"; fi
