@@ -11,7 +11,7 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 - [x] **Phase 1: Site Scaffold & Quality Gates** - Empty two-book site in the webforJ look, working under `/Courses/`, with throwing build gates (completed 2026-10-03)
 - [x] **Phase 2: Repo Hygiene & CI** - Deploy, PR build gate and Vale on PRs; contributor docs; first proven Pages deploy (completed 2026-10-03)
 - [x] **Phase 3: Content Components & Brand** - Exercise box, YouTube, BBj highlighting, ExpandableCode, search, brand assets (completed 2026-10-03)
-- [ ] **Phase 4: DWC Book Relocation** - DWC-Course moved in as a pure relocation under `/docs/dwc/`
+- [x] **Phase 4: DWC Book Relocation** - DWC-Course moved in as a pure relocation under `/docs/dwc/` (completed 2026-10-04)
 - [ ] **Phase 5: Intro-BBj Conversion** - Throwaway Moodle converter produces the "Introduction to BBj Development" book
 - [ ] **Phase 6: Exercises & DWC Gap Audit** - Exercise pages in both books; missing course-4 material added to DWC before go-live
 - [ ] **Phase 7: Review, Acceptance & Go-Live** - Hand review, Vale and syntax checks clean, acceptance gates pass, site public
@@ -159,7 +159,7 @@ Plans:
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
-- [ ] 04-06-PLAN.md — Commit 3: Vale error fixes with pinned anchors, tools/verify-phase4.sh, full suite
+- [x] 04-06-PLAN.md — Commit 3: Vale error fixes with pinned anchors, tools/verify-phase4.sh, full suite
 
 ### Phase 5: Intro-BBj Conversion
 
@@ -226,7 +226,7 @@ Plans:
 | 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
 | 2. Repo Hygiene & CI | 6/6 | Complete    | 2026-10-03 |
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
-| 4. DWC Book Relocation | 5/6 | In Progress|  |
+| 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 0/TBD | Not started | - |
 | 6. Exercises & DWC Gap Audit | 0/TBD | Not started | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
