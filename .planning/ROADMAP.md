@@ -233,7 +233,7 @@ Plans:
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
-- [ ] 06-10-PLAN.md — Assemble and commit tools/data/dwc-gap-audit.md (D-18 step 1)
+- [x] 06-10-PLAN.md — Assemble and commit tools/data/dwc-gap-audit.md (D-18 step 1)
 
 **Wave 5** *(blocked on Wave 4 completion)*
 
@@ -305,6 +305,6 @@ Plans:
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
-| 6. Exercises & DWC Gap Audit | 9/17 | In Progress|  |
+| 6. Exercises & DWC Gap Audit | 10/17 | In Progress|  |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |
