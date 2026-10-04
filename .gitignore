@@ -14,3 +14,8 @@ npm-debug.log*
 tools/.bin/
 /.claude/worktrees/
 .claude/settings.local.json
+
+# GSD runtime state
+.gsd/
+.planning/milestone.lock
+.planning/state.json
