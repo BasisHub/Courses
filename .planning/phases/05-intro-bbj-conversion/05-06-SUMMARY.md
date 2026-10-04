@@ -53,3 +53,12 @@ Subagent permission denied these, not worked around:
 5. Confirm the provisional Theme Editor link https://us.bbx.kitchen/webapp/DWCThemer (D-27; STATE.md Pending Todo stays open).
 
 ## Self-Check: PASSED
+
+## Full gate suite run by Stephan on the final tree (2026-10-04)
+
+- verify-phase5.sh: exit 0 (Phase 5: all checks passed)
+- verify-phase1.sh: exit 0
+- verify-phase2.sh --local: exit 1, only `FAIL  [hygiene] branch is main` (work sits on branch gsd/phase-04-dwc-book-relocation; environmental, clears on merge to main). All [vale], [ci], [docs], [headers], [seed] checks pass, including `vale docs/docs exits 0`.
+- verify-phase3.sh: exit 0
+- verify-phase4.sh --no-build: exit 0
+- prove-gates.sh: exit 0
