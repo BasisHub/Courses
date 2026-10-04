@@ -4,16 +4,16 @@ milestone: v1.0
 current_phase: "06.1"
 current_phase_name: Exercise Solutions and Restored Screenshots (INSERTED)
 status: executing
-stopped_at: Completed 06.1-05-PLAN.md
-last_updated: "2026-10-04T15:52:13.833Z"
+stopped_at: Completed 06.1-06-PLAN.md
+last_updated: "2026-10-04T15:58:08.666Z"
 last_activity: 2026-10-04
 last_activity_desc: Phase 06.1 execution started
-state_head: c3cc59ede09b63470cf39073db2757651946c284
+state_head: 00d9c5a78d4b9ad8a3d89d0fc2fea87a62c1219b
 progress:
   total_phases: 9
   completed_phases: 6
   total_plans: 59
-  completed_plans: 54
+  completed_plans: 55
 milestone_name: milestone
 ---
 
@@ -29,7 +29,7 @@ See: .planning/PROJECT.md (updated 2026-10-03)
 ## Current Position
 
 Phase: 06.1 (Exercise Solutions and Restored Screenshots (INSERTED)) — EXECUTING
-Plan: 6 of 10
+Plan: 7 of 10
 Status: Ready to execute
 Last activity: 2026-10-04 — Phase 06.1 execution started
 
@@ -64,6 +64,7 @@ Progress: [█░░░░░░░░░] 13%
 | Phase 06.1 P03 | 10 min | 2 tasks | 5 files |
 | Phase 06.1 P04 | 3 min | 3 tasks | 6 files |
 | Phase 06.1 P05 | 4 min | 3 tasks | 7 files |
+| Phase 06.1 P06 | 10 min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -84,6 +85,7 @@ Decisions are logged in PROJECT.md Key Decisions table.
 - [Phase 06.1]: Cell identity read from the pushed button event so one callback label serves all nine cells
 - [Phase 06.1]: Tic-Tac-Toe computer strategies live in class ComputerPlayer so MinMax recursion uses per-method locals (to confirm at plan 07)
 - [Phase 06.1]: Strategy list items double as strategy names, no extra callback needed to switch while playing
+- [Phase 06.1]: Login drafts: demo pair as private static class fields under a user-store comment; responsive draft reads CSS via use java.nio.file.Files and injects it with injectStyle
 
 ### Roadmap Evolution
 
@@ -109,5 +111,5 @@ Decisions are logged in PROJECT.md Key Decisions table.
 
 **Resume file:** None
 
-Last session: 2026-10-04T15:52:13.664Z
-Stopped at: Completed 06.1-05-PLAN.md
+Last session: 2026-10-04T15:58:08.499Z
+Stopped at: Completed 06.1-06-PLAN.md
