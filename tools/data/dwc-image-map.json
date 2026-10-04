@@ -187,9 +187,9 @@
   },
   {
     "old": "static/img/Hello_DWC_4A.png",
-    "new": "tools/data/dwc-unused-img/hello-dwc-4a.png",
-    "verdict": "parked",
-    "page": null
+    "new": "docs/docs/dwc/05-dwc-controls/img/hello-window-success-theme.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/05-dwc-controls/index.md"
   },
   {
     "old": "static/img/IconPools_1.png",
@@ -253,9 +253,9 @@
   },
   {
     "old": "static/img/MessageBox.png",
-    "new": "tools/data/dwc-unused-img/message-box.png",
-    "verdict": "parked",
-    "page": null
+    "new": "docs/docs/dwc/05-dwc-controls/img/message-box-primary-theme.png",
+    "verdict": "moved",
+    "page": "docs/docs/dwc/05-dwc-controls/index.md"
   },
   {
     "old": "static/img/Regex101.png",

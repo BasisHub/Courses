@@ -44,6 +44,20 @@ Colors range from 5% to 95% lightness: `--dwc-color-primary-25` (dark) to `--dwc
 
 ![Color CSS properties](./img/color-css.png)
 
+In effect, the DWC Themer only rewrites the underlying values of these CSS custom properties. When you pick a primary color with a BBjColorChooser, the DWC Themer takes the hue and saturation of the chosen color and uses them as the values of `--dwc-color-primary-h` and `--dwc-color-primary-s`. Some colors need a different contrast threshold. For example, `--dwc-color-warning-c` is set to 35 so that text on the yellow warning color stays legible.
+
+### Setting the Theme Attribute
+
+Most controls offer the `theme` attribute as an easy way to set the control's appearance. Two samples from the first chapter use it.
+
+In `MessageBox.bbj`, the message box's theme is set to `primary`:
+
+![A message box using the primary theme](./img/message-box-primary-theme.png)
+
+In `DWC1.bbj`, the [Say Hello] button's theme is set to `success`:
+
+![The Hello window with a green button using the success theme](./img/hello-window-success-theme.png)
+
 ## Attributes
 
 DWC controls offer attributes providing extra functionality beyond GUI and BUI clients.
@@ -69,6 +83,7 @@ DWC controls offer attributes providing extra functionality beyond GUI and BUI c
 2. Toggle checkboxes to enable/disable named attributes
 3. Search in individual trees and via global search
 4. Note custom error messages via `search-nodata` attribute
+5. As time permits, read the source code and look at all the attributes it sets, including `search-input`, `search-placeholder`, `search-nodata`, `icon-collapsed` and `icon-expanded`. The code also injects custom CSS that sets the `--dwc-tree-icon-fill` custom property to a different value for each tree. The first tree paints its icons orange and the second paints them blue.
 
 ![Tree Search Demo](./img/tree-search.png)
 

@@ -294,5 +294,21 @@
     "path": "docs/docs/dwc/02-browser-developer-tools/img/bui-computed-font-size.png",
     "alt": "The Computed styles for a BUI control showing font-size 10.6667px, set to 8pt on the element style and inherited from the BASIS stylesheet.",
     "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - MessageBox- screenshot 2022-07-11 at 15.22.07.png",
+    "sha1": "37eade8d4ae806270d35b7ae9f6e824283d00955",
+    "source": "parked",
+    "path": "docs/docs/dwc/05-dwc-controls/img/message-box-primary-theme.png",
+    "alt": "A DWC message box titled Greetings with a blue title bar, an information icon and the text Hello from BBj's DWC client, using the primary theme.",
+    "page": "docs/docs/dwc/05-dwc-controls/index.md"
+  },
+  {
+    "moodle_name": "Microsoft Edge - Hello BBj DWC- screenshot 2022-07-11 at 15.23.51.png",
+    "sha1": "7bcb6d081c6d1d1fe36b74e213c54200b2791713",
+    "source": "parked",
+    "path": "docs/docs/dwc/05-dwc-controls/img/hello-window-success-theme.png",
+    "alt": "The Hello BBj DWC window with First Name and Last Name fields and a large green Say Hello button that uses the success theme.",
+    "page": "docs/docs/dwc/05-dwc-controls/index.md"
   }
 ]
