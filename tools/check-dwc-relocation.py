@@ -89,8 +89,9 @@ def read_new(rev: str | None, rel: str) -> str | None:
 
 def list_new(rev: str | None) -> list[str]:
     if rev:
-        out = git("ls-tree", "-r", "--name-only", rev, "--", DWC) or ""
-        return sorted(out.split())
+        # -z: NUL-separated and unquoted, so spaces and non-ASCII names survive
+        out = git("ls-tree", "-r", "-z", "--name-only", rev, "--", DWC) or ""
+        return sorted(n for n in out.split("\0") if n)
     base = ROOT / DWC
     return sorted(p.relative_to(ROOT).as_posix() for p in base.rglob("*") if p.is_file())
 
