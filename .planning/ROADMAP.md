@@ -155,7 +155,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 04-05-PLAN.md — Commit 2: normalization (H1, descriptions, fence languages, sidebar_position) and samples page downloads
+- [x] 04-05-PLAN.md — Commit 2: normalization (H1, descriptions, fence languages, sidebar_position) and samples page downloads
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
@@ -226,7 +226,7 @@ Plans:
 | 1. Site Scaffold & Quality Gates | 4/4 | Complete    | 2026-10-03 |
 | 2. Repo Hygiene & CI | 6/6 | Complete    | 2026-10-03 |
 | 3. Content Components & Brand | 6/6 | Complete   | 2026-10-03 |
-| 4. DWC Book Relocation | 4/6 | In Progress|  |
+| 4. DWC Book Relocation | 5/6 | In Progress|  |
 | 5. Intro-BBj Conversion | 0/TBD | Not started | - |
 | 6. Exercises & DWC Gap Audit | 0/TBD | Not started | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
