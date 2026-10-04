@@ -76,6 +76,10 @@ def main() -> int:
         return 2
 
     snap = json.load(open(SNAPSHOT, encoding="utf-8"))
+    n_content = sum(1 for r in snap["routes"] if r["content"])
+    # An empty or truncated snapshot must not pass vacuously.
+    report(n_content > 0 and n_content == snap.get("content_routes"), "snapshot content routes",
+           "%d listed, content_routes says %s" % (n_content, snap.get("content_routes")))
     expected = {SITE + r["route"] for r in snap["routes"] if r["content"] and r["route"] != "/"}
     expected.add(SITE + "/overview")
     actual = set()

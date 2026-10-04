@@ -52,6 +52,11 @@ def main() -> int:
     failures = 0
     checked = 0
     allowed = 0
+    total = sum(len(r["anchors"]) for r in snap["routes"] if r["content"])
+    if total == 0 or total != snap.get("anchor_count"):
+        # An empty or truncated snapshot must not pass vacuously.
+        print("FAIL  snapshot has %d anchors, anchor_count says %s" % (total, snap.get("anchor_count")))
+        failures += 1
     for r in snap["routes"]:
         if not r["content"]:
             continue
@@ -73,6 +78,9 @@ def main() -> int:
             else:
                 print("FAIL  missing anchor %s#%s" % (route, a["id"]))
                 failures += 1
+    if checked == 0:
+        print("FAIL  no anchors checked")
+        failures += 1
     if failures:
         print("%d failure(s)" % failures)
         return 1
