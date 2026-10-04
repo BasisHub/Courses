@@ -29,7 +29,7 @@ fileChooser!.setCallback(BBjFileChooser.ON_FILE_SELECTED, "onFileSelected")
 
 ### File Downloads
 
-Downloading a file is much simpler than uploading one. The [`copyToClient()`](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/bbjclientfile/bbjclientfile_copytoclient.htm) method of `BBjClientFilesystem` does a simple download in BUI and the DWC.
+Downloading a file is much simpler than uploading one. The [`copyToClient()`](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/bbjclientfile/bbjclientfile_copytoclient.htm) method of `BBjClientFile` does a simple download in BUI and the DWC. Get the `BBjClientFile` from `BBjAPI().getThinClient().getClientFileSystem().getClientFile()`.
 
 ```bbj
 rem Trigger a file download
