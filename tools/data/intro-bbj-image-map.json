@@ -1,0 +1,75 @@
+[
+  {
+    "chapter": 15,
+    "file": "image.png",
+    "name": "oo-input-dialog.png",
+    "alt": "A small window titled Your Input with one text field showing the word input and an Ok button.",
+    "verdict": "moved",
+    "page": "docs/docs/intro-bbj/02-object-oriented-syntax/04-oo-dialog.mdx"
+  },
+  {
+    "chapter": 18,
+    "file": "image (1).png",
+    "name": "em-app-general-settings.png",
+    "alt": "The Enterprise Manager dialog for a new application named Sample, with its program file, working directory and the DWC Web App Enabled option checked.",
+    "verdict": "moved",
+    "page": "docs/docs/intro-bbj/03-web-development/02-basics.mdx"
+  },
+  {
+    "chapter": 18,
+    "file": "image.png",
+    "name": "em-applications-list.png",
+    "alt": "Enterprise Manager with the Applications list open under Web, App Deployment. Red boxes mark the Applications entry and the plus button that adds an application.",
+    "verdict": "moved",
+    "page": "docs/docs/intro-bbj/03-web-development/02-basics.mdx"
+  },
+  {
+    "chapter": 19,
+    "file": "image.png",
+    "name": "eclipse-spiderweb-button.png",
+    "alt": "The Eclipse toolbar with a red box around the spiderweb button that deploys and starts the program in the browser.",
+    "verdict": "moved",
+    "page": "docs/docs/intro-bbj/03-web-development/03-developing-for-the-web.mdx"
+  },
+  {
+    "chapter": 20,
+    "file": "image.png",
+    "name": "browser-css-layout-row.png",
+    "alt": "The sample program in the browser with the labels, the two input fields and the Say Hello button squeezed into one row.",
+    "verdict": "moved",
+    "page": "docs/docs/intro-bbj/03-web-development/04-window-layout-mode.mdx"
+  },
+  {
+    "chapter": 21,
+    "file": "image.png",
+    "name": "browser-css-grid-layout.png",
+    "alt": "The sample program in the browser after the grid layout: labels and input fields in two columns and the Say Hello button in the next row.",
+    "verdict": "moved",
+    "page": "docs/docs/intro-bbj/03-web-development/05-css-layout-instructions.mdx"
+  },
+  {
+    "chapter": 23,
+    "file": "image.png",
+    "name": "browser-green-xl-button.png",
+    "alt": "The sample program in the browser with a large green Say Hello button below the two input fields.",
+    "verdict": "moved",
+    "page": "docs/docs/intro-bbj/03-web-development/07-style-attributes.mdx"
+  },
+  {
+    "chapter": 24,
+    "file": "image (1).png",
+    "name": "em-css-file-setting.png",
+    "alt": "The Web App Only section of the Enterprise Manager application dialog. A red box and arrow point to the empty CSS field and the plus button that adds a CSS file.",
+    "verdict": "moved",
+    "page": "docs/docs/intro-bbj/03-web-development/08-external-css-file.mdx"
+  },
+  {
+    "chapter": 24,
+    "file": "image.png",
+    "name": null,
+    "alt": null,
+    "verdict": "dropped",
+    "page": null,
+    "note": "unannotated duplicate of image (1).png (D-26)"
+  }
+]
