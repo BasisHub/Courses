@@ -198,5 +198,101 @@
     "path": "docs/docs/dwc/02-browser-developer-tools/img/dwc-ui-kit-saved-theme.png",
     "alt": "The DWC UI Kit window with a saved theme applied: a different blue, a narrower font, and tighter spacing so the list box shows two items.",
     "page": "docs/docs/dwc/02-browser-developer-tools/04-dwc-themes.md"
+  },
+  {
+    "moodle_name": "DWC_Custom_Properties.png",
+    "sha1": "906d136b2d2f3fb8836c40c701277221947c9a1d",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/dwc-ui-css-application-tab.png",
+    "alt": "The Application tab of the Developer Tools showing the DWC stylesheet with its custom properties, and the pretty-print button at the bottom left of the source pane.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "CSSCustomPropertiesLightMode.png",
+    "sha1": "c71e41e142b0674c5446c82617476fe82f12f28d",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/css-custom-property-light-mode.png",
+    "alt": "The CSS Custom Properties sample window in light mode after setting the primary color to orange, with an orange check box and radio button.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "CSSCustomPropertiesDarkMode.png",
+    "sha1": "36a5e734dfa54526eb871435c6325b6014aa3a31",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/css-custom-property-dark-mode.png",
+    "alt": "The CSS Custom Properties sample window in dark mode, with the font size property set to 20px.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "setStyle_example.png",
+    "sha1": "2b54cfd4641382298aa56e40c5e10a4eea261856",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/set-style-example-buttons.png",
+    "alt": "Four BBjButtons in a window; the first, third, and fourth are purple with yellow text and the second keeps the default style with purple only at its corners.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "Button_DWC.png",
+    "sha1": "d23a910063bfe5dd286d391d6ee37b5717ecb03d",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/dwc-button-outer-html.png",
+    "alt": "The outer HTML of a DWC button element in the Elements tab, a single short tag with a few attributes.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "Button_BUI.png",
+    "sha1": "376bfab77d214b17063eae4af29c781a64105e69",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/bui-button-outer-html.png",
+    "alt": "The outer HTML of a BUI button, a div with inline styles that contains an input and nested div elements.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "Button_DWC_exposedControls.png",
+    "sha1": "fe6cad2cd44fe0ef741815a53a2d7e947a0f0d0c",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/dwc-button-exposed-parts.png",
+    "alt": "The shadow tree of a DWC button in the Elements tab, with the part attributes control, prefix, label, and suffix highlighted.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "Google Chrome - Setting a BBjButtons Styles- screenshot 2022-07-09 at 11.44.55.png",
+    "sha1": "1f75ba0083e1eab27e79c9d2e68625ff4b8a899b",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/part-control-result.png",
+    "alt": "A BBjButton with a purple face and yellow text.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "Google Chrome - Setting a BBjButtons Styles- screenshot 2022-07-09 at 11.46.11.png",
+    "sha1": "cecab38704296a65b090aaae06c20d3470ba199a",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/part-label-result.png",
+    "alt": "A BBjButton with a purple band behind the yellow text and the default blue-gray style around it.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "Google Chrome - BUI UI Kit- screenshot 2022-07-10 at 06.17.32.png",
+    "sha1": "e9bee9093baa7de1fad10cecd4379ae1b0230bcb",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/bui-listbox-default-font.png",
+    "alt": "A BUI BBjListBox, 160 by 55 pixels, showing three items: List Box, Item #1, and Item #2.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "Google Chrome - DWC UI Kit- screenshot 2022-07-10 at 06.17.56.png",
+    "sha1": "e61718b184e1b7f285b942e4d8ce64fc11fd8cd7",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/dwc-listbox-default-font.png",
+    "alt": "A DWC BBjListBox, 160 by 55 pixels, showing List Box fully and Item #1 cut off at the bottom.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
+  },
+  {
+    "moodle_name": "Google Chrome - BUI UI Kit- screenshot 2022-07-10 at 06.21.19.png",
+    "sha1": "13b08fa543ad136167ad61a4487d5315d25dd78d",
+    "source": "moodle",
+    "path": "docs/docs/dwc/02-browser-developer-tools/img/bui-computed-font-size.png",
+    "alt": "The Computed styles for a BUI control showing font-size 10.6667px, set to 8pt on the element style and inherited from the BASIS stylesheet.",
+    "page": "docs/docs/dwc/02-browser-developer-tools/03-css-custom-properties.md"
   }
 ]

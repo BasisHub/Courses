@@ -57,8 +57,10 @@ color: var(--dwc-button-color, red);
 This sets the color to `--dwc-button-color`, or `red` if undefined.
 
 :::tip
-View all DWC CSS custom properties by switching to the Application tab in Developer Tools and viewing the `dwc-ui.css` file.
+View all DWC CSS custom properties by switching to the Application tab in Developer Tools and viewing the `dwc-ui.css` file. The file is minified, but the Developer Tools can toggle it between the minified state and a pretty-printed (formatted) version, which is much easier to read.
 :::
+
+![The Application tab of the Developer Tools showing the DWC stylesheet with its custom properties, and the pretty-print button at the bottom left of the source pane.](./img/dwc-ui-css-application-tab.png)
 
 ## Example 1 - Setting Custom Values for CSS Custom Properties
 
@@ -73,6 +75,10 @@ Choose different CSS custom properties and values, then press the button to appl
 ```bbj
 sampleWindow!.setStyle(currentProperty$, currentValue$)
 ```
+
+The following screenshot shows the result of setting `--dwc-color-primary` to `orange`. The background of the check box and the radio button changes to orange:
+
+![The CSS Custom Properties sample window in light mode after setting the primary color to orange, with an orange check box and radio button.](./img/css-custom-property-light-mode.png)
 
 ### Going the Extra Mile
 
@@ -122,6 +128,10 @@ web! = BBjAPI().getWebManager()
 web!.setTheme("system")
 ```
 
+If the client's operating system is in dark mode, the sample window now displays with the DWC dark theme:
+
+![The CSS Custom Properties sample window in dark mode, with the font size property set to 20px.](./img/css-custom-property-dark-mode.png)
+
 ## Modifying a BBjControl's Style Properties
 
 There are several ways to set styles on a BBjControl:
@@ -145,8 +155,12 @@ web!.injectStyle(myButton2Css!)
 ```
 
 :::warning
-This method doesn't produce expected results due to the shadow DOM - see below.
+This method doesn't produce the expected results because of the shadow DOM. The explanation follows the examples.
 :::
+
+The code for `myButton1!` and `myButton2!` both tries to set the foreground and background color of the button, but only `myButton1!` works as expected. If you look closely at the second button, you can see that its corners are purple. The purple background sits behind the button's "control" part, and only the corners show because of the button's border radius.
+
+`BBjButton` inherits `setBackColor()` and `setForeColor()` from `BBjControl`, and both use the `setStyle` message internally, which is the method `myButton1!` uses. The DWC intercepts `setStyle` calls and forwards the color and the background to the correct part of the component. That trick does not work for an injected class, so `myButton2!` misses the button face. The shadow DOM section below explains why the third and fourth buttons work.
 
 ### Method 3: CSS Custom Properties
 
@@ -169,6 +183,10 @@ myButton4Css! = myButton4Css! + "}"
 myButton4!.addClass("myButton4")
 web!.injectStyle(myButton4Css!)
 ```
+
+The result shows four buttons. Buttons 1, 3, and 4 are purple with yellow text. Only the second button, styled with the injected class, stays unstyled:
+
+![Four BBjButtons in a window; the first, third, and fourth are purple with yellow text and the second keeps the default style with purple only at its corners.](./img/set-style-example-buttons.png)
 
 ## Using Directives to Inject JavaScript and CSS Dynamically
 
@@ -221,10 +239,18 @@ The DWC implements BBj controls using web components with shadow DOMs:
 <dwc-button>...</dwc-button>
 ```
 
+In the Elements tab, the real outer HTML of a DWC button, without the inline styles, is short:
+
+![The outer HTML of a DWC button element in the Elements tab, a single short tag with a few attributes.](./img/dwc-button-outer-html.png)
+
 **BUI Button (more complex outer HTML):**
 ```html
 <div class="BBjButton">...</div>
 ```
+
+The same button in BUI has much more markup:
+
+![The outer HTML of a BUI button, a div with inline styles that contains an input and nested div elements.](./img/bui-button-outer-html.png)
 
 ### Why Shadow DOM?
 
@@ -256,6 +282,27 @@ myButton4Css! = myButton4Css! + "}"
 
 The `::part(control)` pseudo-element targets the button's exposed "control" part.
 
+A pseudo-element is a keyword you add to a selector to style a specific part of the selected elements. The class name `myButton4` matches the button, and `::part()` reaches into the button's shadow DOM to select the element that exposes the named part. To see all exposed parts, inspect the `dwc-button` in the Developer Tools and expand the first shadow tree:
+
+![The shadow tree of a DWC button in the Elements tab, with the part attributes control, prefix, label, and suffix highlighted.](./img/dwc-button-exposed-parts.png)
+
+The first highlighted attribute shows that the button uses an HTML `button` element with `part="control"`. That is the element the `.myButton4::part(control)` selector targets, so the background and foreground colors override the control's defaults. Compare the code below:
+
+```bbj
+    css! =        ".myButton4::part(control) {"
+    css! = css! + "   background: purple;"
+    css! = css! + "   color: yellow;"
+    css! = css! + "}"
+```
+
+Change `control` to `label` in the first line and the selector targets the "label" part of the button instead, which gives a very different result. With `::part(control)` the whole button is purple:
+
+![A BBjButton with a purple face and yellow text.](./img/part-control-result.png)
+
+With `::part(label)` only the label area is purple, and the other areas of the button keep their default style:
+
+![A BBjButton with a purple band behind the yellow text and the default blue-gray style around it.](./img/part-label-result.png)
+
 :::note
 Inheritable styles (background, color, font, line height, etc.) continue to inherit in shadow DOM and can penetrate the shadow DOM boundary. Outside styles always win over styles defined in shadow DOM.
 :::
@@ -266,7 +313,21 @@ Each DWC control exposes different CSS custom properties and shadow parts. Use *
 
 ## Font Size Compatibility
 
-The DWC has a larger default font size (14px) compared to BUI (10.6667px / 8pt).
+The DWC has a larger default font size (14px) compared to BUI (10.6667px / 8pt). When you run the same app in BUI and in the DWC, the text in BUI is noticeably smaller. Compare the same `BBjListBox` in both clients. In BUI, on the left, three entries fit with room to spare:
+
+![A BUI BBjListBox, 160 by 55 pixels, showing three items: List Box, Item #1, and Item #2.](./img/bui-listbox-default-font.png)
+
+In the DWC, the list box has exactly the same size of 160 by 55 pixels, but only one item is fully visible. The second item is cut off, and you have to scroll to reach the third:
+
+![A DWC BBjListBox, 160 by 55 pixels, showing List Box fully and Item #1 cut off at the bottom.](./img/dwc-listbox-default-font.png)
+
+The difference comes from the default font size and the spacing. The Computed styles section of the Developer Tools shows that the two clients define the CSS `font-size` property very differently. In BUI, the size is 10.6667px, and expanding the property shows that it traces back to 8pt in the `basis.css` file:
+
+![The Computed styles for a BUI control showing font-size 10.6667px, set to 8pt on the element style and inherited from the BASIS stylesheet.](./img/bui-computed-font-size.png)
+
+In the DWC, the size comes from the `--dwc-font-size` CSS custom property, which resolves to 14px.
+
+Points and pixels are not the same, but both are fixed-size units. A pixel is one picture element on your screen. A point is 1/72 of an inch. One point equals 1.3333 pixels, and one pixel equals 0.75 points, so BUI's 8pt font converts to 10.6667px.
 
 ### Making DWC Look Like BUI
 
