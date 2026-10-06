@@ -2,7 +2,7 @@ rem ResponsiveLoginDialog.bbj
 rem Possible solution for the exercise Make your login dialog responsive, written for the Introduction to BBj Development book
 rem It starts from the solution LoginDialog.bbj and is a complete program of its own.
 rem The card lives in a BBjChildWindow and takes its look from responsive-login.css, so it runs in the DWC only.
-rem Keep responsive-login.css next to this program.
+rem resolvePath searches the PREFIX for responsive-login.css, so keep the file in a PREFIX directory.
 
 use java.nio.file.Files
 use java.nio.file.Paths
