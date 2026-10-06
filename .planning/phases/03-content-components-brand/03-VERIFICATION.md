@@ -1,101 +1,110 @@
 ---
 phase: 03-content-components-brand
-verified: 2026-10-03T19:30:00Z
-status: gaps_found
-score: 10/12 must-haves verified
-gaps:
-  - truth: "One command (bash tools/verify-phase3.sh) proves COMP-01 to COMP-06, SITE-05 and D-11 with PASS/FAIL lines"
-    status: failed
-    reason: "CR-01 confirmed. verify-phase3.sh:75 expects >=4 'Copy code to clipboard' in static HTML; build/docs/authoring/components.html contains 0 (button is BrowserOnly). The suite cannot go green."
-    artifacts:
-      - path: "tools/verify-phase3.sh"
-        issue: "line 75 check is unsatisfiable"
-    missing:
-      - "Replace with an SSR-observable check (e.g. count of prism-code blocks, full text of collapsed block in DOM); move copy behaviour to human check"
-  - truth: "Navbar shows book navigation (SITE-05 navbar / phase goal: site carries brand with working navigation)"
-    status: failed
-    reason: "CR-02 confirmed. _navbar.scss:147-151 hides .theme-layout-navbar-left .navbar__item:nth-last-child(-n+2) at <=1260px. Config has only 2 left items (the book links), so both are hidden from 997-1260px, where Docusaurus has not yet switched to the mobile menu (<=996px)."
-    artifacts:
-      - path: "docs/src/css/_navbar.scss"
-        issue: "copied webforJ rule hides the only two book links"
-    missing:
-      - "Delete the max-width:1260px rule"
-  - truth: "Print output keeps full code (COMP-04 collapsible code must not lose content)"
-    status: partial
-    reason: "CR-03 confirmed. _print.scss has no override for .expandable-code--collapsed max-height/overflow, nor the toggle button. Collapsed blocks print truncated. Not a stated ROADMAP criterion, so a warning-level gap."
-    artifacts:
-      - path: "docs/src/css/_print.scss"
-        issue: "no undo of collapse"
-    missing:
-      - "Print rule setting max-height:none, overflow:visible, hiding ::after and toggle"
-human_verification:
-  - test: "Run bash tools/verify-phase1.sh, bash tools/verify-phase2.sh --local, bash tools/verify-phase3.sh, bash tools/prove-gates.sh"
-    expected: "All green (phase3 only after CR-01 is fixed)"
-    why_human: "Script execution was permission-denied for agents"
-  - test: "Toggle light/dark; view exercise admonition, tables, code blocks"
-    expected: "DWC success palette on exercise box, readable in both themes"
-    why_human: "Visual"
-  - test: "Click the YouTube poster with DevTools network open"
-    expected: "No request to YouTube/Google before click; youtube-nocookie iframe after"
-    why_human: "Browser behaviour"
-  - test: "Open a >40-line fence, toggle, press copy"
-    expected: "Collapsed to ~40 lines; copy yields full code"
-    why_human: "Collapse height and clipboard"
-  - test: "Mermaid diagram, table expand dialog, image zoom, Cmd+K search on production build"
-    expected: "SVG renders, dialog opens, image zooms, search finds stub book text"
-    why_human: "Browser only"
-  - test: "Check favicon at 16/32 px, white-wordmark navbar logo, social cover"
-    expected: "Legible, on-brand"
-    why_human: "Visual brand judgement"
-  - test: "Print preview of components page"
-    expected: "Full code after CR-03 fix"
-    why_human: "Print rendering"
+verified: 2026-10-06T00:00:00Z
+status: passed
+score: 12/12 must-haves verified
+behavior_unverified: 0
+overrides_applied: 0
+re_verification:
+  previous_status: gaps_found
+  previous_score: 10/12
+  gaps_closed:
+    - "One command (bash tools/verify-phase3.sh) proves COMP-01 to COMP-06, SITE-05 and D-11 with PASS/FAIL lines (CR-01, commit 9e8ec23)"
+    - "Navbar shows book navigation at desktop widths (CR-02, commit b9c05d5)"
+    - "Print output keeps full code (CR-03, commit 92034c9)"
+  gaps_remaining: []
+  regressions: []
+environment_caveats:
+  - check: "verify-phase3.sh [site05] favicon 32x32 and social cover 1200x630"
+    cause: "The `file` command is not installed in the verification container; verify-phase3.sh:132-133 pipe `file` into grep, so both checks FAIL without it."
+    evidence: "PNG IHDR read with python: docs/static/img/favicon-32.png = 32x32, docs/static/img/social-cover.png = 1200x630. Assets are correct."
+    suggestion: "Have the script fall back to reading the PNG IHDR header (bytes 16-23) when `file` is absent."
 ---
 
 # Phase 3: Content Components and Brand Verification Report
 
 **Phase Goal:** Authors can use every shared component the books need, and the site carries the BASIS brand, before any real content lands
-**Status:** gaps_found
-**Re-verification:** No
+**Verified:** 2026-10-06
+**Status:** passed
+**Re-verification:** Yes. The previous report (2026-10-03, gaps_found, 10/12) predates the code-review fixes in 03-REVIEW-FIX.md.
 
-## Independent check of review blockers
+## Prior gaps and how each closed
 
-| ID | Verdict | Evidence |
-| --- | --- | --- |
-| CR-01 | Confirmed | `grep -c "Copy code to clipboard" docs/build/docs/authoring/components.html` returns 0; the check at verify-phase3.sh:75 requires >=4 |
-| CR-02 | Confirmed | docusaurus.config.js navbar: only two `position: 'left'` items (books); the `<=1260px` rule in _navbar.scss:147 hides the last two left children |
-| CR-03 | Confirmed | _print.scss lines 1-63 contain no rule touching `.expandable-code`; ExpandableCode/styles.css:5-8 clips collapsed body |
+| ID | Prior gap | Fix | Evidence in code (2026-10-06) | Status |
+| --- | --- | --- | --- | --- |
+| CR-01 | verify-phase3.sh required 4 or more "Copy code to clipboard" strings in static HTML; the button is BrowserOnly, so the suite could never pass | 9e8ec23 | `grep "Copy code to clipboard" tools/verify-phase3.sh` finds nothing. Line 90 counts `class="prism-code` (4 or more), line 91 checks `line41`, line 93 checks `open41`. The current build has 5 prism-code blocks, `line41` present, 2 collapsed blocks. Copy behavior moved to UAT test 6 (pass) | CLOSED |
+| CR-02 | `_navbar.scss` `@media (max-width: 1260px)` hid the last two left items, which are the only two book links, between 997 and 1260 px | b9c05d5 | `_navbar.scss` has no `1260`, no `nth-last-child` and no `display: none`; the only media query left is `max-width: 996px`. Config still generates the two `position: 'left'` book items. UAT test 2 (pass) confirms both links visible at 997 to 1260 px | CLOSED |
+| CR-03 | `_print.scss` did not undo the collapse, so collapsed code printed truncated | 92034c9 | `_print.scss` sets `.expandable-code--collapsed .expandable-code__body { max-height: none !important; overflow: visible !important; }` and hides `::after`, `.expandable-code__toggle` and `.table-wrapper__expand`. Selectors match ExpandableCode/index.js and styles.css. `custom.scss:20` has `@use "./print"`. UAT test 11 (pass) confirms full code in print preview | CLOSED |
 
 ## Observable Truths
 
 | # | Truth | Status | Evidence |
 | --- | --- | --- | --- |
-| 1 | COMP-01 exercise admonition registered | VERIFIED (code) | theme/Admonition/Types.js, _alerts.scss present; visual check human |
-| 2 | COMP-02 YouTube no-import, nocookie facade | VERIFIED (code) | components/YouTube, registered in MDXComponents.js; WR-03 focus loss is a warning |
-| 3 | COMP-03 BBj grammar extends Prism | VERIFIED | `node tools/test-bbj-grammar.js` all PASS; WR-01/02 are mis-tokenization warnings |
-| 4 | COMP-04 collapsible >40 lines, copy button | VERIFIED (code) | ExpandableCode + CodeBlock swizzle; copy-button runtime in human list |
-| 5 | COMP-05 Tabs, DocCardList, Mermaid, TableWrapper, zoom | VERIFIED | docusaurus-plugin-zooming in config/package.json, TableWrapper present (03-05 delivered zoom; checkbox now matches reality) |
-| 6 | COMP-06 local search, Algolia commented | VERIFIED | config has search item and commented Algolia block with placeholders |
-| 7 | SITE-05 logo, GitHub link, cover, favicon, footer | VERIFIED (assets/config) | basis-logo.svg, favicon.svg, social-cover.svg, `image: img/social-cover.png`, footer line in config |
-| 8 | Navbar usable at desktop widths | FAILED | CR-02 |
-| 9 | Fixture unlisted page exists | VERIFIED | docs/build/docs/authoring/components.html exists |
-| 10 | Acceptance suite verify-phase3.sh can pass | FAILED | CR-01 |
-| 11 | Brand assets present | VERIFIED | files exist |
-| 12 | Print keeps code | PARTIAL | CR-03 |
+| 1 | COMP-01 exercise admonition registered | VERIFIED | theme/Admonition/Types.js, _alerts.scss; verify-phase3 comp01 PASS; UAT test 4 pass (both themes) |
+| 2 | COMP-02 YouTube no-import, nocookie facade | VERIFIED | components/YouTube registered in MDXComponents.js; UAT test 7 pass (no requests before click, nocookie iframe, focus moves) |
+| 3 | COMP-03 BBj grammar extends Prism | VERIFIED | `node tools/test-bbj-grammar.js` PASS; UAT test 5 pass |
+| 4 | COMP-04 collapsible >40 lines, copy button | VERIFIED | ExpandableCode + CodeBlock swizzle; verify-phase3 prism-code/line41/open41 PASS; UAT test 6 pass (copy yields all 41 lines) |
+| 5 | COMP-05 Tabs, DocCardList, Mermaid, TableWrapper, zoom | VERIFIED | Config/package.json wiring; UAT tests 8 and 9 pass |
+| 6 | COMP-06 local search, Algolia commented | VERIFIED | Config search item and commented Algolia block; UAT test 10 pass |
+| 7 | SITE-05 logo, GitHub link, cover, favicon, footer | VERIFIED | verify-phase3 site05 index checks PASS; PNG headers 32x32 and 1200x630; UAT tests 2 and 3 pass |
+| 8 | Navbar usable at desktop widths | VERIFIED | CR-02 closed (see above) |
+| 9 | Fixture unlisted page exists | VERIFIED | docs/build/docs/authoring/components.html present; UAT test 10 confirms it is absent from search and sidebar |
+| 10 | Acceptance suite verify-phase3.sh can pass | VERIFIED | CR-01 closed; 52 PASS, 2 FAIL, both FAILs environmental (see caveat) |
+| 11 | Brand assets present | VERIFIED | basis-logo.svg, favicon.svg, favicon-32.png, social-cover.png present with correct dimensions |
+| 12 | Print keeps code | VERIFIED | CR-03 closed; UAT test 11 pass |
 
-**Score:** 10/12
+**Score:** 12/12 truths verified (0 present, behavior-unverified)
+
+## Suite and build results (orchestrator-recorded, 2026-10-06)
+
+| Command | Result | Status |
+| --- | --- | --- |
+| `cd docs && npm run build` | exit 0 | PASS |
+| `bash tools/verify-phase1.sh` | exit 0, 38 PASS, 0 FAIL | PASS |
+| `bash tools/verify-phase2.sh --local` | exit 0, 120 PASS, 0 FAIL (vale 3.24.0, actionlint 1.7.12 installed) | PASS |
+| `bash tools/verify-phase3.sh` | 52 PASS, 2 FAIL (`[site05] favicon 32x32`, `[site05] social cover 1200x630`) | PASS with environment caveat |
+| `bash tools/prove-gates.sh` | exit 0, 5 PASS | PASS |
+
+Verifier spot-checks run on 2026-10-06:
+
+| Behavior | Command | Result | Status |
+| --- | --- | --- | --- |
+| CR-01 check replaced | `grep -n "Copy code to clipboard\|prism-code\|line41" tools/verify-phase3.sh` | No copy-text check; lines 90, 91, 93 | PASS |
+| Built fixture satisfies new checks | `grep -o 'class="prism-code' components.html \| wc -l`; `grep -c line41` | 5; 1 | PASS |
+| PNG sizes | python IHDR read | favicon-32.png 32x32; social-cover.png 1200x630 | PASS |
+| `file` availability | `command -v file` | not installed | caveat confirmed |
+
+## Environment caveat (not a phase gap)
+
+The two verify-phase3 FAILs come from `tools/verify-phase3.sh:132-133`, which pipe the `file` command into grep. `file` is not installed in this container, so both checks fail regardless of the assets. A direct PNG header read shows the assets have the required sizes. Suggested hardening: when `command -v file` fails, read bytes 16 to 23 of the PNG (IHDR width and height) instead.
 
 ## Requirements Coverage
 
-All seven IDs (COMP-01..06, SITE-05) appear in PLAN frontmatter (03-06 lists all) and in REQUIREMENTS.md, checked [x] and mapped Complete. No orphans. COMP-05 checkbox is consistent with 03-05 delivering zoom. SITE-05 is satisfied except for the navbar book-link defect (CR-02), which does not remove logo or GitHub link but defeats navigation.
+| Requirement | Source Plan | Status | Evidence |
+| --- | --- | --- | --- |
+| COMP-01 | 03-03, 03-05, 03-06 | SATISFIED | Truth 1 |
+| COMP-02 | 03-03, 03-06 | SATISFIED | Truth 2 |
+| COMP-03 | 03-02, 03-06 | SATISFIED | Truth 3 |
+| COMP-04 | 03-04, 03-06 | SATISFIED | Truth 4, 12 |
+| COMP-05 | 03-03, 03-04, 03-05, 03-06 | SATISFIED | Truth 5 |
+| COMP-06 | 03-05, 03-06 | SATISFIED | Truth 6 |
+| SITE-05 | 03-01, 03-05, 03-06 | SATISFIED | Truths 7, 8, 11 |
+
+No orphaned requirements.
 
 ## Anti-Patterns
 
-CR-01..03 above; 10 warnings in 03-REVIEW.md (WR-01 keyword/suffix variable tokenization, WR-02 strings across newlines, WR-03 YouTube focus, WR-04 ExpandableCode) remain open.
+No TBD, FIXME, XXX, TODO or HACK markers in tools/verify-phase3.sh, docs/src/css/_navbar.scss or docs/src/css/_print.scss. From 03-REVIEW-FIX.md, 21 of 22 findings are fixed. IN-05 (collapsed height `1.31em + 2rem` ignores a code-block title bar, so a titled block shows fewer than 40 lines) stays open as an info-level item; it does not affect any must-have.
+
+## Human Verification
+
+All items in the previous human_verification list are covered by 03-UAT.md (status complete, 11/11 pass, 2026-10-03): suite runs (orchestrator, above), light/dark and exercise palette (tests 2, 4, 5), YouTube facade (test 7), collapse and copy (test 6), Mermaid, table dialog, zoom and search (tests 8, 9, 10), favicon, logo and social cover (tests 2, 3), print preview (test 11). No open human items.
 
 ## Gaps Summary
 
-Components and brand are present and wired. Two small blockers prevent sign-off: the acceptance suite has an unsatisfiable check (CR-01), and the navbar hides both book links at 997-1260px (CR-02). CR-03 is a print content-loss gap. All three are one-line to few-line fixes. Shell suites were not executed by me and are listed for human confirmation.
+None. The three gaps from the 2026-10-03 report are closed in code and confirmed by build, suites and UAT. The only red lines in verify-phase3.sh are environmental (missing `file` binary), recorded above as a caveat with a suggested fallback.
 
-_Verified: 2026-10-03_
+---
+
+_Verified: 2026-10-06_
 _Verifier: Claude (gsd-verifier)_
