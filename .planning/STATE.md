@@ -31,7 +31,7 @@ See: .planning/PROJECT.md (updated 2026-10-03)
 Phase: 06.1 (Exercise Solutions and Restored Screenshots (INSERTED)) — EXECUTING
 Plan: 10 of 10 complete
 Status: All plans executed; ready for phase verification (runtime UAT in 06.1-HUMAN-UAT.md pending)
-Last activity: 2026-10-04 — Plan 06.1-10 complete
+Last activity: 2026-10-06 - Completed quick task 261006-e3h: Resync DWC and intro-bbj download zips with updated docs/examples samples
 
 Progress: [█░░░░░░░░░] 13%
 
@@ -106,6 +106,12 @@ Decisions are logged in PROJECT.md Key Decisions table.
 - Brand assets (BASIS logo, social cover) from Stephan needed in Phase 3 (SITE-05)
 - Re-snapshot old DWC-Course sitemap before Phase 4 (route count 26+1 vs 28 unresolved)
 - Spikes needed: Phase 1 (category icon, swizzles on 3.10.2), Phase 3, Phase 5, Phase 6, Phase 8
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 261006-e3h | Resync DWC and intro-bbj download zips with updated docs/examples samples | 2026-10-06 | a052c48 | [261006-e3h-resync-dwc-and-intro-bbj-download-zips-w](./quick/261006-e3h-resync-dwc-and-intro-bbj-download-zips-w/) |
 
 ## Deferred Items
 
