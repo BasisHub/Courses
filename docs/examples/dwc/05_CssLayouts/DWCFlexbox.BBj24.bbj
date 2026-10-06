@@ -243,8 +243,8 @@ return
 
 rem Callback for when the user changes the number of boxes to show in the visualization area
 onNumBoxesSpin:
-    e! = cast(BBjSpinEvent, SysGui!.getLastEvent())
-    numVisibleBoxes = num(e!.getText())
+    e1! = cast(BBjSpinEvent, SysGui!.getLastEvent())
+    numVisibleBoxes = num(e1!.getText())
 
     rem Change the box colors so that they are always spread across the hue spectrum
     for i = 0 to numBoxes-1
