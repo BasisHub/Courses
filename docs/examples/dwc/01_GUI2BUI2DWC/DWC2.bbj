@@ -32,7 +32,7 @@ rem Use an icon from the fontawesome-free pool
 rem @see https://fontawesome.com/v5/search?m=free
 rem btnIcon$ = "<dwc-icon name='fas-microphone-alt' pool='fa'></dwc-icon>"
 
-btn! = wnd!.addButton("<html>Say Hello" + btnIcon$ +"</html>")
+btn! = wnd!.addButton("<html>Say Hello " + btnIcon$ +"</html>")
 
 btn!.setStyle("grid-column","2")
 
