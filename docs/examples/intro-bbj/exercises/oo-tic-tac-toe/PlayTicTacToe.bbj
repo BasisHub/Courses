@@ -4,7 +4,7 @@ rem The launcher only starts the game: it creates a GameWindow, shows it and wai
 
 use ::GameWindow.bbj::GameWindow
 
-declare GameWindow game!
+declare auto GameWindow game!
 
 game! = new GameWindow()
 game!.show()

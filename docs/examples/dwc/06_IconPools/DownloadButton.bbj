@@ -21,8 +21,8 @@ rem Create the window and use a grid layout
 window! = BBjAPI().openSysGui("X0").addWindow("DWC Icon Pools", $00100093$)
 window!.setPanelStyle("display", "inline-grid")
 window!.setPanelStyle("grid-template-columns", "1fr")
-window!.setPanelStyle("gap", "var(--bbj-space)")
-window!.setPanelStyle("padding", "var(--bbj-space-xl)")
+window!.setPanelStyle("gap", "var(--dwc-space)")
+window!.setPanelStyle("padding", "var(--dwc-space-xl)")
 window!.setCallback(BBjAPI.ON_CLOSE, "onExit")
 
 
@@ -41,7 +41,7 @@ btnFontAwesome! =  window!.addButton(btnIconFontAwesome$ + "Font Awesome's Downl
 rem Define the HTML title for the alternate buttons that incorporate the cloud download icons with extra styling for size/color
 btnIconFeather$ = "<html><bbj-icon pool='feather' name='download-cloud' expanse='l' theme='danger'></bbj-icon>"
 btnIconTabler$ = "<html><bbj-icon pool='tabler' name='cloud-download' style='width: 0.5em; color: green'></bbj-icon>"
-btnIconFontAwesome$ = "<html><bbj-icon pool='fa' name='fas-cloud-download-alt' style='width: 1em; color: var(--bbj-color-danger)'></bbj-icon>"
+btnIconFontAwesome$ = "<html><bbj-icon pool='fa' name='fas-cloud-download-alt' style='width: 1em; color: var(--dwc-color-danger)'></bbj-icon>"
 
 rem Now create the buttons using the HTML for the title
 btnFeather! = window!.addButton(btnIconFeather$ + "Feather's Cloud Download Icon")

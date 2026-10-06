@@ -48,7 +48,7 @@ json!.addProperty("box-sizing", "border-box")
 json!.addProperty("display", "grid")
 json!.addProperty("grid-template-columns", "auto 1fr")
 json!.addProperty("align-items", "center")
-json!.addProperty("gap", "var(--bbj-space)")
+json!.addProperty("gap", "var(--dwc-space)")
 window!.setPanelStyle("@element", json!.toString())
 window!.setCallback(window!.ON_CLOSE, "onExit")
 

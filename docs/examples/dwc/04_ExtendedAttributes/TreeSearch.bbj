@@ -28,9 +28,9 @@ json! = new JsonObject()
 json!.addProperty("box-sizing", "border-box")
 json!.addProperty("width", "100%")
 json!.addProperty("height", "100%")
-json!.addProperty("padding", "var(--bbj-space-l)")
+json!.addProperty("padding", "var(--dwc-space-l)")
 json!.addProperty("display", "grid")
-json!.addProperty("gap", "var(--bbj-space-xl)")
+json!.addProperty("gap", "var(--dwc-space-xl)")
 json!.addProperty("grid-template-columns", "1fr")
 json!.addProperty("grid-template-rows", "auto auto 1fr")
 json!.addProperty("justify-items", "stretch")
@@ -39,11 +39,11 @@ wnd!.setPanelStyle("@element", json!.toString())
 
 rem Define the CSS for the BBjChildWindows that will be applied after we create them
 jsonChildWindow! = new JsonObject()
-jsonChildWindow!.addProperty("border-radius", "var(--bbj-border-radius)")
-jsonChildWindow!.addProperty("border-color", "var(--bbj-color-default-dark)")
-jsonChildWindow!.addProperty("padding", "var(--bbj-space) var(--bbj-space) var(--bbj-space-m) var(--bbj-space)")
+jsonChildWindow!.addProperty("border-radius", "var(--dwc-border-radius)")
+jsonChildWindow!.addProperty("border-color", "var(--dwc-color-default-dark)")
+jsonChildWindow!.addProperty("padding", "var(--dwc-space) var(--dwc-space) var(--dwc-space-m) var(--dwc-space)")
 jsonChildWindow!.addProperty("display", "flex")
-jsonChildWindow!.addProperty("gap", "var(--bbj-space-3xl)")
+jsonChildWindow!.addProperty("gap", "var(--dwc-space-3xl)")
 jsonChildWindow!.addProperty("overflow", "auto")
 
 rem Define the options window with toggleable attributes
@@ -80,9 +80,9 @@ json! = new JsonObject()
 json!.addProperty("box-sizing", "border-box")
 json!.addProperty("width", "100%")
 json!.addProperty("height", "100%")
-json!.addProperty("padding", "var(--bbj-space) var(--bbj-space) var(--bbj-space-m) var(--bbj-space)")
+json!.addProperty("padding", "var(--dwc-space) var(--dwc-space) var(--dwc-space-m) var(--dwc-space)")
 json!.addProperty("display", "grid")
-json!.addProperty("gap", "var(--bbj-space-3xl)")
+json!.addProperty("gap", "var(--dwc-space-3xl)")
 json!.addProperty("grid-template-columns", "1fr 1fr")
 json!.addProperty("justify-items", "stretch")
 json!.addProperty("align-items", "stretch")
@@ -93,9 +93,9 @@ treeWnd!.setPanelStyle("@element", json!.toString())
 
 rem Define custom styling for the trees
 jsonTree! = new JsonObject()
-jsonTree!.addProperty("background", "hsl( var(--bbj-color-default-h), var(--bbj-color-default-s), 96%)")
-jsonTree!.addProperty("border", "1px solid hsl( var(--bbj-color-default-h), var(--bbj-color-default-s), 92%)")
-jsonTree!.addProperty("border-radius", "var(--bbj-border-radius)")
+jsonTree!.addProperty("background", "hsl( var(--dwc-color-default-h), var(--dwc-color-default-s), 96%)")
+jsonTree!.addProperty("border", "1px solid hsl( var(--dwc-color-default-h), var(--dwc-color-default-s), 92%)")
+jsonTree!.addProperty("border-radius", "var(--dwc-border-radius)")
 jsonTree!.addProperty("border-top-width", "0")
 
 rem Add the first tree and define a custom error message via the search-nodata attribute
@@ -105,9 +105,9 @@ tree1!.setAttribute("search-placeholder","Search first tree")
 tree1!.setStyle("@element", jsonTree!.toString())
 css! = "<div style='display: grid; grid-template-rows: 1fr 1fr; gap: 1em; padding: 1em; text-align: center; '>"
 css! = css! + "<bbj-icon name='alert-triangle' "
-css! = css! +  "style='margin:0 auto; font-size: 3rem; color: var(--bbj-color-warning-50); background: var(--bbj-color-warning-90); border-radius: 50%; padding: 0.15em; border: 4px solid var(--bbj-color-warning-50);"
+css! = css! +  "style='margin:0 auto; font-size: 3rem; color: var(--dwc-color-warning-50); background: var(--dwc-color-warning-90); border-radius: 50%; padding: 0.15em; border: 4px solid var(--dwc-color-warning-50);"
 css! = css! +  "'></bbj-icon>"
-css! = css! + "<span style='color: var(--bbj-color-warning-25);'>Oops, we can't find that text in the tree!<br>But here's a custom icon and error message.</span>"
+css! = css! + "<span style='color: var(--dwc-color-warning-25);'>Oops, we can't find that text in the tree!<br>But here's a custom icon and error message.</span>"
 css! = css! + "</div>"
 tree1!.setAttribute("search-nodata", css!)
 
@@ -123,8 +123,8 @@ tree2!.setStyle("@element", jsonTree!.toString())
 
 rem Add custom CSS to set the color of the icons in each tree
 wnd!.setAttribute("@app-style-bottom", "" +
-: ".first-tree {--bbj-tree-icon-fill: #ffa726 } "+
-: ".second-tree {--bbj-tree-icon-fill: #64b5f6 } ")
+: ".first-tree {--dwc-tree-icon-fill: #ffa726 } "+
+: ".second-tree {--dwc-tree-icon-fill: #64b5f6 } ")
 
 gosub fillTrees
 gosub setDefaultAttributeCheckBoxes
