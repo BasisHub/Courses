@@ -12,6 +12,8 @@ Two fences in `05-loops-and-if-statements.mdx` failed first because they used th
 
 Phase 6.1 added the exercise solutions under `docs/examples/intro-bbj/exercises/`. They were checked at plan 06.1-07 after reading `bbj://primer`, with the results in `06.1-bbj-syntax-raw.tsv`; one call per file covers its byte-identical page fence.
 
+On 2026-10-06 `exercises/oo-tic-tac-toe/GameWindow.bbj` and `PlayTicTacToe.bbj` were re-checked with the hosted `bbj_check_syntax` (stock BBj 26.03) after the upstream edits in 9342f97..777e375, and both passed with 0 diagnostics. Checker footer: bbj-docs · hosted · docs 2026-09-21 · fd516a9d.
+
 | File | Result | Detail |
 |------|--------|--------|
 | `docs/examples/intro-bbj/better-hello-world/BetterHelloWorld.bbj` | pass | - |
@@ -26,8 +28,8 @@ Phase 6.1 added the exercise solutions under `docs/examples/intro-bbj/exercises/
 | `docs/examples/intro-bbj/exercises/ResponsiveLoginDialog.bbj` | pass | - |
 | `docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj` | pass | - |
 | `docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Player.bbj` | pass | - |
-| `docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj` | pass | - |
-| `docs/examples/intro-bbj/exercises/oo-tic-tac-toe/PlayTicTacToe.bbj` | pass | - |
+| `docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj` | pass | re-checked 2026-10-06 after 9342f97..777e375 sample edits |
+| `docs/examples/intro-bbj/exercises/oo-tic-tac-toe/PlayTicTacToe.bbj` | pass | re-checked 2026-10-06 after 9342f97..777e375 sample edits |
 | `docs/docs/intro-bbj/01-getting-started/02-first-hello-world.mdx#1` | pass | - |
 | `docs/docs/intro-bbj/01-getting-started/03-syntax-and-variables.mdx#1` | pass | - |
 | `docs/docs/intro-bbj/01-getting-started/03-syntax-and-variables.mdx#2` | pass | - |
@@ -45,8 +47,8 @@ Phase 6.1 added the exercise solutions under `docs/examples/intro-bbj/exercises/
 | `docs/docs/intro-bbj/02-object-oriented-syntax/90-exercise-login-dialog.mdx#1` | pass | byte-identical to docs/examples/intro-bbj/exercises/LoginDialog.bbj |
 | `docs/docs/intro-bbj/02-object-oriented-syntax/91-exercise-oo-tic-tac-toe.mdx#1` | pass | byte-identical to docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Board.bbj |
 | `docs/docs/intro-bbj/02-object-oriented-syntax/91-exercise-oo-tic-tac-toe.mdx#2` | pass | byte-identical to docs/examples/intro-bbj/exercises/oo-tic-tac-toe/Player.bbj |
-| `docs/docs/intro-bbj/02-object-oriented-syntax/91-exercise-oo-tic-tac-toe.mdx#3` | pass | byte-identical to docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj |
-| `docs/docs/intro-bbj/02-object-oriented-syntax/91-exercise-oo-tic-tac-toe.mdx#4` | pass | byte-identical to docs/examples/intro-bbj/exercises/oo-tic-tac-toe/PlayTicTacToe.bbj |
+| `docs/docs/intro-bbj/02-object-oriented-syntax/91-exercise-oo-tic-tac-toe.mdx#3` | pass | byte-identical to docs/examples/intro-bbj/exercises/oo-tic-tac-toe/GameWindow.bbj, re-checked 2026-10-06 |
+| `docs/docs/intro-bbj/02-object-oriented-syntax/91-exercise-oo-tic-tac-toe.mdx#4` | pass | byte-identical to docs/examples/intro-bbj/exercises/oo-tic-tac-toe/PlayTicTacToe.bbj, re-checked 2026-10-06 |
 | `docs/docs/intro-bbj/03-web-development/03-developing-for-the-web.mdx#1` | pass | - |
 | `docs/docs/intro-bbj/03-web-development/04-window-layout-mode.mdx#1` | pass | - |
 | `docs/docs/intro-bbj/03-web-development/05-css-layout-instructions.mdx#1` | pass | - |
