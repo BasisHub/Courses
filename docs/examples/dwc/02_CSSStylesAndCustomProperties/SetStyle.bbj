@@ -10,7 +10,7 @@ rem If the app is running in BUI, switch it automatically to run in the DWC clie
 rem ================================================================================
 if (info(3, 6) = "5") then
     bui! = BBjAPI().getBuiManager()
-    url! = bui!.getUrl().replaceAll("apps: webapp;
+    url! = bui!.getUrl().replaceAll("apps","webapp")
     action! = bui!.urlAction(url!)
     bui!.setEndAction(action!)
     release
