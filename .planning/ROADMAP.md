@@ -334,10 +334,46 @@ Plans:
   4. A Playwright run in Chromium opens each program and records page errors, console errors, failed requests, new `Debug.log` errors, icon rendering and light and dark screenshots; behaviour tests cover what each page says the sample does, including GitHub issues #3 to #7
   5. `tools/data/sample-test-report.md` lists the result per sample, draft issue texts and open questions for Hyyan; no sample is changed and nothing is posted to GitHub
 
-**Plans:** 0 plans
+**Plans:** 14 plans
 
 Plans:
-- [ ] TBD (run /gsd:plan-phase 06.2 to break down)
+**Wave 1**
+
+- [ ] 06.2-01-PLAN.md — Admin layer: BBjAdminTool.java (plain Java Admin API), path and lock helpers, session filter, `npm run cleanup`
+- [ ] 06.2-02-PLAN.md — Control programs (known-good, known-broken, known-print, known-missing-css), result contract, console parser and classifier
+- [ ] 06.2-03-PLAN.md — manifest.json for all 63 files, app names, validator and coverage test
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 06.2-04-PLAN.md — Compile pass (syntax and -t type check) to results/compile.json
+- [ ] 06.2-05-PLAN.md — Playwright config, global setup and teardown (lock, sweep, register, unregister), per-test session cleanup, lifecycle self-test
+- [ ] 06.2-06-PLAN.md — Orchestrator BBj check of the four control programs (non-autonomous)
+- [ ] 06.2-07-PLAN.md — Report generator with privacy checks, tested on synthetic results
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
+- [ ] 06.2-08-PLAN.md — DWC observation helpers, runProgram, self-test classifies the four controls live
+
+**Wave 4** *(blocked on Wave 3 completion)*
+
+- [ ] 06.2-09-PLAN.md — Smoke test per runnable sample, behaviour wrapper, behaviour coverage check, run-baseline.mjs, README
+
+**Wave 5** *(blocked on Wave 4 completion; live runs serialized by the run lock)*
+
+- [ ] 06.2-10-PLAN.md — Behaviour: DWC chapters 01 and 02, issues #3 and #4
+- [ ] 06.2-11-PLAN.md — Behaviour: ARC files, grids, extended attributes, CSS layouts, issue #5
+- [ ] 06.2-12-PLAN.md — Behaviour: icon pools, validation, browser constraints, issue #6, issue #7 sweep over 13 files
+- [ ] 06.2-13-PLAN.md — Behaviour: embedding, advanced responsive, intro-bbj programs
+
+**Wave 6** *(blocked on Wave 5 completion)*
+
+- [ ] 06.2-14-PLAN.md — Full baseline, static findings, draft issues, questions for Hyyan, tools/data/sample-test-report.md, final checks
+
+**Cross-cutting constraints:**
+
+- No file under docs/ changes; nothing is pushed or posted (D-03, D-04, D-07)
+- Only 3 BBJ licenses: workers 1, per-test session termination, sweeps, and a run lock in the OS temp folder across worktrees
+- Credentials stay in the ignored tools/sample-test/.env; the license serial number never leaves tools/sample-test/results/
 
 ### Phase 7: Review, Acceptance & Go-Live
 
@@ -378,6 +414,6 @@ Plans:
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
 | 6. Exercises & DWC Gap Audit | 21/21 | Complete   | 2026-10-04 |
-| 6.2. Runtime-verified BBj Samples | 0/TBD | Not started | - |
+| 6.2. Runtime-verified BBj Samples | 0/14 | Planned | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |
