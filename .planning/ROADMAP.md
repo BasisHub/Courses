@@ -334,7 +334,7 @@ Plans:
   4. A Playwright run in Chromium opens each program and records page errors, console errors, failed requests, new `Debug.log` errors, icon rendering and light and dark screenshots; behaviour tests cover what each page says the sample does, including GitHub issues #3 to #7
   5. `tools/data/sample-test-report.md` lists the result per sample, draft issue texts and open questions for Hyyan; no sample is changed and nothing is posted to GitHub
 
-**Plans:** 14 plans
+**Plans:** 16 plans
 
 Plans:
 **Wave 1**
@@ -358,21 +358,38 @@ Plans:
 
 - [ ] 06.2-09-PLAN.md — Smoke test per runnable sample, behaviour wrapper, behaviour coverage check, run-baseline.mjs, README
 
-**Wave 5** *(blocked on Wave 4 completion; live runs serialized by the run lock)*
+**Wave 5** *(blocked on Wave 4 completion; behaviour plans run one per wave)*
 
 - [ ] 06.2-10-PLAN.md — Behaviour: DWC chapters 01 and 02, issues #3 and #4
-- [ ] 06.2-11-PLAN.md — Behaviour: ARC files, grids, extended attributes, CSS layouts, issue #5
-- [ ] 06.2-12-PLAN.md — Behaviour: icon pools, validation, browser constraints, issue #6, issue #7 sweep over 13 files
-- [ ] 06.2-13-PLAN.md — Behaviour: embedding, advanced responsive, intro-bbj programs
 
 **Wave 6** *(blocked on Wave 5 completion)*
 
-- [ ] 06.2-14-PLAN.md — Full baseline, static findings, draft issues, questions for Hyyan, tools/data/sample-test-report.md, final checks
+- [ ] 06.2-11-PLAN.md — Behaviour: ARC files, grids, extended attributes, issue #5
+
+**Wave 7** *(blocked on Wave 6 completion)*
+
+- [ ] 06.2-12-PLAN.md — Behaviour: CSS layouts (Flexbox, Grid, exercise solutions)
+
+**Wave 8** *(blocked on Wave 7 completion)*
+
+- [ ] 06.2-13-PLAN.md — Behaviour: icon pools, validation, browser constraints, issue #6, issue #7 sweep over 13 files
+
+**Wave 9** *(blocked on Wave 8 completion)*
+
+- [ ] 06.2-14-PLAN.md — Behaviour: embedding and advanced responsive
+
+**Wave 10** *(blocked on Wave 9 completion)*
+
+- [ ] 06.2-15-PLAN.md — Behaviour: intro-bbj programs, full behaviour coverage check
+
+**Wave 11** *(blocked on Wave 10 completion)*
+
+- [ ] 06.2-16-PLAN.md — Full baseline, static findings, draft issues, questions for Hyyan, tools/data/sample-test-report.md, final checks
 
 **Cross-cutting constraints:**
 
 - No file under docs/ changes; nothing is pushed or posted (D-03, D-04, D-07)
-- Only 3 BBJ licenses: workers 1, per-test session termination, sweeps, and a run lock in the OS temp folder across worktrees
+- Only 3 BBJ licenses: workers 1, at most one live plan per wave, per-test session termination with license-leak detection, sweeps limited to harness program paths, and a run lock with heartbeat in the OS temp folder across worktrees
 - Credentials stay in the ignored tools/sample-test/.env; the license serial number never leaves tools/sample-test/results/
 
 ### Phase 7: Review, Acceptance & Go-Live
