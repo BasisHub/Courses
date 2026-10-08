@@ -325,7 +325,7 @@ Plans:
 
 **Goal**: Every program under `docs/examples/` is compiled, registered and run in DWC on the local BBj 26.03, and the results are collected in one baseline report. No sample changes, nothing posted.
 **Depends on**: Phase 6.1
-**Requirements**: TBD (added during planning)
+**Requirements**: SAMP-01, SAMP-02, SAMP-03, SAMP-04, SAMP-05, SAMP-06
 **Success Criteria** (what must be TRUE):
 
   1. Every `.bbj` under `docs/examples/` has a manifest entry (kind, entry program, dependencies), and a coverage test fails on any file that has none

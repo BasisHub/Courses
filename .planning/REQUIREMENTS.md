@@ -65,6 +65,15 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 - [x] **AUDIT-02**: Kept material is added to the DWC pages as its own commit series, without renaming existing slugs
 - [x] **AUDIT-03**: DWC screenshots that originate from 2022-era Moodle images (matched by content hash) carry a `{/* TODO: screenshot outdated? */}` marker
 
+### Runtime Sample Verification (before go-live)
+
+- [ ] **SAMP-01**: `tools/sample-test/manifest.json` lists every `.bbj` under `docs/examples/` with its kind, entry program, dependencies and page; a coverage test fails on any file without an entry and on any entry without a file
+- [ ] **SAMP-02**: Every `.bbj` under `docs/examples/` passes through the local BBj 26.03 compiler (syntax pass and `-t` type check), with the result per file recorded
+- [ ] **SAMP-03**: Every runnable program is registered as a `courses-*` DWC app through the BBj Admin API from plain Java, with credentials read from the ignored `tools/sample-test/.env`; one command removes all `courses-*` apps and terminates leftover sample sessions
+- [ ] **SAMP-04**: A serial Playwright run in Chromium opens every runnable program and records start, BBj errors with line, page errors, console errors, failed requests, icon rendering and light and dark screenshots; the harness fails a known-broken control program and passes a known-good one
+- [ ] **SAMP-05**: Behaviour tests check what each sample's page says it does, with explicit checks for GitHub issues #3 to #7
+- [ ] **SAMP-06**: `tools/data/sample-test-report.md` gives the result per sample, draft issue texts and open questions for Hyyan; no sample is changed and nothing is posted to GitHub
+
 ### Review & Quality
 
 - [ ] **QUAL-01**: Both books are hand-reviewed (headings, fences, entities, alt text, overviews, light and dark mode) and fixes are made in the Markdown
@@ -159,6 +168,12 @@ Populated 2026-10-03 during roadmap creation.
 | AUDIT-01 | Phase 6 | Complete |
 | AUDIT-02 | Phase 6 | Complete |
 | AUDIT-03 | Phase 6 | Complete |
+| SAMP-01 | Phase 6.2 | Pending |
+| SAMP-02 | Phase 6.2 | Pending |
+| SAMP-03 | Phase 6.2 | Pending |
+| SAMP-04 | Phase 6.2 | Pending |
+| SAMP-05 | Phase 6.2 | Pending |
+| SAMP-06 | Phase 6.2 | Pending |
 | QUAL-01 | Phase 7 | Pending |
 | QUAL-02 | Phase 7 | Pending |
 | QUAL-03 | Phase 7 | Pending |
@@ -172,10 +187,10 @@ Populated 2026-10-03 during roadmap creation.
 
 **Coverage:**
 
-- v1 requirements: 47 total
-- Mapped to phases: 47
+- v1 requirements: 53 total
+- Mapped to phases: 53
 - Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-10-03*
-*Last updated: 2026-10-04 after initial definition; EXER-04 extended in Phase 6.1*
+*Last updated: 2026-10-08; EXER-04 extended in Phase 6.1; SAMP-01 to SAMP-06 added for Phase 6.2*
