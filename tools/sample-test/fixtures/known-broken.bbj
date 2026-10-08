@@ -1,0 +1,5 @@
+rem known-broken.bbj: harness control. Line 4 calls a method that does not exist; the harness must classify it as fail with !ERROR=252 at line 4.
+wnd! = BBjAPI().openSysGui("X0").addWindow("Courses fixture broken", $01101083$)
+st! = wnd!.addStaticText("Before error")
+st!.noSuchMethod()
+process_events

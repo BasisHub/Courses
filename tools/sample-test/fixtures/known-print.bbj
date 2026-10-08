@@ -1,0 +1,4 @@
+rem known-print.bbj: harness control. Prints two lines and ends; the harness must classify it as pass and capture both lines.
+print "courses fixture line 1"
+print "courses fixture line 2"
+end
