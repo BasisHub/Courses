@@ -97,6 +97,8 @@ Decisions are logged in PROJECT.md Key Decisions table.
 
 - Phase 06.1 inserted after Phase 6: Exercise Solutions and Restored Screenshots (URGENT). Solutions for all 16 exercises, a solution pointer on every exercise page, screenshots 8B-05 and 8B-07 restored (user review 2026-10-04; other 122 audit drops approved)
 
+- Phase 06.2 inserted after Phase 6: Runtime-verified BBj samples (URGENT). Stephan Wald found many course samples broken on BBj 26 (issues #3 to #7); a Playwright harness compiles, registers and runs every docs/examples program in DWC and produces a baseline report for Eric. DWC only, Chromium only, no sample fixes, nothing posted (user decision 2026-10-08)
+
 ### Pending Todos
 
 - [Phase 5 / D-27] Review the provisional Theme Editor link `https://us.bbx.kitchen/webapp/DWCThemer` (chapter 28 of intro-bbj); replace it once a permanent home exists.

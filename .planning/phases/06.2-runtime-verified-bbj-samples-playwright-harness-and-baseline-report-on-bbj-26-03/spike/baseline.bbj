@@ -1,0 +1,8 @@
+rem Spike: smallest DWC program, used to see what the client logs for every app
+wnd! = BBjAPI().openSysGui("X0").addWindow("Spike baseline", $01101083$)
+st! = wnd!.addStaticText("Baseline")
+wnd!.setCallback(BBjAPI.ON_CLOSE, "byebye")
+process_events
+
+byebye:
+release

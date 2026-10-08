@@ -1,0 +1,53 @@
+rem Spike: register one course sample as a DWC app through the Admin API.
+rem Arguments: <result file> <env file> <app name> <program> <working directory> [noconsole]
+use com.basis.api.admin.BBjAdminFactory
+use com.basis.api.admin.BBjAdminAppDeploymentApplication
+use java.io.File
+use java.io.FileWriter
+use java.nio.file.Files
+
+seterr onError
+out! = argv(1)
+envFile! = argv(2)
+appName! = argv(3)
+program! = argv(4)
+workDir! = argv(5)
+
+user! = ""
+pass! = ""
+lines! = Files.readAllLines(new File(envFile!).toPath())
+it! = lines!.iterator()
+while it!.hasNext()
+    line! = it!.next()
+    if line!.startsWith("BBJ_ADMIN_USER=") then user! = line!.substring(15)
+    if line!.startsWith("BBJ_ADMIN_PASSWORD=") then pass! = line!.substring(19)
+wend
+
+admin! = BBjAdminFactory.getBBjAdmin(user!, pass!)
+config! = admin!.getRemoteConfiguration()
+app! = null()
+app! = config!.getApplication(appName!, err=*next)
+if app! = null() then app! = config!.createApplication()
+app!.setString(BBjAdminAppDeploymentApplication.NAME, appName!)
+app!.setString(BBjAdminAppDeploymentApplication.PROGRAM, program!)
+app!.setString(BBjAdminAppDeploymentApplication.WORKING_DIRECTORY, workDir!)
+app!.setBoolean(BBjAdminAppDeploymentApplication.DWC_ENABLED, 1)
+app!.setBoolean(BBjAdminAppDeploymentApplication.BUI_ENABLED, 0)
+noConsole = 0
+if argc > 6 then if argv(6) = "noconsole" then noConsole = 1
+app!.setBoolean(BBjAdminAppDeploymentApplication.DISALLOW_CONSOLE_USE_DEFAULT, !noConsole)
+app!.setBoolean(BBjAdminAppDeploymentApplication.DISALLOW_CONSOLE, noConsole)
+app!.commit()
+url! = app!.getDwcUrl(0)
+admin!.release()
+
+w! = new FileWriter(out!)
+w!.write("OK " + url! + $0a$)
+w!.close()
+release
+
+onError:
+    w! = new FileWriter(out!)
+    w!.write("ERROR " + str(err) + " at line " + str(tcb(5)) + ": " + errmes(-1) + $0a$)
+    w!.close()
+    release

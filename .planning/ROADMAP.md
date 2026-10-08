@@ -15,6 +15,7 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 - [x] **Phase 5: Intro-BBj Conversion** - Throwaway Moodle converter produces the "Introduction to BBj Development" book (completed 2026-10-04)
 - [x] **Phase 6: Exercises & DWC Gap Audit** - Exercise pages in both books; missing course-4 material added to DWC before go-live (completed 2026-10-04)
 - [ ] **Phase 6.1: Exercise Solutions and Restored Screenshots** (INSERTED) - Solutions for all 16 exercises, solution pointers, two restored screenshots
+- [ ] **Phase 6.2: Runtime-verified BBj Samples** (INSERTED) - Playwright harness compiles, registers and runs every docs/examples program in DWC on BBj 26.03; baseline report
 - [ ] **Phase 7: Review, Acceptance & Go-Live** - Hand review, Vale and syntax checks clean, acceptance gates pass, site public
 - [ ] **Phase 8: Redirects & Archive** - Old DWC-Course URLs redirect to Courses; old repo archived
 
@@ -320,10 +321,28 @@ Plans:
 
 - New BBj code is staged under the phase `drafts/` folder until plan 06.1-07 has checked it; it enters `docs/examples/` and pages only afterwards (CLAUDE.md tool rule 2)
 
+### Phase 06.2: Runtime-verified BBj samples: Playwright harness and baseline report on BBj 26.03 (INSERTED)
+
+**Goal**: Every program under `docs/examples/` is compiled, registered and run in DWC on the local BBj 26.03, and the results are collected in one baseline report. No sample changes, nothing posted.
+**Depends on**: Phase 6.1
+**Requirements**: TBD (added during planning)
+**Success Criteria** (what must be TRUE):
+
+  1. Every `.bbj` under `docs/examples/` has a manifest entry (kind, entry program, dependencies), and a coverage test fails on any file that has none
+  2. All `.bbj` files pass through the local BBj 26.03 compiler with type checking (`bbjcpl -t -N -X -W`), and the result is recorded per file
+  3. Every runnable program is registered as a `courses-*` DWC app through the Admin API with credentials from the gitignored `tools/sample-test/.env`, and one script removes all of them again
+  4. A Playwright run in Chromium opens each program and records page errors, console errors, failed requests, new `Debug.log` errors, icon rendering and light and dark screenshots; behaviour tests cover what each page says the sample does, including GitHub issues #3 to #7
+  5. `tools/data/sample-test-report.md` lists the result per sample, draft issue texts and open questions for Hyyan; no sample is changed and nothing is posted to GitHub
+
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd:plan-phase 06.2 to break down)
+
 ### Phase 7: Review, Acceptance & Go-Live
 
 **Goal**: Both books are reviewed, clean and publicly live on GitHub Pages
-**Depends on**: Phase 6.1
+**Depends on**: Phase 6.2
 **Requirements**: QUAL-01, QUAL-02, QUAL-03, QUAL-04, QUAL-05, LIVE-01, LIVE-02
 **Success Criteria** (what must be TRUE):
 
@@ -359,5 +378,6 @@ Plans:
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
 | 6. Exercises & DWC Gap Audit | 21/21 | Complete   | 2026-10-04 |
+| 6.2. Runtime-verified BBj Samples | 0/TBD | Not started | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |

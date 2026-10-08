@@ -1,0 +1,15 @@
+{
+  "name": "courses-sample-test",
+  "private": true,
+  "description": "Runs every BBj program under docs/examples in DWC on a local BBj and records the results",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.0"
+  }
+}

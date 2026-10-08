@@ -19,3 +19,8 @@ tools/.bin/
 .gsd/
 .planning/milestone.lock
 .planning/state.json
+
+# Sample test harness output (screenshots can show the BBj license serial number)
+tools/sample-test/results/
+tools/sample-test/test-results/
+tools/sample-test/playwright-report/
