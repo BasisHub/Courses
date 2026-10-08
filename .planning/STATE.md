@@ -1,20 +1,17 @@
 ---
-gsd_state_version: "1.0"
+gsd_state_version: 1.0
 milestone: v1.0
-current_phase: "06.1"
-current_phase_name: Exercise Solutions and Restored Screenshots (INSERTED)
+milestone_name: milestone
 status: executing
 stopped_at: Completed 06.1-10-PLAN.md (older-gates log recorded; runtime UAT pending)
-last_updated: "2026-10-04T16:22:22.641Z"
-last_activity: 2026-10-04
-last_activity_desc: Plan 06.1-10 complete
-state_head: c5a4f26ad32e6ddc4358ea04d4f785538ad2e4e5
+last_updated: "2026-10-08T18:03:29.788Z"
+last_activity: 2026-10-08 -- Phase 06.2 execution started
 progress:
-  total_phases: 9
-  completed_phases: 6
-  total_plans: 59
+  total_phases: 10
+  completed_phases: 7
+  total_plans: 75
   completed_plans: 59
-milestone_name: milestone
+  percent: 13
 ---
 
 # Project State
@@ -24,14 +21,14 @@ milestone_name: milestone
 See: .planning/PROJECT.md (updated 2026-10-03)
 
 **Core value:** Both books read well and correctly on one public site in the webforJ look, every old DWC-Course link still lands on the right page, and the Markdown is the only source of truth after the migration.
-**Current focus:** Phase 06.1 — Exercise Solutions and Restored Screenshots (INSERTED)
+**Current focus:** Phase 06.2 — Runtime-verified BBj Samples
 
 ## Current Position
 
-Phase: 06.1 (Exercise Solutions and Restored Screenshots (INSERTED)) — EXECUTING
-Plan: 10 of 10 complete
-Status: All plans executed; ready for phase verification (runtime UAT in 06.1-HUMAN-UAT.md pending)
-Last activity: 2026-10-06 - Completed quick task 261006-e3h: Resync DWC and intro-bbj download zips with updated docs/examples samples
+Phase: 06.2 (Runtime-verified BBj Samples) — EXECUTING
+Plan: 1 of 16
+Status: Executing Phase 06.2
+Last activity: 2026-10-08 -- Phase 06.2 execution started
 
 Progress: [█░░░░░░░░░] 13%
 
