@@ -334,14 +334,14 @@ Plans:
   4. A Playwright run in Chromium opens each program and records page errors, console errors, failed requests, new `Debug.log` errors, icon rendering and light and dark screenshots; behaviour tests cover what each page says the sample does, including GitHub issues #3 to #7
   5. `tools/data/sample-test-report.md` lists the result per sample, draft issue texts and open questions for Hyyan; no sample is changed and nothing is posted to GitHub
 
-**Plans:** 16 plans
+**Plans:** 2/16 plans executed
 
 Plans:
 **Wave 1**
 
 - [ ] 06.2-01-PLAN.md — Admin layer: BBjAdminTool.java (plain Java Admin API), path and lock helpers, session filter, `npm run cleanup`
-- [ ] 06.2-02-PLAN.md — Control programs (known-good, known-broken, known-print, known-missing-css), result contract, console parser and classifier
-- [ ] 06.2-03-PLAN.md — manifest.json for all 63 files, app names, validator and coverage test
+- [x] 06.2-02-PLAN.md — Control programs (known-good, known-broken, known-print, known-missing-css), result contract, console parser and classifier
+- [x] 06.2-03-PLAN.md — manifest.json for all 63 files, app names, validator and coverage test
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
