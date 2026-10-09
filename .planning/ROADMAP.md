@@ -346,7 +346,7 @@ Plans:
 **Wave 2** *(blocked on Wave 1 completion)*
 
 - [x] 06.2-04-PLAN.md — Compile pass (syntax and -t type check) to results/compile.json
-- [ ] 06.2-05-PLAN.md — Playwright config, global setup and teardown (lock, sweep, register, unregister), per-test session cleanup, lifecycle self-test
+- [x] 06.2-05-PLAN.md — Playwright config, global setup and teardown (lock, sweep, register, unregister), per-test session cleanup, lifecycle self-test
 - [x] 06.2-06-PLAN.md — Orchestrator BBj check of the four control programs (non-autonomous)
 - [x] 06.2-07-PLAN.md — Report generator with privacy checks, tested on synthetic results
 
@@ -431,6 +431,6 @@ Plans:
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
 | 6. Exercises & DWC Gap Audit | 21/21 | Complete   | 2026-10-04 |
-| 6.2. Runtime-verified BBj Samples | 6/16 | In Progress | - |
+| 6.2. Runtime-verified BBj Samples | 7/16 | In Progress | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |
