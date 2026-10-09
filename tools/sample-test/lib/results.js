@@ -36,13 +36,15 @@ export function writeSampleResult(result, { dir = 'samples' } = {}) {
 }
 
 /**
- * Writes results/behaviour/<app>--<slug(test) cut to 60 chars>.json.
+ * Writes results/<dir>/<app>--<slug(test) cut to 60 chars>.json. The default folder is behaviour;
+ * the wrapper self-tests use selftest-behaviour so that control results never mix with sample ones.
  * @param {{ app: string, test: string }} result a BehaviourResult
+ * @param {{ dir?: string }} [options]
  * @returns {string} the absolute path written
  */
-export function writeBehaviourResult(result) {
+export function writeBehaviourResult(result, { dir = 'behaviour' } = {}) {
   const test = slug(result.test || 'test').slice(0, 60).replace(/-+$/, '') || 'test';
-  return writeJson(resultsDir('behaviour', `${appName(result.app ?? result.id)}--${test}.json`), result);
+  return writeJson(resultsDir(dir, `${appName(result.app ?? result.id)}--${test}.json`), result);
 }
 
 /**

@@ -51,6 +51,12 @@ test('writeBehaviourResult names the file app--test and cuts the test part to 60
   assert.equal(path.basename(long), `a--${'x'.repeat(60)}.json`);
 });
 
+test('writeBehaviourResult honours dir, so the self-test results stay apart from the sample ones', () => {
+  const file = writeBehaviourResult({ app: 'courses-fixture-known-good', test: 'wrapper records a pass', outcome: 'pass' }, { dir: 'selftest-behaviour' });
+  assert.equal(file, path.join(tmp, 'selftest-behaviour', 'courses-fixture-known-good--wrapper-records-a-pass.json'));
+  assert.deepEqual(readResults('selftest-behaviour').map((r) => r.outcome), ['pass']);
+});
+
 test('writeConsoleRaw writes the lines as they are, under results/console', () => {
   const file = writeConsoleRaw({ name: 'courses-fixture-known-print' }, ['BBj WebCUI Console', `Serial ${SERIAL}`, 'line']);
   assert.equal(file, path.join(tmp, 'console', 'courses-fixture-known-print.txt'));

@@ -1,13 +1,16 @@
 // Self-test of the harness on the four control programs. First the run lifecycle (register, open,
 // terminate), then the observation and classification of each control, the click on the known-good
-// button, and the dark screenshot. The last test proves that no control session is left. The tests
-// run in file order.
+// button, and the dark screenshot. Then the behaviour wrapper is proven on the controls: a pass, a
+// fail, a BBj error, a blocked check and a timeout. The last test proves that no control session is
+// left. The tests run in file order.
 import fs from 'node:fs';
 import { test, expect } from '../lib/fixtures.js';
 import { appById, appUrl, fixtureApps } from '../lib/apps.js';
 import { isHarnessSession, listApps, newHarnessSessions, status } from '../lib/admin.js';
+import { BlockedError, behaviourTest } from '../lib/behaviour.js';
 import { readDialogs, settle } from '../lib/dwc.js';
 import { resultsDir, toPosix } from '../lib/paths.js';
+import { readResults } from '../lib/results.js';
 import { runProgram, startProgram } from '../lib/run.js';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -124,6 +127,71 @@ test('control: dark screenshot differs from light', async () => {
   const dark = fs.readFileSync(resultsDir(shots.dark));
   expect(light.length).toBeGreaterThan(0);
   expect(dark.equals(light), 'light and dark PNG files differ').toBe(false);
+});
+
+// The behaviour wrapper (lib/behaviour.js) on the controls. The four tests that must end red carry
+// expectFailure, so a deliberately red test keeps the self-test green; the result test after them
+// reads what the wrapper wrote and checks that every verdict is the intended one.
+behaviourTest('fixture/known-good.bbj', 'wrapper records a pass', {}, async ({ page }) => {
+  await page.getByRole('button', { name: 'Say Hello' }).click();
+  await expect(page.locator('dwc-dialog')).toContainText('Hello fixture');
+});
+
+behaviourTest('fixture/known-good.bbj', 'wrapper records a fail', { expectFailure: true }, async ({ page }) => {
+  await expect(page.getByText('text that is not there')).toBeVisible({ timeout: 2000 });
+});
+
+// The program crashes at line 4 after its window appears; the body does nothing.
+behaviourTest('fixture/known-broken.bbj', 'wrapper turns a BBj error into fail', { expectFailure: true }, async () => {});
+
+behaviourTest('fixture/known-good.bbj', 'wrapper records blocked', { expectFailure: true }, async () => {
+  throw new BlockedError('oracle element missing');
+});
+
+// W6: a body that does not finish still leaves a result.
+behaviourTest('fixture/known-good.bbj', 'wrapper records a timeout', { expectFailure: true, deadlineMs: 5000 }, async () => {
+  await new Promise((resolve) => setTimeout(resolve, 20000));
+});
+
+test('wrapper results are recorded', async () => {
+  const byTest = new Map(readResults('selftest-behaviour').map((r) => [r.test, r]));
+  const get = (name) => {
+    const found = byTest.get(name);
+    expect(found, `a result for "${name}"`).toBeTruthy();
+    return found;
+  };
+
+  const pass = get('wrapper records a pass');
+  expect(pass.outcome, JSON.stringify(pass)).toBe('pass');
+  expect(pass.category).toBeNull();
+
+  const fail = get('wrapper records a fail');
+  expect(fail.outcome).toBe('fail');
+  expect(fail.category).toBe('assertion');
+  expect(fail.evidence).toMatch(/^failed:/);
+
+  const broken = get('wrapper turns a BBj error into fail');
+  expect(broken.outcome, JSON.stringify(broken)).toBe('fail');
+  expect(broken.category).toBe('bbj');
+  expect(broken.evidence).toContain('!ERROR=252');
+  expect(broken.evidence).toContain('line 4');
+
+  const blocked = get('wrapper records blocked');
+  expect(blocked.outcome).toBe('blocked');
+  expect(blocked.category).toBe('check');
+  expect(blocked.evidence).toBe('oracle element missing');
+
+  const timeout = get('wrapper records a timeout');
+  expect(timeout.outcome, JSON.stringify(timeout)).toBe('fail');
+  expect(timeout.category).toBe('timeout');
+  expect(timeout.evidence).toMatch(/^timed out/);
+  expect(timeout.screenshot, 'timeout screenshot').toBeTruthy();
+  expect(fs.statSync(resultsDir(timeout.screenshot)).size, 'timeout screenshot size').toBeGreaterThan(0);
+
+  for (const r of byTest.values()) {
+    expect(r.harnessIssue, `${r.test} has no harness issue`).toBeNull();
+    expect(JSON.stringify(r)).not.toMatch(/BBX\d{6}|serial\s+number\s*:/i);
+  }
 });
 
 test('lifecycle: the previous test left no fixture session', async () => {
