@@ -3,11 +3,19 @@
 // function here either separates the header from the body or redacts the
 // serial before text can reach results or reports.
 
-/** Lines that belong to the console header, not to program output. */
+/**
+ * Lines that belong to the console header, not to program output.
+ *
+ * The real header (confirmed live on BBj 26.03) is seven lines with no blank line after it: the
+ * title, the server version and build, the client version and build, one line with the license
+ * serial number, and a copyright line. Program output starts on the very next line.
+ */
 export const HEADER_PATTERNS = [
   /^BBj WebCUI Console/i,
   /^Server BBj Version/i,
   /^Client BBj Version/i,
+  /^Server Build/i,
+  /^Client Build/i,
   /serial/i,
   /licen[cs]e/i,
   /^Copyright/i,
@@ -51,20 +59,21 @@ function isHeaderLine(line) {
   return HEADER_PATTERNS.some((pattern) => pattern.test(line));
 }
 
-// The header ends at the first empty line after line 0. When that empty line
-// is really the one before READY (no separator after the header), the
-// candidate header would contain an error line; then the header is the run of
-// leading lines that match HEADER_PATTERNS instead.
+// The most lines the header may span before its copyright line. The real header is seven lines.
+const HEADER_MAX_LINES = 12;
+
+// The header runs from the title line to the copyright line. There is no blank line after it, so
+// program output follows on the very next line. When that shape is not found (another BBj version,
+// a console that is still being written), the header is the run of leading lines that match
+// HEADER_PATTERNS.
 function splitHeader(lines) {
-  let separator = -1;
-  for (let i = 1; i < lines.length; i += 1) {
-    if (lines[i].trim() === '') {
-      separator = i;
-      break;
+  if (lines.length > 0 && /^BBj WebCUI Console/i.test(lines[0].trim())) {
+    const limit = Math.min(lines.length, HEADER_MAX_LINES);
+    for (let i = 1; i < limit; i += 1) {
+      if (/^Copyright/i.test(lines[i].trim())) {
+        return { header: lines.slice(0, i + 1), body: lines.slice(i + 1) };
+      }
     }
-  }
-  if (separator !== -1 && !lines.slice(0, separator).some((l) => ERROR_LINE.test(l.trim()))) {
-    return { header: lines.slice(0, separator), body: lines.slice(separator + 1) };
   }
   let count = 0;
   while (count < lines.length && isHeaderLine(lines[count])) count += 1;
@@ -78,12 +87,14 @@ function splitHeader(lines) {
 /**
  * Splits console lines into header and body and reads errors, printed output,
  * the READY prompt and the server version. The serial is redacted up front, so
- * nothing in the result carries it.
+ * nothing in the result carries it. The console pads every row to its width, so
+ * trailing whitespace is dropped from every line. Whatever follows the last
+ * READY line is the prompt (a line holding only '>') and is not program output.
  * @param {string[]} lines
  * @returns {{ header: string[], body: string[], errors: BbjError[], printed: string[], ready: boolean, bbjVersion: string|null }}
  */
 export function parseConsole(lines) {
-  const { header, body } = splitHeader(lines.map(redact));
+  const { header, body } = splitHeader(lines.map((line) => redact(line).replace(/\s+$/, '')));
 
   const errors = [];
   const consumed = new Set();
@@ -105,10 +116,15 @@ export function parseConsole(lines) {
     errors.push(error);
   }
 
+  let readyAt = -1;
+  body.forEach((line, i) => {
+    if (line.trim() === 'READY') readyAt = i;
+  });
+  const ready = readyAt !== -1;
   const printed = body.filter(
-    (line, i) => !consumed.has(i) && line.trim() !== '' && line.trim() !== 'READY',
+    (line, i) =>
+      !consumed.has(i) && line.trim() !== '' && line.trim() !== 'READY' && !(ready && i > readyAt),
   );
-  const ready = body.some((line) => line.trim() === 'READY');
 
   let bbjVersion = null;
   for (const line of header) {
@@ -161,6 +177,6 @@ export function consoleExcerpt(parsed, max = 20) {
     kept.push(redact(line));
   }
   const excerpt = kept.slice(0, max);
-  while (excerpt.length > 0 && excerpt[excerpt.length - 1].trim() === '') excerpt.pop();
+  while (excerpt.length > 0 && ['', '>'].includes(excerpt[excerpt.length - 1].trim())) excerpt.pop();
   return excerpt;
 }

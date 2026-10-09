@@ -8,7 +8,15 @@ import { emptyObserved, STATUSES, CATEGORIES, WARNING_CATEGORIES } from './schem
 // runtime so that no file in the repository contains either literally.
 const SERIAL = 'BBX' + '123456';
 const LABEL = 'Serial ' + 'Number: ';
-const HEADER = ['BBj WebCUI Console', 'Server BBj Version: REV 26.03', LABEL + SERIAL, ''];
+const HEADER = [
+  'BBj WebCUI Console',
+  'Server BBj Version: REV 26.03',
+  'Server Build: 01/02/2026 03:04',
+  'Client BBj Version: REV 26.03',
+  'Client Build: 01/02/2026 03:04',
+  LABEL + SERIAL,
+  'Copyright BASIS International Ltd.',
+];
 const ERROR_BODY = [
   '!ERROR=252  (No match for method jdk.proxy2.$Proxy171.noSuchMethod())',
   '[4] st!.noSuchMethod()',

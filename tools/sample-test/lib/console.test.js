@@ -13,11 +13,22 @@ import {
 // repository contains a literal serial number or the literal label.
 const SERIAL = 'BBX' + '123456';
 const LABEL = 'Serial ' + 'Number: ';
-const HEADER = ['BBj WebCUI Console', 'Server BBj Version: REV 26.03', LABEL + SERIAL, ''];
+// Mirrors the real WebCUI console of BBj 26.03 (confirmed live in plan 06.2-08): seven header lines
+// with no blank line after them, then the program output, a blank line, READY and a '>' prompt.
+const HEADER = [
+  'BBj WebCUI Console',
+  'Server BBj Version: REV 26.03',
+  'Server Build: 01/02/2026 03:04',
+  'Client BBj Version: REV 26.03',
+  'Client Build: 01/02/2026 03:04',
+  LABEL + SERIAL,
+  'Copyright BASIS International Ltd.',
+];
 
 const ERROR_LINE = '!ERROR=252  (No match for method jdk.proxy2.$Proxy171.noSuchMethod())';
-const ERROR_BODY = [ERROR_LINE, '[4] st!.noSuchMethod()', '', 'READY'];
-const PRINT_BODY = ['courses fixture line 1', 'courses fixture line 2', '', 'READY'];
+const ERROR_BODY = [ERROR_LINE, '[4] st!.noSuchMethod()', '', 'READY', '>'];
+const PRINT_BODY = ['courses fixture line 1', 'courses fixture line 2', '', 'READY', '>'];
+const pad = (line) => line.padEnd(80, ' ');
 
 test('HEADER_PATTERNS matches every line of the synthetic header', () => {
   assert.ok(Array.isArray(HEADER_PATTERNS));
@@ -60,27 +71,68 @@ test('parseConsole of a program that is still running has no READY', () => {
   assert.deepEqual(parsed.errors, []);
 });
 
-test('parseConsole splits the header at the first empty line and never leaks the serial', () => {
+test('parseConsole ends the header at the copyright line and never leaks the serial', () => {
   const parsed = parseConsole([...HEADER, ...PRINT_BODY]);
-  assert.equal(parsed.header.length, 3);
+  assert.equal(parsed.header.length, 7);
   assert.equal(parsed.header[0], 'BBj WebCUI Console');
+  assert.equal(parsed.header[6], 'Copyright BASIS International Ltd.');
   assert.deepEqual(parsed.body, PRINT_BODY);
   const everything = JSON.stringify(parsed);
   assert.ok(!everything.includes(SERIAL), 'serial must not survive parseConsole');
 });
 
-test('parseConsole falls back to header patterns when there is no empty separator', () => {
-  const headerOnly = parseConsole(HEADER.slice(0, 3));
+test('parseConsole keeps output that follows the header directly, also when it looks like a header line', () => {
+  // The real console has no blank line after the header, so the first printed line is body.
+  const parsed = parseConsole([...HEADER, 'BASIS license check passed', 'done', '', 'READY', '>']);
+  assert.equal(parsed.header.length, 7);
+  assert.deepEqual(parsed.printed, ['BASIS license check passed', 'done']);
+});
+
+test('parseConsole of a header-only console has an empty body', () => {
+  const headerOnly = parseConsole(HEADER);
+  assert.equal(headerOnly.header.length, 7);
+  assert.deepEqual(headerOnly.body, []);
+  assert.equal(headerOnly.ready, false);
+  assert.equal(headerOnly.bbjVersion, 'REV 26.03');
+});
+
+test('parseConsole reads rows that the console padded to 80 columns', () => {
+  const padded = [...HEADER, ...ERROR_BODY].map(pad);
+  const parsed = parseConsole(padded);
+  assert.equal(parsed.header.length, 7);
+  assert.deepEqual(parsed.errors, [
+    { code: 252, message: 'No match for method jdk.proxy2.$Proxy171.noSuchMethod()', line: 4, statement: 'st!.noSuchMethod()' },
+  ]);
+  assert.deepEqual(parsed.printed, []);
+  assert.equal(parsed.ready, true);
+  assert.equal(parsed.bbjVersion, 'REV 26.03');
+  assert.ok(parsed.body.every((line) => line === line.trimEnd()), 'body lines carry no padding');
+
+  const printed = parseConsole([...HEADER, ...PRINT_BODY].map(pad));
+  assert.deepEqual(printed.printed, ['courses fixture line 1', 'courses fixture line 2']);
+});
+
+test('parseConsole does not count the prompt after READY as program output', () => {
+  const parsed = parseConsole([...HEADER, 'courses fixture line 1', '', 'READY', '>']);
+  assert.deepEqual(parsed.printed, ['courses fixture line 1']);
+  assert.equal(parsed.ready, true);
+  // Text after READY is prompt, whatever it is.
+  assert.deepEqual(parseConsole([...HEADER, 'a', 'READY', '>', 'typed']).printed, ['a']);
+});
+
+test('parseConsole falls back to leading header patterns when there is no copyright line', () => {
+  const shortHeader = [HEADER[0], HEADER[1], HEADER[5]];
+  const headerOnly = parseConsole(shortHeader);
   assert.equal(headerOnly.header.length, 3);
   assert.deepEqual(headerOnly.body, []);
   assert.equal(headerOnly.ready, false);
 
-  // The empty line before READY must not make the error part of the header.
-  const noSeparator = parseConsole([...HEADER.slice(0, 3), ...ERROR_BODY]);
-  assert.equal(noSeparator.header.length, 3);
-  assert.equal(noSeparator.errors.length, 1);
-  assert.equal(noSeparator.errors[0].code, 252);
-  assert.equal(noSeparator.errors[0].line, 4);
+  const withError = parseConsole([...shortHeader, ...ERROR_BODY]);
+  assert.equal(withError.header.length, 3);
+  assert.equal(withError.errors.length, 1);
+  assert.equal(withError.errors[0].code, 252);
+  assert.equal(withError.errors[0].line, 4);
+  assert.deepEqual(withError.printed, []);
 });
 
 test('parseConsole reads several errors and keeps a bracket line that is not a statement', () => {
@@ -182,11 +234,13 @@ test('consoleExcerpt redacts serials, drops header-like lines and honours max', 
   assert.deepEqual(consoleExcerpt(parsed, 2), ['!ERROR=12 (x)', 'hello <serial> there']);
 });
 
-test('consoleExcerpt of a print program starts at the first printed line', () => {
-  const parsed = parseConsole([...HEADER, ...PRINT_BODY]);
+test('consoleExcerpt of a print program starts at the first printed line and drops the prompt', () => {
+  const parsed = parseConsole([...HEADER, ...PRINT_BODY].map(pad));
   const excerpt = consoleExcerpt(parsed);
   assert.equal(excerpt[0], 'courses fixture line 1');
-  assert.ok(excerpt.includes('READY'));
+  assert.equal(excerpt[excerpt.length - 1], 'READY');
+  assert.ok(!excerpt.includes('>'));
+  assert.ok(!excerpt.some((l) => /serial|copyright|build/i.test(l)));
 });
 
 test('consoleExcerpt of null or an empty console is empty', () => {
