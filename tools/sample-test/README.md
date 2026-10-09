@@ -35,8 +35,8 @@ All commands run in `tools/sample-test`.
 |---------|--------------|----------------|
 | `npm run test:unit` | Unit and coverage tests. Needs no BBj session. | nothing |
 | `npm run compile` | Syntax and type check of every sample with the BBj compiler (3 to 6 minutes). | `results/compile.json` |
-| `npm run selftest` | The four control programs (good, broken, print, missing CSS) and the test wrappers. Proves the harness classifies correctly (3 to 5 minutes). | `results/selftest`, `results/selftest-behaviour` |
-| `npm run samples` | One smoke test per runnable sample, then the behaviour tests. Red tests are findings (about 13 minutes for the smoke tests alone). | `results/samples`, `results/behaviour`, `results/screenshots`, `results/console`, `results/debuglog` |
+| `npm run selftest` | The four control programs (good, broken, print, missing CSS) and the test wrappers. Proves the harness classifies correctly (about 4 minutes). | `results/selftest`, `results/selftest-behaviour` |
+| `npm run samples` | One smoke test per runnable sample, then the behaviour tests. Red tests are findings (about 21 minutes for the 59 smoke tests alone, 20 s each). | `results/samples`, `results/behaviour`, `results/screenshots`, `results/console`, `results/debuglog` |
 | `npm run baseline` | Everything: compile, unit tests, self-test, samples, completeness check, harness-issue check, leftover check, report. Takes 60 to 90 minutes; run it in the background. | all of the above, `results/baseline.json`, the report |
 | `npm run report` | Builds `tools/data/sample-test-report.md` from `results/` and `report-notes.md`. | the report |
 | `npm run cleanup` | Returns BBjServices to a clean state. | nothing |
