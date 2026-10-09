@@ -334,7 +334,7 @@ Plans:
   4. A Playwright run in Chromium opens each program and records page errors, console errors, failed requests, new `Debug.log` errors, icon rendering and light and dark screenshots; behaviour tests cover what each page says the sample does, including GitHub issues #3 to #7
   5. `tools/data/sample-test-report.md` lists the result per sample, draft issue texts and open questions for Hyyan; no sample is changed and nothing is posted to GitHub
 
-**Plans:** 2/16 plans executed
+**Plans:** 5/16 plans executed
 
 Plans:
 **Wave 1**
@@ -345,10 +345,10 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 06.2-04-PLAN.md — Compile pass (syntax and -t type check) to results/compile.json
+- [x] 06.2-04-PLAN.md — Compile pass (syntax and -t type check) to results/compile.json
 - [ ] 06.2-05-PLAN.md — Playwright config, global setup and teardown (lock, sweep, register, unregister), per-test session cleanup, lifecycle self-test
-- [ ] 06.2-06-PLAN.md — Orchestrator BBj check of the four control programs (non-autonomous)
-- [ ] 06.2-07-PLAN.md — Report generator with privacy checks, tested on synthetic results
+- [x] 06.2-06-PLAN.md — Orchestrator BBj check of the four control programs (non-autonomous)
+- [x] 06.2-07-PLAN.md — Report generator with privacy checks, tested on synthetic results
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
