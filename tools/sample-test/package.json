@@ -7,7 +7,14 @@
     "node": ">=24"
   },
   "scripts": {
-    "test": "playwright test"
+    "test": "playwright test",
+    "test:unit": "node --test lib/*.test.js tests/*.test.js",
+    "selftest": "playwright test --project=selftest",
+    "samples": "playwright test --project=samples",
+    "compile": "node compile.mjs",
+    "report": "node report.mjs",
+    "cleanup": "node cleanup.mjs",
+    "baseline": "node run-baseline.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.0"
