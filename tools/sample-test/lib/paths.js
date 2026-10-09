@@ -142,13 +142,18 @@ export function javaBin() {
   return settings().javaBin;
 }
 
-/** Results folder of the main checkout (or SAMPLE_TEST_RESULTS), created on demand. */
+/**
+ * Results folder of the main checkout (or SAMPLE_TEST_RESULTS), created on demand. When the last
+ * part has a file extension (`resultsDir('run.json')`), only its parent folder is created and the
+ * file path is returned, so callers can read and write result files directly.
+ */
 export function resultsDir(...sub) {
   const base =
     process.env.SAMPLE_TEST_RESULTS || path.join(mainCheckout(), 'tools', 'sample-test', 'results');
-  const dir = path.resolve(path.join(base, ...sub));
-  fs.mkdirSync(dir, { recursive: true });
-  return dir;
+  const target = path.resolve(path.join(base, ...sub));
+  const isFile = sub.length > 0 && /\.[a-z0-9]+$/i.test(path.basename(String(sub[sub.length - 1])));
+  fs.mkdirSync(isFile ? path.dirname(target) : target, { recursive: true });
+  return target;
 }
 
 /**

@@ -106,6 +106,18 @@ test('resultsDir joins sub folders under SAMPLE_TEST_RESULTS and creates them', 
   assert.ok(path.isAbsolute(dir));
 });
 
+test('resultsDir with a file name creates only the parent folder and returns the file path', () => {
+  process.env.SAMPLE_TEST_RESULTS = tmp;
+  const file = resultsDir('run.json');
+  assert.equal(path.resolve(file), path.resolve(path.join(tmp, 'run.json')));
+  assert.equal(fs.existsSync(file), false);
+  const nested = resultsDir('samples', 'courses-x.json');
+  assert.ok(fs.statSync(path.dirname(nested)).isDirectory());
+  assert.equal(fs.existsSync(nested), false);
+  fs.writeFileSync(file, '{}');
+  assert.equal(fs.readFileSync(resultsDir('run.json'), 'utf8'), '{}');
+});
+
 test('mainCheckout holds the harness and harnessRoots lists it once, lower-case, no trailing slash', () => {
   const main = mainCheckout();
   assert.ok(fs.existsSync(path.join(main, 'tools', 'sample-test', 'package.json')));
