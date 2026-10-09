@@ -1,10 +1,18 @@
 // Runs once after the last test: sweep harness sessions, remove every courses-* app, report what is
 // left and release the run lock this run owns. KEEP_APPS=1 keeps the apps for manual inspection
 // (npm run cleanup removes them later).
+//
+// Playwright 1.64 calls this even when global-setup.js failed. It does nothing then unless the
+// setup got as far as holding the run lock (COURSES_RUN_ACTIVE), so a run that timed out waiting
+// for the lock never sweeps or unregisters the apps of the run that holds it.
 import { isHarnessSession, listApps, readRunSnapshot, status, sweep, unregister } from './lib/admin.js';
 import { releaseLock } from './lib/lock.js';
 
 export default async function globalTeardown() {
+  if (process.env.COURSES_RUN_ACTIVE !== '1') {
+    console.log('teardown: setup never held the run lock, nothing to clean');
+    return;
+  }
   try {
     const killed = await sweep();
     console.log(`teardown: terminated ${killed.length} harness session(s)`);
@@ -40,5 +48,6 @@ export default async function globalTeardown() {
       releaseLock(process.env.COURSES_LOCK_TOKEN);
       delete process.env.COURSES_LOCK_OWNED;
     }
+    delete process.env.COURSES_RUN_ACTIVE;
   }
 }
