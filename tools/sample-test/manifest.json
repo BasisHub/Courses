@@ -1,4 +1,346 @@
 {
   "schema": 1,
-  "entries": []
+  "entries": [
+    {
+      "id": "dwc/01_GUI2BUI2DWC/DWC1.bbj",
+      "kind": "window",
+      "entry": "dwc/01_GUI2BUI2DWC/DWC1.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md", "dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx", "dwc/02-browser-developer-tools/02-developer-tools.md", "dwc/05-dwc-controls/index.md", "dwc/06-flow-layouts/index.md"],
+      "issues": [],
+      "expect": { "title": "Hello BBj DWC" },
+      "notes": ""
+    },
+    {
+      "id": "dwc/01_GUI2BUI2DWC/DWC2.bbj",
+      "kind": "window",
+      "entry": "dwc/01_GUI2BUI2DWC/DWC2.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md", "dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx", "dwc/07-icon-pools/index.md"],
+      "issues": [4],
+      "expect": { "title": "Hello BBj DWC" },
+      "notes": "Issue 4 points at line 35, the button title built from HTML with an embedded dwc-icon."
+    },
+    {
+      "id": "dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj",
+      "kind": "window",
+      "entry": "dwc/01_GUI2BUI2DWC/DWC_AppThemes/DWCThemer.bbj",
+      "deps": ["dwc/01_GUI2BUI2DWC/DWC_AppThemes/css/MyDwcTheme.css"],
+      "external": [],
+      "pages": ["dwc/02-browser-developer-tools/03-css-custom-properties.md", "dwc/02-browser-developer-tools/04-dwc-themes.md"],
+      "issues": [],
+      "expect": { "title": "Hello BBj DWC" },
+      "notes": "Reads ./css/MyDwcTheme.css through BBjFileSystem::resolvePath, which resolves against the PREFIX."
+    },
+    {
+      "id": "dwc/01_GUI2BUI2DWC/DWC_AppThemes/Themes.bbj",
+      "kind": "window",
+      "entry": "dwc/01_GUI2BUI2DWC/DWC_AppThemes/Themes.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/02-browser-developer-tools/03-css-custom-properties.md"],
+      "issues": [],
+      "expect": { "title": "Hello BBj DWC" },
+      "notes": ""
+    },
+    {
+      "id": "dwc/01_GUI2BUI2DWC/DWC_AppThemes/UserPreference.bbj",
+      "kind": "window",
+      "entry": "dwc/01_GUI2BUI2DWC/DWC_AppThemes/UserPreference.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/02-browser-developer-tools/03-css-custom-properties.md"],
+      "issues": [],
+      "expect": { "title": "Hello BBj DWC" },
+      "notes": ""
+    },
+    {
+      "id": "dwc/01_GUI2BUI2DWC/DWC_ExternalCSS/Sample.bbj",
+      "kind": "window",
+      "entry": "dwc/01_GUI2BUI2DWC/DWC_ExternalCSS/Sample.bbj",
+      "deps": ["dwc/01_GUI2BUI2DWC/DWC_ExternalCSS/Sample.css"],
+      "external": [],
+      "pages": ["dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md"],
+      "issues": [3],
+      "expect": { "title": "Hello BBj DWC" },
+      "notes": "Issue 3 points at line 18, setAttribute(\"@app-style\", css!). Reads Sample.css through BBjFileSystem::resolvePath, which resolves against the PREFIX. No page names this file; the chapter page describes the external CSS method."
+    },
+    {
+      "id": "dwc/01_GUI2BUI2DWC/GUISample.bbj",
+      "kind": "window",
+      "entry": "dwc/01_GUI2BUI2DWC/GUISample.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/01-gui-to-bui-to-dwc/03-gui-to-bui-to-dwc.md", "dwc/01-gui-to-bui-to-dwc/90-exercise-gui-to-bui-to-dwc.mdx"],
+      "issues": [],
+      "expect": { "title": "Hello BBj DWC" },
+      "notes": "GUI sample run in DWC per D-01."
+    },
+    {
+      "id": "dwc/01_GUI2BUI2DWC/MessageBox.bbj",
+      "kind": "dialog",
+      "entry": "dwc/01_GUI2BUI2DWC/MessageBox.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/01-gui-to-bui-to-dwc/02-hello-world.md", "dwc/05-dwc-controls/index.md"],
+      "issues": [],
+      "expect": { "dialog": { "title": "Greetings", "text": "Hello from BBj's DWC client!" } },
+      "notes": "info(3,6) is \"6\" in DWC. The program ends with release after the message box."
+    },
+    {
+      "id": "dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj",
+      "kind": "window",
+      "entry": "dwc/02_CSSStylesAndCustomProperties/CSSCustomProperties.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/02-browser-developer-tools/03-css-custom-properties.md", "dwc/02-browser-developer-tools/04-dwc-themes.md", "dwc/02-browser-developer-tools/90-exercise-theming-support.mdx"],
+      "issues": [],
+      "expect": { "title": "CSS Custom Properties" },
+      "notes": "Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj",
+      "kind": "window",
+      "entry": "dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete.bbj",
+      "deps": ["dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete-Layout.css", "dwc/02_CSSStylesAndCustomProperties/Exercise-ThemingSupportComplete-Theme.css"],
+      "external": [],
+      "pages": ["dwc/02-browser-developer-tools/90-exercise-theming-support.mdx"],
+      "issues": [],
+      "expect": { "title": "CSS Custom Properties" },
+      "notes": "Reads both CSS files through BBjFileSystem::resolvePath, which resolves against the PREFIX. Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/02_CSSStylesAndCustomProperties/SetStyle.bbj",
+      "kind": "window",
+      "entry": "dwc/02_CSSStylesAndCustomProperties/SetStyle.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/02-browser-developer-tools/03-css-custom-properties.md"],
+      "issues": [],
+      "expect": { "title": "Setting a BBjButton's Styles" },
+      "notes": "No page names this file; the chapter page describes the same button styling methods. Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/03B_ArcFiles/ArcSample.bbj",
+      "kind": "window",
+      "entry": "dwc/03B_ArcFiles/ArcSample.bbj",
+      "deps": ["dwc/03B_ArcFiles/ArcSample.arc"],
+      "external": [],
+      "pages": ["dwc/04-upgrading-apps/01-arc-files.md"],
+      "issues": [],
+      "expect": { "title": null },
+      "notes": "GUI sample run in DWC per D-01. Resource 101 in ArcSample.arc has an empty title, so no window title is expected."
+    },
+    {
+      "id": "dwc/03B_ArcFiles/DWCArcSample.bbj",
+      "kind": "window",
+      "entry": "dwc/03B_ArcFiles/DWCArcSample.bbj",
+      "deps": ["dwc/03B_ArcFiles/ArcSample.arc"],
+      "external": [],
+      "pages": ["dwc/04-upgrading-apps/01-arc-files.md"],
+      "issues": [],
+      "expect": { "title": null },
+      "notes": "Resource 101 in ArcSample.arc has an empty title, so no window title is expected."
+    },
+    {
+      "id": "dwc/03C_Grid2GridEx/DWCGridSample.bbj",
+      "kind": "window",
+      "entry": "dwc/03C_Grid2GridEx/DWCGridSample.bbj",
+      "deps": [],
+      "external": ["prefix:BBjGridExWidget/BBjGridExWidget.bbj", "prefix:BBjGridExWidget/GxClientModels.bbj", "db:CDStore"],
+      "pages": ["dwc/04-upgrading-apps/02-upgrading-grids.md"],
+      "issues": [],
+      "expect": { "title": "Hello BBj DWC" },
+      "notes": "No page names this file; the chapter page covers the upgrade to BBjGridExWidget. Reads CDINVENTORY with sqlopen."
+    },
+    {
+      "id": "dwc/03C_Grid2GridEx/DataRow_and_ResultSet/1_DataRowFromCode.bbj",
+      "kind": "print",
+      "entry": "dwc/03C_Grid2GridEx/DataRow_and_ResultSet/1_DataRowFromCode.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/04-upgrading-apps/02-upgrading-grids.md"],
+      "issues": [],
+      "expect": { "print": ["Picard, Jean-Luc, born"] },
+      "notes": "Prints one line; only the fixed text is expected, not the date text from the DATEMASK. No page names this file."
+    },
+    {
+      "id": "dwc/03C_Grid2GridEx/DataRow_and_ResultSet/2_DataRowFromTemplate.bbj",
+      "kind": "print",
+      "entry": "dwc/03C_Grid2GridEx/DataRow_and_ResultSet/2_DataRowFromTemplate.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/04-upgrading-apps/02-upgrading-grids.md"],
+      "issues": [],
+      "expect": { "print": ["Picard, Jean-Luc, born"] },
+      "notes": "Prints one line; only the fixed text is expected, not the date text from the date mask. No page names this file."
+    },
+    {
+      "id": "dwc/03C_Grid2GridEx/DataRow_and_ResultSet/3_ResultSetCreation.bbj",
+      "kind": "print",
+      "entry": "dwc/03C_Grid2GridEx/DataRow_and_ResultSet/3_ResultSetCreation.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/04-upgrading-apps/02-upgrading-grids.md"],
+      "issues": [],
+      "expect": { "print": [] },
+      "notes": "Builds a ResultSet and prints nothing. No page names this file."
+    },
+    {
+      "id": "dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj",
+      "kind": "window",
+      "entry": "dwc/03C_Grid2GridEx/DataRow_and_ResultSet/4_BBjGridExWidget.bbj",
+      "deps": [],
+      "external": ["prefix:BBjGridExWidget/BBjGridExWidget.bbj"],
+      "pages": ["dwc/04-upgrading-apps/02-upgrading-grids.md"],
+      "issues": [],
+      "expect": { "title": "Hello BBj DWC" },
+      "notes": "No page names this file; the chapter page covers the BBjGridExWidget setup."
+    },
+    {
+      "id": "dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj",
+      "kind": "window",
+      "entry": "dwc/03C_Grid2GridEx/Exercise-BBjGridExWidgetComplete.bbj",
+      "deps": [],
+      "external": ["prefix:BBjGridExWidget/BBjGridExWidget.bbj", "db:CDStore"],
+      "pages": ["dwc/04-upgrading-apps/90-exercise-bbjgridexwidget.mdx"],
+      "issues": [],
+      "expect": { "title": "CDStore Inventory" },
+      "notes": "Reads CDINVENTORY through the CDStore JDBC connection. Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/03C_Grid2GridEx/GUIGridSample.bbj",
+      "kind": "window",
+      "entry": "dwc/03C_Grid2GridEx/GUIGridSample.bbj",
+      "deps": [],
+      "external": ["db:CDStore"],
+      "pages": ["dwc/04-upgrading-apps/02-upgrading-grids.md"],
+      "issues": [],
+      "expect": { "title": "Hello BBj DWC" },
+      "notes": "GUI sample run in DWC per D-01. No page names this file; the chapter page covers the grid upgrade. Reads CDINVENTORY with sqlopen."
+    },
+    {
+      "id": "dwc/04_ExtendedAttributes/Exercise-SearchBBjTree.bbj",
+      "kind": "starter",
+      "entry": "dwc/04_ExtendedAttributes/Exercise-SearchBBjTree.bbj",
+      "deps": [],
+      "external": ["db:CDStore"],
+      "pages": ["dwc/05-dwc-controls/90-exercise-search-bbjtree.mdx"],
+      "issues": [7],
+      "expect": { "title": "BBj DWC Exercise" },
+      "notes": "Exercise starting point; fills the tree from CDInventory. Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/04_ExtendedAttributes/Exercise-SearchBBjTreeComplete.bbj",
+      "kind": "window",
+      "entry": "dwc/04_ExtendedAttributes/Exercise-SearchBBjTreeComplete.bbj",
+      "deps": [],
+      "external": ["db:CDStore"],
+      "pages": ["dwc/05-dwc-controls/90-exercise-search-bbjtree.mdx"],
+      "issues": [7],
+      "expect": { "title": "BBj DWC Exercise" },
+      "notes": "Fills the tree from CDInventory. Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/04_ExtendedAttributes/LabelAttributes.bbj",
+      "kind": "window",
+      "entry": "dwc/04_ExtendedAttributes/LabelAttributes.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/05-dwc-controls/index.md"],
+      "issues": [5, 7],
+      "expect": { "title": "Using Label Attributes", "startDialog": { "button": "Yes" } },
+      "notes": "Line 22 asks \"Use Label Attributes?\" first; Yes gives the title \"Using Label Attributes\", No gives \"Using Discrete Labels\". Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/04_ExtendedAttributes/TreeSearch.bbj",
+      "kind": "window",
+      "entry": "dwc/04_ExtendedAttributes/TreeSearch.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/05-dwc-controls/index.md"],
+      "issues": [7],
+      "expect": { "title": "BBj Tree Search" },
+      "notes": "Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/05_CssLayouts/DWCFlexbox.BBj24.bbj",
+      "kind": "window",
+      "entry": "dwc/05_CssLayouts/DWCFlexbox.BBj24.bbj",
+      "deps": ["dwc/05_CssLayouts/prism.min.css", "dwc/05_CssLayouts/prism.min.js"],
+      "external": ["https://fonts.googleapis.com", "https://fonts.gstatic.com", "prefix:DemoUtils.bbj"],
+      "pages": ["dwc/06-flow-layouts/index.md"],
+      "issues": [],
+      "expect": { "title": "DWC Flexbox Demo" },
+      "notes": "Legacy copy of DWCFlexbox.bbj; no page names it, so the chapter page is used. Line 21 calls replaceAll with one argument, in the BUI branch only. Reads the Prism files through dsk(\"\")+dir(\"\"). Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/05_CssLayouts/DWCFlexbox.bbj",
+      "kind": "window",
+      "entry": "dwc/05_CssLayouts/DWCFlexbox.bbj",
+      "deps": ["dwc/05_CssLayouts/prism.min.css", "dwc/05_CssLayouts/prism.min.js"],
+      "external": ["https://fonts.googleapis.com", "https://fonts.gstatic.com", "prefix:DemoUtils.bbj"],
+      "pages": ["dwc/06-flow-layouts/index.md"],
+      "issues": [],
+      "expect": { "title": "DWC Flexbox Demo" },
+      "notes": "Reads the Prism files through dsk(\"\")+dir(\"\") and uses ::DemoUtils.bbj::DemoUtils from the PREFIX. Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/05_CssLayouts/DWCGrid.bbj",
+      "kind": "window",
+      "entry": "dwc/05_CssLayouts/DWCGrid.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/06-flow-layouts/index.md"],
+      "issues": [],
+      "expect": { "title": "BBj DWC CSS Grid Layout Samples" },
+      "notes": "Shows a stop message and ends unless info(3,6) is \"6\". Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/05_CssLayouts/Exercise-ConvertToCssFlexbox.bbj",
+      "kind": "starter",
+      "entry": "dwc/05_CssLayouts/Exercise-ConvertToCssFlexbox.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/06-flow-layouts/91-exercise-css-flexbox.mdx"],
+      "issues": [7],
+      "expect": { "title": "CSS Flexbox and Label Attributes" },
+      "notes": "Exercise starting point. Lines 47 to 49 store the void result of setAttribute in a control variable. Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/05_CssLayouts/Exercise-ConvertToCssFlexboxComplete.bbj",
+      "kind": "window",
+      "entry": "dwc/05_CssLayouts/Exercise-ConvertToCssFlexboxComplete.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/06-flow-layouts/91-exercise-css-flexbox.mdx"],
+      "issues": [7],
+      "expect": { "title": "CSS Flexbox and Label Attributes" },
+      "notes": "Lines 36 to 38 store the void result of setAttribute in a control variable. Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/05_CssLayouts/Exercise-ConvertToCssLayout.bbj",
+      "kind": "starter",
+      "entry": "dwc/05_CssLayouts/Exercise-ConvertToCssLayout.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/06-flow-layouts/90-exercise-css-grid-layout.mdx"],
+      "issues": [7],
+      "expect": { "title": "BBj DWC CSS Layout Samples" },
+      "notes": "Exercise starting point. Has the BUI-to-DWC relaunch block."
+    },
+    {
+      "id": "dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj",
+      "kind": "window",
+      "entry": "dwc/05_CssLayouts/Exercise-ConvertToCssLayoutComplete-Grid.bbj",
+      "deps": [],
+      "external": [],
+      "pages": ["dwc/06-flow-layouts/90-exercise-css-grid-layout.mdx", "dwc/11-advanced-responsive/90-exercise-media-queries.mdx"],
+      "issues": [7],
+      "expect": { "title": "BBj DWC CSS Layout Samples" },
+      "notes": "Has the BUI-to-DWC relaunch block."
+    }
+  ]
 }
