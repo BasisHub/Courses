@@ -12,6 +12,7 @@ import {
   readRunSnapshot,
   runSnapshotPath,
 } from './admin.js';
+import { allApps } from './apps.js';
 
 const KEYS = ['COURSES_RUN_SNAPSHOT', 'COURSES_LOCK_FILE', 'COURSES_LOCK_TOKEN'];
 let tmp;
@@ -88,6 +89,15 @@ test('isHarnessSession: refuses other checkouts, unanchored paths, BBj demos and
   assert.equal(is('C:/bbx/demos/x.bbj'), false);
   assert.equal(is(''), false);
   assert.equal(isHarnessSession({ id: '9' }, { roots: ROOTS }), false);
+});
+
+test('isHarnessSession: the program name format seen live (forward slashes, drive letter, mixed case) matches every registered path', () => {
+  // Observed 2026-10-09 on BBjServices 26.03: the Admin API reports the registered program path
+  // unchanged, for example C:/Users/<user>/<checkout>/tools/sample-test/fixtures/known-good.bbj.
+  for (const app of allApps()) {
+    assert.equal(isHarnessSession({ id: '9', program: app.program }), true, app.id);
+  }
+  assert.equal(isHarnessSession({ id: '9', program: 'C:/bbx/demos/chiledit/chiledit.bbj' }), false);
 });
 
 test('isHarnessSession: <initializing> counts only when its id is new since the run snapshot', () => {
