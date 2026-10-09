@@ -339,7 +339,7 @@ Plans:
 Plans:
 **Wave 1**
 
-- [ ] 06.2-01-PLAN.md — Admin layer: BBjAdminTool.java (plain Java Admin API), path and lock helpers, session filter, `npm run cleanup`
+- [x] 06.2-01-PLAN.md — Admin layer: BBjAdminTool.java (plain Java Admin API), path and lock helpers, session filter, `npm run cleanup`
 - [x] 06.2-02-PLAN.md — Control programs (known-good, known-broken, known-print, known-missing-css), result contract, console parser and classifier
 - [x] 06.2-03-PLAN.md — manifest.json for all 63 files, app names, validator and coverage test
 
@@ -431,6 +431,6 @@ Plans:
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
 | 6. Exercises & DWC Gap Audit | 21/21 | Complete   | 2026-10-04 |
-| 6.2. Runtime-verified BBj Samples | 5/16 | In Progress | - |
+| 6.2. Runtime-verified BBj Samples | 6/16 | In Progress | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |
