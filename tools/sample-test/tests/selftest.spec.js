@@ -1,12 +1,22 @@
-// Lifecycle self-tests: prove that the run lifecycle (register, open, terminate, unregister) works
-// on the local BBjServices with the known-good control program. Plan 08 adds the observation and
-// classification checks. The tests run in file order.
+// Self-test of the harness on the four control programs. First the run lifecycle (register, open,
+// terminate), then the observation and classification of each control, the click on the known-good
+// button, and the dark screenshot. The last test proves that no control session is left. The tests
+// run in file order.
+import fs from 'node:fs';
 import { test, expect } from '../lib/fixtures.js';
-import { appUrl, fixtureApps } from '../lib/apps.js';
+import { appById, appUrl, fixtureApps } from '../lib/apps.js';
 import { isHarnessSession, listApps, newHarnessSessions, status } from '../lib/admin.js';
-import { toPosix } from '../lib/paths.js';
+import { readDialogs, settle } from '../lib/dwc.js';
+import { resultsDir, toPosix } from '../lib/paths.js';
+import { runProgram, startProgram } from '../lib/run.js';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const expected = JSON.parse(fs.readFileSync(new URL('../fixtures/expected.json', import.meta.url), 'utf8'));
+
+// Where the known-good control wrote its screenshots in its classification test (relative to the
+// results folder), for the dark screenshot test.
+const shots = {};
 
 test('lifecycle: every fixture is registered', async () => {
   const registered = await listApps('courses-fixture-');
@@ -38,6 +48,82 @@ test('lifecycle: known-good opens a DWC window', async ({ bbj }) => {
   for (const p of mine) {
     bbj.testInfo.annotations.push({ type: 'program-name', description: p.program });
   }
+});
+
+// One classification test per control program, taken from fixtures/expected.json, so the unit tests
+// (lib/classify.test.js) and this live test share their expectations.
+for (const [file, spec] of Object.entries(expected)) {
+  test(`control: ${file} is classified ${spec.classification.status}`, async ({ bbj }) => {
+    expect(bbj.licenseFree, 'a BBJ license is free').toBe(true);
+    const app = appById(`fixture/${file}`);
+    const r = await runProgram(bbj, app, { dir: 'selftest' });
+    const why = JSON.stringify(r.reasons);
+
+    expect(r.status, why).toBe(spec.classification.status);
+    if (spec.classification.category) {
+      expect(r.reasons.map((x) => x.category), why).toContain(spec.classification.category);
+    }
+    if (spec.classification.bbjError) {
+      expect(r.bbjErrors[0], why).toMatchObject(spec.classification.bbjError);
+    }
+    if (spec.expect.print) {
+      for (const line of spec.expect.print) {
+        expect(r.printed.some((p) => p.includes(line)), `printed ${JSON.stringify(r.printed)} has "${line}"`).toBe(true);
+      }
+      expect(r.bbjVersion).toMatch(/26\.03/);
+    }
+    if (spec.classification.network) {
+      const { status: httpStatus, urlIncludes } = spec.classification.network;
+      expect(
+        r.network.some((n) => n.status === httpStatus && n.url.includes(urlIncludes)),
+        `network ${JSON.stringify(r.network)} has ${httpStatus} for ${urlIncludes}`,
+      ).toBe(true);
+      // One request, one entry: the abort Chromium adds after the 404 is folded into it.
+      expect(r.network.filter((n) => n.url.includes(urlIncludes)), 'one entry for the stylesheet').toHaveLength(1);
+    }
+
+    // The console header holds the license serial number: no result may carry it.
+    expect(JSON.stringify(r)).not.toMatch(/BBX\d{6}|serial\s+number\s*:/i);
+    expect(r.harnessIssue).toBeNull();
+
+    if (app.kind === 'window') {
+      for (const key of ['light', 'dark']) {
+        expect(r.screenshots[key], `${key} screenshot path`).toBeTruthy();
+        expect(fs.statSync(resultsDir(r.screenshots[key])).size, `${key} screenshot size`).toBeGreaterThan(0);
+      }
+    }
+    if (file === 'known-good.bbj') {
+      shots.light = r.screenshots.light;
+      shots.dark = r.screenshots.dark;
+    }
+  });
+}
+
+test('control: known-good shows its message box on Say Hello', async ({ bbj }) => {
+  expect(bbj.licenseFree, 'a BBJ license is free').toBe(true);
+  const spec = expected['known-good.bbj'].interaction;
+  const app = appById('fixture/known-good.bbj');
+  const started = await startProgram(bbj, app);
+  expect(started.start.state).toBe('window');
+
+  await bbj.page.getByRole('button', { name: spec.button }).click();
+  let dialogs = [];
+  for (let attempt = 0; attempt < 10 && dialogs.length === 0; attempt++) {
+    await settle(bbj.page, 500);
+    dialogs = await readDialogs(bbj.page);
+  }
+  expect(dialogs.length, 'a message box appeared').toBeGreaterThan(0);
+  expect(dialogs[0].text).toContain(spec.dialogText);
+  expect(dialogs[0].title).toBe('Fixture');
+  expect(dialogs[0].buttons).toContain('OK');
+});
+
+test('control: dark screenshot differs from light', async () => {
+  expect(shots.light, 'the known-good classification test ran first').toBeTruthy();
+  const light = fs.readFileSync(resultsDir(shots.light));
+  const dark = fs.readFileSync(resultsDir(shots.dark));
+  expect(light.length).toBeGreaterThan(0);
+  expect(dark.equals(light), 'light and dark PNG files differ').toBe(false);
 });
 
 test('lifecycle: the previous test left no fixture session', async () => {
