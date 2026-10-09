@@ -68,6 +68,39 @@ test('failed requests are recorded with the error text', () => {
   ]);
 });
 
+test('an aborted request for a URL that already has an HTTP error is not recorded twice', () => {
+  // Seen live on BBj 26.03: a stylesheet that answers 404 also reports net::ERR_ABORTED.
+  const url = 'http://localhost:8888/courses-fixture-does-not-exist.css';
+  const afterResponse = fakePage();
+  const a = attachCollectors(afterResponse);
+  afterResponse.emit('response', response(url, 404));
+  afterResponse.emit('requestfailed', request(url, 'net::ERR_ABORTED'));
+  assert.deepEqual(a.network, [{ url, status: 404, error: null, external: false }]);
+
+  // The other order: the abort entry gives way when the HTTP error arrives.
+  const beforeResponse = fakePage();
+  const b = attachCollectors(beforeResponse);
+  beforeResponse.emit('requestfailed', request(url, 'net::ERR_ABORTED'));
+  beforeResponse.emit('response', response(url, 404));
+  assert.deepEqual(b.network, [{ url, status: 404, error: null, external: false }]);
+});
+
+test('an aborted request without an HTTP error, and other failures, are still recorded', () => {
+  const page = fakePage();
+  const c = attachCollectors(page);
+  page.emit('requestfailed', request('http://localhost:8888/a.js', 'net::ERR_ABORTED'));
+  page.emit('response', response('http://localhost:8888/other.css', 404));
+  page.emit('requestfailed', request('http://localhost:8888/other.css', 'net::ERR_CONNECTION_RESET'));
+  assert.deepEqual(
+    c.network.map((n) => [n.url, n.status, n.error]),
+    [
+      ['http://localhost:8888/a.js', null, 'net::ERR_ABORTED'],
+      ['http://localhost:8888/other.css', 404, null],
+      ['http://localhost:8888/other.css', null, 'net::ERR_CONNECTION_RESET'],
+    ],
+  );
+});
+
 test('local hosts are localhost, 127.0.0.1, ::1 and this machine', () => {
   const page = fakePage();
   const c = attachCollectors(page);

@@ -51,22 +51,27 @@ export function attachCollectors(page) {
     if (message.type() === 'error') collectors.consoleErrors.push(text);
     else if (message.type() === 'warning') collectors.consoleWarnings.push(text);
   });
+  // Chromium reports net::ERR_ABORTED for a stylesheet that answered 404 (seen live on BBj 26.03),
+  // so the same request would show up twice. The HTTP error is the useful entry: an abort for a URL
+  // that has one is dropped, in either order.
+  const ABORTED = 'net::ERR_ABORTED';
+  const hasHttpError = (url) => collectors.network.some((n) => n.url === url && n.status !== null);
   page.on('requestfailed', (request) => {
     const failure = request.failure();
-    collectors.network.push({
-      url: request.url(),
-      status: null,
-      error: (failure && failure.errorText) || 'request failed',
-      external: isExternal(request.url()),
-    });
+    const error = (failure && failure.errorText) || 'request failed';
+    if (error === ABORTED && hasHttpError(request.url())) return;
+    collectors.network.push({ url: request.url(), status: null, error, external: isExternal(request.url()) });
   });
   page.on('response', (response) => {
     if (response.status() >= 400) {
-      collectors.network.push({
-        url: response.url(),
+      const url = response.url();
+      const kept = collectors.network.filter((n) => !(n.url === url && n.error === ABORTED));
+      collectors.network.length = 0;
+      collectors.network.push(...kept, {
+        url,
         status: response.status(),
         error: null,
-        external: isExternal(response.url()),
+        external: isExternal(url),
       });
     }
   });
