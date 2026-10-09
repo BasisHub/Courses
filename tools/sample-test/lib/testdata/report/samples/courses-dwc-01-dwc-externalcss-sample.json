@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "dwc/01_GUI2BUI2DWC/DWC_ExternalCSS/Sample.bbj",
+  "app": "courses-dwc-01-dwc-externalcss-sample",
+  "url": "http://localhost:8888/webapp/courses-dwc-01-dwc-externalcss-sample",
+  "kind": "window",
+  "status": "fail",
+  "reasons": [
+    { "category": "bbj", "detail": "!ERROR=12 Missing file Sample.css at line 16: css! = ..." },
+    { "category": "network-local", "detail": "404 http://localhost:8888/webapp/courses-dwc-01-dwc-externalcss-sample/Sample.css" },
+    { "category": "network-external", "detail": "net::ERR_NAME_NOT_RESOLVED https://cdn.example.test/x.js" }
+  ],
+  "warnings": [
+    { "category": "console-warning", "detail": "Lit is in dev mode" }
+  ],
+  "start": { "state": "console", "ms": 3100 },
+  "title": null,
+  "bbjErrors": [
+    { "code": 12, "message": "Missing file Sample.css", "line": 16, "statement": "css! = ..." }
+  ],
+  "printed": [],
+  "consoleExcerpt": ["!ERROR=12  (Missing file Sample.css)", "[16] css! = ..."],
+  "bbjVersion": null,
+  "dialogs": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "network": [
+    { "url": "http://localhost:8888/webapp/courses-dwc-01-dwc-externalcss-sample/Sample.css", "status": 404, "error": null, "external": false },
+    { "url": "https://cdn.example.test/x.js", "status": null, "error": "net::ERR_NAME_NOT_RESOLVED", "external": true },
+    { "url": "http://localhost:8888/webapp/ok.js", "status": 200, "error": null, "external": false }
+  ],
+  "icons": { "total": 3, "rendered": 2, "missing": [{ "pool": "tabler", "name": "missing-icon" }] },
+  "debugLog": null,
+  "screenshots": {
+    "light": "screenshots/courses-dwc-01-dwc-externalcss-sample-light.png",
+    "dark": null
+  },
+  "startedAt": "2026-10-09T08:11:00.000Z",
+  "durationMs": 5200,
+  "harnessIssue": null,
+  "leaked": []
+}
