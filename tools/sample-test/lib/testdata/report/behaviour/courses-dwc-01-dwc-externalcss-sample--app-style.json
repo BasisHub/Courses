@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "id": "dwc/01_GUI2BUI2DWC/DWC_ExternalCSS/Sample.bbj",
+  "app": "courses-dwc-01-dwc-externalcss-sample",
+  "test": "app-style",
+  "issue": 3,
+  "outcome": "blocked",
+  "category": "start",
+  "evidence": "sample did not start: !ERROR=12 at line 16",
+  "screenshot": "screenshots/courses-dwc-01-dwc-externalcss-sample--app-style.png",
+  "startedAt": "2026-10-09T08:20:00.000Z",
+  "harnessIssue": null,
+  "leaked": []
+}

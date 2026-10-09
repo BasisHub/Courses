@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "fixture/known-broken.bbj",
+  "app": "courses-fixture-known-broken",
+  "url": "http://localhost:8888/webapp/courses-fixture-known-broken",
+  "kind": "window",
+  "status": "fail",
+  "reasons": [
+    { "category": "bbj", "detail": "!ERROR=252 Method not found at line 4: noSuchMethod()" }
+  ],
+  "warnings": [],
+  "start": { "state": "console", "ms": 2800 },
+  "title": null,
+  "bbjErrors": [
+    { "code": 252, "message": "Method not found", "line": 4, "statement": "noSuchMethod()" }
+  ],
+  "printed": [],
+  "consoleExcerpt": ["!ERROR=252  (Method not found)", "[4] noSuchMethod()"],
+  "bbjVersion": "26.03 (synthetic)",
+  "dialogs": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "network": [],
+  "icons": null,
+  "debugLog": null,
+  "screenshots": { "light": null, "dark": null },
+  "startedAt": "2026-10-09T08:06:00.000Z",
+  "durationMs": 3500,
+  "harnessIssue": null,
+  "leaked": []
+}
