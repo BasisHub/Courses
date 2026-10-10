@@ -185,6 +185,13 @@ behaviourTest(
     note("markup in the program: <html>Say Hello <dwc-icon name='speakerphone'></dwc-icon></html> (tabler pool by default)");
     const found = await icon.count();
     if (found === 0) throw new BlockedError('no dwc-icon inside the Say Hello button');
+    // DWC fetches the icon's SVG from the CDN after it upgrades the element. A one-shot read raced that
+    // once in the baseline (svg not drawn here while iconReport below found the icon rendered), so wait
+    // for it first. A real failure still shows: after 10 s the read below says svg drawn: false.
+    await expect
+      .poll(() => icon.first().evaluate((el) => Boolean(el.shadowRoot?.querySelector('svg')?.children.length)), { timeout: 10000 })
+      .toBe(true)
+      .catch(() => {});
     const detail = await icon.first().evaluate((el) => {
       const box = el.getBoundingClientRect();
       const svg = el.shadowRoot && el.shadowRoot.querySelector('svg');

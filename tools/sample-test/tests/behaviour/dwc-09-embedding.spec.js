@@ -295,6 +295,12 @@ behaviourTest(
     const alerts = [];
     page.on('dialog', (dialog) => alerts.push(`${dialog.type()}: ${dialog.message()}`));
 
+    // The sample injects the function and installs the two listeners in its ON_PAGE_LOADED callback, a
+    // moment after the window shows. A click before that goes nowhere (once in the baseline: no message
+    // box after the first click). Wait for the injected function, then let the two listeners follow.
+    await page.waitForFunction(() => typeof window.alertText === 'function', null, { timeout: 15000 });
+    await settle(page, 500);
+
     const clicks = page.getByRole('button', { name: 'click me' });
     expect(await clicks.count(), 'two buttons are labelled click me').toBe(2);
 
