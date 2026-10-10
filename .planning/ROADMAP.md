@@ -15,7 +15,7 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 - [x] **Phase 5: Intro-BBj Conversion** - Throwaway Moodle converter produces the "Introduction to BBj Development" book (completed 2026-10-04)
 - [x] **Phase 6: Exercises & DWC Gap Audit** - Exercise pages in both books; missing course-4 material added to DWC before go-live (completed 2026-10-04)
 - [ ] **Phase 6.1: Exercise Solutions and Restored Screenshots** (INSERTED) - Solutions for all 16 exercises, solution pointers, two restored screenshots
-- [ ] **Phase 6.2: Runtime-verified BBj Samples** (INSERTED) - Playwright harness compiles, registers and runs every docs/examples program in DWC on BBj 26.03; baseline report
+- [x] **Phase 6.2: Runtime-verified BBj Samples** (INSERTED) - Playwright harness compiles, registers and runs every docs/examples program in DWC on BBj 26.03; baseline report (completed 2026-10-10)
 - [ ] **Phase 7: Review, Acceptance & Go-Live** - Hand review, Vale and syntax checks clean, acceptance gates pass, site public
 - [ ] **Phase 8: Redirects & Archive** - Old DWC-Course URLs redirect to Courses; old repo archived
 
@@ -334,7 +334,7 @@ Plans:
   4. A Playwright run in Chromium opens each program and records page errors, console errors, failed requests, new `Debug.log` errors, icon rendering and light and dark screenshots; behaviour tests cover what each page says the sample does, including GitHub issues #3 to #7
   5. `tools/data/sample-test-report.md` lists the result per sample, draft issue texts and open questions for Hyyan; no sample is changed and nothing is posted to GitHub
 
-**Plans:** 5/16 plans executed
+**Plans:** 16/16 plans complete
 
 Plans:
 **Wave 1**
@@ -431,6 +431,6 @@ Plans:
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
 | 6. Exercises & DWC Gap Audit | 21/21 | Complete   | 2026-10-04 |
-| 6.2. Runtime-verified BBj Samples | 16/16 | In Progress | - |
+| 6.2. Runtime-verified BBj Samples | 16/16 | Complete | 2026-10-10 |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |

@@ -67,12 +67,12 @@ Spec: `.planning/migration-seed.md`, corrected by `.planning/research/SUMMARY.md
 
 ### Runtime Sample Verification (before go-live)
 
-- [ ] **SAMP-01**: `tools/sample-test/manifest.json` lists every `.bbj` under `docs/examples/` with its kind, entry program, dependencies and page; a coverage test fails on any file without an entry and on any entry without a file
-- [ ] **SAMP-02**: Every `.bbj` under `docs/examples/` passes through the local BBj 26.03 compiler (syntax pass and `-t` type check), with the result per file recorded
-- [ ] **SAMP-03**: Every runnable program is registered as a `courses-*` DWC app through the BBj Admin API from plain Java, with credentials read from the ignored `tools/sample-test/.env`; one command removes all `courses-*` apps and terminates leftover sample sessions
-- [ ] **SAMP-04**: A serial Playwright run in Chromium opens every runnable program and records start, BBj errors with line, page errors, console errors, failed requests, icon rendering and light and dark screenshots; the harness fails a known-broken control program and passes a known-good one
-- [ ] **SAMP-05**: Behaviour tests check what each sample's page says it does, with explicit checks for GitHub issues #3 to #7
-- [ ] **SAMP-06**: `tools/data/sample-test-report.md` gives the result per sample, draft issue texts and open questions for Hyyan; no sample is changed and nothing is posted to GitHub
+- [x] **SAMP-01**: `tools/sample-test/manifest.json` lists every `.bbj` under `docs/examples/` with its kind, entry program, dependencies and page; a coverage test fails on any file without an entry and on any entry without a file
+- [x] **SAMP-02**: Every `.bbj` under `docs/examples/` passes through the local BBj 26.03 compiler (syntax pass and `-t` type check), with the result per file recorded
+- [x] **SAMP-03**: Every runnable program is registered as a `courses-*` DWC app through the BBj Admin API from plain Java, with credentials read from the ignored `tools/sample-test/.env`; one command removes all `courses-*` apps and terminates leftover sample sessions
+- [x] **SAMP-04**: A serial Playwright run in Chromium opens every runnable program and records start, BBj errors with line, page errors, console errors, failed requests, icon rendering and light and dark screenshots; the harness fails a known-broken control program and passes a known-good one
+- [x] **SAMP-05**: Behaviour tests check what each sample's page says it does, with explicit checks for GitHub issues #3 to #7
+- [x] **SAMP-06**: `tools/data/sample-test-report.md` gives the result per sample, draft issue texts and open questions for Hyyan; no sample is changed and nothing is posted to GitHub
 
 ### Review & Quality
 
@@ -168,12 +168,12 @@ Populated 2026-10-03 during roadmap creation.
 | AUDIT-01 | Phase 6 | Complete |
 | AUDIT-02 | Phase 6 | Complete |
 | AUDIT-03 | Phase 6 | Complete |
-| SAMP-01 | Phase 6.2 | Pending |
-| SAMP-02 | Phase 6.2 | Pending |
-| SAMP-03 | Phase 6.2 | Pending |
-| SAMP-04 | Phase 6.2 | Pending |
-| SAMP-05 | Phase 6.2 | Pending |
-| SAMP-06 | Phase 6.2 | Pending |
+| SAMP-01 | Phase 6.2 | Complete |
+| SAMP-02 | Phase 6.2 | Complete |
+| SAMP-03 | Phase 6.2 | Complete |
+| SAMP-04 | Phase 6.2 | Complete |
+| SAMP-05 | Phase 6.2 | Complete |
+| SAMP-06 | Phase 6.2 | Complete |
 | QUAL-01 | Phase 7 | Pending |
 | QUAL-02 | Phase 7 | Pending |
 | QUAL-03 | Phase 7 | Pending |

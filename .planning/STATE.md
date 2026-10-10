@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 06.1-10-PLAN.md (older-gates log recorded; runtime UAT pending)
-last_updated: "2026-10-08T18:03:29.788Z"
-last_activity: 2026-10-08 -- Phase 06.2 execution started
+status: ready
+stopped_at: Phase 06.2 complete (16/16 plans, baseline report in tools/data/sample-test-report.md; human UAT pending in 06.2-HUMAN-UAT.md)
+last_updated: "2026-10-10T20:12:56.558Z"
+last_activity: 2026-10-10
 progress:
   total_phases: 10
-  completed_phases: 7
+  completed_phases: 8
   total_plans: 75
-  completed_plans: 59
+  completed_plans: 75
   percent: 13
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-10-03)
 
 **Core value:** Both books read well and correctly on one public site in the webforJ look, every old DWC-Course link still lands on the right page, and the Markdown is the only source of truth after the migration.
-**Current focus:** Phase 06.2 — Runtime-verified BBj Samples
+**Current focus:** Sample fixes after the 06.2 baseline (scope to be decided by Eric), then Phase 7
 
 ## Current Position
 
-Phase: 06.2 (Runtime-verified BBj Samples) — EXECUTING
-Plan: 1 of 16
-Status: Executing Phase 06.2
-Last activity: 2026-10-08 -- Phase 06.2 execution started
+Phase: 7
+Plan: Not started
+Status: Phase 06.2 complete; awaiting Eric's decision on the sample-fix scope before Phase 7
+Last activity: 2026-10-10
 
 Progress: [█░░░░░░░░░] 13%
 
