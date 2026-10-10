@@ -418,3 +418,368 @@ behaviourTest(
     expect(parsed.printed, 'the program prints the typed value').toContain(typed);
   },
 );
+
+// ---------------------------------------------------------------------------------------------
+// The Tic-Tac-Toe exercises. All three programs lay out nine cell buttons (control IDs 101 to 109, in
+// reading order), a status line and a New game button. Cells have no text of their own, so they are
+// the buttons of the window panel in DOM order; a mark is the text of the button. The status line is
+// the first static text of the panel.
+//   TicTacToe.bbj (page 01-getting-started/90-exercise-tic-tac-toe.mdx; 06.1-HUMAN-UAT test 6): "shows
+//     the player who is up for the next move", "check with every move if one of the players won";
+//     UAT: turns alternate, a line of three on the ninth move still wins, a full board without a
+//     line is a draw, a click on an occupied cell is ignored, New game resets the board.
+//   TicTacToeComputer.bbj (91-exercise-computer-player.mdx; UAT test 7): the computer plays O, the
+//     list button switches between Random and MinMax while you play, MinMax never loses.
+//   oo-tic-tac-toe/PlayTicTacToe.bbj (02-object-oriented-syntax/91-exercise-oo-tic-tac-toe.mdx; UAT
+//     test 9): the object-oriented version behaves like TicTacToe.bbj.
+// ---------------------------------------------------------------------------------------------
+
+/** The window's buttons: cells 1 to 9 are index 0 to 8; the New game button is found by name. */
+const panelButtons = (page) => page.locator('dwc-window-content').getByRole('button');
+
+/** The nine cell marks ("X", "O" or "") in reading order. */
+async function marks(page) {
+  const all = await page
+    .locator('dwc-window-content dwc-button')
+    .evaluateAll((els) => els.map((e) => e.textContent.trim()), undefined, { timeout: 5000 });
+  return all.slice(0, 9);
+}
+
+/** The text of the status line. */
+async function statusLine(page) {
+  return ((await page.locator('dwc-window-content dwc-static-text').first().textContent({ timeout: 5000 })) ?? '').trim();
+}
+
+const boardText = (b) => b.map((m) => (m === '' ? '.' : m)).join('');
+const countOf = (b, mark) => b.filter((m) => m === mark).length;
+
+/** Clicks a cell (1 to 9) and waits until it shows a mark; returns the board (unchanged after 6 s). */
+async function playCell(page, cell) {
+  await panelButtons(page).nth(cell - 1).click({ timeout: 5000 });
+  const deadline = Date.now() + 6000;
+  for (;;) {
+    const b = await marks(page);
+    if (b[cell - 1] !== '' || Date.now() > deadline) return b;
+    await page.waitForTimeout(150);
+  }
+}
+
+/**
+ * The status line once it reads one of the wanted texts (the program sets the cell first and the
+ * status line a moment later); the last text seen after `ms` when none of them appears.
+ */
+async function statusAfter(page, wanted, ms = 4000) {
+  const list = Array.isArray(wanted) ? wanted : [wanted];
+  const deadline = Date.now() + ms;
+  for (;;) {
+    const text = await statusLine(page);
+    if (list.includes(text) || Date.now() > deadline) return text;
+    await page.waitForTimeout(100);
+  }
+}
+
+/** Clicks a cell that must not change anything and returns the board and status afterwards. */
+async function clickIgnored(page, cell) {
+  await panelButtons(page).nth(cell - 1).click({ timeout: 5000 });
+  await settle(page, 900);
+  return { board: await marks(page), status: await statusLine(page) };
+}
+
+async function newGame(page) {
+  await page.getByRole('button', { name: 'New game' }).click({ timeout: 5000 });
+  await settle(page, 700);
+  return { board: await marks(page), status: await statusLine(page) };
+}
+
+/**
+ * Plays the moves in order (X first) and checks the mark and the status line after each one.
+ * `expectStatus(moveIndex, moves)` gives the status line wanted after the move. Returns the problems.
+ */
+async function playLine(page, moves, expectStatus, label) {
+  const problems = [];
+  const trail = [];
+  for (let i = 0; i < moves.length; i += 1) {
+    const mark = i % 2 === 0 ? 'X' : 'O';
+    const b = await playCell(page, moves[i]);
+    const want = expectStatus(i, moves);
+    const status = await statusAfter(page, want);
+    trail.push(`${moves[i]}${b[moves[i] - 1] || '-'}`);
+    if (b[moves[i] - 1] !== mark) problems.push(`${label}: move ${i + 1} on cell ${moves[i]} shows "${b[moves[i] - 1]}", expected ${mark}`);
+    if (status !== want) problems.push(`${label}: after move ${i + 1} the status reads "${status}", expected "${want}"`);
+  }
+  return { problems, trail: trail.join(' '), board: await marks(page), status: await statusLine(page) };
+}
+
+/** Test 1 of a two-player program: turns alternate and a completed row shows the winner. */
+async function alternateAndWin(page, note) {
+  const start = await statusLine(page);
+  const startBoard = await marks(page);
+  const moves = [1, 4, 2, 5, 3];
+  const line = await playLine(
+    page,
+    moves,
+    (i) => (i === moves.length - 1 ? 'Player X wins!' : `Player ${i % 2 === 0 ? 'O' : 'X'} is up`),
+    'game',
+  );
+  const after = await clickIgnored(page, 6);
+  const problems = [...line.problems];
+  if (start !== 'Player X is up') problems.push(`at the start the status reads "${start}", expected "Player X is up"`);
+  if (countOf(startBoard, '') !== 9) problems.push(`the board is not empty at the start: ${boardText(startBoard)}`);
+  if (after.board[5] !== '') problems.push(`a click after the win put "${after.board[5]}" in cell 6`);
+  if (after.status !== 'Player X wins!') problems.push(`after the win a click changed the status to "${after.status}"`);
+
+  note(`${problems.length} problems: ${problems.join('; ') || 'none'}`);
+  note(`start "${start}"; moves (cell, mark): ${line.trail}; final board ${boardText(line.board)}, status "${line.status}"`);
+  note(`a click on empty cell 6 after the win: board ${boardText(after.board)}, status "${after.status}"`);
+  expect(problems, 'turns alternate X and O, the status names the player up, a row of X wins and the game stops').toEqual([]);
+}
+
+/** Test 2 of a two-player program: occupied cell, New game, draw and a win on the ninth move. */
+async function occupiedResetDrawNinth(page, note) {
+  const problems = [];
+
+  // an occupied cell ignores the click and does not pass the turn
+  await playCell(page, 1);
+  const occupied = await clickIgnored(page, 1);
+  const next = await playCell(page, 2);
+  const nextStatus = await statusAfter(page, 'Player X is up');
+  if (occupied.board[0] !== 'X') problems.push(`clicking the taken cell 1 changed it to "${occupied.board[0]}"`);
+  if (occupied.status !== 'Player O is up') problems.push(`clicking the taken cell changed the status to "${occupied.status}", expected "Player O is up"`);
+  if (next[1] !== 'O') problems.push(`the turn after the ignored click did not go to O: cell 2 shows "${next[1]}"`);
+  if (nextStatus !== 'Player X is up') problems.push(`after O's move the status reads "${nextStatus}", expected "Player X is up"`);
+
+  // New game empties the board
+  const reset = await newGame(page);
+  if (countOf(reset.board, '') !== 9) problems.push(`New game left ${boardText(reset.board)} on the board`);
+  if (reset.status !== 'Player X is up') problems.push(`New game: the status reads "${reset.status}", expected "Player X is up"`);
+
+  // a full board without a line is a draw
+  const drawMoves = [1, 2, 3, 5, 4, 6, 8, 7, 9];
+  const draw = await playLine(
+    page,
+    drawMoves,
+    (i) => (i === drawMoves.length - 1 ? "It's a draw." : `Player ${i % 2 === 0 ? 'O' : 'X'} is up`),
+    'draw game',
+  );
+  problems.push(...draw.problems);
+
+  // a line of three on the ninth move still wins (X completes 1-5-9 with the last move)
+  const reset2 = await newGame(page);
+  if (countOf(reset2.board, '') !== 9) problems.push(`the second New game left ${boardText(reset2.board)} on the board`);
+  const winMoves = [1, 2, 3, 4, 5, 6, 8, 7, 9];
+  const ninth = await playLine(
+    page,
+    winMoves,
+    (i) => (i === winMoves.length - 1 ? 'Player X wins!' : `Player ${i % 2 === 0 ? 'O' : 'X'} is up`),
+    'ninth-move game',
+  );
+  problems.push(...ninth.problems);
+
+  note(`${problems.length} problems: ${problems.join('; ') || 'none'}`);
+  note(`taken cell: board ${boardText(occupied.board)}, status "${occupied.status}"; New game: board ${boardText(reset.board)}, status "${reset.status}"`);
+  note(`draw game ${draw.trail}: board ${boardText(draw.board)}, status "${draw.status}"`);
+  note(`ninth-move game ${ninth.trail}: board ${boardText(ninth.board)}, status "${ninth.status}"`);
+  expect(problems, 'an occupied cell is ignored, New game resets, a full board is a draw and a line on the ninth move wins').toEqual([]);
+}
+
+behaviourTest(
+  `${BASE}exercises/TicTacToe.bbj`,
+  'turns alternate X and O and a completed row shows "Player X wins!"',
+  {},
+  async ({ page, note }) => {
+    await expect(page.getByRole('button', { name: 'New game' }), 'the New game button is visible').toBeVisible({ timeout: 10000 });
+    expect(await panelButtons(page).count(), 'nine cells and the New game button').toBe(10);
+    await alternateAndWin(page, note);
+  },
+);
+
+behaviourTest(
+  `${BASE}exercises/TicTacToe.bbj`,
+  'an occupied cell ignores the click, New game resets, a full board is a draw and a ninth move still wins',
+  {},
+  async ({ page, note }) => {
+    await expect(page.getByRole('button', { name: 'New game' }), 'the New game button is visible').toBeVisible({ timeout: 10000 });
+    await occupiedResetDrawNinth(page, note);
+  },
+);
+
+// ---------------------------------------------------------------------------------------------
+// TicTacToeComputer.bbj. You play X, the computer plays O (status line "Your move, you play X"). The
+// list button below the board ("Computer plays:") holds Random and MinMax, Random selected at the
+// start. It is a DWC choicebox: its options are read from the opened dropdown.
+// ---------------------------------------------------------------------------------------------
+const COMPUTER_RESULTS = ['You win!', 'The computer wins!', "It's a draw."];
+
+/** The strategy shown on the list button. */
+function strategyShown(page) {
+  return page.locator('dwc-choicebox').evaluate((el) => {
+    const label = el.shadowRoot ? el.shadowRoot.querySelector('[part=button-label]') : null;
+    return label ? label.textContent.trim() : '';
+  });
+}
+
+/** Opens the list, reads its options, picks one; returns the options and the strategy shown afterwards. */
+async function chooseStrategy(page, name) {
+  await page.locator('dwc-choicebox').click({ timeout: 5000 });
+  await expect(page.getByRole('option').first(), 'the strategy list opens').toBeVisible({ timeout: 5000 });
+  const options = (await page.getByRole('option').allTextContents()).map((t) => t.trim());
+  await page.getByRole('option', { name, exact: true }).click({ timeout: 5000 });
+  await settle(page, 400);
+  return { options, shown: await strategyShown(page) };
+}
+
+/** Clicks a cell and waits for the computer's answer: two marks more, or a finished game. */
+async function playAgainstComputer(page, cell) {
+  const before = (await marks(page)).filter((m) => m !== '').length;
+  await panelButtons(page).nth(cell - 1).click({ timeout: 5000 });
+  const deadline = Date.now() + 30000;
+  for (;;) {
+    const b = await marks(page);
+    const status = await statusLine(page);
+    const total = b.filter((m) => m !== '').length;
+    if (COMPUTER_RESULTS.includes(status) || total >= before + 2) {
+      // the computer's mark is set first and the status line a moment later
+      const settled = await statusAfter(page, ['Your move, you play X', ...COMPUTER_RESULTS]);
+      return { board: await marks(page), status: settled, ms: 30000 - (deadline - Date.now()) };
+    }
+    if (Date.now() > deadline) return { board: b, status, ms: 30000, timedOut: true };
+    await page.waitForTimeout(150);
+  }
+}
+
+const freeCells = (b) => b.map((m, i) => (m === '' ? i + 1 : 0)).filter((c) => c > 0);
+
+/** Plays a whole game as X with a picker function; returns the final board, status and the X moves. */
+async function playGame(page, pick) {
+  const moves = [];
+  for (let i = 0; i < 5; i += 1) {
+    const b = await marks(page);
+    const status = await statusLine(page);
+    if (COMPUTER_RESULTS.includes(status)) break;
+    const cell = pick(freeCells(b));
+    moves.push(cell);
+    const reply = await playAgainstComputer(page, cell);
+    if (reply.timedOut) return { board: reply.board, status: reply.status, moves, timedOut: true };
+  }
+  return { board: await marks(page), status: await statusLine(page), moves, timedOut: false };
+}
+
+behaviourTest(
+  `${BASE}exercises/TicTacToeComputer.bbj`,
+  'the computer answers every move with an O and each game ends with a result',
+  {},
+  async ({ page, note }) => {
+    await expect(page.getByRole('button', { name: 'New game' }), 'the New game button is visible').toBeVisible({ timeout: 10000 });
+    const problems = [];
+    const start = await statusLine(page);
+    const shown = await strategyShown(page);
+    if (start !== 'Your move, you play X') problems.push(`at the start the status reads "${start}"`);
+    if (shown !== 'Random') problems.push(`the list button shows "${shown}" at the start, expected Random`);
+
+    const first = await playAgainstComputer(page, 5);
+    const xs = countOf(first.board, 'X');
+    const os = countOf(first.board, 'O');
+    if (first.board[4] !== 'X' || xs !== 1) problems.push(`after the first click the board is ${boardText(first.board)}, expected one X in cell 5`);
+    if (os !== 1) problems.push(`the computer answered with ${os} O marks (board ${boardText(first.board)}), expected 1`);
+    if (first.status !== 'Your move, you play X') problems.push(`after the answer the status reads "${first.status}"`);
+
+    const game = await playGame(page, (free) => free[0]);
+    const xCount = countOf(game.board, 'X');
+    const oCount = countOf(game.board, 'O');
+    if (game.timedOut) problems.push('the computer did not answer within 30 s');
+    if (!COMPUTER_RESULTS.includes(game.status)) problems.push(`the game did not end with a result: status "${game.status}", board ${boardText(game.board)}`);
+    if (game.board[4] !== 'X') problems.push(`the X in cell 5 was overwritten: board ${boardText(game.board)}`);
+    if (oCount > xCount || xCount - oCount > 1) problems.push(`the marks are out of balance: ${xCount} X, ${oCount} O`);
+
+    const over = freeCells(game.board)[0];
+    let ignored = 'no free cell left';
+    if (over !== undefined) {
+      const after = await clickIgnored(page, over);
+      ignored = `a click on free cell ${over} after the end: board ${boardText(after.board)}, status "${after.status}"`;
+      if (boardText(after.board) !== boardText(game.board)) problems.push(`a click after the end changed the board to ${boardText(after.board)}`);
+    }
+
+    note(`${problems.length} problems: ${problems.join('; ') || 'none'}`);
+    note(`start status "${start}", strategy shown "${shown}"; first answer to X in cell 5 (${first.ms} ms): board ${boardText(first.board)}`);
+    note(`game with Random, X plays the lowest free cell after cell 5: X cells ${[5, ...game.moves].join(',')}, final board ${boardText(game.board)}, status "${game.status}"`);
+    note(ignored);
+    expect(problems, 'the computer answers each move with an O on a free cell and the game ends with a result').toEqual([]);
+  },
+);
+
+behaviourTest(
+  `${BASE}exercises/TicTacToeComputer.bbj`,
+  'the strategy list switches between Random and MinMax while playing, and MinMax never loses',
+  {},
+  async ({ page, note }) => {
+    await expect(page.getByRole('button', { name: 'New game' }), 'the New game button is visible').toBeVisible({ timeout: 10000 });
+    const problems = [];
+
+    // switching while a game is on: Random answers the first move, then MinMax, then Random again
+    const r1 = await playAgainstComputer(page, 1);
+    const toMinMax = await chooseStrategy(page, 'MinMax');
+    const r2 = await playAgainstComputer(page, freeCells(r1.board)[0]);
+    const toRandom = await chooseStrategy(page, 'Random');
+    const r3 = await playAgainstComputer(page, freeCells(r2.board)[0]);
+    const options = toMinMax.options.join(', ');
+    if (toMinMax.options.join('|') !== 'Random|MinMax') problems.push(`the list offers "${options}", expected Random and MinMax`);
+    if (toMinMax.shown !== 'MinMax') problems.push(`after choosing MinMax the list button shows "${toMinMax.shown}"`);
+    if (toRandom.shown !== 'Random') problems.push(`after choosing Random the list button shows "${toRandom.shown}"`);
+    for (const [name, r] of [['Random', r1], ['MinMax', r2], ['Random again', r3]]) {
+      if (r.timedOut) problems.push(`${name}: the computer did not answer within 30 s`);
+    }
+    const switched = `Random ${boardText(r1.board)} (${r1.ms} ms); MinMax ${boardText(r2.board)} (${r2.ms} ms); Random ${boardText(r3.board)} (${r3.ms} ms)`;
+
+    // MinMax from the first answer on never loses: four games with four different X strategies
+    await chooseStrategy(page, 'MinMax');
+    // lowest and highest free cell; centre first, then lowest; cell 2 (an edge) first, then highest
+    const pickers = [
+      ['lowest', (free) => free[0]],
+      ['highest', (free) => free[free.length - 1]],
+      ['centre', (free) => (free.includes(5) ? 5 : free[0])],
+      ['edge', (free) => (free.includes(2) ? 2 : free[free.length - 1])],
+    ];
+    const games = [];
+    for (const [name, pick] of pickers) {
+      await newGame(page);
+      const game = await playGame(page, pick);
+      const result = { 'You win!': 'X wins', 'The computer wins!': 'O wins', "It's a draw.": 'draw' }[game.status] ?? `"${game.status}"`;
+      games.push(`${name} ${game.moves.join(',')} ${boardText(game.board)} ${result}`);
+      if (game.timedOut) problems.push(`MinMax game "${name}": the computer did not answer within 30 s`);
+      else if (game.status === 'You win!') problems.push(`MinMax lost the game "${name}" (board ${boardText(game.board)})`);
+      else if (!COMPUTER_RESULTS.includes(game.status)) problems.push(`MinMax game "${name}" did not end with a result: "${game.status}"`);
+    }
+
+    note(`${problems.length} problems: ${problems.join('; ') || 'none'}`);
+    note(`strategies seen: list "${options}"; switched while playing: ${switched}`);
+    note(`MinMax games (X strategy, X cells, final board, result): ${games.join('; ')}`);
+    expect(problems, 'the list switches the strategy while playing and MinMax does not lose').toEqual([]);
+  },
+);
+
+// ---------------------------------------------------------------------------------------------
+// oo-tic-tac-toe/PlayTicTacToe.bbj. The launcher loads GameWindow.bbj with use ::GameWindow.bbj::GameWindow,
+// which loads Board.bbj and Player.bbj the same way from the program folder. The window title is
+// "Tic-Tac-Toe"; the status lines use the player names ("Player X is up", "Player X wins!").
+// ---------------------------------------------------------------------------------------------
+behaviourTest(
+  `${BASE}exercises/oo-tic-tac-toe/PlayTicTacToe.bbj`,
+  'like TicTacToe.bbj: turns alternate X and O and a completed row shows "Player X wins!"',
+  {},
+  async ({ page, note }) => {
+    await expect(page.getByRole('button', { name: 'New game' }), 'the New game button is visible').toBeVisible({ timeout: 10000 });
+    note(`window "${await page.title()}", ${await panelButtons(page).count()} buttons in the panel`);
+    expect(await panelButtons(page).count(), 'nine cells and the New game button').toBe(10);
+    await alternateAndWin(page, note);
+  },
+);
+
+behaviourTest(
+  `${BASE}exercises/oo-tic-tac-toe/PlayTicTacToe.bbj`,
+  'like TicTacToe.bbj: occupied cell ignored, New game resets, a full board is a draw, a ninth move wins',
+  {},
+  async ({ page, note }) => {
+    await expect(page.getByRole('button', { name: 'New game' }), 'the New game button is visible').toBeVisible({ timeout: 10000 });
+    await occupiedResetDrawNinth(page, note);
+  },
+);
