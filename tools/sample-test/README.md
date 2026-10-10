@@ -115,3 +115,12 @@ behaviourTest(
 - Keep titles of two tests on the same sample different within their first 40 characters; the result file and the screenshot are named after the title.
 - The wrapper opens the sample, answers a start dialog if the manifest names one, runs your body, then looks at the console: a BBj `!ERROR` after the body turns the verdict into a `fail` with category `bbj`.
 - `npm run samples -- --grep "\[dwc/01_GUI2BUI2DWC/DWC2.bbj\]"` runs one sample's tests; end every live run with `npm run cleanup`.
+
+## Last baseline
+
+- Date: 2026-10-10 (16:56 to 17:49 UTC), 52 min 37 s end to end, exit 0, no harness failure.
+- BBj REV 26.03, Chromium 156.0.8078.4, Playwright 1.64.0, DWC only.
+- Smoke: 59 results, 41 pass, 18 fail, 0 blocked (16 console-error, 2 icons, 1 page; a sample can have several reasons).
+- Behaviour: 105 results, 79 pass, 26 fail, 0 blocked.
+- Compile: 63 files, 0 syntax errors, 8 type-check findings in 4 files.
+- Red results are findings for the fix phase, not harness failures. The full analysis is in `tools/data/sample-test-report.md`.
