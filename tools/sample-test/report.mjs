@@ -17,6 +17,7 @@ import { scanForSecrets } from './lib/admin.js';
 import { ISSUES, loadManifest } from './lib/manifest.js';
 import { harnessDir, mainCheckout, repoRoot, resultsDir, toPosix } from './lib/paths.js';
 import { checkReportText, renderReport } from './lib/report.js';
+import { renameWithRetry } from './lib/rename-retry.js';
 
 class Refusal extends Error {}
 
@@ -143,7 +144,7 @@ async function main() {
       throw new Refusal(`refused (password scan failed: ${error.message})`);
     }
     if (scan !== 'CLEAN') throw new Refusal('refused (admin password found)');
-    fs.renameSync(temp, out);
+    renameWithRetry(temp, out);
   } finally {
     fs.rmSync(temp, { force: true });
   }
