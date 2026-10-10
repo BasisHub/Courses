@@ -2,6 +2,8 @@
 // Responsive Design" (pages dwc/06-flow-layouts/index.md, Example 1 and Example 2). The sample files
 // are in docs/examples/dwc/05_CssLayouts.
 //
+// Also the two exercise solutions (pages 91-exercise-css-flexbox.mdx and 90-exercise-css-grid-layout.mdx).
+//
 // The issue #7 tests for these files are in the panel style sweep, not here. The starters
 // Exercise-ConvertToCssFlexbox.bbj and Exercise-ConvertToCssLayout.bbj are covered by smoke and that sweep.
 //
@@ -9,13 +11,24 @@
 // and an assertion is never weakened to make it pass.
 import { expect } from '../../lib/fixtures.js';
 import { behaviourTest } from '../../lib/behaviour.js';
-import { clickDialogButton, readDialogs, settle } from '../../lib/dwc.js';
+import { clickDialogButton, panelStyle, readDialogs, settle } from '../../lib/dwc.js';
 
 const BASE = 'dwc/05_CssLayouts/';
 
 /** Collapses every run of whitespace to one space. */
 function flat(text) {
   return String(text ?? '').replace(/\s+/g, ' ').trim();
+}
+
+/** The first sentence of every DWC "directives are no longer available" console error, once each. */
+async function directiveMessages(page) {
+  const found = [];
+  for (const message of await page.consoleMessages().catch(() => [])) {
+    if (message.type() !== 'error') continue;
+    const hit = /Starting from BBj v[\d.]+, the \w+ directives are no longer available/.exec(message.text());
+    if (hit && !found.includes(hit[0])) found.push(hit[0]);
+  }
+  return found;
 }
 
 /** Clicks an option of a list box by its visible text. */
@@ -231,6 +244,10 @@ behaviourTest(
       note(`layout ${index + 1} (${template}): ${state.display}, columns ${state.tracks.map(Math.round).join(' ')}`);
     }
     note(`CSS Preview shows the column template of the chosen layout for ${previewShows} of 6 layouts`);
+    // Line 145 sets "@app-style" with setAttribute, an attributes directive. The layouts themselves
+    // arrive through injectStyle (lines 95 and 264), so the grids above do not depend on it.
+    const directives = await directiveMessages(page);
+    note(`DWC console: ${directives.length > 0 ? directives.join('; ') : 'no directive message'}`);
 
     // Layouts 5 and 6 always use four columns, also in a narrow window (page: "truncated when narrow").
     await page.setViewportSize({ width: 500, height: 800 });
@@ -291,3 +308,149 @@ behaviourTest(
     }
   },
 );
+
+// ---------------------------------------------------------------------------------------------
+// The exercise solutions. Both build a JsonObject of panel styles and apply it with
+// window!.setPanelStyle("@element", json!.toString()), a style directive. On BBj 26.03 DWC logs that
+// the style directives are no longer available, and the properties of the JSON never reach the panel.
+// ---------------------------------------------------------------------------------------------
+
+/** "label@x,y" (or "@x,y") of every dwc-field, for a note. */
+function fieldPositions(page) {
+  return page.locator('dwc-field').evaluateAll((els) =>
+    els.map((el) => {
+      const r = el.getBoundingClientRect();
+      return `${el.getAttribute('label') ?? el.getAttribute('placeholder') ?? ''}@${Math.round(r.x)},${Math.round(r.y)}`;
+    }),
+  );
+}
+
+// Exercise-ConvertToCssFlexboxComplete.bbj (page 91-exercise-css-flexbox.mdx). Lines 36 to 38 store
+// the void result of setAttribute in BBjEditBox variables; the type check flags them. A probe program
+// with the same statement (run once, not committed) showed what happens at runtime: no error at the
+// assignment, the variable is null afterwards, and a later call on it ends with
+// !ERROR=252 "Attempt to invoke method 'setText' on null object".
+const FLEXBOX_COMPLETE = `${BASE}Exercise-ConvertToCssFlexboxComplete.bbj`;
+
+behaviourTest(
+  FLEXBOX_COMPLETE,
+  'the form shows Name:, Company: and Email: with their values as label attributes',
+  {},
+  async ({ page, note }) => {
+    const wanted = [
+      ['Name:', 'Joe Blow'],
+      ['Company:', 'BASIS International Ltd.'],
+      ['Email:', 'joeBlow@basis.com'],
+    ];
+    const labels = await page.locator('dwc-field').evaluateAll((els) => els.map((el) => el.getAttribute('label')));
+    const statics = await page.locator('dwc-static-text').count();
+    const values = await page.getByRole('textbox').evaluateAll((els) => els.map((el) => el.value));
+    note(`label attributes: ${labels.join(', ')}; values: ${values.join(' | ')}; separate static texts: ${statics}`);
+    note('lines 36 to 38 assign the void result of setAttribute to BBjEditBox variables: no BBj error at runtime, the three label attributes reached the page');
+    note('probe with the same statement (not committed): the variable is null afterwards, a later call on it fails with !ERROR=252 "Attempt to invoke method on null object"');
+    note('this program never uses myName!, myCompany! or myEmail! again, so the void result breaks nothing here');
+
+    for (const [label, value] of wanted) {
+      await expect(page.getByText(label, { exact: true }), `label ${label} is visible`).toBeVisible();
+      await expect(page.getByRole('textbox', { name: label, exact: true }), `edit box labelled ${label}`).toHaveValue(value);
+    }
+    expect(labels, 'label attributes of the three edit boxes').toEqual(['Name:', 'Company:', 'Email:']);
+    expect(statics, 'the labels are attributes, not separate static texts').toBe(0);
+  },
+);
+
+behaviourTest(FLEXBOX_COMPLETE, 'the window panel is a flexbox column with padding and a gap', {}, async ({ page, note }) => {
+  const panel = await panelStyle(page, ['display', 'flex-direction', 'row-gap', 'padding-top']);
+  const v = panel.values;
+  note(`panel${panel.found ? '' : ' (not found)'}: display ${v.display}, flex-direction ${v['flex-direction']}, row-gap ${v['row-gap']}, padding-top ${v['padding-top']}`);
+  note('lines 24 to 32 put display flex, flex-direction column, gap and padding in a JsonObject, applied with setPanelStyle("@element", ...)');
+  note(`field positions: ${(await fieldPositions(page)).join(' ')}`);
+  const directives = await directiveMessages(page);
+  note(`DWC console: ${directives.length > 0 ? directives.join('; ') : 'no directive message'}`);
+
+  expect(panel.found, 'the window panel is found').toBe(true);
+  expect(v.display, 'the panel uses display: flex').toBe('flex');
+  expect(v['flex-direction'], 'the panel lays out its controls in a column').toBe('column');
+  expect(v['row-gap'], 'the panel has a gap between the controls').not.toMatch(/^(normal|0px)$/);
+  expect(v['padding-top'], 'the panel has padding around the controls').not.toBe('0px');
+});
+
+// Exercise-ConvertToCssLayoutComplete-Grid.bbj (page 90-exercise-css-grid-layout.mdx): a contact
+// form of eight labels and edit boxes and a Submit button that spans both columns.
+const GRID_COMPLETE = `${BASE}Exercise-ConvertToCssLayoutComplete-Grid.bbj`;
+
+behaviourTest(
+  GRID_COMPLETE,
+  'the window panel is a two-column CSS grid with padding, a gap and centered rows',
+  {},
+  async ({ page, note }) => {
+    const panel = await panelStyle(page, ['display', 'grid-template-columns', 'align-items', 'row-gap', 'column-gap', 'padding-top']);
+    const v = panel.values;
+    const template = v['grid-template-columns'] ?? 'none';
+    const columns = template === 'none' ? 0 : template.split(' ').length;
+    note(`panel${panel.found ? '' : ' (not found)'}: display ${v.display}, columns ${columns} (${template.slice(0, 40)}), align-items ${v['align-items']}`);
+    note(`gap ${v['row-gap']} / ${v['column-gap']}, padding-top ${v['padding-top']}`);
+    note('lines 21 to 30 put display grid, grid-template-columns "auto 1fr", align-items center, gap and padding in a JsonObject, applied with setPanelStyle("@element", ...)');
+    const labels = await page.locator('dwc-static-text').evaluateAll((els) =>
+      els.slice(0, 4).map((el) => {
+        const r = el.getBoundingClientRect();
+        return `${el.textContent.trim()}@${Math.round(r.x)},${Math.round(r.y)}`;
+      }),
+    );
+    note(`first four labels: ${labels.join(' ')}`);
+    const directives = await directiveMessages(page);
+    note(`DWC console: ${directives.length > 0 ? directives.join('; ') : 'no directive message'}`);
+
+    expect(panel.found, 'the window panel is found').toBe(true);
+    expect(v.display, 'the panel uses display: grid').toBe('grid');
+    expect(columns, 'the grid has two columns').toBe(2);
+    expect(v['align-items'], 'the rows are centered vertically').toBe('center');
+    expect(v['row-gap'], 'the grid has a gap between its rows').not.toMatch(/^(normal|0px)$/);
+    expect(v['padding-top'], 'the window has padding').not.toBe('0px');
+  },
+);
+
+behaviourTest(GRID_COMPLETE, 'the Submit button spans both columns of the grid', {}, async ({ page, note }) => {
+  const submit = page.getByRole('button', { name: 'Submit' });
+  await expect(submit, 'the Submit button is visible').toBeVisible();
+  // The grid item is the dwc-button host, not the inner button element.
+  const host = page.locator('dwc-button').filter({ hasText: 'Submit' });
+  const button = await host.evaluate(
+    (el) => {
+      const r = el.getBoundingClientRect();
+      return { x: Math.round(r.x), y: Math.round(r.y), right: Math.round(r.right), gridColumn: getComputedStyle(el).gridColumn };
+    },
+    undefined,
+    { timeout: 5000 },
+  );
+  const label = await page.getByText('* First Name:', { exact: true }).boundingBox();
+  const firstEdit = await page.locator('dwc-field').first().boundingBox();
+  const lastEdit = await page.locator('dwc-field').last().boundingBox();
+  note(`Submit: computed grid-column "${button.gridColumn}", x ${button.x} to ${button.right}, y ${button.y}`);
+  note(`first label x ${Math.round(label.x)}; first edit box x ${Math.round(firstEdit.x)} to ${Math.round(firstEdit.x + firstEdit.width)}; last edit box bottom ${Math.round(lastEdit.y + lastEdit.height)}`);
+
+  // The program validates the first and last name on Submit (lines 73 to 84); the page does not
+  // describe it, so this is recorded and not asserted.
+  let validation;
+  try {
+    await submit.click({ timeout: 5000 });
+    await settle(page, 1500);
+    const empty = await readDialogs(page);
+    if (empty.length > 0) await clickDialogButton(page, empty[0].buttons[0]);
+    // the first two edit boxes are First name and Last name
+    await page.getByRole('textbox').nth(0).fill('Jane');
+    await page.getByRole('textbox').nth(1).fill('Doe');
+    await submit.click({ timeout: 5000 });
+    await settle(page, 1500);
+    const filled = await readDialogs(page);
+    if (filled.length > 0) await clickDialogButton(page, filled[0].buttons[0]);
+    validation = `empty names: "${empty[0]?.title}"; first and last name filled: "${filled[0]?.title}"`;
+  } catch (error) {
+    validation = `not completed: ${String(error.message).split('\n')[0]}`;
+  }
+  note(`Submit validation: ${validation}`);
+
+  expect(button.gridColumn, 'setStyle("grid-column", "1 / 3") reached the Submit button').toBe('1 / 3');
+  expect(button.x, 'the Submit button starts at the left edge of the first column').toBeLessThanOrEqual(label.x + 2);
+  expect(button.right, 'the Submit button reaches the right edge of the second column').toBeGreaterThanOrEqual(firstEdit.x + firstEdit.width - 2);
+});
