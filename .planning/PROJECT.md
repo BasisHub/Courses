@@ -21,6 +21,7 @@ Both books read well and correctly on one public site in the webforJ look, and e
 - [x] CI: GitHub Pages deploy (`deploy.yml`), PR build gate (`test-build.yml`), Vale on PRs (`reviewdog.yml`, `filter_mode: file`); repo public at `BasisHub/Courses`, site live at https://basishub.github.io/Courses/, `main` protected by a ruleset (PR + both checks, admin bypass) — Validated in Phase 2: Repo Hygiene & CI
 - [x] Moodle converter `tools/moodle2docusaurus.py` (throwaway) turns the course 2 backup into the `intro-bbj` book (38 pages, 10 videos, 8 images, 4 sample folders + 5 ZIPs, 5 exercise pages) with a zero-unresolved report; converter and generated docs are separate commits; all 30 BBj samples/snippets pass `bbj_check_syntax` — Validated in Phase 5: Intro-BBj Conversion
 - [x] intro-bbj exercises as `9N-exercise-*.mdx` pages from the 5 Moodle assignments — Validated in Phase 5: Intro-BBj Conversion
+- [x] Every program under `docs/examples/` runtime-tested on BBj 26.03: local harness `tools/sample-test/` (manifest, BBj compiler pass, Admin API registration from plain Java, serial Playwright runs in DWC/Chromium, behaviour tests per course page) and the baseline report `tools/data/sample-test-report.md` (smoke 41/18/0, behaviour 79/26/0; 10 draft issues, 16 questions for Hyyan) — Validated in Phase 6.2: Runtime-verified BBj Samples. Local only (no BBj in CI); samples not yet fixed.
 
 ### Active
 
@@ -84,6 +85,8 @@ Both books read well and correctly on one public site in the webforJ look, and e
 | Ignore Moodle course 3 | Superseded by course 4 | — Pending |
 | `import/` (Moodle backups) gitignored, never pushed, deleted after migration | Backups are temporary inputs; overrides seed 2.1 which committed the course-2 archive | — Pending |
 | Converter is throwaway; Markdown is the source of truth | Avoids maintaining a two-way sync with Moodle | — Pending |
+| Samples are runtime-tested in DWC on a local BBj before they count as correct; red results are findings, fixes come in a separate step | Stephan found samples broken on BBj 26 that passed the syntax check; samples also serve as AI training data | Phase 6.2 baseline |
+| No test hooks in samples; nothing posted to GitHub by the harness work | Samples are training data; Eric decides what to publish | Phase 6.2 |
 
 ## Evolution
 
@@ -103,4 +106,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-10-04 after Phase 5 (Intro-BBj Conversion)*
+*Last updated: 2026-10-10 after Phase 6.2 (Runtime-verified BBj Samples)*
