@@ -356,7 +356,7 @@ Plans:
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
-- [ ] 06.2-09-PLAN.md — Smoke test per runnable sample, behaviour wrapper, behaviour coverage check, run-baseline.mjs, README
+- [x] 06.2-09-PLAN.md — Smoke test per runnable sample, behaviour wrapper, behaviour coverage check, run-baseline.mjs, README
 
 **Wave 5** *(blocked on Wave 4 completion; behaviour plans run one per wave)*
 
@@ -431,6 +431,6 @@ Plans:
 | 4. DWC Book Relocation | 6/6 | Complete   | 2026-10-04 |
 | 5. Intro-BBj Conversion | 6/6 | Complete    | 2026-10-04 |
 | 6. Exercises & DWC Gap Audit | 21/21 | Complete   | 2026-10-04 |
-| 6.2. Runtime-verified BBj Samples | 8/16 | In Progress | - |
+| 6.2. Runtime-verified BBj Samples | 9/16 | In Progress | - |
 | 7. Review, Acceptance & Go-Live | 0/TBD | Not started | - |
 | 8. Redirects & Archive | 0/TBD | Not started | - |
