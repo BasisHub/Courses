@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { renameWithRetry } from './rename-retry.js';
+import { renameWithRetry, replaceFile } from './rename-retry.js';
 
 function failing(code) {
   const error = new Error(`${code}: operation not permitted, rename`);
@@ -59,6 +59,38 @@ test('renameWithRetry really renames a file with the default rename', () => {
     renameWithRetry(from, to);
     assert.equal(fs.readFileSync(to, 'utf8'), 'x');
     assert.equal(fs.existsSync(from), false);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('replaceFile writes the content in place when the target stays locked against rename', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'courses-replace-'));
+  try {
+    const from = path.join(dir, 'report.md.tmp');
+    const to = path.join(dir, 'report.md');
+    fs.writeFileSync(from, 'new report');
+    fs.writeFileSync(to, 'old report');
+    const { rename, calls } = stub(Array(11).fill('EPERM'));
+    const how = replaceFile(from, to, { rename, sleep: () => {} });
+    assert.equal(how, 'written');
+    assert.equal(calls.length, 11);
+    assert.equal(fs.readFileSync(to, 'utf8'), 'new report');
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('replaceFile renames when the rename works and rethrows other errors', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'courses-replace-'));
+  try {
+    const from = path.join(dir, 'a.tmp');
+    const to = path.join(dir, 'a.md');
+    fs.writeFileSync(from, 'fresh');
+    assert.equal(replaceFile(from, to), 'renamed');
+    assert.equal(fs.readFileSync(to, 'utf8'), 'fresh');
+    const { rename } = stub(['ENOENT']);
+    assert.throws(() => replaceFile(from, to, { rename, sleep: () => {} }), /ENOENT/);
   } finally {
     fs.rmSync(dir, { recursive: true, force: true });
   }
