@@ -57,8 +57,8 @@ Not every CSS property can be transitioned. Before you rely on a transition, che
 
 ```css
 .window {
-    background-color: var(--dwc-background);
-    color: var(--dwc-color);
+    background-color: var(--dwc-surface-1);
+    color: var(--dwc-color-body-text);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 ```

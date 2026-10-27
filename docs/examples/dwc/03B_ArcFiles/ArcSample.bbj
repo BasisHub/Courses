@@ -1,5 +1,10 @@
+declare auto BBjSysGui sysgui!
+declare auto BBjTopLevelWindow wnd!
+
 sysgui! =  BBjAPI().openSysGui("X0")
-res = sysgui!.resOpen("ArcSample.arc")
+programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+resourcePath$ = java.nio.file.Paths.get(programPath$).resolveSibling("ArcSample.arc").toString()
+res = sysgui!.resOpen(resourcePath$)
 wnd! = sysgui!.createTopLevelWindow(res,101)
 
 wnd!.setCallback(BBjAPI.ON_CLOSE,"byebye")

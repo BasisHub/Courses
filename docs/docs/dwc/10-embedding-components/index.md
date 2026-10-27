@@ -77,23 +77,16 @@ If you plan to embed several similar components on your page, give each one a un
 
 ### Example: Chart.js Integration {#example-chartsjs-integration}
 
+The downloadable `ChartJS_NoEventFromJS.bbj` sample uses this setup on its existing `window!`. Keep the loading callbacks: the chart can only be created after both the HTML and the library have loaded.
+
 ```bbj
-use java.nio.file.Files
-use java.nio.file.Paths
-
-rem Get WebManager
-web! = BBjAPI().getWebManager()
-
-rem Inject Chart.js library
-web!.injectUrl("https://cdn.jsdelivr.net/npm/chart.js", 1, "module")
-
-rem Create container for chart
-chartDiv! = wnd!.addHtmlView("<canvas id='myChart'></canvas>")
-
-rem Initialize chart with JavaScript
-chartJs$ = "const ctx = document.getElementById('myChart');"
-chartJs$ = chartJs$ + "new Chart(ctx, { type: 'bar', data: {...} });"
-web!.executeScript(chartJs$)
+declare auto BBjHtmlView htmlview!
+html$ = "<html><head></head><body><canvas id='myChart'></canvas></body></html>"
+htmlview! = window!.addHtmlView(102,20,70,760,430,html$,$$)
+htmlview!.setOpaque(0)
+htmlview!.setNoEdge(1)
+htmlview!.setCallback(htmlview!.ON_PAGE_LOADED,"handlePageLoaded")
+htmlview!.setCallback(htmlview!.ON_SCRIPT_LOADED,"handleScriptLoaded")
 ```
 
 After the page is loaded, the `ON_PAGE_LOADED` event fires, and you can load the library from a CDN:
@@ -145,6 +138,19 @@ handleScriptLoaded:
   js$ = js$ + "    }"
   js$ = js$ + "});"
   js$ = js$ + "window.myChart = chart;"
+  rem A canvas does not repaint when CSS changes. Update its text and grid colors with the DWC theme.
+  js$ = js$ + "var applyChartTheme = () => {"
+  js$ = js$ + "  const styles = getComputedStyle(chartCanvas);"
+  js$ = js$ + "  chart.options.plugins.legend.labels.color = styles.color;"
+  js$ = js$ + "  for (const axis of Object.values(chart.options.scales)) {"
+  js$ = js$ + "    axis.ticks.color = styles.color;"
+  js$ = js$ + "    axis.grid.color = styles.getPropertyValue('--dwc-border-color').trim();"
+  js$ = js$ + "  }"
+  js$ = js$ + "  chart.update('none');"
+  js$ = js$ + "};"
+  js$ = js$ + "applyChartTheme();"
+  js$ = js$ + "var chartThemeObserver = new MutationObserver(applyChartTheme);"
+  js$ = js$ + "chartThemeObserver.observe(document.documentElement, {attributes: true, attributeFilter: ['data-app-theme']});"
 
   htmlview!.injectScript(js$,1)
 return
@@ -159,8 +165,8 @@ A JavaScript component can send events back to BBj, so you can react to user int
 The relevant section in the enhanced chart sample is this part of the JavaScript code:
 
 ```bbj
-  js$ = js$ + "        onClick: (evt, item) => {"
-  js$ = js$ + "         Chart.defaults.plugins.legend.onClick.call(this, evt, item, this);"
+  js$ = js$ + "        onClick: (evt, item, legend) => {"
+  js$ = js$ + "         Chart.defaults.plugins.legend.onClick(evt, item, legend);"
   js$ = js$ + "         const customEvent = new CustomEvent('legend-clicked',{"
   js$ = js$ + "           detail:{text: item.text, index: item.datasetIndex, hidden: item.hidden}"
   js$ = js$ + "         });"
@@ -172,9 +178,11 @@ The key statement is `basisDispatchCustomEvent`, which passes the `customEvent` 
 
 ```bbj
 handleNativeJavascript:
-  event! = sysgui!.getLastEvent()
-  name$ = event!.getEventName()
-  map! = event!.getEventMap()
+  declare auto BBjNativeJavaScriptEvent nativeEvent!
+  declare auto java.util.Map map!
+  nativeEvent! = sysgui!.getLastEvent()
+  name$ = nativeEvent!.getEventName()
+  map! = nativeEvent!.getEventMap()
   detail! = map!.get("detail")
   let x=MSGBOX(detail!, 0, "Event Details")
 return
@@ -186,21 +194,12 @@ This handler only shows the contents of the event object in a `MSGBOX` for illus
 
 ```bbj
 rem Register a custom event handler
-web!.registerEvent("chartClick", "onChartClick")
-
-rem In JavaScript, trigger the event
-rem BBj.send('chartClick', { data: clickedData })
+htmlview!.setCallback(BBjAPI.ON_NATIVE_JAVASCRIPT, "handleNativeJavascript")
 ```
 
 ### Callback Handler
 
-```bbj
-onChartClick:
-    event! = BBjAPI().getLastEvent()
-    data! = event!.getData()
-    rem Process the click data
-return
-```
+Use the preceding `handleNativeJavascript` callback. `getEventMap()` supplies the custom event's `detail` entry. The complete `ChartJS.bbj` sample includes this callback and the Line/Bar selector in [09_EmbeddingOtherComponents.zip](pathname:///files/dwc/09_EmbeddingOtherComponents.zip).
 
 ## Working with Slots
 
@@ -232,13 +231,13 @@ Where the screenshot shows the labels "Start" and "End," a BBj developer expects
 The trick is to use JavaScript to put a `BBjChildWindow` into the slot of the other component:
 
 1. Add two child windows as you always do.
-2. Call `getAttribute("id")` to get their IDs in the HTML DOM.
+2. Set their `id` attributes, then call `getAttribute("id")` to read those IDs.
 3. Call `appendChild` to move each child window into the other element, which you created with a UUID as its ID.
 
 ```bbj
 BBjAPI().getSysGui().executeScript(
-:"document.getElementById('" + sl_splitter!.getAttribute("id") + "').appendChild(document.getElementById('" + top!.getAttribute("id") + "'));"+
-:"document.getElementById('" + sl_splitter!.getAttribute("id") + "').appendChild(document.getElementById('" + bottom!.getAttribute("id") + "'));")
+:"document.getElementById('" + uuid$ + "').appendChild(document.getElementById('" + top!.getAttribute("id") + "'));"+
+:"document.getElementById('" + uuid$ + "').appendChild(document.getElementById('" + bottom!.getAttribute("id") + "'));")
 ```
 
 If you want to use `getAttribute("id")`, call `setAttribute("id", "your id here")` first.
@@ -257,7 +256,9 @@ The result is a splitter with two child windows, each hosting a full-size button
 | **FullCalendar** | Calendar widgets |
 | **Quill** | Rich text editor |
 
+<!-- vale Google.Ordinal = NO -->
 ## Exercise: Embed a Third-Party Component {#exercise-embed-a-3rd-party-component}
+<!-- vale Google.Ordinal = YES -->
 
 Work through [Exercise: Embed a third-party component](./90-exercise-embed-component.mdx).
 

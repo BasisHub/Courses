@@ -23,6 +23,13 @@ Based on your previous work:
 The original course had no solution for this exercise, so this one was written for this book. It builds on `CSSCustomProperties.bbj` from this section. The layout CSS moved from the source into `Exercise-ThemingSupportComplete-Layout.css`. `Exercise-ThemingSupportComplete-Theme.css` is a small hand-written theme that sets the primary and default palette hues, in the same shape as a DWC Themer export, so an exported theme goes in the same place. A button switches between the light and dark theme with `setTheme`. You find all files in [02_CSSStylesAndCustomProperties.zip](pathname:///files/dwc/02_CSSStylesAndCustomProperties.zip).
 
 ```bbj title="Exercise-ThemingSupportComplete.bbj"
+declare auto String layoutCss!
+declare auto String themeCss!
+
+declare auto BBjString css!
+declare auto BBjVector myVectCssProps!
+declare auto BBjVector myVectCssVals!
+
 rem /**
 rem  * Exercise-ThemingSupportComplete.bbj
 rem  *
@@ -115,9 +122,9 @@ release
 
 rem Load the layout CSS and the theme CSS from their files and inject both
 ApplyStylesAndLayout:
-    fs! = BBjAPI().getFileSystem()
-    layoutCss! = new String(Files.readAllBytes(Paths.get(fs!.resolvePath("./Exercise-ThemingSupportComplete-Layout.css"))))
-    themeCss! = new String(Files.readAllBytes(Paths.get(fs!.resolvePath("./Exercise-ThemingSupportComplete-Theme.css"))))
+    programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+    layoutCss! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("Exercise-ThemingSupportComplete-Layout.css")), "UTF-8")
+    themeCss! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("Exercise-ThemingSupportComplete-Theme.css")), "UTF-8")
 
     rem Inject the layout CSS, then the theme CSS
     web!.injectStyle(layoutCss!)
@@ -139,7 +146,7 @@ ApplyStylesAndLayout:
     myVectCssVals!.addItem("12px")
     myVectCssVals!.addItem("bold")
     myVectCssVals!.addItem("normal")
-    myVectCssVals!.addItem("light")
+    myVectCssVals!.addItem("300")
     myVectCssVals!.addItem("orange")
     myVectCssVals!.addItem("red")
     myVectCssVals!.addItem("green")
@@ -216,7 +223,7 @@ dwc-window-content fieldset[is='dwc-fieldset-panel'] {
 }
 
 fieldset > legend {
-    color: var(--dwc-color-primary);
+    color: var(--dwc-color-primary-text);
     font-weight: bold;
 }
 ```

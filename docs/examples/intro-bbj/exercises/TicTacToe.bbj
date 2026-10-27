@@ -8,6 +8,9 @@ declare BBjTopLevelWindow wnd!
 declare BBjButton btn!
 declare BBjStaticText status!
 declare BBjVector cells!
+declare auto BBjButtonPushEvent ev!
+declare BBjControl ctrl!
+declare auto BBjButton cellBtn!
 
 api! = BBjAPI()
 sysgui! = api!.openSysGui("X0")

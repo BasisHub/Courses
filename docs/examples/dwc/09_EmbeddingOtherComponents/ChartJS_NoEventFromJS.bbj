@@ -11,7 +11,7 @@ sysgui! = bbjapi().getSysGui()
 window! = sysgui!.addWindow(25,25,800,500,"Chart.js",$00090002$)
 window!.setCallback(window!.ON_CLOSE,"eoj")
 
-html$ = "<html></head><body><canvas id='myChart'></canvas></body></html>"
+html$ = "<html><head></head><body><canvas id='myChart'></canvas></body></html>"
 htmlview! = window!.addHtmlView(102,20,70,760,430,html$,$$)
 htmlview!.setOpaque(0)
 htmlview!.setNoEdge(1)
@@ -57,6 +57,19 @@ handleScriptLoaded:
   js$ = js$ + "    }"
   js$ = js$ + "});"
   js$ = js$ + "window.myChart = chart;"
+  rem A canvas does not repaint when CSS changes. Update its text and grid colors with the DWC theme.
+  js$ = js$ + "var applyChartTheme = () => {"
+  js$ = js$ + "  const styles = getComputedStyle(chartCanvas);"
+  js$ = js$ + "  chart.options.plugins.legend.labels.color = styles.color;"
+  js$ = js$ + "  for (const axis of Object.values(chart.options.scales)) {"
+  js$ = js$ + "    axis.ticks.color = styles.color;"
+  js$ = js$ + "    axis.grid.color = styles.getPropertyValue('--dwc-border-color').trim();"
+  js$ = js$ + "  }"
+  js$ = js$ + "  chart.update('none');"
+  js$ = js$ + "};"
+  js$ = js$ + "applyChartTheme();"
+  js$ = js$ + "var chartThemeObserver = new MutationObserver(applyChartTheme);"
+  js$ = js$ + "chartThemeObserver.observe(document.documentElement, {attributes: true, attributeFilter: ['data-app-theme']});"
   
   htmlview!.injectScript(js$,1)
 return

@@ -1,5 +1,13 @@
 rem ' https://www.chartjs.org/
 
+declare auto BBjSysGui sysgui!
+declare auto BBjTopLevelWindow window!
+declare auto BBjListButton types!
+declare auto BBjHtmlView htmlview!
+declare auto BBjNativeJavaScriptEvent nativeEvent!
+declare auto BBjListSelectEvent selectEvent!
+declare auto java.util.Map map!
+
 rem when in BUI we need to pass "$wnd" in scripts, in DWC and GUI it's "window"
 bui = info(3,6)="5"
 wnd$ = iff(bui,"$wnd","window")
@@ -16,7 +24,7 @@ types!.setFieldHeight(30)
 types!.selectIndex(0)
 types!.setCallback(types!.ON_LIST_SELECT,"handleTypeChanged")
 
-html$ = "<html></head><body><canvas id='myChart'></canvas></body></html>"
+html$ = "<html><head></head><body><canvas id='myChart'></canvas></body></html>"
 htmlview! = window!.addHtmlView(102,20,70,760,430,html$,$$)
 htmlview!.setOpaque(0)
 htmlview!.setNoEdge(1)
@@ -63,8 +71,8 @@ handleScriptLoaded:
   js$ = js$ + "    options: {"
   js$ = js$ + "     plugins: {"  
   js$ = js$ + "       legend: {"
-  js$ = js$ + "        onClick: (evt, item) => {"
-  js$ = js$ + "         Chart.defaults.plugins.legend.onClick.call(this, evt, item, this);"
+  js$ = js$ + "        onClick: (evt, item, legend) => {"
+  js$ = js$ + "         Chart.defaults.plugins.legend.onClick(evt, item, legend);"
   js$ = js$ + "         const customEvent = new CustomEvent('legend-clicked',{"  
   js$ = js$ + "           detail:{text: item.text, index: item.datasetIndex, hidden: item.hidden}"  
   js$ = js$ + "         });"  
@@ -75,24 +83,37 @@ handleScriptLoaded:
   js$ = js$ + "    }"
   js$ = js$ + "});"
   js$ = js$ + "window.myChart = chart;"
+  rem A canvas does not repaint when CSS changes. Update its text and grid colors with the DWC theme.
+  js$ = js$ + "var applyChartTheme = () => {"
+  js$ = js$ + "  const styles = getComputedStyle(chartCanvas);"
+  js$ = js$ + "  chart.options.plugins.legend.labels.color = styles.color;"
+  js$ = js$ + "  for (const axis of Object.values(chart.options.scales)) {"
+  js$ = js$ + "    axis.ticks.color = styles.color;"
+  js$ = js$ + "    axis.grid.color = styles.getPropertyValue('--dwc-border-color').trim();"
+  js$ = js$ + "  }"
+  js$ = js$ + "  chart.update('none');"
+  js$ = js$ + "};"
+  js$ = js$ + "applyChartTheme();"
+  js$ = js$ + "var chartThemeObserver = new MutationObserver(applyChartTheme);"
+  js$ = js$ + "chartThemeObserver.observe(document.documentElement, {attributes: true, attributeFilter: ['data-app-theme']});"
   
   htmlview!.injectScript(js$,1)
 return
 
 handleNativeJavascript:
-  event! = sysgui!.getLastEvent()
-  name$ = event!.getEventName()
-  map! = event!.getEventMap()
+  nativeEvent! = sysgui!.getLastEvent()
+  name$ = nativeEvent!.getEventName()
+  map! = nativeEvent!.getEventMap()
   detail! = map!.get("detail")
   let x=MSGBOX(detail!, 0, "Event Details")
 return
 
 handleTypeChanged:
-  event! = sysgui!.getLastEvent()
-  item! = event!.getSelectedItem()
+  selectEvent! = sysgui!.getLastEvent()
+  item$ = selectEvent!.getSelectedItem()
 
   js$ = ""
-  js$ = js$ + wnd$ + ".myChart.config.type = '" + str(item!) + "'.toLowerCase();"
+  js$ = js$ + wnd$ + ".myChart.config.type = '" + item$ + "'.toLowerCase();"
   js$ = js$ + wnd$ + ".myChart.update();"
 
   htmlview!.executeScript(js$)

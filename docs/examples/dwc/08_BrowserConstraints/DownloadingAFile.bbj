@@ -1,7 +1,11 @@
 rem This sample shows how a file is downloaded using BBjClientFilesystem
 
+use java.nio.file.Paths
+declare auto BBjTopLevelWindow wnd!
+declare auto BBjButton btn!
+
 wnd! = BBjAPI().openSysGui("X0").addWindow(10,10,400,400,"Download Sample")
-btn! = wnd!.addButton(100,10,10,300,30,"Download BBj.properties")
+btn! = wnd!.addButton(100,10,10,300,30,"Download sample.txt")
 btn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"download")
 wnd!.setCallback(BBjAPI.ON_CLOSE,"byebye")
 
@@ -11,7 +15,7 @@ byebye:
     bye
 
 download:
-    f$=BBjAPI().getFileSystem().resolvePath("../cfg/BBj.properties")
-    BBjAPI().getThinClient().getClientFileSystem().getClientFile("BBj.properties.txt").copyToClient(f$)
+    programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+    f$ = Paths.get(programPath$).resolveSibling("sample.txt").toString()
+    BBjAPI().getThinClient().getClientFileSystem().getClientFile("sample.txt").copyToClient(f$)
 return
-    

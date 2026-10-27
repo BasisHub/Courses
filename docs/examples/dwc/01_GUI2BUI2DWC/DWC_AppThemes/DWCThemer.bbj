@@ -1,21 +1,26 @@
+declare auto BBjTopLevelWindow wnd!
+declare auto BBjStaticText st!
+declare auto BBjEditBox ed_firstname!
+declare auto BBjEditBox ed_lastname!
+declare auto BBjButton btn!
+declare auto String theme!
+
 rem /**
 rem  * DWCThemer.bbj
 rem  * This program is the result of starting with the DWC2.bbj program and
 rem  * applying a custom theme which was created by the DWC Themer.  For this
 rem  * example, the CSS file created by the DWC Themer is in the css subdirectory
 rem  * and named 'MyDwcTheme.css'.  The contents of the file are loaded in a
-rem  * theme! variable and applied via the '@app-style-bottom' attribute directive.
+rem  * theme! variable and injected into the page with BBjWebManager::injectStyle.
 rem  *
-rem  * @app-style-bottom: An attribute directive used to attach a style at the bottom of the page.
-rem  *                    The directive accepts plain CSS.
-rem  * @see https://basishub.github.io/basis-next/#/dwc/attributes-directives
+rem  * @see https://documentation.basis.cloud/BASISHelp/WebHelp/bui/BBjBuiManager/BBjBuiManager_injectStyle.htm
 rem  */
 
 use java.nio.file.Files
 use java.nio.file.Paths
 
-fs! = BBjAPI().getFileSystem()
-theme! = new String(Files.readAllBytes(Paths.get(fs!.resolvePath("./css/MyDwcTheme.css"))))
+programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+theme! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("css/MyDwcTheme.css")), "UTF-8")
 BBjAPI().getWebManager().injectStyle(theme!)
 
 wnd! = BBjAPI().openSysGui("X0").addWindow("Hello BBj DWC", $01101083$)

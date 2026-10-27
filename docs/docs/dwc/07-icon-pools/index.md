@@ -33,7 +33,7 @@ The DWC includes several icon pools:
 - **Tabler Icons** - A comprehensive set of over 1900 icons
 - [**Feather**](https://feathericons.com/) - A free, open-source set of simple icons
 - [**Font Awesome**](https://fontawesome.com/icons) - The free icons of Font Awesome. The full Pro set is not free to use.
-- `bbj` - A small subset of the Tabler icons
+- `dwc` - The built-in icons used by DWC controls
 
 Tabler and Feather are free-to-use, open-source libraries that keep adding new icons. Tabler and Feather icons use their plain names, such as `speakerphone` and `speaker`. Font Awesome names carry a prefix for the style: `fas-` for solid, and the other styles for regular, light, thin, duotone and brands (company logos). For example, `fas-microphone-alt` is the solid microphone icon.
 
@@ -79,7 +79,7 @@ Icons can be styled using CSS:
 
 ```css
 dwc-icon {
-    --dwc-icon-color: var(--dwc-color-primary);
+    color: var(--dwc-color-primary);
     --dwc-icon-size: 24px;
 }
 ```
@@ -127,11 +127,11 @@ To add a download icon to a button, first find a suitable icon. Searching the Fe
 
 ### Size and color
 
-To change the size and color of the icons, set the `expanse` and `theme` attributes, or use an inline style:
+To change the color of the icons, set the `theme` attribute or use an inline style. Inside a button, the button sets the size of its icons through the `--dwc-icon-size` custom property, so the `expanse` attribute of the icon has no effect there; set `--dwc-icon-size` in an inline style instead:
 
 ```bbj
     rem Define the HTML title for the alternate buttons that incorporate the cloud download icons with extra styling for size/color
-        btnIconFeather$ = "<html><dwc-icon pool='feather' name='download-cloud' expanse='l' theme='danger'></dwc-icon>"
+        btnIconFeather$ = "<html><dwc-icon pool='feather' name='download-cloud' theme='danger' style='--dwc-icon-size: var(--dwc-font-size-2xl)'></dwc-icon>"
         btnIconTabler$ = "<html><dwc-icon pool='tabler' name='cloud-download' style='width: 0.5em; color: green'></dwc-icon>"
         btnIconFontAwesome$ = "<html><dwc-icon pool='fa' name='fas-cloud-download-alt' style='width: 1em; color: var(--dwc-color-danger)'></dwc-icon>"
 ```
@@ -143,7 +143,7 @@ To change the size and color of the icons, set the `expanse` and `theme` attribu
         btnFontAwesome! =  wnd!.addButton(btnIconFontAwesome$ + "Font Awesome's Cloud Download Icon")
 ```
 
-You can set the icon color either through the `theme` attribute (here `danger`) or with an inline style. The style can use a named color such as `green`, or a CSS custom property such as `var(--dwc-color-danger)`.
+You can set the icon color either through the `theme` attribute (here `danger`) or with an inline style, and the size with the `--dwc-icon-size` custom property (here the `--dwc-font-size-2xl` token). The style can use a named color such as `green`, or a CSS custom property such as `var(--dwc-color-danger)`.
 
 ## Custom Icon Pools
 
@@ -160,21 +160,21 @@ This example uses the [Ionic Ionicons library](https://ionic.io/ionicons), an op
 ```bbj
     rem Add a custom icon pool referencing the ionicons library from a CDN
     rem @see https://ionic.io/ionicons for the icons
-        iconLibraryName! = "ionicons"
-        resolverPathCdn! = "https://cdnjs.cloudflare.com/ajax/libs/ionicons/7.4.0/svg/${name}.svg"
-        myIconPool! = "(window.Dwc ??= {}).IconsPools ??= []; window.Dwc.IconsPools.push({ name: '" + iconLibraryName! + "', resolver: name => `" + resolverPathCdn! + "` });"
+        iconLibraryName$ = "ionicons"
+        resolverPathCdn$ = "https://cdnjs.cloudflare.com/ajax/libs/ionicons/7.4.0/svg/${name}.svg"
+        myIconPool$ = "(window.Dwc ??= {}).IconsPools ??= []; window.Dwc.IconsPools.push({ name: '" + iconLibraryName$ + "', resolver: name => `" + resolverPathCdn$ + "` });"
         web! = BBjAPI().getWebManager()
-        web!.injectScript(myIconPool!)
+        web!.injectScript(myIconPool$)
 ```
 
-The program injects JavaScript that adds another icon pool to the DWC. The pool is named `ionicons`, and the prefix URL tells the DWC how to resolve icons by name. The `resolverPathCdn!` variable holds the full CDN path to each icon, and the DWC replaces `${name}` with the name of the icon you request. The `.svg` suffix is part of the variable to reduce the code needed when you specify an icon. This is a choice, not a requirement.
+The program injects JavaScript to register a pool named `ionicons`. Its resolver function maps each requested icon name to an SVG URL. The `resolverPathCdn$` variable defines that URL with a `${name}` placeholder and an `.svg` suffix.
 
 4. Create the buttons with your custom pool name and the icons from the library:
 
 ```bbj
     rem Define the HTML title for the buttons that incorporate the Ionicons
         btnIconIon1$ = "<html><dwc-icon pool='ionicons' name='cloud-download-outline'></dwc-icon>"
-        btnIconIon2$ = "<html><dwc-icon pool='ionicons' name='cloud-download'></dwc-icon>"
+        btnIconIon2$ = "<html><dwc-icon pool='ionicons' name='cloud-download' style='fill: currentColor'></dwc-icon>"
 ```
 
 ```bbj
@@ -187,7 +187,7 @@ Running the program gives two buttons with custom icons from the CDN.
 
 ### Hosting the pool locally
 
-If you downloaded an icon library, or copied a collection of images to a directory under `<BBjHome>/htdocs`, point `resolverPathCdn!` at the local Jetty directory instead. For example, if you extracted the free Font Awesome 6.1.1 library into a directory under Jetty, you could use a value like `/files/icons/fontawesome-free-6.1.1/${name}.svg`. If the library provides PNG files instead, change the suffix in `resolverPathCdn!` so the DWC looks for PNG files whenever you specify an icon for a control.
+If you host an icon library under `<BBjHome>/htdocs`, point `resolverPathCdn$` at its local Jetty directory. For example, place the icon files in `htdocs/icons/` and use `/files/icons/${name}.svg`. The resolver can also return a bitmap URL. Open a resolved URL in the browser to check that Jetty serves the file before using it in your pool.
 
 ## Resources
 

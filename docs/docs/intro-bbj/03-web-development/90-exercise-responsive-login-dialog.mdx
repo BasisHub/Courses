@@ -9,7 +9,7 @@ A possible solution is at the end of this page.
 
 In the prior lesson, you wrote a login dialog. Make this one responsive with what you know about CSS responsive design. How do you want it on a phone? Full Screen? On a tablet or desktop? In the centered middle on a wallpaper background?
 
-Hint: depending on what you want to do you will need a [BBjChildWindow](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjchildwindow/bbjchildwindow.htm), or even a nested series of them The BBjChildWindow also has the same flag $00100000$ we saw for the BBjTopLevelWindow that allows you use the CSS-based positioning and sizing. We will use BBjChildWindows later in this course, but with what you know about BBj and the Documentation you should already be able to figure it out. It has setDockStyle / setStyle / setPanelStyle to directly set style attributes for the outer / mid / inner div, and addStyle and addPanelStyle to set CSS classes to the middle and the inner div. ( *Yes, yes. We know about this inconsistency which is on the roadmap for cleanup. ;-)* )
+Use a [BBjChildWindow](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjchildwindow/bbjchildwindow.htm) to group the form controls. The `$00100000$` flag enables flow layout on the child window, as it does on the top-level window. Use `setPanelStyle` for CSS properties on its content panel and `addPanelStyle` for a CSS class on that panel. You can put the layout rules in a stylesheet and apply them through the class.
 
 :::
 
@@ -23,10 +23,11 @@ rem ResponsiveLoginDialog.bbj
 rem Possible solution for the exercise Make your login dialog responsive, written for the Introduction to BBj Development book
 rem It starts from the solution LoginDialog.bbj and is a complete program of its own.
 rem The card lives in a BBjChildWindow and takes its look from responsive-login.css, so it runs in the DWC only.
-rem resolvePath searches the PREFIX for responsive-login.css, so keep the file in a PREFIX directory.
+rem Keep responsive-login.css beside this program.
 
 use java.nio.file.Files
 use java.nio.file.Paths
+use java.nio.charset.StandardCharsets
 
 class public ResponsiveLoginDialog
 
@@ -43,9 +44,10 @@ class public ResponsiveLoginDialog
     field private BBjButton cancelBtn!
 
     method public BBjNumber show()
+        declare String css!
         rem read the CSS file and inject it into the page, so the sample runs without any Enterprise Manager setting
-        fs! = BBjAPI().getFileSystem()
-        css! = new String(Files.readAllBytes(Paths.get(fs!.resolvePath("responsive-login.css"))))
+        programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+        css! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("responsive-login.css")),StandardCharsets.UTF_8)
         BBjAPI().getWebManager().injectStyle(css!)
 
         rem the flags make the window borderless and maximized and switch it to CSS layout
@@ -56,9 +58,9 @@ class public ResponsiveLoginDialog
         #card! = #wnd!.addChildWindow("",$00100000$,BBjAPI().getSysGui().getAvailableContext())
         #card!.addPanelStyle("login-card")
 
-        userLabel! = #card!.addStaticText("User name:")
+        #card!.addStaticText("User name:")
         #userBox! = #card!.addEditBox("")
-        passwordLabel! = #card!.addStaticText("Password:")
+        #card!.addStaticText("Password:")
 
         rem the flag $0400$ replaces the typed characters with asterisks
         #passwordBox! = #card!.addEditBox(#card!.getAvailableControlID(),"",$0400$)
@@ -124,6 +126,7 @@ release
 .login-card {
   display: grid;
   gap: var(--dwc-space-m);
+  box-sizing: border-box;
   width: 22rem;
   padding: var(--dwc-space-xl);
   border-radius: var(--dwc-border-radius);

@@ -1,1 +1,0 @@
-    window!.setAttribute("data-validation-auto-disable", "true")

@@ -21,7 +21,9 @@ endif
 
 rem Read the CSS from its file and inject it into the page
 rem ================================================================================
-css! = new String(Files.readAllBytes(Paths.get(BBjAPI().getFileSystem().resolvePath("./Exercise-ButtonTransitionComplete.css"))))
+declare auto String css!
+programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+css! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("Exercise-ButtonTransitionComplete.css")), "UTF-8")
 BBjAPI().getWebManager().injectStyle(css!)
 
 

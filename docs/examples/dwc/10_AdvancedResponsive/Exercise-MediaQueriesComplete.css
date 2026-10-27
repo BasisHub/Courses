@@ -12,6 +12,8 @@
     align-items: center;
     gap: var(--dwc-space-m);
     padding: var(--dwc-space-l);
+    /* Read the font size from the custom property, so the media query below can change it */
+    font-size: var(--dwc-font-size);
 }
 
 /* The Submit button spans every column, in both layouts */

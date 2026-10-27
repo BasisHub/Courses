@@ -83,7 +83,8 @@ Start with mobile styles, then add complexity for larger screens:
 
 ```bbj
 rem Inject responsive CSS
-css$ = "@media (min-width: 600px) {"
+css$ = ".my-window { display: grid; grid-template-columns: auto 1fr; }"
+css$ = css$ + "@media (min-width: 600px) {"
 css$ = css$ + "  .my-window { grid-template-columns: auto 1fr auto 1fr; }"
 css$ = css$ + "}"
 css$ = css$ + "@media (min-width: 900px) {"
@@ -92,6 +93,7 @@ css$ = css$ + "}"
 
 web! = BBjAPI().getWebManager()
 web!.injectStyle(css$)
+window!.addPanelStyle("my-window")
 ```
 
 ## Testing Media Queries

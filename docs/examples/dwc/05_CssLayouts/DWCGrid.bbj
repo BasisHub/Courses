@@ -1,3 +1,12 @@
+declare auto BBjString msg!
+declare auto BBjString opts!
+declare auto BBjString css!
+declare auto BBjString style!
+declare auto HashMap hashStyles!
+declare auto BBjChildWindow winChild!
+declare auto BBjListBox listCssStyles!
+declare auto BBjStaticText cssPreview!
+
 rem /**
 rem  * DWCGrid.bbj
 rem  *
@@ -85,14 +94,14 @@ listCssStyles!.setCallback(BBjListBox.ON_LIST_CLICK, "onCssStylesChange")
 rem Chosen CSS Style Preview
 winChild! = winOptions!.addChildWindow("CSS Preview", $00109000$, BBjAPI().getSysGui().getAvailableContext())
 winChild!.addClass("winCSSPreview")
-cssPreview! = winChild!.addStaticText(hashStyles!.get("css-layout-1"))
+cssPreview! = winChild!.addStaticText(str(hashStyles!.get("css-layout-1")))
 cssPreview!.setStyle("white-space", "pre-wrap")
 cssPreview!.setStyle("font-family", "Consolas, Monaco, Inconsolata, monospace")
 cssPreview!.setStyle("font-size", "85%")
 cssPreview!.setStyle("overflow", "auto")
 
 
-webManager!.injectStyle(hashStyles!.get("css-layout-1"), 0, "name=app_css")
+webManager!.injectStyle(str(hashStyles!.get("css-layout-1")), 0, "name=app_css")
 
 window!.setVisible(1)
 process_events
@@ -142,7 +151,6 @@ init:
     css! = css! + "    padding: 1em; " + $0a$
     css! = css! + "}" + $0a$
     hashStyles!.put("css-layout-3", css!)
-    window!.setAttribute("@app-style", css!)
 
 
     css! = $0a$ + "/* CSS Grid using fr units, so inputs are 3 times wider than labels.  Why is this different from the previous?  HINT: percent vs fr */" + $0a0a$
@@ -229,13 +237,13 @@ init:
     style$ = style$ + "    flex-grow: 1;"
     style$ = style$ + "    align-items: stretch;"
     style$ = style$ + "    padding: var(--dwc-space);"
-    style$ = style$ + "    gap: var(--dwc-space: 0.5em);"
+    style$ = style$ + "    gap: var(--dwc-space, 0.5em);"
     style$ = style$ + "    border: var(--dwc-border-width) var(--dwc-border-style) var(--dwc-border-color-primary);"
     style$ = style$ + "    border-radius: var(--dwc-border-radius);"
     style$ = style$ + "}"
-    style$ =          ".winDemo {"
-    style$ = style$ + "    background: var(--dwc-color-primary-95);"
-    style$ = style$ + "    border: 1px solid var(--dwc-color-primary-75);"
+    style$ = style$ + ".winDemo {"
+    style$ = style$ + "    background: var(--dwc-surface-3);"
+    style$ = style$ + "    color: var(--dwc-color-body-text); border: 1px solid var(--dwc-border-color-primary);"
     style$ = style$ + "}"
     style$ = style$ + ".winOptions {"
     style$ = style$ + "    width: 100%;"
@@ -247,7 +255,7 @@ init:
     style$ = style$ + "}"
 
     rem Change the value of a DWC CSS custom property to affect the amount of padding on BBjListBox items
-    style$ = style$ + ":root { --dwc-list-padding: 0.1em; }"
+    style$ = style$ + ":root { --dwc-listbox-padding: 0.1em; }"
 
     rem Now inject the CSS by injecting it into the <head> of the DOM
     webManager!.injectStyle(style$)

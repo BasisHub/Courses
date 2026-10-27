@@ -1,6 +1,12 @@
+declare auto BBjTopLevelWindow wnd!
+declare auto BBjStaticText st!
+declare auto BBjEditBox ed_firstname!
+declare auto BBjEditBox ed_lastname!
+declare auto BBjButton btn!
+
 rem /**
 rem  * UserPreference.bbj
-rem  * This program is the result of starting with the DWC2.bbj program and activating the the theme switcher directive.
+rem  * This program is the result of starting with the DWC2.bbj program and letting the DWC follow the user's theme preference.
 rem  *
 rem  * You can also apply the dark theme based on the user preference. The user might indicate this preference through
 rem  * their operating system. Operating systems that support a dark mode or dark theme typically have an option to activate
@@ -11,19 +17,20 @@ rem  *  - On macOS: it's in the system preference's General section and called A
 rem  *  - On iOS: you can change the Appearance in the Display & Brightness section of the settings.
 rem  *  - On Android: you can find it under Display as a Dark Theme toggle switch.
 rem  *
-rem  * In BBj , you need to use the @app-theme-switcher directive to activate the automatic switching.
-rem  * The directive requires the name of the dark theme and the name of the light name.
+rem  * In BBj, you tell the BBjWebManager which theme to use in dark mode and which in light mode, then set the
+rem  * theme to "system". The DWC then follows the operating system or browser setting, and switches again when
+rem  * the user changes it.
 rem  *
-rem  * @app-theme-switcher is an attribute directive that is used to switch the current theme based on the user preference.
-rem  *                      The user might indicate this preference through an operating system setting (e.g. light or dark mode)
-rem  *                      or a user agent setting.
-rem  *
-rem  * @see https://basishub.github.io/basis-next/#/dwc/attributes-directives
-rem  * @see https://basishub.github.io/basis-next/#/dwc/themes?id=user-preference
+rem  * @see https://documentation.basis.cloud/BASISHelp/WebHelp/bui/BBjBuiManager/BBjWebManager_setTheme.htm
+rem  * @see https://documentation.basis.cloud/BASISHelp/WebHelp/bui/BBjBuiManager/BBjWebManager_setDarkTheme.htm
+rem  * @see https://documentation.basis.cloud/BASISHelp/WebHelp/bui/BBjBuiManager/BBjWebManager_setLightTheme.htm
 rem  */
 
 wnd! = BBjAPI().openSysGui("X0").addWindow("Hello BBj DWC", $01101083$)
-wnd!.setAttribute("@app-theme-switcher","dark=dark-pure light=light")
+web! = BBjAPI().getWebManager()
+web!.setDarkTheme("dark-pure")
+web!.setLightTheme("light")
+web!.setTheme("system")
 
 wnd!.setPanelStyle("display","inline-grid")
 wnd!.setPanelStyle("grid-template-columns","1fr 1fr")

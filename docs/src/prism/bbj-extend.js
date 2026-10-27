@@ -1,12 +1,12 @@
 // Patches Prism.languages.bbj from prismjs 1.30. The built-in grammar misses
-// several BBj constructs (D-13): backslash string escapes instead of doubled
+// several BBj constructs: backslash string escapes instead of doubled
 // quotes, single quotes treated as strings, `not` as an operator, no variable
 // suffixes, labels, #fields, hex strings, class names, and a short keyword
 // list. Delete this file, the class list and the swizzle wrapper once a
 // released prismjs contains these fixes.
 //
 // No imports on purpose: tools/test-bbj-grammar.js loads this file in Node.
-// Every keyword and class name is traced in tools/data/bbj-token-verification.md.
+// Verify new keywords and class names against the BASIS BBj documentation.
 
 // Duck-typed: the test loads this file in a separate vm realm.
 const isRegExp = (value) => Object.prototype.toString.call(value) === '[object RegExp]';

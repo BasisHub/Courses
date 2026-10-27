@@ -1,5 +1,11 @@
 rem 'https://shoelace.style/components/split-panel
 
+declare auto BBjSysGui sysgui!
+declare auto BBjTopLevelWindow window!
+declare auto BBjHtmlView htmlview!
+declare auto BBjChildWindow top!
+declare auto BBjChildWindow bottom!
+
 sysgui = unt
 open (sysgui)"X0"
 sysgui! = bbjapi().getSysGui()
@@ -17,10 +23,12 @@ rem create two child windows, one for top, one for bottom:
 top! = window!.addChildWindow(window!.getAvailableControlID(),1,1,1,1,"", $00108800$,BBjAPI().getSysGui().getAvailableContext())
 top!.addButton("This is the top panel").setAttribute("theme","danger")
 top!.setAttribute("slot", "start")
+top!.setAttribute("id", uuid$ + "-start")
 
 bottom! = window!.addChildWindow(window!.getAvailableControlID(),1,1,1,1,"", $00108800$,BBjAPI().getSysGui().getAvailableContext())
 bottom!.addButton("This is the bottom panel").setAttribute("theme","success")
 bottom!.setAttribute("slot", "end")
+bottom!.setAttribute("id", uuid$ + "-end")
 
 htmlview!.setOpaque(0)
 htmlview!.setNoEdge(1)
@@ -34,10 +42,10 @@ handlePageLoaded:
   htmlview!.clearCallback(htmlview!.ON_PAGE_LOADED)
   url$ = "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.69/dist/shoelace.js"
   css$ = "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.69/dist/themes/light.css"
-  script$ = "var link =  $doc.createElement('script');link.setAttribute('type','module');"+
+  script$ = "var link =  document.createElement('script');link.setAttribute('type','module');"+
 :           "link.setAttribute('src','" + url$ + "');" + 
 :           "document.head.appendChild(link);" + 
-:           "var csslink =  $doc.createElement('link');" + 
+:           "var csslink =  document.createElement('link');" +
 :           "csslink.setAttribute('rel','stylesheet');" + 
 :           "csslink.setAttribute('href','" + css$ + "');" + 
 :           "document.head.appendChild(csslink);" +

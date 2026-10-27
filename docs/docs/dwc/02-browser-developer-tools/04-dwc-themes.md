@@ -127,7 +127,10 @@ Then load and inject the theme:
 
 ```bbj
 rem Load the theme file
-theme! = new String(Files.readAllBytes(Paths.get(fs!.resolvePath("./css/MyDwcTheme.css"))))
+declare auto String theme!
+declare auto BBjWebManager web!
+programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+theme! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("css/MyDwcTheme.css")), "UTF-8")
 
 rem Get WebManager and inject the style
 web! = BBjAPI().getWebManager()
@@ -135,7 +138,7 @@ web!.injectStyle(theme!, 1)
 ```
 
 :::tip
-Replace `"./css/MyDwcTheme.css"` with the full path to your downloaded custom theme if you created one in the DWC Themer.
+Replace `"css/MyDwcTheme.css"` with the full path to your downloaded custom theme if you created one in the DWC Themer.
 :::
 
 ## Theme Customization Examples

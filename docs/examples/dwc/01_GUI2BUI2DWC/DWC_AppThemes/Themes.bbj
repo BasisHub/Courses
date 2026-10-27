@@ -1,3 +1,9 @@
+declare auto BBjTopLevelWindow wnd!
+declare auto BBjStaticText st!
+declare auto BBjEditBox ed_firstname!
+declare auto BBjEditBox ed_lastname!
+declare auto BBjButton btn!
+
 rem /**
 rem  * Themes.bbj
 rem  * This program is the result of starting with the DWC2.bbj program and
@@ -7,10 +13,9 @@ rem  *   - dark, which is the default dark theme and it has a dark background ti
 rem  *   - dark-pure, which has a pure dark background (grayish, not fully black)
 rem  *   - system, which follows the system theme (light or dark) based on the user's operating system settings
 rem  *
-rem  * @app-theme is an attribute directive that can be used to set the theme.
-rem  *            The directive accepts the theme name as a value.
+rem  * BBjWebManager::setTheme sets the theme. It accepts the theme name as a value.
 rem  *
-rem  * @see https://basishub.github.io/basis-next/#/dwc/attributes-directives
+rem  * @see https://documentation.basis.cloud/BASISHelp/WebHelp/bui/BBjBuiManager/BBjWebManager_setTheme.htm
 rem  */
 
 BBjAPI().getWebManager().setTheme("dark")

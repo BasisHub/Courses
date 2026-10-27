@@ -23,6 +23,6 @@ dwc-window-content fieldset[is='dwc-fieldset-panel'] {
 }
 
 fieldset > legend {
-    color: var(--dwc-color-primary);
+    color: var(--dwc-color-primary-text);
     font-weight: bold;
 }

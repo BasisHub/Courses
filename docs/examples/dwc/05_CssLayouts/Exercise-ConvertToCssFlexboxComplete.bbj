@@ -21,21 +21,19 @@ open (sysgui)"X0"
 sysgui! = bbjapi().getSysGui()
 window! = sysgui!.addWindow("CSS Flexbox and Label Attributes",$00190083$)
 window!.setCallback(window!.ON_CLOSE, "onClose")
-json! = new JsonObject()
-json!.addProperty("width", "100%")
-json!.addProperty("height", "100%")
-json!.addProperty("box-sizing", "border-box")
-json!.addProperty("display", "flex")
-json!.addProperty("flex-direction", "column")
-json!.addProperty("gap", "var(--dwc-space)")
-json!.addProperty("padding", "1em")
-window!.setPanelStyle("@element", json!.toString())
+window!.setPanelStyle("width", "100%")
+window!.setPanelStyle("height", "100%")
+window!.setPanelStyle("box-sizing", "border-box")
+window!.setPanelStyle("display", "flex")
+window!.setPanelStyle("flex-direction", "column")
+window!.setPanelStyle("gap", "var(--dwc-space)")
+window!.setPanelStyle("padding", "1em")
 
 
 rem Add the controls to the window
-myName! = window!.addEditBox("Joe Blow").setAttribute("label", "Name:")
-myCompany! = window!.addEditBox("BASIS International Ltd.").setAttribute("label", "Company:")
-myEmail! = window!.addEditBox("joeBlow@basis.com").setAttribute("label", "Email:")
+window!.addEditBox("Joe Blow").setAttribute("label", "Name:")
+window!.addEditBox("BASIS International Ltd.").setAttribute("label", "Company:")
+window!.addEditBox("joeBlow@basis.com").setAttribute("label", "Email:")
 
 
 process_events
@@ -45,8 +43,3 @@ release
 
 declare auto BBjSysGui sysgui!
 declare auto BBjTopLevelWindow window!
-declare auto BBjEditBox myName!
-declare auto BBjEditBox myCompany!
-declare auto BBjEditBox myEmail!
-
-use com.google.gson.JsonObject

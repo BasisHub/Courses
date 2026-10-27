@@ -12,22 +12,32 @@ All samples we wrote so fare use pixel oriented layout for the x,y positions of 
 Let's use the following program:
 
 ```bbj
+declare BBjTopLevelWindow wnd!
+declare BBjStaticText st!
+declare BBjEditBox ed_firstname!
+declare BBjEditBox ed_lastname!
+declare BBjButton btn!
+
 wnd! = BBjAPI().openSysGui("X0").addWindow(10,10,800,600,"Hello BBj DWC")
-st! = wnd!.addStaticText(wnd!.getAvailableControlID(),10,10,200,20,"Vorname:")
-ed_vorname! = wnd!.addEditBox(wnd!.getAvailableControlID(),210,10,200,20,"")
-st! = wnd!.addStaticText(wnd!.getAvailableControlID(),10,40,200,20,"Name:")
-ed_name! = wnd!.addEditBox(wnd!.getAvailableControlID(),210,40,200,20,"")
+
+st! = wnd!.addStaticText(wnd!.getAvailableControlID(),10,10,200,20,"First name:")
+ed_firstname! = wnd!.addEditBox(wnd!.getAvailableControlID(),210,10,200,20,"")
+st! = wnd!.addStaticText(wnd!.getAvailableControlID(),10,40,200,20,"Last name:")
+ed_lastname! = wnd!.addEditBox(wnd!.getAvailableControlID(),210,40,200,20,"")
 btn! = wnd!.addButton(wnd!.getAvailableControlID(),10,70,400,30,"Say Hello")
+
+
 wnd!.setCallback(BBjAPI.ON_CLOSE,"byebye")
 btn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"sayhello")
+
 process_events
 
 byebye: bye
 
 sayhello:
-    vorname$=ed_vorname!.getText()
-    name$=ed_name!.getText()
-    a=msgbox("Hello "+vorname$+" "+name$,64,"Hello World")
+    firstname$=ed_firstname!.getText()
+    lastname$=ed_lastname!.getText()
+    a=msgbox("Hello "+firstname$+" "+lastname$,64,"Hello World")
 return
 ```
 

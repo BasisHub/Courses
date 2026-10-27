@@ -1,6 +1,6 @@
 {
-  "source": "bbj-docs hosted 2026-09-21 fd516a9d, verified 2026-10-03",
-  "note": "A new name needs a new bbj_lookup before it is added. Evidence: tools/data/bbj-token-verification.md",
+  "source": "BASIS BBj API documentation",
+  "note": "Verify new class names against the BBj API documentation before adding them.",
   "classes": [
     "BBjAPI",
     "BBjSysGui",

@@ -23,7 +23,9 @@ endif
 
 rem Read the layout CSS from its file and inject it into the page
 rem ================================================================================
-css! = new String(Files.readAllBytes(Paths.get(BBjAPI().getFileSystem().resolvePath("./Exercise-MediaQueriesComplete.css"))))
+declare auto String css!
+programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+css! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("Exercise-MediaQueriesComplete.css")), "UTF-8")
 BBjAPI().getWebManager().injectStyle(css!)
 
 

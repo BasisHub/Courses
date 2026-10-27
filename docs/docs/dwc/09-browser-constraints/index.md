@@ -23,9 +23,13 @@ Use the `BBjFileChooser` control to select client files. The user can also add f
 
 ```bbj
 rem Create a file chooser for uploads
-fileChooser! = wnd!.addFileChooser()
-fileChooser!.setCallback(BBjFileChooser.ON_FILE_SELECTED, "onFileSelected")
+declare auto BBjFileChooser fileChooser!
+fileChooser! = wnd!.addFileChooser(101,25,25,400,400,"",$0006$)
+fileChooser!.setMultiSelectionEnabled(1)
+fileChooser!.setCallback(BBjAPI.ON_FILECHOOSER_APPROVE, "onFileChooser")
 ```
+
+The approval event supplies the selected client files. The `BBjFileChooserUpload.bbj` sample copies each file to the server with `BBjClientFile.copyFromClient()` in its `onFileChooser` callback.
 
 ### File Downloads
 
@@ -33,9 +37,10 @@ Downloading a file is much simpler than uploading one. The [`copyToClient()`](ht
 
 ```bbj
 rem Trigger a file download
-web! = BBjAPI().getWebManager()
-web!.download(serverFilePath$, clientFileName$)
+BBjAPI().getThinClient().getClientFileSystem().getClientFile(clientFileName$).copyToClient(serverFilePath$)
 ```
+
+Set `serverFilePath$` to an existing server file and `clientFileName$` to its download name. `DownloadingAFile.bbj` downloads the adjacent `sample.txt` supplied in [08_BrowserConstraints.zip](pathname:///files/dwc/08_BrowserConstraints.zip). It finds that file relative to its own program, so it doesn't depend on the session's current directory or a custom PREFIX.
 
 ## Printing and Print Preview
 
@@ -78,7 +83,7 @@ The BBJasper print preview also works with its known features in the DWC.
 ```bbj
 rem Generate a PDF for preview
 rem Then download or display in browser
-web!.download(pdfPath$, "report.pdf")
+BBjAPI().getThinClient().getClientFileSystem().getClientFile("report.pdf").copyToClient(pdfPath$)
 ```
 
 ## Security Constraints
@@ -89,26 +94,25 @@ Browsers enforce security policies that affect DWC apps:
 - **HTTPS Requirements** - Some features require secure connections
 - **Cookie Limitations** - Third-party cookie restrictions
 
-## Local Storage
+## Session storage {#local-storage}
 
 For storing client-side data:
 
 ```bbj
-rem Store data in browser
-web!.setSessionStorage("key", "value")
+declare auto BBjWebManager web!
+web! = BBjAPI().getWebManager()
+rem Store data for this browser tab
+web!.executeScript("sessionStorage.setItem('course-key', 'value');")
 
 rem Retrieve data
-value$ = web!.getSessionStorage("key")
+storedValue! = web!.executeScript("sessionStorage.getItem('course-key');")
 ```
 
-## Clipboard Access
+The browser returns `null` for a key that doesn't exist. This example uses fixed strings; encode dynamic values as JSON before inserting them into JavaScript.
 
-Clipboard operations require user interaction:
+## Clipboard access
 
-```bbj
-rem Copy to clipboard (requires user gesture)
-web!.copyToClipboard(text$)
-```
+Use the browser's [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) from a browser click handler. Clipboard access depends on a secure context and browser permissions. Keep clipboard work in that handler so browser permission checks can use the user's gesture.
 
 ## Best Practices
 

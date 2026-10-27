@@ -1,3 +1,9 @@
+declare auto BBjGridExWidget grid!
+declare auto BBjTopLevelWindow wnd!
+declare auto BBjChildWindow cw!
+declare auto BBjStaticText selection!
+declare auto ResultSet rs!
+
 use ::BBjGridExWidget/BBjGridExWidget.bbj::BBjGridExWidget
 use ::BBjGridExWidget/GxClientModels.bbj::GxClientRowModel
 use com.basiscomponents.db.ResultSet
@@ -39,6 +45,7 @@ setup_grid:
     read record (ch,end=*break)rec$
     rs!.add(DataRow.fromTemplate(inf.template$,rec$))
   wend
+  close (ch)
 
   grid!.addColumn("CDNUMBER","CD Number")
   grid!.addColumn("TITLE","Title")
@@ -66,7 +73,7 @@ on_grid_select:
 
   rowModel! = grid!.getSelectedRow()
   row! = rowModel!.asDataRow()
-  info$ = "You selected " + row!.getFieldAsString("CDNUMBER")+ ": '"+ row!.getFieldAsString("TITLE") + "' by " + row!.getFieldAsString("TITLE")
+  info$ = "You selected " + row!.getFieldAsString("CDNUMBER")+ ": '"+ row!.getFieldAsString("TITLE") + "' by " + row!.getFieldAsString("ARTIST")
   selection!.setText(info$)
 return
 

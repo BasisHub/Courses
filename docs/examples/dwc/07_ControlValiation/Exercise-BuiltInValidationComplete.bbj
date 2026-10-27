@@ -17,16 +17,14 @@ endif
 
 rem Create the main window
 window! = BBjAPI().openSysGui("X0").addWindow("BBj DWC CSS Layout Samples", $00180093$)
-json! = new JsonObject()
-json!.addProperty("width", "100%")
-json!.addProperty("height", "100%")
-json!.addProperty("box-sizing", "border-box")
-json!.addProperty("display", "grid")
-json!.addProperty("grid-template-columns", "auto 1fr")
-json!.addProperty("align-items", "center")
-json!.addProperty("gap", "var(--dwc-space)")
-json!.addProperty("padding", "1em")
-window!.setPanelStyle("@element", json!.toString())
+window!.setPanelStyle("width", "100%")
+window!.setPanelStyle("height", "100%")
+window!.setPanelStyle("box-sizing", "border-box")
+window!.setPanelStyle("display", "grid")
+window!.setPanelStyle("grid-template-columns", "auto 1fr")
+window!.setPanelStyle("align-items", "center")
+window!.setPanelStyle("gap", "var(--dwc-space)")
+window!.setPanelStyle("padding", "1em")
 window!.setCallback(window!.ON_CLOSE, "onExit")
 
 
@@ -67,9 +65,10 @@ editZip!.setAttribute("pattern", "(\d{5})(-\d{4})?")
 
 rem Add code below to make the Email field take advantage of built-in validation to make it:
 rem 1) required and 2) match a regex pattern for a valid email address.  Tip: the following works
-rem well for an email regular expression: ^[\w!#$%&’*+/=\-?^_`{|}~]+(\.[\w!#$%&’*+/=\-?^_`{|}~]+)*@[\w-]+(\.[\w]+)*(\.[a-z]{2,})$
+rem well for an email regular expression: [\w.+\-]+@[\w\-]+(\.[\w\-]+)*\.[A-Za-z]{2,}
+rem Browsers compile the pattern with the v flag, so the characters - / { } | inside [ ] must be escaped.
 editEmail!.setAttribute("required", "true")
-editEmail!.setAttribute("pattern", "^[\w!#$%&’*+/=\-?^_`{|}~]+(\.[\w!#$%&’*+/=\-?^_`{|}~]+)*@[\w-]+(\.[\w]+)*(\.[a-z]{2,})$")
+editEmail!.setAttribute("pattern", "[\w.+\-]+@[\w\-]+(\.[\w\-]+)*\.[A-Za-z]{2,}")
 
 
 window!.setVisible(1)
@@ -111,8 +110,6 @@ declare auto BBjEditBox editCity!
 declare auto BBjEditBox editState!
 declare auto BBjEditBox editZip!
 declare auto BBjButton btnSubmit!
-declare auto JsonObject json!
 declare auto BBjFormValidationEvent e!
 
 rem Use statements
-use com.google.gson.JsonObject

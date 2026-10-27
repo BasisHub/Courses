@@ -7,18 +7,18 @@ rem  * set to use flow control, so if you run the program in this state the
 rem  * contact form will flow from left to right.
 rem  *
 rem  * Exercise Goals:
-rem  *  1) Add code to the json! JsonObject variable that's applied to the window
-rem  *     to change the CSS "display" to "grid" to make the window adopt a CSS
-rem  *     Grid layout.
+rem  *  1) Add a window!.setPanelStyle() call that changes the CSS "display" to
+rem  *     "grid" to make the window adopt a CSS Grid layout.
 rem  *
-rem  * 2) Augment the json! variable to set the window's "grid-template-columns"
-rem  *    CSS property to a value that forces two columns, such as "auto 1fr".
+rem  * 2) Add a window!.setPanelStyle() call that sets the window's
+rem  *    "grid-template-columns" CSS property to a value that forces two
+rem  *    columns, such as "auto 1fr".
 rem  *
-rem  * 3) Augment the json! variable to add padding around the window and a gap
-rem  *    between the grid's rows and columns.
+rem  * 3) Add window!.setPanelStyle() calls for padding around the window and a
+rem  *    gap between the grid's rows and columns.
 rem  *
-rem  * 4) Augment the json! variable to vertically center the labels and edit
-rem  *    boxes by setting the "align-items" CSS property to "center".
+rem  * 4) Add a window!.setPanelStyle() call that vertically centers the labels
+rem  *    and edit boxes by setting the "align-items" CSS property to "center".
 rem  *
 rem  * 5) Add a setStyle() method call to the [Submit] button that sets the
 rem  *    CSS "grid-column" property to a value that causes it to span
@@ -43,11 +43,9 @@ endif
 
 rem Create the main window
 window! = BBjAPI().openSysGui("X0").addWindow("BBj DWC CSS Layout Samples", $00180093$)
-json! = new JsonObject()
-json!.addProperty("width", "100%")
-json!.addProperty("height", "100%")
-json!.addProperty("box-sizing", "border-box")
-window!.setPanelStyle("@element", json!.toString())
+window!.setPanelStyle("width", "100%")
+window!.setPanelStyle("height", "100%")
+window!.setPanelStyle("box-sizing", "border-box")
 window!.setCallback(window!.ON_CLOSE, "onExit")
 
 
@@ -114,9 +112,7 @@ declare auto BBjEditBox editCity!
 declare auto BBjEditBox editState!
 declare auto BBjEditBox editZip!
 declare auto BBjButton btnSubmit!
-declare auto JsonObject json!
 declare auto BBjFormValidationEvent e!
 
 rem Use statements
-use com.google.gson.JsonObject
 use java.util.HashMap

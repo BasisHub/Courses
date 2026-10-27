@@ -1,3 +1,9 @@
+declare auto BBjTopLevelWindow wnd!
+declare auto BBjStaticText st!
+declare auto BBjEditBox ed_firstname!
+declare auto BBjEditBox ed_lastname!
+declare auto BBjButton btn!
+
 rem /**
 rem  * GUISample.bbj
 rem  * This sample GUI program is the starting point for the exercises in Chapter 1: GUI to BUI to DWC.

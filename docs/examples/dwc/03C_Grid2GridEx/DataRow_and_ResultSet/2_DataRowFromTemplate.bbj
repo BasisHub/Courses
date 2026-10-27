@@ -1,3 +1,5 @@
+declare auto DataRow record!
+
 use com.basiscomponents.db.DataRow
 
 TPL$="LAST_NAME:C(25*),FIRST_NAME:C(25*),DOB:N(7)"

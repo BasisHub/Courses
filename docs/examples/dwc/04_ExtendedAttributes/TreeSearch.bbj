@@ -1,3 +1,10 @@
+declare auto BBjString css!
+declare auto BBjString searchText!
+declare auto BBjString attribute!
+declare auto BBjString attrib!
+declare auto BBjCheckBox ctrl!
+declare auto BBjVector vectAttributes!
+
 rem /**
 rem  * TreeSearch.bbj
 rem  *
@@ -24,31 +31,33 @@ wnd! = BBjAPI().openSysGui("X0").addWindow("BBj Tree Search",$00100083$)
 wnd!.setCallback(BBjAPI.ON_CLOSE,"eoj")
 
 rem Define the main window's layout using CSS Grid
-json! = new JsonObject()
-json!.addProperty("box-sizing", "border-box")
-json!.addProperty("width", "100%")
-json!.addProperty("height", "100%")
-json!.addProperty("padding", "var(--dwc-space-l)")
-json!.addProperty("display", "grid")
-json!.addProperty("gap", "var(--dwc-space-xl)")
-json!.addProperty("grid-template-columns", "1fr")
-json!.addProperty("grid-template-rows", "auto auto 1fr")
-json!.addProperty("justify-items", "stretch")
-json!.addProperty("align-items", "stretch")
-wnd!.setPanelStyle("@element", json!.toString())
+wnd!.setPanelStyle("box-sizing", "border-box")
+wnd!.setPanelStyle("width", "100%")
+wnd!.setPanelStyle("height", "100%")
+wnd!.setPanelStyle("padding", "var(--dwc-space-l)")
+wnd!.setPanelStyle("display", "grid")
+wnd!.setPanelStyle("gap", "var(--dwc-space-xl)")
+wnd!.setPanelStyle("grid-template-columns", "1fr")
+wnd!.setPanelStyle("grid-template-rows", "auto auto 1fr")
+wnd!.setPanelStyle("justify-items", "stretch")
+wnd!.setPanelStyle("align-items", "stretch")
 
-rem Define the CSS for the BBjChildWindows that will be applied after we create them
-jsonChildWindow! = new JsonObject()
-jsonChildWindow!.addProperty("border-radius", "var(--dwc-border-radius)")
-jsonChildWindow!.addProperty("border-color", "var(--dwc-color-default-dark)")
-jsonChildWindow!.addProperty("padding", "var(--dwc-space) var(--dwc-space) var(--dwc-space-m) var(--dwc-space)")
-jsonChildWindow!.addProperty("display", "flex")
-jsonChildWindow!.addProperty("gap", "var(--dwc-space-3xl)")
-jsonChildWindow!.addProperty("overflow", "auto")
+rem Define the CSS classes for the child windows and the trees in one stylesheet.
+rem The child windows get the tree-card class, the trees get tree-box plus a class
+rem that sets the color of their icons.
+css! = ".tree-card { border-radius: var(--dwc-border-radius); border-color: var(--dwc-color-default-dark); "
+css! = css! + "padding: var(--dwc-space) var(--dwc-space) var(--dwc-space-m) var(--dwc-space); "
+css! = css! + "display: flex; gap: var(--dwc-space-3xl); overflow: auto; } "
+css! = css! + ".tree-box { background: var(--dwc-surface-3); color: var(--dwc-color-body-text); "
+css! = css! + "border: 1px solid var(--dwc-color-default-dark); "
+css! = css! + "border-radius: var(--dwc-border-radius); border-top-width: 0; } "
+css! = css! + ".first-tree { --dwc-tree-icon-fill: #ffa726; } "
+css! = css! + ".second-tree { --dwc-tree-icon-fill: #64b5f6; } "
+BBjAPI().getWebManager().injectStyle(css!)
 
 rem Define the options window with toggleable attributes
 optsWnd! = wnd!.addChildWindow("BBj Tree's Boolean Attributes", $00109000$, BBjAPI().getSysGui().getAvailableContext())
-optsWnd!.setPanelStyle("@element", jsonChildWindow!.toString())
+optsWnd!.addPanelStyle("tree-card")
 
 rem Define the attributes in a vector that will be used to create checkboxes
 vectAttributes! = BBjAPI().makeVector()
@@ -65,9 +74,9 @@ for i = 0 to vectAttributes!.size() - 1
     chk!.setCallback(BBjCheckBox.ON_CHECK_ON, "onOptsCheckOn")
 next
 
-rem Create a global search window and apply our custom CSS that we defined earlier
+rem Create a global search window and give it the tree-card class that we defined earlier
 searchWnd! = wnd!.addChildWindow("Global Search", $00109000$, BBjAPI().getSysGui().getAvailableContext())
-searchWnd!.setPanelStyle("@element", jsonChildWindow!.toString())
+searchWnd!.addPanelStyle("tree-card")
 globalSearch! = searchWnd!.addEditBox("",$$, "search")
 globalSearch!.setPlaceholder("Type to search both trees")
 globalSearch!.setStyle("width", "100%")
@@ -75,39 +84,25 @@ globalSearch!.setCallback(globalSearch!.ON_EDIT_MODIFY , "onGlobalSearch")
 
 rem Create the BBjTree control child window
 treeWnd! = wnd!.addChildWindow("BBjTree Controls", $00109000$, BBjAPI().getSysGui().getAvailableContext())
-treeWnd!.setPanelStyle("@element", jsonChildWindow!.toString())
-json! = new JsonObject()
-json!.addProperty("box-sizing", "border-box")
-json!.addProperty("width", "100%")
-json!.addProperty("height", "100%")
-json!.addProperty("padding", "var(--dwc-space) var(--dwc-space) var(--dwc-space-m) var(--dwc-space)")
-json!.addProperty("display", "grid")
-json!.addProperty("gap", "var(--dwc-space-3xl)")
-json!.addProperty("grid-template-columns", "1fr 1fr")
-json!.addProperty("justify-items", "stretch")
-json!.addProperty("align-items", "stretch")
-REM json!.addProperty("max-height", "28em")
-REM json!.addProperty("height", "28em")
-json!.addProperty("overflow", "auto")
-treeWnd!.setPanelStyle("@element", json!.toString())
-
-rem Define custom styling for the trees
-jsonTree! = new JsonObject()
-jsonTree!.addProperty("background", "hsl( var(--dwc-color-default-h), var(--dwc-color-default-s), 96%)")
-jsonTree!.addProperty("border", "1px solid hsl( var(--dwc-color-default-h), var(--dwc-color-default-s), 92%)")
-jsonTree!.addProperty("border-radius", "var(--dwc-border-radius)")
-jsonTree!.addProperty("border-top-width", "0")
+treeWnd!.addPanelStyle("tree-card")
+treeWnd!.setPanelStyle("box-sizing", "border-box")
+treeWnd!.setPanelStyle("width", "100%")
+treeWnd!.setPanelStyle("height", "100%")
+treeWnd!.setPanelStyle("display", "grid")
+treeWnd!.setPanelStyle("grid-template-columns", "1fr 1fr")
+treeWnd!.setPanelStyle("justify-items", "stretch")
+treeWnd!.setPanelStyle("align-items", "stretch")
 
 rem Add the first tree and define a custom error message via the search-nodata attribute
 tree1! = treeWnd!.addTree()
 tree1!.setAttribute("search-input","true")
 tree1!.setAttribute("search-placeholder","Search first tree")
-tree1!.setStyle("@element", jsonTree!.toString())
+tree1!.addStyle("tree-box")
 css! = "<div style='display: grid; grid-template-rows: 1fr 1fr; gap: 1em; padding: 1em; text-align: center; '>"
-css! = css! + "<bbj-icon name='alert-triangle' "
+css! = css! + "<dwc-icon name='alert-triangle' "
 css! = css! +  "style='margin:0 auto; font-size: 3rem; color: var(--dwc-color-warning-50); background: var(--dwc-color-warning-90); border-radius: 50%; padding: 0.15em; border: 4px solid var(--dwc-color-warning-50);"
-css! = css! +  "'></bbj-icon>"
-css! = css! + "<span style='color: var(--dwc-color-warning-25);'>Oops, we can't find that text in the tree!<br>But here's a custom icon and error message.</span>"
+css! = css! +  "'></dwc-icon>"
+css! = css! + "<span style='color: var(--dwc-color-body-text);'>Oops, we can't find that text in the tree!<br>But here's a custom icon and error message.</span>"
 css! = css! + "</div>"
 tree1!.setAttribute("search-nodata", css!)
 
@@ -119,12 +114,7 @@ rem Create the second tree
 tree2! = treeWnd!.addTree()
 tree2!.setAttribute("search-input","true")
 tree2!.setAttribute("search-placeholder","Search second tree")
-tree2!.setStyle("@element", jsonTree!.toString())
-
-rem Add custom CSS to set the color of the icons in each tree
-wnd!.setAttribute("@app-style-bottom", "" +
-: ".first-tree {--dwc-tree-icon-fill: #ffa726 } "+
-: ".second-tree {--dwc-tree-icon-fill: #64b5f6 } ")
+tree2!.addStyle("tree-box")
 
 gosub fillTrees
 gosub setDefaultAttributeCheckBoxes
@@ -184,8 +174,7 @@ return
 
 
 onOptsCheckOff:
-    e! = cast(BBjCheckOffEvent, BBjAPI().getSysGui().getLastEvent())
-    ctrl! = e!.getControl()
+    ctrl! = cast(BBjCheckOffEvent, BBjAPI().getSysGui().getLastEvent()).getControl()
     attribute! = ctrl!.getText()
     tree1!.setAttribute(attribute!, "false")
     tree2!.setAttribute(attribute!, "false")
@@ -193,17 +182,8 @@ return
 
 
 onOptsCheckOn:
-    e! = cast(BBjCheckOnEvent, BBjAPI().getSysGui().getLastEvent())
-    ctrl! = e!.getControl()
+    ctrl! = cast(BBjCheckOnEvent, BBjAPI().getSysGui().getLastEvent()).getControl()
     attribute! = ctrl!.getText()
     tree1!.setAttribute(attribute!, "true")
     tree2!.setAttribute(attribute!, "true")
 return
-
-
-rem Declares
-declare auto JsonObject json!
-
-
-rem USE statements
-use com.google.gson.JsonObject

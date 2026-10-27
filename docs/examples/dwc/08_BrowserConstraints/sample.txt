@@ -1,0 +1,2 @@
+This file belongs to the BBj DWC Training download example.
+BBjClientFile.copyToClient transfers a server file to your browser.

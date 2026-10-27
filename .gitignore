@@ -1,4 +1,3 @@
-/import/
 .DS_Store
 node_modules/
 docs/build/
@@ -12,15 +11,3 @@ venv/
 npm-debug.log*
 *.mbz
 tools/.bin/
-/.claude/worktrees/
-.claude/settings.local.json
-
-# GSD runtime state
-.gsd/
-.planning/milestone.lock
-.planning/state.json
-
-# Sample test harness output (screenshots can show the BBj license serial number)
-tools/sample-test/results/
-tools/sample-test/test-results/
-tools/sample-test/playwright-report/

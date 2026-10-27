@@ -1,3 +1,5 @@
+declare auto BBjString css!
+
 rem /**
 rem  * SetStyle.bbj
 rem  *

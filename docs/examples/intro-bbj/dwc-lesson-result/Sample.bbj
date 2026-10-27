@@ -1,5 +1,10 @@
+declare BBjTopLevelWindow wnd!
+declare BBjStaticText st!
+declare BBjEditBox ed_firstname!
+declare BBjEditBox ed_lastname!
+declare BBjButton btn!
 
-rem ::BBUtils.bbj::BBUtils.applyCss("Sample", "sample.css", 1)
+rem Register sample.css with the app in Enterprise Manager as shown in the lesson.
 
 wnd! = BBjAPI().openSysGui("X0").addWindow(10,10,800,600,"Hello BBj DWC",$01101083$)
 
@@ -11,10 +16,10 @@ REM wnd!.setPanelStyle("gap","5px")
 REM with the sample css you would write the following to set a CSS class selector:
 wnd!.addPanelStyle("mypanel")
 
-st! = wnd!.addStaticText(wnd!.getAvailableControlID(),10,10,200,20,"Firstname:")
-ed_vorname! = wnd!.addEditBox(wnd!.getAvailableControlID(),210,10,200,20,"")
-st! = wnd!.addStaticText(wnd!.getAvailableControlID(),10,40,200,20,"Name:")
-ed_name! = wnd!.addEditBox(wnd!.getAvailableControlID(),210,40,200,20,"")
+st! = wnd!.addStaticText(wnd!.getAvailableControlID(),10,10,200,20,"First name:")
+ed_firstname! = wnd!.addEditBox(wnd!.getAvailableControlID(),210,10,200,20,"")
+st! = wnd!.addStaticText(wnd!.getAvailableControlID(),10,40,200,20,"Last name:")
+ed_lastname! = wnd!.addEditBox(wnd!.getAvailableControlID(),210,40,200,20,"")
 btn! = wnd!.addButton(wnd!.getAvailableControlID(),10,70,400,30,"Say Hello")
 
 
@@ -34,7 +39,7 @@ process_events
 byebye: bye
 
 sayhello:
-    firstname$=ed_vorname!.getText()
-    name$=ed_name!.getText()
-    a=msgbox("Hallo "+firstname$+" "+name$,64,"Hello World")
+    firstname$=ed_firstname!.getText()
+    lastname$=ed_lastname!.getText()
+    a=msgbox("Hello "+firstname$+" "+lastname$,64,"Hello World")
 return

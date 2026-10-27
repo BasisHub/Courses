@@ -5,12 +5,10 @@ This guide is for BASIS staff who write and maintain the books on this site. The
 ## Repository layout
 
 - `docs/`: the Docusaurus site. Book content lives in `docs/docs/<book>/`, the book registry in `docs/src/data/books.js`, downloads in `docs/static/files/<book>/`.
-- `tools/`: scripts. `tools/data/` holds mapping and audit data.
+- `tools/`: sample archive synchronization, Markdown compilation checks, syntax-highlighting tests, and lint installation.
 - `.github/`: workflows and the Vale styles.
-- `.planning/`: GSD planning files. The specification is `.planning/migration-seed.md`.
 - `docs/docs/authoring/components.mdx` is an unlisted component fixture, not a book. Keep it out of the registry and the sidebars, and update it when a shared component changes.
 - `LICENSES/`: licence texts for copied third-party material.
-- `import/` is a local, gitignored workspace.
 
 ## Local setup and preview
 
@@ -35,7 +33,7 @@ Never edit `package-lock.json` by hand. The `@docusaurus/*` packages stay exact-
 - Put images in the chapter's `img/` folder and use plain Markdown images with alt text.
 - Write comments as MDX comments: `{/* ... */}`.
 - Do not use em dashes.
-- Check BBj samples with `bbj_check_syntax`.
+- Check BBj samples with the BBj compiler before publishing them.
 
 These components work in any page without imports. [The components fixture](/docs/authoring/components) shows each one live.
 
@@ -60,7 +58,7 @@ tools/.bin/vale docs/docs
 
 Only book content under `docs/docs/` is linted. Errors fail the PR check. Warnings and suggestions appear as review comments.
 
-Known issue: `Google.WordListCase` warns on "chapter". Leave it until Phase 7 settles the zero-findings rule.
+The `Google.WordListCase` rule can warn on "chapter"; review its use in context.
 
 Vocabulary lives in `.github/.styles/config/vocabularies/BASIS/accept.txt`. Add product terms there instead of rewording.
 
@@ -68,19 +66,19 @@ Vocabulary lives in `.github/.styles/config/vocabularies/BASIS/accept.txt`. Add 
 
 - The build passes (`cd docs && npm run build`).
 - Vale is clean on the files you touched.
-- After config changes, run `bash tools/prove-gates.sh`.
-- `bash tools/verify-phase1.sh`, `bash tools/verify-phase2.sh --local` and `bash tools/verify-phase3.sh` are green.
-- BBj samples pass `bbj_check_syntax`.
+- Download archives match the sample sources (`python3 tools/sync-samples.py --check`). Run `python3 tools/sync-samples.py` to regenerate them after editing examples.
+- Syntax-highlighting changes pass `node tools/test-bbj-grammar.js`.
+- BBj samples compile successfully and run in the supported client.
 - Workflow edits pass `tools/.bin/actionlint`.
 
 ## Pull requests and branch rules
 
 `main` is protected by a ruleset. It requires a pull request with the checks `Test build (no deploy)` and `runner / vale` passing. Repository admins can bypass it.
 
-The ruleset definition is `tools/data/ruleset-main.json`. To recreate it:
+The ruleset definition is `.github/ruleset-main.json`. To recreate it:
 
 ```bash
-gh api -X POST repos/BasisHub/Courses/rulesets --input tools/data/ruleset-main.json
+gh api -X POST repos/BasisHub/Courses/rulesets --input .github/ruleset-main.json
 ```
 
 Do not add `paths` filters to these workflows. A skipped required check blocks the PR.

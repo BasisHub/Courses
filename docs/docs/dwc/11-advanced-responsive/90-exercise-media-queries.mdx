@@ -56,7 +56,9 @@ endif
 
 rem Read the layout CSS from its file and inject it into the page
 rem ================================================================================
-css! = new String(Files.readAllBytes(Paths.get(BBjAPI().getFileSystem().resolvePath("./Exercise-MediaQueriesComplete.css"))))
+declare auto String css!
+programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+css! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("Exercise-MediaQueriesComplete.css")), "UTF-8")
 BBjAPI().getWebManager().injectStyle(css!)
 
 
@@ -159,6 +161,8 @@ use java.nio.file.Paths
     align-items: center;
     gap: var(--dwc-space-m);
     padding: var(--dwc-space-l);
+    /* Read the font size from the custom property, so the media query below can change it */
+    font-size: var(--dwc-font-size);
 }
 
 /* The Submit button spans every column, in both layouts */

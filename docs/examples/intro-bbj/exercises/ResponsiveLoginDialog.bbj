@@ -2,10 +2,11 @@ rem ResponsiveLoginDialog.bbj
 rem Possible solution for the exercise Make your login dialog responsive, written for the Introduction to BBj Development book
 rem It starts from the solution LoginDialog.bbj and is a complete program of its own.
 rem The card lives in a BBjChildWindow and takes its look from responsive-login.css, so it runs in the DWC only.
-rem resolvePath searches the PREFIX for responsive-login.css, so keep the file in a PREFIX directory.
+rem Keep responsive-login.css beside this program.
 
 use java.nio.file.Files
 use java.nio.file.Paths
+use java.nio.charset.StandardCharsets
 
 class public ResponsiveLoginDialog
 
@@ -22,9 +23,10 @@ class public ResponsiveLoginDialog
     field private BBjButton cancelBtn!
 
     method public BBjNumber show()
+        declare String css!
         rem read the CSS file and inject it into the page, so the sample runs without any Enterprise Manager setting
-        fs! = BBjAPI().getFileSystem()
-        css! = new String(Files.readAllBytes(Paths.get(fs!.resolvePath("responsive-login.css"))))
+        programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+        css! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("responsive-login.css")),StandardCharsets.UTF_8)
         BBjAPI().getWebManager().injectStyle(css!)
 
         rem the flags make the window borderless and maximized and switch it to CSS layout
@@ -35,9 +37,9 @@ class public ResponsiveLoginDialog
         #card! = #wnd!.addChildWindow("",$00100000$,BBjAPI().getSysGui().getAvailableContext())
         #card!.addPanelStyle("login-card")
 
-        userLabel! = #card!.addStaticText("User name:")
+        #card!.addStaticText("User name:")
         #userBox! = #card!.addEditBox("")
-        passwordLabel! = #card!.addStaticText("Password:")
+        #card!.addStaticText("Password:")
 
         rem the flag $0400$ replaces the typed characters with asterisks
         #passwordBox! = #card!.addEditBox(#card!.getAvailableControlID(),"",$0400$)

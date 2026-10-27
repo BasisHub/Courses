@@ -21,12 +21,12 @@ rem  *    CSS "overflow" or "overflow-y" property to "auto" or "scroll".
 rem  *
 rem  * 3) We want to customize the BBjTree by adding in a search mechanism.  This can
 rem  *    be done by setting the "search-input" attribute to "true" as covered in the
-rem  *    documentation: https://basishub.github.io/basis-next/#/dwc/bbj-tree
+rem  *    documentation: https://dwc.style/docs/#/dwc/BBjTree
 rem  *
 rem  * 4) We also want to change the leaf node icons on the tree to compact discs.  This
 rem  *    can be done by setting the "icon-leaf" attribute to an icon, such as the
 rem  *    disc icon in the tabler pool, e.g. "tabler:disc".
-rem  *    documentation: https://basishub.github.io/basis-next/#/dwc/bbj-tree
+rem  *    documentation: https://dwc.style/docs/#/dwc/BBjTree
 rem  *
 rem  */
 
@@ -43,17 +43,15 @@ endif
 
 rem Create the main window with a CSS Grid layout.
 window! = BBjAPI().openSysGui("X0").addWindow("BBj DWC Exercise", $00180093$)
-json! = new JsonObject()
-json!.addProperty("width", "100%")
-json!.addProperty("height", "100%")
-json!.addProperty("padding", "1em")
-json!.addProperty("box-sizing", "border-box")
-json!.addProperty("display", "grid")
-json!.addProperty("grid-template-rows", "auto 1fr")
-json!.addProperty("align-items", "center")
-json!.addProperty("gap", "var(--dwc-space)")
-json!.addProperty("padding", "1em")
-window!.setPanelStyle("@element", json!.toString())
+window!.setPanelStyle("width", "100%")
+window!.setPanelStyle("height", "100%")
+window!.setPanelStyle("padding", "1em")
+window!.setPanelStyle("box-sizing", "border-box")
+window!.setPanelStyle("display", "grid")
+window!.setPanelStyle("grid-template-rows", "auto 1fr")
+window!.setPanelStyle("align-items", "center")
+window!.setPanelStyle("gap", "var(--dwc-space)")
+window!.setPanelStyle("padding", "1em")
 window!.setCallback(window!.ON_CLOSE, "onExit")
 
 
@@ -111,7 +109,5 @@ release
 declare auto BBjTopLevelWindow window!
 declare auto BBjTree tree!
 declare auto BBjButton btnSubmit!
-declare auto JsonObject json!
 
 rem Use statements
-use com.google.gson.JsonObject

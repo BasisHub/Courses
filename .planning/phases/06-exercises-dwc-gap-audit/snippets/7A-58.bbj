@@ -1,2 +1,0 @@
-    base64Icon! = "data:image/png;base64,iVBOR..."
-    editLastName!.setAttribute("validation-icon", base64Icon!)

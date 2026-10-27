@@ -8,6 +8,13 @@ This sample shows a simple calculator that multiplies two numbers. It updates wi
 Create a new program in your IDE and copy this program into your editor. Examine and run it, and play with it. Try to understand how the events work.
 
 ```bbj
+declare BBjTopLevelWindow wnd!
+declare BBjStaticText label1!
+declare BBjStaticText label2!
+declare BBjStaticText result!
+declare BBjInputN field_x!
+declare BBjInputN field_y!
+
 wnd! = BBjAPI().openSysGui("X0").addWindow(50,50,400,200,"Multiply")
 
 label1! = wnd!.addStaticText(100,10,12,20,25,"X:")

@@ -24,6 +24,7 @@ Media queries allow you to apply CSS rules based on device characteristics:
 ```css
 /* Mobile first approach */
 .container {
+    display: grid;
     grid-template-columns: 1fr;
 }
 

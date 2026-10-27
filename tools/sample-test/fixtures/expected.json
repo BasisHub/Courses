@@ -1,6 +1,0 @@
-{
-  "known-good.bbj": { "kind": "window", "expect": { "title": "Courses fixture good" }, "classification": { "status": "pass" }, "interaction": { "button": "Say Hello", "dialogText": "Hello fixture" } },
-  "known-broken.bbj": { "kind": "window", "expect": { "title": "Courses fixture broken" }, "classification": { "status": "fail", "category": "bbj", "bbjError": { "code": 252, "line": 4 } } },
-  "known-print.bbj": { "kind": "print", "expect": { "print": ["courses fixture line 1", "courses fixture line 2"] }, "classification": { "status": "pass" } },
-  "known-missing-css.bbj": { "kind": "window", "expect": { "title": "Courses fixture missing css" }, "classification": { "status": "fail", "category": "network-local", "network": { "status": 404, "urlIncludes": "courses-fixture-does-not-exist.css" } } }
-}

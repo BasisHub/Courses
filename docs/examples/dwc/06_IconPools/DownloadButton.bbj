@@ -27,9 +27,9 @@ window!.setCallback(BBjAPI.ON_CLOSE, "onExit")
 
 
 rem Define the HTML title for the buttons that incorporate the download icons
-btnIconFeather$ = "<html><bbj-icon pool='feather' name='download'></bbj-icon>"
-btnIconTabler$ = "<html><bbj-icon pool='tabler' name='download'></bbj-icon>"
-btnIconFontAwesome$ = "<html><bbj-icon pool='fa' name='fas-download'></bbj-icon>"
+btnIconFeather$ = "<html><dwc-icon pool='feather' name='download'></dwc-icon>"
+btnIconTabler$ = "<html><dwc-icon pool='tabler' name='download'></dwc-icon>"
+btnIconFontAwesome$ = "<html><dwc-icon pool='fa' name='fas-download'></dwc-icon>"
 
 rem Now create the buttons using the HTML for the title
 btnFeather! = window!.addButton(btnIconFeather$ + "Feather's Download Icon")
@@ -39,9 +39,9 @@ btnFontAwesome! =  window!.addButton(btnIconFontAwesome$ + "Font Awesome's Downl
 
 
 rem Define the HTML title for the alternate buttons that incorporate the cloud download icons with extra styling for size/color
-btnIconFeather$ = "<html><bbj-icon pool='feather' name='download-cloud' expanse='l' theme='danger'></bbj-icon>"
-btnIconTabler$ = "<html><bbj-icon pool='tabler' name='cloud-download' style='width: 0.5em; color: green'></bbj-icon>"
-btnIconFontAwesome$ = "<html><bbj-icon pool='fa' name='fas-cloud-download-alt' style='width: 1em; color: var(--dwc-color-danger)'></bbj-icon>"
+btnIconFeather$ = "<html><dwc-icon pool='feather' name='download-cloud' theme='danger' style='--dwc-icon-size: var(--dwc-font-size-2xl)'></dwc-icon>"
+btnIconTabler$ = "<html><dwc-icon pool='tabler' name='cloud-download' style='width: 0.5em; color: green'></dwc-icon>"
+btnIconFontAwesome$ = "<html><dwc-icon pool='fa' name='fas-cloud-download-alt' style='width: 1em; color: var(--dwc-color-danger)'></dwc-icon>"
 
 rem Now create the buttons using the HTML for the title
 btnFeather! = window!.addButton(btnIconFeather$ + "Feather's Cloud Download Icon")
@@ -51,14 +51,15 @@ btnFontAwesome! =  window!.addButton(btnIconFontAwesome$ + "Font Awesome's Cloud
 
 rem Add a custom icon pool referencing the ionicons library from a CDN
 rem @see https://ionic.io/ionicons for the icons
-iconLibraryName! = "ionicons"
-resolverPathCdn! = "https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.2/svg/${name}.svg"
-myIconPool! = "(window.BBj ??= {}).IconsPools ??= []; window.BBj.IconsPools.push({ name: '" + iconLibraryName! + "', resolver: name => `" + resolverPathCdn! + "` });"
-BBjAPI().getSysGui().executeScript(myIconPool!)
+iconLibraryName$ = "ionicons"
+resolverPathCdn$ = "https://cdnjs.cloudflare.com/ajax/libs/ionicons/7.4.0/svg/${name}.svg"
+myIconPool$ = "(window.Dwc ??= {}).IconsPools ??= []; window.Dwc.IconsPools.push({ name: '" + iconLibraryName$ + "', resolver: name => `" + resolverPathCdn$ + "` });"
+web! = BBjAPI().getWebManager()
+web!.injectScript(myIconPool$)
 
-rem Define the HTML title for the buttons that incorporate the bootstrap icons
-btnIconIon1$ = "<html><bbj-icon pool='ionicons' name='cloud-download-outline'></bbj-icon>"
-btnIconIon2$ = "<html><bbj-icon pool='ionicons' name='cloud-download'></bbj-icon>"
+rem Define the HTML title for the buttons that incorporate the Ionicons
+btnIconIon1$ = "<html><dwc-icon pool='ionicons' name='cloud-download-outline'></dwc-icon>"
+btnIconIon2$ = "<html><dwc-icon pool='ionicons' name='cloud-download' style='fill: currentColor'></dwc-icon>"
 
 rem Now create the buttons using the HTML for the title
 btnIonIcon1! = window!.addButton(btnIconIon1$ + "IonIcons's Cloud Download Icon")

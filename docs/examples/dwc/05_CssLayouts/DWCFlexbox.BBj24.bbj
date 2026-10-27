@@ -1,3 +1,22 @@
+declare auto BBjString wrap!
+declare auto BBjString direction!
+declare auto BBjString justification!
+declare auto BBjString alignment!
+declare auto BBjString grow!
+declare auto BBjString sizePct!
+declare auto BBjString backColor!
+declare auto BBjString borderColor!
+declare auto BBjString textColor!
+declare auto BBjString bbjCodeGetStyle!
+declare auto BBjString msg!
+declare auto BBjString cssPreview!
+declare auto BBjString css!
+declare auto String prismCss!
+declare auto String prismJs!
+declare auto BBjChildWindow winWrap!
+declare auto BBjButton btnShowCss!
+declare auto BBjListClickEvent e!
+
 rem /**
 rem  * DWCFlexbox.bbj
 rem  * @author ndecker
@@ -18,7 +37,7 @@ rem  */
 rem If the app is running in BUI, switch it automatically to run in the DWC client instead
 if info(3,6)="5" then
     bui! = BBjAPI().getBuiManager()
-    url! = bui!.getUrl().replaceAll("apps: webapp")
+    url! = bui!.getUrl().replaceAll("apps", "webapp")
     action! = bui!.urlAction(url!)
     bui!.setEndAction(action!)
     release
@@ -57,7 +76,7 @@ winDemo!.setStyle("flex-wrap", ""+wrap!+"")
 winDemo!.setStyle("flex-direction", ""+direction!+"")
 winDemo!.setStyle("align-items", ""+alignment!+"")
 winDemo!.setStyle("justify-content", ""+justification!+"")
-winDemo!.setStyle("background-color", "hsla(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 75%, 0.1)")
+winDemo!.setStyle("background-color", "var(--dwc-surface-3)")
 winDemo!.setStyle("border", "1px solid var(--dwc-color-primary-50)")
 winDemo!.setStyle("border-radius", "var(--dwc-border-radius)")
 winDemo!.setStyle("background-size", ""+sizePct!+"")
@@ -70,7 +89,7 @@ winDemo!.setStyle("background-position", "-0.5px 0px")
 rem Create the boxes and add them to a vector for later retrieval
 for i = 0 to numBoxes-1
     hue = int(360/numVisibleBoxes) * i
-    backColor! =    "hsla(" + str(hue) + ", 50%, 75%, 0.35)"
+    backColor! =    "hsl(" + str(hue) + ", 50%, 75%)"
     borderColor! =  "hsl("  + str(hue) + ", 50%, 35%)"
     textColor! =    "hsl("  + str(hue) + ", 50%, 25%)"
 
@@ -249,7 +268,7 @@ onNumBoxesSpin:
     rem Change the box colors so that they are always spread across the hue spectrum
     for i = 0 to numBoxes-1
         hue = int(360/numVisibleBoxes) * i
-        backColor! =    "hsla(" + str(hue) + ", 50%, 75%, 0.35)"
+        backColor! =    "hsl(" + str(hue) + ", 50%, 75%)"
         borderColor! =  "hsl("  + str(hue) + ", 50%, 35%)"
         textColor! =    "hsl("  + str(hue) + ", 50%, 25%)"
 
@@ -352,9 +371,8 @@ onShowCss:
     cssCode! = cssCode!.replaceAll(";\s*", ";&#10;")
 
     rem Inject the Prism library to provide syntax highlighting for code samples.
-    rem We're including an error branch so that it will fail gracefully
-    web!.injectStyle(DemoUtils.getFileContents(dsk("")+dir("")+"prism.min.css",err=*NEXT), 0, "name=prism_css_bottom")
-    web!.injectScript(DemoUtils.getFileContents(dsk("")+dir("")+"prism.min.js",err=*NEXT), 0, "name=prism_js_bottom")
+    web!.injectStyle(prismCss!, 0, "name=prism_css_bottom")
+    web!.injectScript(prismJs!, 0, "name=prism_js_bottom")
 
     rem Define the contents of the message box
     msg! = "<html><div class='info'><p>Listed below are the current CSS layout definitions for the '<b>Flexbox Layout Preview</b>' <code><a href='https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjchildwindow/bbjchildwindow.htm' target='_blank'>BBjChildWindow</a></code> at the top of the app that contains the multi-colored boxes. "
@@ -373,8 +391,8 @@ onShowCss:
     msg! = msg! + "<li><b>Note 2</b>: You will also have to set the <code>$00100000$</code> flag when creating the window, as that causes the window to use dynamic flow layout, ignoring all absolute control sizes and positions.</li>"
 
     if (grow! = "grow equally") then
-        msg! = msg! + "<li><b>Note 3</b>: You will also have to set the CSS&nbsp;<span style='background: var(--dwc-color-warning-50); color: var(--dwc-color-black);'><code>"
-        msg! = msg! + "<a href='https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow' target='_blank'>flex-grow: 1;</a></code></span>&nbsp;style "
+        msg! = msg! + "<li><b>Note 3</b>: You will also have to set the CSS&nbsp;<span style='background: var(--dwc-color-warning-50); color: var(--dwc-color-on-warning-text);'><code>"
+        msg! = msg! + "<a style='color: inherit;' href='https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow' target='_blank'>flex-grow: 1;</a></code></span>&nbsp;style "
         msg! = msg! + "on all the window's contained controls to match the current settings.</li>"
     endif
     msg! = msg! + "</ul>"
@@ -391,11 +409,12 @@ rem Inject custom CSS instead of registering an external CSS file with the app i
 rem to modify the CSS during development and see the changes on the next app invocation, and makes this a standalone sample.
 injectCss:
 
-    rem Get the Web Manager and inject the links for the custom Google fonts
+    rem Get the Web Manager and read the Prism files that sit next to this program.
+    rem They are injected when a layout information dialog opens.
     web! = BBjAPI().getWebManager()
-    web!.injectLinkUrl("<link rel='preconnect' href='https://fonts.googleapis.com'>", 1)
-    web!.injectLinkUrl("<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>", 1)
-    web!.injectLinkUrl("<link href='https://fonts.googleapis.com/css2?family=Inconsolata&family=Ubuntu+Mono:ital@0;1&display=swap' rel='stylesheet'>", 1)
+    programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+    prismCss! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("prism.min.css")), "UTF-8")
+    prismJs! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("prism.min.js")), "UTF-8")
 
     rem Give the window a minimum width and height so that the user can't make it too small
     css! =        "dwc-window-content {"
@@ -472,6 +491,9 @@ injectCss:
 
     rem Change the CSS custom properties specifically for the [Show CSS] button
     css! = css! + ".show-css::part(control) {"
+    css! = css! + "    --dwc-button-color: hsl(0, 0%, 12%);"
+    css! = css! + "    --dwc-button-hover-color: hsl(0, 0%, 12%);"
+    css! = css! + "    --dwc-button-selected-color: hsl(0, 0%, 12%);"
     css! = css! + "    --dwc-button-background: hsl(44, 100%, 55%);"
     css! = css! + "    --dwc-button-hover-background: hsl(44, 100%, 60%);"
     css! = css! + "    --dwc-button-selected-background: hsl(44, 100%, 50%);"
@@ -482,6 +504,7 @@ injectCss:
     css! = css! + "    padding: var(--dwc-space);"
     css! = css! + "    margin: 0.25em;"
     css! = css! + "    background: var(--dwc-color-gray-95);"
+    css! = css! + "    color: hsl(0, 0%, 25%);"
     css! = css! + "}"
 
     rem If the PRE sections aren't styled wtih Prism, then we'll define our own borders for them
@@ -494,7 +517,7 @@ injectCss:
     css! = css! + "    font-family: Consolas, var(--dwc-font-family-mono);"
     css! = css! + "    font-weight: var(--dwc-font-weight-bold);"
     css! = css! + "    line-height: 140%;"
-    css! = css! + "    color: hsl(0, 0%, 25%);"
+    css! = css! + "    color: inherit;"
     css! = css! + "    -webkit-font-smoothing: subpixel-antialiased;"
     css! = css! + "}"
     css! = css! + "h1 {"
@@ -537,4 +560,5 @@ declare auto BBjString bbjCode!
 declare auto BBjString codeString!
 
 rem USE Statements
-use ::DemoUtils.bbj::DemoUtils
+use java.nio.file.Files
+use java.nio.file.Paths

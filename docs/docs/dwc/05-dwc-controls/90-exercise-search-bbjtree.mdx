@@ -48,17 +48,15 @@ endif
 
 rem Create the main window with a CSS Grid layout.
 window! = BBjAPI().openSysGui("X0").addWindow("BBj DWC Exercise", $00180093$)
-json! = new JsonObject()
-json!.addProperty("width", "100%")
-json!.addProperty("height", "100%")
-json!.addProperty("padding", "1em")
-json!.addProperty("box-sizing", "border-box")
-json!.addProperty("display", "grid")
-json!.addProperty("grid-template-rows", "auto 1fr")
-json!.addProperty("align-items", "center")
-json!.addProperty("gap", "var(--dwc-space)")
-json!.addProperty("padding", "1em")
-window!.setPanelStyle("@element", json!.toString())
+window!.setPanelStyle("width", "100%")
+window!.setPanelStyle("height", "100%")
+window!.setPanelStyle("padding", "1em")
+window!.setPanelStyle("box-sizing", "border-box")
+window!.setPanelStyle("display", "grid")
+window!.setPanelStyle("grid-template-rows", "auto 1fr")
+window!.setPanelStyle("align-items", "center")
+window!.setPanelStyle("gap", "var(--dwc-space)")
+window!.setPanelStyle("padding", "1em")
 window!.setCallback(window!.ON_CLOSE, "onExit")
 
 
@@ -120,10 +118,8 @@ release
 declare auto BBjTopLevelWindow window!
 declare auto BBjTree tree!
 declare auto BBjButton btnSubmit!
-declare auto JsonObject json!
 
 rem Use statements
-use com.google.gson.JsonObject
 ```
 
 </details>

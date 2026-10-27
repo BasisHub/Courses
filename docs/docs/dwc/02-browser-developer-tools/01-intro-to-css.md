@@ -140,17 +140,20 @@ Classes are easily applied to any object by using `addClass("CSSClassNameWithout
 Injecting a CSS file works like this:
 
 ```bbj
-injectStyle(String style, boolean top, String attributes)
+declare auto BBjWebManager web!
+web! = BBjAPI().getWebManager()
+css$ = "dwc-window-content { padding: 1em; }"
+web!.injectStyle(css$, 1, "id=lesson-styles")
 ```
 
 Parameters:
 - **style**: A String of CSS. This could be as large as the entire contents of a CSS file, or it could be only a single CSS definition.
-- **top**: Injected into the head of the page if true (the default), otherwise injected in the body (not preferred).
+- **top**: selects the top-level page when true, or the app page when false. It doesn't select between the head and body elements.
 - **attributes**: Additional attributes - this can be used to give a name to the injected CSS, which can be useful when determining which styles are taking effect when you look at the final output of your program.
 
 ## Notes
 
-The programs `ExternalCssExample.bbj` and `InlineCssExample.bbj` will show you the different ways to style and inject the CSS.
+The programs `DWC_ExternalCSS/Sample.bbj` and `02_CSSStylesAndCustomProperties/SetStyle.bbj` show ways to load CSS and style controls.
 
 This is only meant as a small introduction. Should you need further exercise, we recommend:
 - [The CSS Tutorial on W3Schools.com](https://www.w3schools.com/css/)

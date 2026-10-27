@@ -1,4 +1,0 @@
-lp = unt
-open (lp,mode="PDF")"LP"
-print (lp)"HELLO"
-close (lp)

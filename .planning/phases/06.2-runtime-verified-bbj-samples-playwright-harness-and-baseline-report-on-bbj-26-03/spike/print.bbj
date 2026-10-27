@@ -1,4 +1,0 @@
-rem Spike: a program that only prints, like the DataRow samples
-print "spike print line 1"
-print "spike print line 2"
-end

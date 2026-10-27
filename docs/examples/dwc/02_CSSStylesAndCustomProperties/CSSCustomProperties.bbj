@@ -1,3 +1,7 @@
+declare auto BBjString css!
+declare auto BBjVector myVectCssProps!
+declare auto BBjVector myVectCssVals!
+
 rem /**
 rem  * CSSCustomProperties.bbj
 rem  *
@@ -103,7 +107,7 @@ ApplyStylesAndLayout:
 
     rem Define the Child Window's title
     css! = css! + "fieldset > legend { "
-    css! = css! + "    color: var(--dwc-color-primary); "
+    css! = css! + "    color: var(--dwc-color-primary-text); "
     css! = css! + "    font-weight: bold; "
     css! = css! + "}"
 
@@ -126,7 +130,7 @@ ApplyStylesAndLayout:
     myVectCssVals!.addItem("12px")
     myVectCssVals!.addItem("bold")
     myVectCssVals!.addItem("normal")
-    myVectCssVals!.addItem("light")
+    myVectCssVals!.addItem("300")
     myVectCssVals!.addItem("orange")
     myVectCssVals!.addItem("red")
     myVectCssVals!.addItem("green")

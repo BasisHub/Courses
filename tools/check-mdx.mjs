@@ -1,4 +1,4 @@
-// MDX compile check (CONV-01: every generated file compiles as MDX).
+// Check that the supplied course pages compile as MDX.
 // Usage: node tools/check-mdx.mjs FILE...
 // Exit codes: 0 all files compile, 1 any compile failure,
 // 2 usage error or @mdx-js/mdx not found (run: cd docs && npm ci).

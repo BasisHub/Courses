@@ -144,6 +144,9 @@ declare BBjStaticText status!
 declare BBjStaticText strategyLabel!
 declare BBjListButton strategyList!
 declare BBjVector cells!
+declare auto BBjButtonPushEvent ev!
+declare BBjControl ctrl!
+declare auto BBjButton cellBtn!
 
 computer! = new ComputerPlayer()
 

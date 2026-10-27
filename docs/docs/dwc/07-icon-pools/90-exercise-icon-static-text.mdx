@@ -54,15 +54,15 @@ window!.setCallback(BBjAPI.ON_CLOSE, "onExit")
 
 rem Change the line below to add one or more sports icons
 label! = window!.addStaticText("<html>I like the following sports: "+
-:                              "<bbj-icon pool='tabler' name='ball-tennis' expanse='s' theme='primary'></bbj-icon>"+
-:                              " and <bbj-icon pool='fa' name='futbol' expanse='xs' theme='primary'></bbj-icon>, how about you?")
+:                              "<dwc-icon pool='tabler' name='ball-tennis' expanse='s' theme='primary'></dwc-icon>"+
+:                              " and <dwc-icon pool='fa' name='futbol' expanse='xs' theme='primary'></dwc-icon>, how about you?")
 
 
 btnSubmit! = window!.addButton("Exit")
 btnSubmit!.setAttribute("theme", "primary")
 btnSubmit!.setAttribute("expanse", "xl")
 btnSubmit!.setStyle("margin-top", "1em")
-btnSubmit!.setCallback(BBjButton.ON_FORM_VALIDATION, "OnExit")
+btnSubmit!.setCallback(BBjButton.ON_BUTTON_PUSH, "OnExit")
 
 
 window!.setVisible(1)

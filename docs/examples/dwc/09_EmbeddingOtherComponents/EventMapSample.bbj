@@ -2,6 +2,12 @@ rem this is the sample from BASIS documentation
 rem see https://documentation.basis.cloud/BASISHelp/WebHelp/bbjevents/BBjNativeJavaScriptEvent/BBjNativeJavaScriptEvent_getEventMap.htm
 
 rem ' BBjNativeJavaScriptEvent::getEventMap
+declare auto BBjSysGui sysgui!
+declare auto BBjTopLevelWindow window!
+declare auto BBjHtmlView htmlview!
+declare auto BBjNativeJavaScriptEvent event!
+declare auto java.util.Map map!
+
 print info(0,0)," ",info(0,1)," ",info(1,0)," ",info(1,1)
 client = 0
 if info(3,6)<>"5" and info(3,6)<>"6" then
@@ -34,7 +40,7 @@ selectHtml$ = "<select onchange='event.myElement=""select""; event.mystuff=this.
 radioHtml$ = "<label>Radio 1<input type='radio' name='group' value='Radio 1' checked onclick='event.myElement=""radio""; event.mystuff=this.value; basisDispatchNativeEvent(event);'></label>"
 radioHtml$ = radioHtml$ + "<label>Radio 2<input type='radio' name='group' value='Radio 2' onclick='event.myElement=""radio""; event.mystuff=this.value; basisDispatchNativeEvent(event);'></label>"
 meterHtml$ = "<meter id='meter' min='0' max='10' value='5' style='height: 30px; width: 100%; padding: 4px 5px;' onwheel='event.myElement=""meter""; event.mystuff=this.value; basisDispatchNativeEvent(event);'></meter>"
-html$ = "<html><style>#example th {font-weight: bold; font-size: 14px; background: #ddd; }</style>"
+html$ = "<html><style>#example th {font-weight: bold; font-size: 14px; background: var(--dwc-surface-3); color: var(--dwc-color-body-text); }</style>"
 html$ = html$ + "<table style='width: 100%; border-collapse: collapse;' border='1' id='example'><tr><th>HTML Element</th><th>Example</th><th>Instructions</th></tr>"
 html$ = html$ + "<tr><td>button</td><td>"+buttonHtml$+"</td><td>Click</td></tr>"
 html$ = html$ + "<tr><td>text</td><td>"+inputHtml$+"</td><td>Change Text</td></tr>"
@@ -58,10 +64,10 @@ event! = sysgui!.getLastEvent()
 name$ = event!.getEventName()
 map! = event!.getEventMap()
 mystuff! = map!.get("mystuff")
-myElement$ = map!.get("myElement").replaceAll("\""","")
+myElement$ = str(map!.get("myElement"))
 switch myElement$
     case "meter"
-        currentValue = htmlview!.executeScript(doc$ + ".getElementById('meter').value;")
+        currentValue = num(htmlview!.executeScript(doc$ + ".getElementById('meter').value;"))
         wheelDirection = fnWheelDirection(map!)
         script$ = doc$ + ".getElementById('meter').value="+ str(currentValue + wheelDirection)
         htmlview!.executeScript(script$)
@@ -109,6 +115,8 @@ print "getClientType: ",htmlview!.getClientType(err=*next)
 print "getClientVersion: ",htmlview!.getClientVersion(err=*next)
 return
 def fnhtml$(string!,_html)
+  declare auto String string!
+  declare auto StringBuffer html!
   html! = new StringBuffer("")
   if string!.length() then
     for i=0 to string!.length()-1

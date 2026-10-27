@@ -20,12 +20,19 @@ class public MyDialog
         
         #btn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"okay")
         #ed!.setCallback(BBjAPI.ON_EDIT_MODIFY,#this!,"onInputChanged")
+        #wnd!.setCallback(BBjAPI.ON_CLOSE,"cancel")
+        #btn!.setEnabled(#UserInput$ <> "")
         
         process_events
         
         okay:
             inp$ = #ed!.getText()
+            #wnd!.destroy()
             methodret inp$
+
+        cancel:
+            #wnd!.destroy()
+            methodret ""
         
     
     methodend

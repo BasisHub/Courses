@@ -84,9 +84,11 @@ editBox!.setAttribute("label", "Email Address")
 
 ```bbj
 rem Email pattern
-editBox!.setAttribute("pattern", "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
-editBox!.setAttribute("invalid-message", "Please enter a valid email address")
+editBox!.setAttribute("pattern", "[\w.+\-]+@[\w\-]+(\.[\w\-]+)*\.[A-Za-z]{2,}")
+editBox!.setClientValidationMessage("Please enter a valid email address")
 ```
+
+Browsers compile `pattern` with the regular expression `v` flag. Escape literal hyphens inside character classes, as in `\-` in this pattern. This pattern is a training example, not a complete test of every valid email address.
 
 The `pattern` attribute takes a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions). Zip codes, for example, follow a distinct pattern: five digits, or five digits followed by a dash and four more digits. A pattern for that:
 
@@ -133,7 +135,7 @@ Controls have three validation states:
 
 ```bbj
 rem Check if a control is valid
-if (editBox!.isValid()) then
+if (editBox!.isClientValidationValid()) then
     rem Process the form
 else
     rem Show error message
@@ -142,14 +144,12 @@ endif
 
 ## Custom Validation
 
-For complex validation logic:
+For a custom client rule, use the [ClientValidation interface](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjinterfaces/IF_ClientValidation/Interface_ClientValidation.htm):
 
 ```bbj
-rem Set custom validity
-editBox!.setCustomValidity("This username is already taken")
-
-rem Clear custom validity
-editBox!.setCustomValidity("")
+rem Reject text that contains only whitespace
+editBox!.setClientValidationFunction("return value.trim().length > 0;")
+editBox!.setClientValidationMessage("Enter a value before submitting the form")
 ```
 
 {/* TODO: screenshot outdated? */}
@@ -163,7 +163,7 @@ email! = wnd!.addEditBox("")
 email!.setAttribute("label", "Email")
 email!.setAttribute("required", "true")
 email!.setAttribute("type", "email")
-email!.setAttribute("invalid-message", "Please enter a valid email")
+email!.setClientValidationMessage("Please enter a valid email")
 ```
 
 ## Controlling When Validation Runs
@@ -197,12 +197,12 @@ This style takes more effort, so use it when the built-in attributes such as `re
     rem Define the JavaScript function that determines if the provided input
     rem is valid or not.  Since this replicates the "required" attribute, the
     rem JavaScript only has to ensure that the control's contents are not empty.
-    js! =       "if (value.trim().length > 0) { "
-    js! = js! + "    return true; "
-    js! = js! + "} else {"
-    js! = js! + "    return false;"
-    js! = js! + "} "
-    editFirstName!.setClientValidationFunction(js!)
+    js$ =       "if (value.trim().length > 0) { "
+    js$ = js$ + "    return true; "
+    js$ = js$ + "} else {"
+    js$ = js$ + "    return false;"
+    js$ = js$ + "} "
+    editFirstName!.setClientValidationFunction(js$)
     editFirstName!.setClientValidationMessage("This field is required; please enter your first name before submitting the form")
 ```
 
@@ -217,18 +217,17 @@ The JavaScript uses an if/else conditional on the length of the trimmed content.
 
 A first name made of spaces is still invalid with this function. That differs from the built-in `required` attribute, which only checks that the control is not empty. The JavaScript function goes one step further and removes leading and trailing spaces with `trim()`, so it is a little stricter.
 
-You can also write the function in a much more compact form. This version drops the if/else conditional. It returns the length of the trimmed input: an empty string has a length of zero and is invalid, and any other length counts as valid. The last line sets the validation style to `inline` instead of the default `popover`:
+You can also write the function in a much more compact form. This version drops the if/else conditional. It returns whether the trimmed input has a nonzero length. The comparison returns a boolean, as the validation API requires. The last line sets the validation style to `inline` instead of the default `popover`:
 
 ```bbj
     rem The first example could be written in a much more compact manner, so
     rem we'll use that version for the last name.  Our function is simply
     rem using the trim() method to remove leading and trailing spaces, then
-    rem returning the length property of the trimmed input.  That satisfies
-    rem our boolean return value, as an empty string has a zero length and
-    rem thus would be invalid.  Any other length value would resolve to true.
+    rem returning whether the trimmed input has a nonzero length.
+    rem The comparison returns a boolean, as the validation API requires.
     rem Additionally, we'll change this message to be inserted in the form
     rem as an inline element instead of a popover.
-    editLastName!.setClientValidationFunction("return value.trim().length;")
+    editLastName!.setClientValidationFunction("return value.trim().length > 0;")
     editLastName!.setClientValidationMessage("This field is required; please enter your last name before submitting the form")
     editLastName!.setAttribute("validation-style", "inline")
 ```
@@ -263,11 +262,11 @@ editLastName!.setAttribute("validation-icon", "fa:fas-exclamation-circle")
 {/* TODO: screenshot outdated? */}
 ![Error message with an exclamation circle icon](./img/validation-8.png)
 
-These examples use the Font Awesome icon pool, but you can also choose icons from the Tabler, Feather or `bbj` pools. You can also give the icon as a URL or as a data URL with base64-encoded image data. The following code uses a truncated data URL to save space:
+These examples use the Font Awesome icon pool, but you can also choose icons from the Tabler, Feather or `dwc` pools. You can also give the icon as a URL or as a data URL with base64-encoded image data. The following code uses a truncated data URL to save space:
 
 ```bbj
-    base64Icon! = "data:image/png;base64,iVBOR..."
-    editLastName!.setAttribute("validation-icon", base64Icon!)
+    base64Icon$ = "data:image/png;base64,iVBOR..."
+    editLastName!.setAttribute("validation-icon", base64Icon$)
 ```
 
 The result is a customized error message with a custom PNG image that was converted to base64.

@@ -37,22 +37,26 @@ This example adds a button that triggers the debug console:
 
 ```bbj
 rem ' hello.txt
+declare auto BBjSysGui sysgui!
+declare auto BBjTopLevelWindow window!
+declare auto BBjButton hello!
+declare auto BBjButton goodbye!
+declare auto BBjButton console!
 sysgui = unt
 open (sysgui)"X0"
-bbjapi! = bbjapi()
-sysgui! = bbjapi!.getSysGui()
+sysgui! = BBjAPI().getSysGui()
 window! = sysgui!.addWindow(25,25,275,125,"Hello",$00090083$,$$)
-window!.setCallback(bbjapi!.ON_CLOSE,"eoj")
+window!.setCallback(BBjAPI.ON_CLOSE,"eoj")
 
 hello! = window!.addButton(1,25,25,100,25,"Hello!")
 hello!.focus()
-hello!.setCallback(bbjapi!.ON_BUTTON_PUSH,"msgbox")
+hello!.setCallback(BBjAPI.ON_BUTTON_PUSH,"msgbox")
 
 goodbye! = window!.addButton(2,150,25,100,25,"Goodbye!")
-goodbye!.setCallback(bbjapi!.ON_BUTTON_PUSH,"eoj")
+goodbye!.setCallback(BBjAPI.ON_BUTTON_PUSH,"eoj")
 
 console! = window!.addButton(3,25,75,100,25,"Console")
-console!.setCallback(bbjapi!.ON_BUTTON_PUSH,"console")
+console!.setCallback(BBjAPI.ON_BUTTON_PUSH,"console")
 
 process_events
 

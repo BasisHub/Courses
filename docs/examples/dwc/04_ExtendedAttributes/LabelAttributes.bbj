@@ -27,17 +27,15 @@ sysgui! = bbjapi().getSysGui()
 title$ = iff(labelAttributes, "Using Label Attributes", "Using Discrete Labels")
 window! = sysgui!.addWindow(title$,$00190083$)
 window!.setCallback(window!.ON_CLOSE, "onClose")
-json! = new JsonObject()
-json!.addProperty("box-sizing", "border-box")
-json!.addProperty("width", "100%")
-json!.addProperty("height", "100%")
-json!.addProperty("padding", "var(--dwc-space)")
-json!.addProperty("display", "grid")
-json!.addProperty("gap", "var(--dwc-space)")
-json!.addProperty("grid-template-columns", "auto")
-json!.addProperty("justify-items", "stretch")
-json!.addProperty("align-items", "stretch")
-window!.setPanelStyle("@element", json!.toString())
+window!.setPanelStyle("box-sizing", "border-box")
+window!.setPanelStyle("width", "100%")
+window!.setPanelStyle("height", "100%")
+window!.setPanelStyle("padding", "var(--dwc-space)")
+window!.setPanelStyle("display", "grid")
+window!.setPanelStyle("gap", "var(--dwc-space)")
+window!.setPanelStyle("grid-template-columns", "auto")
+window!.setPanelStyle("justify-items", "stretch")
+window!.setPanelStyle("align-items", "stretch")
 
 
 rem Add the controls to the window
@@ -64,5 +62,3 @@ process_events
 
 onClose:
 release
-
-use com.google.gson.JsonObject

@@ -33,15 +33,22 @@ You should again see the program with the nice grid layout.
 
 Now you can also add more CSS instructions to that CSS file, especially [media-queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) if you need to do a truly responsive page that adjusts to phones and tablets and wide screens.
 
-Note: If you deploy the CSS file in Enterprise Manager, it will not be reloaded if you change it on disk unless you redeploy it in Enterprise Manager or restart your service. As soon as we will cover BBj Plug-Ins we will learn about a plug-in that you will find helpful for that problem.
+If you register the CSS file in Enterprise Manager, redeploy it after you change it on disk.
 
-For the time being you can add the following to the beginning of your program (adjust the names for the app link name and the CSS file to your situation):
+During development, you can instead read and [inject the stylesheet](https://documentation.basis.cloud/BASISHelp/WebHelp/bui/BBjBuiManager/BBjBuiManager_injectStyle.htm) at each start. Add this code before you create the window. Keep `sample.css` beside the program:
 
 ```bbj
-::BBUtils.bbj::BBUtils.applyCss("Sample", "sample.css", 1)
+use java.nio.file.Files
+use java.nio.file.Paths
+use java.nio.charset.StandardCharsets
+
+declare String css!
+programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+css! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("sample.css")),StandardCharsets.UTF_8)
+BBjAPI().getWebManager().injectStyle(css!)
 ```
 
-What this does is basically re-register the CSS file with every start. Now after a change in the CSS file, simply reload the app twice (once to execute the statement, then to see the result of the reload) and you're all set.
+Reload the app after you change `sample.css` to load the updated styles.
 
 The two files that contain the results of this lesson.
 

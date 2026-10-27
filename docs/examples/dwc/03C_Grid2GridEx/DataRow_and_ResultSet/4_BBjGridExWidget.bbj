@@ -1,9 +1,16 @@
+declare auto BBjTopLevelWindow wnd!
+declare auto BBjChildWindow cw!
+declare auto BBjGridExWidget grid!
+declare auto ResultSet rs!
+declare auto DataRow record!
+
 use ::BBjGridExWidget/BBjGridExWidget.bbj::BBjGridExWidget
 use com.basiscomponents.db.ResultSet
 use com.basiscomponents.db.DataRow
 
 wnd! = BBjAPI().openSysGui("X0").addWindow("Hello BBj DWC", $01111083$)
 wnd!.setPanelStyle("height","100%")
+wnd!.setCallback(BBjAPI.ON_CLOSE,"onClose")
 
 cw! = wnd!.addChildWindow("",$00108000$,BBjAPI().getSysGui().getAvailableContext())
 cw!.setStyle("height","100%")
@@ -30,4 +37,7 @@ rs!.add(record!)
 grid!.setData(rs!)
 
 process_events
+
+onClose:
+release
 

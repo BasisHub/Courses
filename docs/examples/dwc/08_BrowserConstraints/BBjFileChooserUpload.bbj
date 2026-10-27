@@ -1,3 +1,9 @@
+declare auto BBjSysGui sysgui!
+declare auto BBjTopLevelWindow window!
+declare auto BBjFileChooser chooser!
+declare auto BBjVector vector!
+declare auto java.util.Iterator it!
+
 sysgui! = BBjAPI().openSysGui("X0")
 window! = sysgui!.addWindow(100,100,450,450,"Select one or more files...",$00090003$)
 window!.setCallback(window!.ON_CLOSE,"eoj")
@@ -29,10 +35,9 @@ onFileChooser:
   rem upload all files to the server
   it! = ev!.getSelectedFiles().iterator()
   while it!.hasNext()
-    cf$ = it!.next()
+    cf$ = str(it!.next())
     f$=BBjAPI().getThinClient().getClientFileSystem().getClientFile(cf$).copyFromClient()
     a=msgbox(f$,0,"File "+cf$+" uploaded to Server")
   wend
   
 return
-  

@@ -39,9 +39,9 @@ class public LoginDialog
     method public BBjNumber show()
         #wnd! = BBjAPI().openSysGui("X0").addWindow(100,100,360,170,"Login")
 
-        userLabel! = #wnd!.addStaticText(101,10,20,100,25,"User name:")
+        #wnd!.addStaticText(101,10,20,100,25,"User name:")
         #userBox! = #wnd!.addEditBox(102,120,20,220,25,"")
-        passwordLabel! = #wnd!.addStaticText(103,10,55,100,25,"Password:")
+        #wnd!.addStaticText(103,10,55,100,25,"Password:")
 
         rem the flag $0400$ replaces the typed characters with asterisks
         #passwordBox! = #wnd!.addEditBox(104,120,55,220,25,"",$0400$)

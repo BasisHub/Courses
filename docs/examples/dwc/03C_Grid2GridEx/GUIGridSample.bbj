@@ -1,3 +1,11 @@
+declare auto BBjGridSelectRowEvent rowEvent!
+declare auto BBjResizeEvent resizeEvent!
+declare auto BBjTopLevelWindow wnd!
+declare auto BBjStandardGrid grid!
+declare auto BBjStaticText selection!
+declare auto BBjVector grid_vec!
+declare auto BBjVector head_vec!
+
 
 wnd! = BBjAPI().openSysGui("X0").addWindow(10,10,800,600,"Hello BBj DWC")
 
@@ -42,6 +50,7 @@ setup_grid:
         grid_vec!.addItem(str(rec.retail:"####0.00"))
         rowcount=rowcount+1
     wend
+    close (ch)
 
     grid!.setNumColumns(12)
     grid!.setNumRows(rowcount)
@@ -68,16 +77,16 @@ setup_grid:
 return
 
 on_grid_select:
-    ev! = BBjAPI().getLastEvent()
-    row = ev!.getRow()
+    rowEvent! = BBjAPI().getLastEvent()
+    row = rowEvent!.getRow()
     info$ = "You selected "+grid!.getCellText(row,0)+": '"+grid!.getCellText(row,1)+"' by "+grid!.getCellText(row,2)
     selection!.setText(info$)
 return
 
 resize:
-    ev! = BBjAPI().getLastEvent()
-    h = ev!.getHeight()
-    w = ev!.getWidth()
+    resizeEvent! = BBjAPI().getLastEvent()
+    h = resizeEvent!.getHeight()
+    w = resizeEvent!.getWidth()
     grid!.setSize(w-20,h-100)
     selection!.setLocation(10,h-70)
 return

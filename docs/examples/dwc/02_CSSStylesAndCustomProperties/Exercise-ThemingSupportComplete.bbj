@@ -1,3 +1,10 @@
+declare auto String layoutCss!
+declare auto String themeCss!
+
+declare auto BBjString css!
+declare auto BBjVector myVectCssProps!
+declare auto BBjVector myVectCssVals!
+
 rem /**
 rem  * Exercise-ThemingSupportComplete.bbj
 rem  *
@@ -90,9 +97,9 @@ release
 
 rem Load the layout CSS and the theme CSS from their files and inject both
 ApplyStylesAndLayout:
-    fs! = BBjAPI().getFileSystem()
-    layoutCss! = new String(Files.readAllBytes(Paths.get(fs!.resolvePath("./Exercise-ThemingSupportComplete-Layout.css"))))
-    themeCss! = new String(Files.readAllBytes(Paths.get(fs!.resolvePath("./Exercise-ThemingSupportComplete-Theme.css"))))
+    programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+    layoutCss! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("Exercise-ThemingSupportComplete-Layout.css")), "UTF-8")
+    themeCss! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("Exercise-ThemingSupportComplete-Theme.css")), "UTF-8")
 
     rem Inject the layout CSS, then the theme CSS
     web!.injectStyle(layoutCss!)
@@ -114,7 +121,7 @@ ApplyStylesAndLayout:
     myVectCssVals!.addItem("12px")
     myVectCssVals!.addItem("bold")
     myVectCssVals!.addItem("normal")
-    myVectCssVals!.addItem("light")
+    myVectCssVals!.addItem("300")
     myVectCssVals!.addItem("orange")
     myVectCssVals!.addItem("red")
     myVectCssVals!.addItem("green")

@@ -32,20 +32,20 @@ Many controls offer a "theme" attribute that can be set to one of the DWC's comp
 
 ### Color Properties
 
-Theme colors are defined by CSS custom properties with three main properties:
+In BBj 26.03, theme palettes use a seed color and hue and saturation properties:
 
+- **Seed color** - A CSS color used to derive a palette. Example: `--dwc-color-primary-seed: #0066cc;`
 - **Hue** - Degree on color wheel (0-360). Example: `--dwc-color-primary-h: 211;` (blue)
 - **Saturation** - Percentage (0-100%). Example: `--dwc-color-primary-s: 100%;` (bright)
-- **Contrast threshold** - When text should flip from white to black. Example: `--dwc-color-primary-c: 50%;`
 
-Colors range from 5% to 95% lightness: `--dwc-color-primary-25` (dark) to `--dwc-color-primary-85` (light).
+The numbered palette includes `--dwc-color-primary-25` and `--dwc-color-primary-85`. These shades provide darker and lighter colors. Use the theme's text colors for contrast instead of assuming that a shade number is a fixed lightness percentage.
 
 {/* TODO: screenshot outdated? */}
 ![DWC Themer showing color themes](./img/dwc-themer.png)
 
 ![Color CSS properties](./img/color-css.png)
 
-In effect, the DWC Themer only rewrites the underlying values of these CSS custom properties. When you pick a primary color with a BBjColorChooser, the DWC Themer takes the hue and saturation of the chosen color and uses them as the values of `--dwc-color-primary-h` and `--dwc-color-primary-s`. Some colors need a different contrast threshold. For example, `--dwc-color-warning-c` is set to 35 so that text on the yellow warning color stays legible.
+The screenshots show an older DWC Themer. Its contrast-threshold settings no longer apply to BBj 26.03. Override the current palette properties and let the built-in theme derive its shades and contrasting text colors. Check your result in both light and dark mode.
 
 ### Setting the Theme Attribute
 

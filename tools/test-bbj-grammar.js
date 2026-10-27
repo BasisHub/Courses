@@ -1,5 +1,5 @@
-// Smoke test for docs/src/prism/bbj-extend.js against the pre-verified snippet
-// (tools/data/bbj-token-verification.md). Run: node tools/test-bbj-grammar.js
+// Smoke test for docs/src/prism/bbj-extend.js against representative BBj syntax.
+// Run: node tools/test-bbj-grammar.js
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');

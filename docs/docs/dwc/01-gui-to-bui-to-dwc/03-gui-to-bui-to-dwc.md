@@ -101,8 +101,8 @@ After these changes, the app looks like this:
 To make the button span both columns, use either of these methods:
 
 ```bbj
-btn!.setStyle("grid-column","1 / 3")  REM Sets button to start in column 1 and end before column 3
-btn!.setStyle("grid-column","span 2") REM Sets button to span two grid columns
+btn!.setStyle("grid-column","1 / 3") ; rem Sets button to start in column 1 and end before column 3
+btn!.setStyle("grid-column","span 2"); rem Sets button to span two grid columns
 ```
 
 The button now spans both columns:
@@ -182,8 +182,8 @@ Change the window's creation flags from `$00100083$` to `$01101083$`. This instr
 Make the layout dynamic:
 
 ```bbj
-wnd!.setPanelStyle("display","inline-grid")  REM Prevents grid from taking full width
-wnd!.setPanelStyle("grid-template-columns","1fr 2fr")  REM Right column is twice as wide as left
+wnd!.setPanelStyle("display","inline-grid") ; rem Prevents grid from taking full width
+wnd!.setPanelStyle("grid-template-columns","1fr 2fr") ; rem Right column is twice as wide as left
 ```
 
 The layout is now compact:

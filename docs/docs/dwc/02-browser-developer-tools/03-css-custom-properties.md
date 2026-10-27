@@ -73,7 +73,8 @@ Load `CSSCustomProperties.bbj` from the `02_CSSStylesAndCustomProperties` folder
 Choose different CSS custom properties and values, then press the button to apply changes:
 
 ```bbj
-sampleWindow!.setStyle(currentProperty$, currentValue$)
+css$ = ":root { " + currentProperty$ + ": " + currentValue$ + "; }"
+BBjAPI().getWebManager().injectStyle(css$)
 ```
 
 The following screenshot shows the result of setting `--dwc-color-primary` to `orange`. The background of the check box and the radio button changes to orange:
@@ -85,12 +86,13 @@ The following screenshot shows the result of setting `--dwc-color-primary` to `o
 Modify the window title by adding CSS properties:
 
 ```bbj
-newValue!.addClass("fieldSet")
-css! = css! + "fieldSet legend {"
-css! = css! + "    color: var(--dwc-color-primary);"
-css! = css! + "    font-weight: bold;"
-css! = css! + "    text-align: center;"  REM Add this line
-css! = css! + "}"
+myChildWindow!.addClass("property-options")
+css$ = ".property-options > legend {"
+css$ = css$ + "    color: var(--dwc-color-primary-text);"
+css$ = css$ + "    font-weight: bold;"
+css$ = css$ + "    text-align: center;"; rem Add this line
+css$ = css$ + "}"
+BBjAPI().getWebManager().injectStyle(css$)
 ```
 
 ## The DWC's App Themes
@@ -146,6 +148,7 @@ myButton1!.setStyle("color", "yellow")
 ### Method 2: injectStyle() with Class
 
 ```bbj
+declare auto BBjString myButton2Css!
 myButton2Css! = ".myButton2 {"
 myButton2Css! = myButton2Css! + "    background: purple;"
 myButton2Css! = myButton2Css! + "    color: yellow;"
@@ -165,6 +168,7 @@ The code for `myButton1!` and `myButton2!` both tries to set the foreground and 
 ### Method 3: CSS Custom Properties
 
 ```bbj
+declare auto BBjString myButton3Css!
 myButton3Css! = ".myButton3 {"
 myButton3Css! = myButton3Css! + "    --dwc-button-background: purple;"
 myButton3Css! = myButton3Css! + "    --dwc-button-color: yellow;"
@@ -176,6 +180,7 @@ web!.injectStyle(myButton3Css!)
 ### Method 4: Shadow DOM Parts
 
 ```bbj
+declare auto BBjString myButton4Css!
 myButton4Css! = ".myButton4::part(control) {"
 myButton4Css! = myButton4Css! + "    background: purple;"
 myButton4Css! = myButton4Css! + "    color: yellow;"
@@ -188,34 +193,34 @@ The result shows four buttons. Buttons 1, 3, and 4 are purple with yellow text. 
 
 ![Four BBjButtons in a window; the first, third, and fourth are purple with yellow text and the second keeps the default style with purple only at its corners.](./img/set-style-example-buttons.png)
 
-## Using Directives to Inject JavaScript and CSS Dynamically
+<!-- vale Vale.Terms = NO -->
+## Injecting CSS dynamically {#using-directives-to-inject-javascript-and-css-dynamically}
+<!-- vale Vale.Terms = YES -->
 
 ### Reading External CSS Files
 
-**Method 1: Using DemoUtils**
-```bbj
-style! = DemoUtils.getFileContents(dsk("")+dir("")+"style.css")
-web! = BBjAPI().getWebManager()
-web!.injectStyle(css!, top)
-```
-
-**Method 2: Using Java's Files and Paths**
+**Method 1: using Java's Files and Paths**
 ```bbj
 use java.nio.file.Files
 use java.nio.file.Paths
-css! = new String(Files.readAllBytes(Paths.get(BBjAPI().getFileSystem().resolvePath("./style.css"))))
+declare auto String css!
+declare auto BBjWebManager web!
+programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+css! = new String(Files.readAllBytes(Paths.get(programPath$).resolveSibling("style.css")), "UTF-8")
 web! = BBjAPI().getWebManager()
-web!.injectStyle(css!, top)
+web!.injectStyle(css!)
 ```
 
-**Method 3: Using BBj open/readrecord/close**
+**Method 2: using BBj open/readrecord/close**
 ```bbj
+programPath$ = BBjAPI().getProgramInfo(pgm(-2)).getCanonicalProgramName()
+cssPath$ = java.nio.file.Paths.get(programPath$).resolveSibling("style.css").toString()
 chan = unt
-open(chan, isz = -1)"./style.css"
+open(chan, isz = -1)cssPath$
 readrecord(chan, SIZ = -10000000)css$
 close(chan)
 web! = BBjAPI().getWebManager()
-web!.injectStyle(css$, top)
+web!.injectStyle(css$)
 ```
 
 ## The Web Component Architecture and the Shadow DOM
@@ -266,7 +271,7 @@ Shadow trees inherit CSS custom properties from their host:
 
 ```bbj
 web! = BBjAPI().getWebManager()
-web!.setStyle("background", "purple", "dwc-button")
+web!.injectStyle("dwc-button { --dwc-button-background: purple; }")
 ```
 
 **Method 2: CSS Shadow Parts (::part)**
@@ -274,6 +279,7 @@ web!.setStyle("background", "purple", "dwc-button")
 Target exposed parts of the shadow DOM:
 
 ```bbj
+declare auto BBjString myButton4Css!
 myButton4Css! = ".myButton4::part(control) {"
 myButton4Css! = myButton4Css! + "    background: purple;"
 myButton4Css! = myButton4Css! + "    color: yellow;"
@@ -306,7 +312,7 @@ With `::part(label)` only the label area is purple, and the other areas of the b
 ![A BBjButton with a purple band behind the yellow text and the default blue-gray style around it.](./img/part-label-result.png)
 
 :::note
-Inheritable styles (background, color, font, line height, etc.) continue to inherit in shadow DOM and can penetrate the shadow DOM boundary. Outside styles always win over styles defined in shadow DOM.
+Inherited properties, such as color, font, and line height, pass from a host into its shadow tree unless an internal rule overrides them. Background doesn't inherit. Use the component's CSS custom properties or exposed shadow parts to style its internals.
 :::
 
 :::tip Finding CSS Properties and Parts

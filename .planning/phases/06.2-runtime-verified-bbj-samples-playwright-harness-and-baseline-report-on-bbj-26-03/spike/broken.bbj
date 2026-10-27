@@ -1,6 +1,0 @@
-rem Spike: untrapped runtime error after the window is visible
-wnd! = BBjAPI().openSysGui("X0").addWindow("Spike broken", $01101083$)
-st! = wnd!.addStaticText("Before error")
-st!.noSuchMethod()
-st! = wnd!.addStaticText("After error")
-process_events

@@ -89,6 +89,7 @@ The following snippet creates a DataRow and sets two string fields and one field
 
 ```bbj
 use com.basiscomponents.db.DataRow
+declare auto DataRow record!
 record! = new DataRow()
 record!.setFieldValue("LAST_NAME","Picard")
 record!.setFieldValue("FIRST_NAME","Jean-Luc")
@@ -109,6 +110,7 @@ The DataRow class has a factory method, [fromTemplate](https://basishub.github.i
 
 ```bbj
 use com.basiscomponents.db.DataRow
+declare auto DataRow record!
 TPL$="LAST_NAME:C(25*),FIRST_NAME:C(25*),DOB:N(7)"
 DIM R$:TPL$
 
@@ -129,7 +131,9 @@ To load a grid with data, you combine the single records into a [ResultSet](http
 
 ```bbj
 use com.basiscomponents.db.DataRow
+declare auto DataRow record!
 use com.basiscomponents.db.ResultSet
+declare auto ResultSet rs!
 rs! = new ResultSet()
 
 record! = new DataRow()
@@ -156,7 +160,9 @@ If your data comes from SQL, you can create a ResultSet directly with SqlQueryBC
 
 ```bbj
 use com.basiscomponents.db.ResultSet
+declare auto ResultSet rs!
 use com.basiscomponents.bc.SqlQueryBC
+declare auto SqlQueryBC sbc!
 sbc! = new SqlQueryBC(BBjAPI().getJDBCConnection("CDStore"))
 rs! = sbc!.retrieve("SELECT  * FROM CDINVENTORY")
 ```
@@ -168,12 +174,19 @@ The [CDStore sample](https://github.com/BBj-Plugins/BBjGridExWidget/blob/master/
 You can load the ResultSet from the previous section into a BBjGridExWidget with the `setData` method of its API:
 
 ```bbj
+declare auto BBjTopLevelWindow wnd!
+declare auto BBjChildWindow cw!
+declare auto BBjGridExWidget grid!
+declare auto ResultSet rs!
+declare auto DataRow record!
+
 use ::BBjGridExWidget/BBjGridExWidget.bbj::BBjGridExWidget
 use com.basiscomponents.db.ResultSet
 use com.basiscomponents.db.DataRow
 
 wnd! = BBjAPI().openSysGui("X0").addWindow("Hello BBj DWC", $01111083$)
 wnd!.setPanelStyle("height","100%")
+wnd!.setCallback(BBjAPI.ON_CLOSE,"onClose")
 
 cw! = wnd!.addChildWindow("",$00108000$,BBjAPI().getSysGui().getAvailableContext())
 cw!.setStyle("height","100%")
@@ -200,6 +213,9 @@ rs!.add(record!)
 grid!.setData(rs!)
 
 process_events
+
+onClose:
+release
 ```
 
 Run this program in the DWC. The grid takes the full browser canvas to display the BBjGridExWidget.

@@ -12,6 +12,7 @@
 .login-card {
   display: grid;
   gap: var(--dwc-space-m);
+  box-sizing: border-box;
   width: 22rem;
   padding: var(--dwc-space-xl);
   border-radius: var(--dwc-border-radius);
