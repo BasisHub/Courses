@@ -16,6 +16,8 @@ Can you refactor your Tic Tac Toe to be Object-Oriented? How many classes would 
 
 The original course had no solution for this exercise, so this one was written for this book. It refactors the Tic-Tac-Toe solution `TicTacToe.bbj` into four files. `Board` holds the nine cells and the rules, so the game logic has no window code. `Player` holds a name and a mark, so a later version can add a computer player without touching the board. `GameWindow` owns the controls and callbacks and asks `Board` for every decision. `PlayTicTacToe.bbj` only starts the game. Keep the four files in one folder and run `PlayTicTacToe.bbj`. You find them in the folder `exercises/oo-tic-tac-toe/` of the [exercises.zip](pathname:///files/intro-bbj/exercises.zip) link.
 
+Use `exercises/oo-tic-tac-toe/` as the working directory for compilation and launch, or add that folder to `PREFIX`. Keeping the files together does not make them visible when your IDE uses another working directory. For a command-line check from this folder, run `bbjcpl -t -N -X PlayTicTacToe.bbj`; from elsewhere, also pass the class folder with `-P<folder>`. The [class-reference lesson](./03-reference-classes.mdx) explains these search paths.
+
 ```bbj title="Board.bbj"
 rem Board.bbj
 rem Part of the possible solution for the bonus exercise Make your Tic-Tac-Toe object-oriented, written for the Introduction to BBj Development book

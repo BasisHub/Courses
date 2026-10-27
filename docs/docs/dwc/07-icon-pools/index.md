@@ -11,7 +11,17 @@ The DWC provides built-in icon pools that allow you to easily add icons to your 
 
 ## Using Icons in DWC
 
-Icons can be added to controls using HTML syntax:
+In DWC with BBj 24.11 or later, create an icon as a web component and place it in a button's `prefix` slot:
+
+```bbj
+declare auto BBjWebComponent icon!
+icon! = window!.addWebComponent("dwc-icon")
+icon!.setAttribute("name","sun")
+button!.setText("Light Mode")
+button!.setSlot("prefix",icon!)
+```
+
+This is the approach used in `DWC2.bbj`. See [`BBjControl::setSlot`](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/BBjControl_setSlot.htm) for the slot API. Controls that support HTML content can also include an icon in their text, as the examples later in this section demonstrate:
 
 ```bbj
 button!.setText("<html><dwc-icon name='sun'></dwc-icon> Light Mode")
@@ -37,7 +47,7 @@ The DWC includes several icon pools:
 
 Tabler and Feather are free-to-use, open-source libraries that keep adding new icons. Tabler and Feather icons use their plain names, such as `speakerphone` and `speaker`. Font Awesome names carry a prefix for the style: `fas-` for solid, and the other styles for regular, light, thin, duotone and brands (company logos). For example, `fas-microphone-alt` is the solid microphone icon.
 
-To use an icon from a pool you give the control its content in HTML form. Many BBj controls render HTML, so this is rarely a limitation. `DWC2.bbj` from the first chapter puts a Tabler icon on its button and shows the Feather and Font Awesome alternatives as comments.
+Set an icon's `pool` and `name` attributes to select it, whether you create it with `addWebComponent` or include it in HTML content. `DWC2.bbj` from the first section puts a Tabler icon in its button's prefix slot and shows the Feather and Font Awesome alternatives as comments.
 
 ## Icon Syntax
 

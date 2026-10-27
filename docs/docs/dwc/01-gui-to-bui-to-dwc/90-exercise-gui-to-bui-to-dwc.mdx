@@ -77,12 +77,15 @@ sayhello:
 return
 ```
 
+The `DWC2.bbj` solution runs in DWC with BBj 24.11 or later. It creates a `dwc-icon` web component and places it in the button's `prefix` slot with [`setSlot`](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/BBjControl_setSlot.htm).
+
 ```bbj title="DWC2.bbj"
 declare auto BBjTopLevelWindow wnd!
 declare auto BBjStaticText st!
 declare auto BBjEditBox ed_firstname!
 declare auto BBjEditBox ed_lastname!
 declare auto BBjButton btn!
+declare auto BBjWebComponent btnIcon!
 
 rem /**
 rem  * DWC2.bbj
@@ -91,6 +94,7 @@ rem  * making more DWC-specific changes to it, including:
 rem  *   - Adding the window without specifying the x, y, w, and h parameters
 rem  *   - Removing the window's title bar and setting it to be initially maximized
 rem  *   - Adding the controls to the window without specifying the ID, x, y, w, and h parameters
+rem  *   - Adding an icon to the button's prefix slot (DWC, BBj 24.11 or later)
 rem  */
 
 wnd! = BBjAPI().openSysGui("X0").addWindow("Hello BBj DWC", $01101083$)
@@ -105,20 +109,26 @@ ed_firstname! = wnd!.addEditBox("")
 st! = wnd!.addStaticText("Last Name:")
 ed_lastname! = wnd!.addEditBox("")
 
-rem Use an icon from the tabular pool
+btn! = wnd!.addButton("Say Hello")
+btnIcon! = wnd!.addWebComponent("dwc-icon")
+
+rem Use an icon from the Tabler pool
 rem @see https://tabler-icons.io/
-rem https://dwc.style/docs/#/dwc/dwc-icon
-btnIcon$ = "<dwc-icon name='speakerphone'></dwc-icon>"
+rem https://dwc.style/docs/#/web-components/dwc-icon
+btnIcon!.setAttribute("pool","tabler")
+btnIcon!.setAttribute("name","speakerphone")
 
 rem Use an icon from the feather pool
 rem @see https://feathericons.com/
-rem btnIcon$ = "<dwc-icon name='speaker' pool='feather'></dwc-icon>"
+rem btnIcon!.setAttribute("pool","feather")
+rem btnIcon!.setAttribute("name","speaker")
 
 rem Use an icon from the fontawesome-free pool
 rem @see https://fontawesome.com/v5/search?m=free
-rem btnIcon$ = "<dwc-icon name='fas-microphone-alt' pool='fa'></dwc-icon>"
+rem btnIcon!.setAttribute("pool","fa")
+rem btnIcon!.setAttribute("name","fas-microphone-alt")
 
-btn! = wnd!.addButton("<html>Say Hello " + btnIcon$ +"</html>")
+btn!.setSlot("prefix",btnIcon!)
 
 btn!.setStyle("grid-column","2")
 

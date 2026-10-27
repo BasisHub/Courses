@@ -30,7 +30,7 @@ The program displays a dialog with inputs for the user's first and last names an
 
 - **`GUISample.bbj`** - Can run equally well in all three clients
 - **`DWC1.bbj`** - Sets the `$00100000$` creation flag on the window to cause the DWC to ignore all size and position information for the controls. It adds styles to the window's panel to layout the controls using CSS Grid and sets attributes on the [Say Hello] button so that it is displayed as a very large green button.
-- **`DWC2.bbj`** - Sets more window creation flags to hide the window's title bar and to set it to be initially maximized. It removes all the x, y, width, and height parameters from the controls.
+- **`DWC2.bbj`** - Sets more window creation flags to hide the window's title bar and to set it to be initially maximized. It removes all the x, y, width, and height parameters from the controls and adds an icon to the button's prefix slot. Run this sample in DWC with BBj 24.11 or later.
 
 ## Example 1 - Running the App in GUI, BUI, and the DWC
 
@@ -202,6 +202,22 @@ st! = wnd!.addStaticText("Last Name:")
 ed_lastname! = wnd!.addEditBox("")
 btn! = wnd!.addButton("Say Hello")
 ```
+
+### Step 4: add a button icon
+
+In BBj 24.11 or later, create a `dwc-icon` as a `BBjWebComponent` and move it into the button's `prefix` slot with [`setSlot`](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/BBjControl_setSlot.htm):
+
+```bbj
+declare auto BBjWebComponent btnIcon!
+btnIcon! = wnd!.addWebComponent("dwc-icon")
+btnIcon!.setAttribute("pool","tabler")
+btnIcon!.setAttribute("name","speakerphone")
+btn!.setSlot("prefix",btnIcon!)
+```
+
+The icon appears before the existing `Say Hello` text. `setSlot` moves the icon into the button, so it doesn't occupy a separate grid cell. The button's text, theme, and callback still work through the usual BBj methods. This slot API applies only to the DWC client.
+
+The icon loads from a content delivery network (CDN), so the browser needs internet access. To try another icon pool, change the `pool` and `name` attributes together; `DWC2.bbj` includes commented Feather and Font Awesome alternatives.
 
 ## Going the Extra Mile
 

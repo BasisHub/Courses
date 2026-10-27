@@ -15,3 +15,7 @@ use ::Car.bbj::FlyingCar
 ```
 
 to reference the Car and FlyingCar classes in the original file.
+
+`USE` finds program files through the working directory and `PREFIX`. In Eclipse/BDT, the working directory defaults to the project home, which can differ from the folder containing the program. Keep `Car.bbj` and `CarApplication.bbj` together, use that folder as the working directory for compilation and launch, or add it to `PREFIX`. Run `CarApplication.bbj`, which uses the classes defined in `Car.bbj`. See the [BDT file-resolution documentation](https://documentation.basis.cloud/BASISHelp/WebHelp/ide/BDT_Code_Completion.htm).
+
+For a command-line check, run `bbjcpl -t -N -X CarApplication.bbj` from that folder. When compiling from another directory, pass the class folder with `-P<folder>` as well as the program path. The compiler's `-P` option sets its search path; it does not configure the application's runtime `PREFIX`. See the [compiler options](https://documentation.basis.cloud/BASISHelp/WebHelp/util/bbjcpl_bbj_compiler.htm).
