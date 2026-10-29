@@ -11,9 +11,10 @@
 /* The dialog itself: a card with a fixed width. */
 .login-card {
   display: grid;
+  align-content: center;
   gap: var(--dwc-space-m);
   box-sizing: border-box;
-  width: 22rem;
+  width: min(22rem, 100%);
   padding: var(--dwc-space-xl);
   border-radius: var(--dwc-border-radius);
   background: var(--dwc-surface-3);

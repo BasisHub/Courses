@@ -91,7 +91,7 @@ btnSubmit! = window!.addButton("Exit")
 btnSubmit!.setAttribute("theme", "primary")
 btnSubmit!.setAttribute("expanse", "xl")
 btnSubmit!.setStyle("margin-top", "1em")
-btnSubmit!.setCallback(BBjButton.ON_FORM_VALIDATION, "OnExit")
+btnSubmit!.setCallback(BBjButton.ON_BUTTON_PUSH, "OnExit")
 
 window!.setVisible(1)
 process_events

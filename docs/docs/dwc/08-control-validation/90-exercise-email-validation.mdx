@@ -24,6 +24,8 @@ This exercise builds on the example program that demonstrates built-in client-si
 
 The starter file is `Exercise-BuiltInValidation.bbj`. The solution is in `Exercise-BuiltInValidationComplete.bbj`, and you find all files in [07_ControlValiation.zip](pathname:///files/dwc/07_ControlValiation.zip).
 
+The solution also checks the submitted data on the server. It trims required names and reuses the email and ZIP pattern strings in its `ON_FORM_VALIDATION` callback, so bypassing the browser checks doesn't make invalid input acceptable. An empty ZIP code remains valid because that field is optional.
+
 ```bbj title="Exercise-BuiltInValidationComplete.bbj"
 rem /**
 rem  * Exercise-BuiltInValidationComplete.bbj
@@ -87,7 +89,8 @@ editLastName!.setAttribute("required", "true")
 
 rem Define the built-in client-side validation for the zip code field
 rem by setting a valid regular expression pattern
-editZip!.setAttribute("pattern", "(\d{5})(-\d{4})?")
+zipPattern$ = "(\d{5})(-\d{4})?"
+editZip!.setAttribute("pattern", zipPattern$)
 
 
 rem Add code below to make the Email field take advantage of built-in validation to make it:
@@ -95,7 +98,8 @@ rem 1) required and 2) match a regex pattern for a valid email address.  Tip: th
 rem well for an email regular expression: [\w.+\-]+@[\w\-]+(\.[\w\-]+)*\.[A-Za-z]{2,}
 rem Browsers compile the pattern with the v flag, so the characters - / { } | inside [ ] must be escaped.
 editEmail!.setAttribute("required", "true")
-editEmail!.setAttribute("pattern", "[\w.+\-]+@[\w\-]+(\.[\w\-]+)*\.[A-Za-z]{2,}")
+emailPattern$ = "[\w.+\-]+@[\w\-]+(\.[\w\-]+)*\.[A-Za-z]{2,}"
+editEmail!.setAttribute("pattern", emailPattern$)
 
 
 window!.setVisible(1)
@@ -114,14 +118,18 @@ release
 rem Handle the form validation
 OnFormValidation:
     e! = BBjAPI().getSysGui().getLastEvent()
-    firstName! = e!.getText(editFirstName!)
-    lastName! = e!.getText(editLastName!)
-    if (len(firstName!) AND len(lastName!)) AND (e!.getText(editEmail!).trim().length()) then
+    firstName! = e!.getText(editFirstName!).trim()
+    lastName! = e!.getText(editLastName!).trim()
+    emailText! = e!.getText(editEmail!).trim()
+    zipText! = e!.getText(editZip!).trim()
+    validEmail = emailText!.matches(emailPattern$)
+    validZip = (zipText! = "") or zipText!.matches(zipPattern$)
+    if (len(firstName!) AND len(lastName!)) AND validEmail AND validZip then
         e!.accept(1)
         temp = msgbox("Congrats, you filled in the form successfully!", BBjSysGui.MSGBOX_ICON_INFORMATION, "Form Submitted Successfully", mode="theme=success")
     else
         e!.accept(0)
-        temp = msgbox("Oops, you didn't fill out the form completely - remember to fill in your email address!", BBjSysGui.MSGBOX_ICON_STOP, "Invalid Input", mode="theme=danger")
+        temp = msgbox("Check the required names, email address, and ZIP code.", BBjSysGui.MSGBOX_ICON_STOP, "Invalid Input", mode="theme=danger")
     endif
 return
 
@@ -138,6 +146,8 @@ declare auto BBjEditBox editState!
 declare auto BBjEditBox editZip!
 declare auto BBjButton btnSubmit!
 declare auto BBjFormValidationEvent e!
+declare auto BBjString emailText!
+declare auto BBjString zipText!
 
 rem Use statements
 ```

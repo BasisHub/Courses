@@ -9,7 +9,9 @@ A possible solution is at the end of this page.
 
 In the prior lesson, you wrote a login dialog. Make this one responsive with what you know about CSS responsive design. How do you want it on a phone? Full Screen? On a tablet or desktop? In the centered middle on a wallpaper background?
 
-Use a [BBjChildWindow](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjchildwindow/bbjchildwindow.htm) to group the form controls. The `$00100000$` flag enables flow layout on the child window, as it does on the top-level window. Use `setPanelStyle` for CSS properties on its content panel and `addPanelStyle` for a CSS class on that panel. You can put the layout rules in a stylesheet and apply them through the class.
+Use a [BBjChildWindow](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjchildwindow/bbjchildwindow.htm) to group the form controls. The `$00100000$` flag enables flow layout on the child window, as it does on the top-level window. The solution combines it with Simple and Borderless as `$00108800$` to make a plain layout container. Use `setPanelStyle` for CSS properties on its content panel and `addPanelStyle` for a CSS class on that panel. You can put the layout rules in a stylesheet and apply them through the class.
+
+For this DWC form, attach the captions directly to the inputs with `setAttribute("label", ...)`. These [DWC labels](https://documentation.basis.cloud/BASISHelp/WebHelp/dwc/DWC_Labels.htm) stay associated with their inputs when the layout changes and let screen readers identify the fields.
 
 :::
 
@@ -51,19 +53,19 @@ class public ResponsiveLoginDialog
         BBjAPI().getWebManager().injectStyle(css!)
 
         rem the flags make the window borderless and maximized and switch it to CSS layout
-        #wnd! = BBjAPI().openSysGui("X0").addWindow(10,10,800,600,"Login",$01101083$)
+        #wnd! = BBjAPI().openSysGui("X0").addWindow("Login",$01101083$)
         #wnd!.addPanelStyle("login-screen")
 
         rem the card is a child window with the same CSS layout flag
-        #card! = #wnd!.addChildWindow("",$00100000$,BBjAPI().getSysGui().getAvailableContext())
+        #card! = #wnd!.addChildWindow("",$00108800$,BBjAPI().getSysGui().getAvailableContext())
         #card!.addPanelStyle("login-card")
 
-        #card!.addStaticText("User name:")
         #userBox! = #card!.addEditBox("")
-        #card!.addStaticText("Password:")
+        #userBox!.setAttribute("label","User name")
 
         rem the flag $0400$ replaces the typed characters with asterisks
         #passwordBox! = #card!.addEditBox(#card!.getAvailableControlID(),"",$0400$)
+        #passwordBox!.setAttribute("label","Password")
 
         #loginBtn! = #card!.addButton("Login")
         #loginBtn!.setAttribute("theme","primary")
@@ -125,9 +127,10 @@ release
 /* The dialog itself: a card with a fixed width. */
 .login-card {
   display: grid;
+  align-content: center;
   gap: var(--dwc-space-m);
   box-sizing: border-box;
-  width: 22rem;
+  width: min(22rem, 100%);
   padding: var(--dwc-space-xl);
   border-radius: var(--dwc-border-radius);
   background: var(--dwc-surface-3);

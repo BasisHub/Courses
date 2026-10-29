@@ -69,10 +69,14 @@ gosub ApplyStylesAndLayout
 
 rem Add a toggle button for dark/light mode
 currentTheme$ = "light"
-lightTheme$ = "<html><dwc-icon name='sun'></dwc-icon> Light"
-darkTheme$ = "<html><dwc-icon name='moon'></dwc-icon> Dark"
+web!.setTheme(currentTheme$)
+lightTheme$ = "Light"
+darkTheme$ = "Dark"
 
 myThemeToggle! = myWindow!.addButton(lightTheme$)
+myThemeIcon! = myWindow!.addWebComponent("dwc-icon")
+myThemeIcon!.setAttribute("name", "sun")
+myThemeToggle!.setSlot("prefix", myThemeIcon!)
 myThemeToggle!.setCallback(BBjButton.ON_BUTTON_PUSH, "onThemeToggle")
 
 
@@ -177,9 +181,11 @@ onThemeToggle:
     if (currentTheme$ = "light") then
         currentTheme$ = "dark"
         myThemeToggle!.setText(darkTheme$)
+        myThemeIcon!.setAttribute("name", "moon")
     else
         currentTheme$ = "light"
         myThemeToggle!.setText(lightTheme$)
+        myThemeIcon!.setAttribute("name", "sun")
     endif
     web!.setTheme(currentTheme$)
 return
@@ -191,6 +197,7 @@ declare auto BBjSysGui mySysGui!
 declare auto BBjTopLevelWindow myWindow!
 declare auto BBjChildWindow myChildWindow!
 declare auto BBjButton myThemeToggle!
+declare auto BBjWebComponent myThemeIcon!
 declare auto BBjListEdit myListEditCSSProps!
 declare auto BBjListEdit myListEditCSSVals!
 declare auto BBjButton myButtonSetCSS!

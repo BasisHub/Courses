@@ -28,16 +28,21 @@ rem Add a toggle button for dark/light mode
 web! = BBjAPI().getWebManager()
 
 declare auto BBjButton myThemeToggle!
+declare auto BBjWebComponent myThemeIcon!
 currentTheme$ = "light"
-lightTheme$ = "<html><dwc-icon name='sun'></dwc-icon> Light"
-darkTheme$ = "<html><dwc-icon name='moon'></dwc-icon> Dark"
+web!.setTheme(currentTheme$)
+lightTheme$ = "Light"
+darkTheme$ = "Dark"
 
 myThemeToggle! = myWindow!.addButton(lightTheme$)
+myThemeIcon! = myWindow!.addWebComponent("dwc-icon")
+myThemeIcon!.setAttribute("name", "sun")
+myThemeToggle!.setSlot("prefix", myThemeIcon!)
 myThemeToggle!.setCallback(BBjButton.ON_BUTTON_PUSH, "onThemeToggle")
 ```
 
 :::note
-This example uses the DWC's icon pools, which will be covered in more detail later in the course.
+This example uses a `dwc-icon` web component in the button's `prefix` slot through [`setSlot`](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/SysGui/bbjcontrol/BBjControl_setSlot.htm), available in BBj 24.11 and later. The icon pools are covered in more detail later in the course.
 :::
 
 ### Step 2: Add the Callback
@@ -47,9 +52,11 @@ onThemeToggle:
     if (currentTheme$ = "light") then
         currentTheme$ = "dark"
         myThemeToggle!.setText(darkTheme$)
+        myThemeIcon!.setAttribute("name", "moon")
     else
         currentTheme$ = "light"
         myThemeToggle!.setText(lightTheme$)
+        myThemeIcon!.setAttribute("name", "sun")
     endif
     web!.setTheme(currentTheme$)
 return

@@ -17,7 +17,7 @@ The default mapping to `/webapp/` can be changed in Enterprise Manager under Web
 
 DWC offers additional deployment options beyond the standard webapp URL:
 - **Embedded Deployment** - Host DWC apps in custom HTML pages
-- **Progressive Web Apps (PWA)** - Deploy as installable apps with offline support
+- **Progressive Web Apps (PWA)** - Deploy as installable apps with cached resources and an offline page
 
 ## DWC Embedded Deployment
 
@@ -94,8 +94,10 @@ BASIS provides [BBjPWA](https://github.com/BasisHub/BBjPWA), a Node.js-based CLI
 - **Index Page** - Creates an entry point for your DWC application as an embedded DWC app
 - **Web App Manifest** - Generates a `manifest.json` file for PWA functionality
 - **Icons** - Automatically generates icons in various sizes for different platforms
-- **Service Worker** - Caches app resources for improved performance and offline support
+- **Service Worker** - Caches static resources such as images and stylesheets
 - **Offline Page** - Generates a page displayed when users lose internet connectivity
+
+BBjPWA caches resources and can show an offline page; it doesn't move BBj execution into the browser. The running DWC application still needs a connection to BBjServices. See the [BBjPWA capabilities](https://github.com/BasisHub/BBjPWA#bbj-pwa).
 
 ### The Web App Manifest
 
@@ -133,7 +135,7 @@ Service workers cache your app's resources, including:
 - Images and other static assets
 - API responses (when configured)
 
-This enables your app to work offline or with poor network connectivity.
+Caching makes those resources and the offline fallback page available without a network connection. It doesn't make server-side BBj logic available offline.
 
 ## Choosing a Deployment Option
 
@@ -141,7 +143,7 @@ This enables your app to work offline or with poor network connectivity.
 |--------|----------|
 | **Standard webapp URL** | Most applications, simple deployment |
 | **Embedded deployment** | Custom branding, additional metadata, integration with existing sites |
-| **PWA** | Mobile users, offline support, app store distribution |
+| **PWA** | Mobile users, resource caching, offline fallback page, app store distribution |
 
 ## Resources
 

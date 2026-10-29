@@ -2,7 +2,7 @@
 // Usage: node tools/check-mdx.mjs FILE...
 // Exit codes: 0 all files compile, 1 any compile failure,
 // 2 usage error or @mdx-js/mdx not found (run: cd docs && npm ci).
-// Uses the same @mdx-js/mdx the docs build uses, resolved from docs/.
+// Uses the site's MDX compiler and its heading-ID/HTML-comment compatibility.
 import {createRequire} from 'node:module';
 import {readFileSync} from 'node:fs';
 import {fileURLToPath, pathToFileURL} from 'node:url';
@@ -16,10 +16,12 @@ if (files.length === 0) {
 }
 
 let compile;
+let escapeMarkdownHeadingIds;
+let remarkComment;
 try {
+  const req = createRequire(path.join(root, 'docs', 'package.json'));
   let target;
   try {
-    const req = createRequire(path.join(root, 'docs', 'package.json'));
     target = pathToFileURL(req.resolve('@mdx-js/mdx')).href;
   } catch {
     target = pathToFileURL(
@@ -27,8 +29,12 @@ try {
     ).href;
   }
   ({compile} = await import(target));
+  ({escapeMarkdownHeadingIds} = req('@docusaurus/utils'));
+  ({default: remarkComment} = await import(
+    pathToFileURL(req.resolve('@slorber/remark-comment')).href,
+  ));
 } catch (e) {
-  console.error('Cannot load @mdx-js/mdx from docs/: run cd docs && npm ci');
+  console.error('Cannot load MDX/Docusaurus dependencies from docs/: run cd docs && npm ci');
   process.exit(2);
 }
 
@@ -44,8 +50,11 @@ function stripFrontMatter(text) {
 let failed = false;
 for (const file of files) {
   try {
-    const text = stripFrontMatter(readFileSync(file, 'utf8'));
-    await compile(text, {format: 'mdx'});
+    const text = stripFrontMatter(readFileSync(file, 'utf8').replace(/\r\n/g, '\n'));
+    await compile(escapeMarkdownHeadingIds(text), {
+      format: 'mdx',
+      remarkPlugins: [remarkComment],
+    });
   } catch (e) {
     failed = true;
     const pos = e.line ? ` (${e.line}:${e.column})` : '';

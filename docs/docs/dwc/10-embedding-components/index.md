@@ -207,44 +207,52 @@ Slots allow you to insert content into specific locations within web components.
 
 When you embed a web component or a third-party library, you sometimes need to put a BBj control such as a `BBjChildWindow` "in the middle" of the other control. That "in the middle" is a slot. A tab control or an accordion, for example, makes areas inside it visible or invisible depending on its state. For a BBj developer, these areas should be `BBjChildWindow` controls so that BBj can control them.
 
-### Using Slots
+### Using slots
+
+For a custom element, use [`BBjWindow::addWebComponent`](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/bbjwindow/BBjWindow_addWebComponent.htm) to create a `BBjWebComponent`. Then use [`setSlot`](https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/BBjWebComponent/BBjWebComponent_setSlot.htm) to move a BBj control into a named slot. The slot name comes first:
 
 ```bbj
-rem Create a component with slots
-html$ = "<my-component>"
-html$ = html$ + "  <span slot='header'>Header Content</span>"
-html$ = html$ + "  <span slot='content'>Main Content</span>"
-html$ = html$ + "</my-component>"
-htmlView! = wnd!.addHtmlView(html$)
+declare auto BBjWebComponent component!
+declare auto BBjStaticText header!
+component! = wnd!.addWebComponent("my-component")
+header! = wnd!.addStaticText("Header Content")
+component!.setSlot("header",header!)
 ```
 
-### Example for Slots: a Splitter Component from Shoelace
+This fragment assumes that `my-component` has been loaded and defines a `header` slot. `setSlot` moves the existing control into the component; BBj keeps its control object and callbacks. A `BBjHTMLView` remains useful for libraries such as Chart.js that draw into an HTML document.
 
-The [Shoelace library](https://shoelace.style/) is a set of web components that you can combine with BBj in the way you have learned so far. Create a `BBjHTMLView`, load the library from a CDN, then use HTML and JavaScript to show the control in the browser.
+### Example: a Shoelace split panel
 
-A splitter component divides the screen or an area into two parts and lets the user change the ratio between them with a divider. With Shoelace you can create a horizontal [split panel](https://shoelace.style/components/split-panel) in HTML:
+The [Shoelace split panel](https://shoelace.style/components/split-panel) divides an area into two parts with a draggable divider. Its `start` and `end` slots hold the two panels; its `handle` slot customizes the divider.
 
 ![Shoelace split panel with a Start area above and an End area below a draggable divider](./img/shoelace-split-panel.png)
 
-Where the screenshot shows the labels "Start" and "End," a BBj developer expects a `BBjChildWindow` that can hold arbitrary BBj controls. The problem is that a control or child window you create on a window appears next to the other elements. There is no direct way to create it inside another element.
+`ShoelaceSplitter.bbj` creates the component directly, loads Shoelace 2.20.1 as an ES module, and moves two `BBjChildWindow` controls into its slots. Run it in DWC with BBj 24.11 or later. The browser needs internet access to load the pinned Shoelace files and the divider icon.
 
-The trick is to use JavaScript to put a `BBjChildWindow` into the slot of the other component:
-
-1. Add two child windows as you always do.
-2. Set their `id` attributes, then call `getAttribute("id")` to read those IDs.
-3. Call `appendChild` to move each child window into the other element, which you created with a UUID as its ID.
+The key calls are:
 
 ```bbj
-BBjAPI().getSysGui().executeScript(
-:"document.getElementById('" + uuid$ + "').appendChild(document.getElementById('" + top!.getAttribute("id") + "'));"+
-:"document.getElementById('" + uuid$ + "').appendChild(document.getElementById('" + bottom!.getAttribute("id") + "'));")
+declare auto BBjWebComponent splitter!
+declare auto BBjChildWindow top!
+declare auto BBjChildWindow bottom!
+splitter! = window!.addWebComponent("sl-split-panel")
+splitter!.setAttribute("vertical","true")
+splitter!.setStyle("height","100%")
+
+top! = window!.addChildWindow("",$00108800$,BBjAPI().getSysGui().getAvailableContext())
+top!.addButton("This is the top panel").setAttribute("theme","danger")
+splitter!.setSlot("start",top!)
+
+bottom! = window!.addChildWindow("",$00108800$,BBjAPI().getSysGui().getAvailableContext())
+bottom!.addButton("This is the bottom panel").setAttribute("theme","success")
+splitter!.setSlot("end",bottom!)
 ```
 
-If you want to use `getAttribute("id")`, call `setAttribute("id", "your id here")` first.
-
-The result is a splitter with two child windows, each hosting a full-size button:
+The complete sample also gives the window and child panels their grid layout and height. It uses a `dwc-icon` in the divider's `handle` slot. There are no generated DOM IDs or `appendChild` scripts to maintain.
 
 ![Window with a red top panel and a green bottom panel inside the splitter](./img/shoelace-splitter-result.png)
+
+These examples keep Shoelace 2.20.1 to make the course reproducible. Shoelace is [no longer in active development](https://shoelace.style/); evaluate a maintained component library for a new production app. The BBj component and slot APIs apply to other custom elements as well.
 
 ## Popular Libraries to Embed
 

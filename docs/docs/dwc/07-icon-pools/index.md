@@ -97,12 +97,17 @@ dwc-icon {
 ## Example - Adding Icons to Buttons
 
 ```bbj
-rem Create a button with an icon
-btn! = wnd!.addButton("<html><dwc-icon name='check'></dwc-icon> Save")
+declare auto BBjWebComponent btnIcon!
+btn! = wnd!.addButton("Save")
+btnIcon! = wnd!.addWebComponent("dwc-icon")
+btnIcon!.setAttribute("name", "check")
+btn!.setSlot("prefix", btnIcon!)
 
-rem Create a danger button with icon
-deleteBtn! = wnd!.addButton("<html><dwc-icon name='trash'></dwc-icon> Delete")
+deleteBtn! = wnd!.addButton("Delete")
 deleteBtn!.setAttribute("theme", "danger")
+btnIcon! = wnd!.addWebComponent("dwc-icon")
+btnIcon!.setAttribute("name", "trash")
+deleteBtn!.setSlot("prefix", btnIcon!)
 ```
 
 {/* TODO: screenshot outdated? */}
@@ -119,41 +124,59 @@ deleteBtn!.setAttribute("theme", "danger")
 
 ### Looking up an icon in each pool
 
-To add a download icon to a button, first find a suitable icon. Searching the Feather, Tabler and Font Awesome libraries each turns up an icon named `download`, although the icons differ in appearance. Add the buttons to the window with the icon pool syntax:
+To add a download icon to a button, first find a suitable icon. Searching the Feather, Tabler and Font Awesome libraries each turns up an icon named `download`, although the icons differ in appearance. Set the component's pool and name, then place it in the button's prefix slot. These fragments assume the window is named `window!` and continue from the declared `btnIcon!` above:
 
 ```bbj
-    rem Define the HTML title for the buttons that incorporate the download icons
-        btnIconFeather$ = "<html><dwc-icon pool='feather' name='download'></dwc-icon>"
-        btnIconTabler$ = "<html><dwc-icon pool='tabler' name='download'></dwc-icon>"
-        btnIconFontAwesome$ = "<html><dwc-icon pool='fa' name='fas-download'></dwc-icon>"
-```
+btnFeather! = window!.addButton("Feather's Download Icon")
+btnIcon! = window!.addWebComponent("dwc-icon")
+btnIcon!.setAttribute("pool", "feather")
+btnIcon!.setAttribute("name", "download")
+btnFeather!.setSlot("prefix", btnIcon!)
 
-```bbj
-    rem Now create the buttons using the HTML for the title
-        btnFeather! = wnd!.addButton(btnIconFeather$ + "Feather's Download Icon")
-        btnTabler! = wnd!.addButton(btnIconTabler$ + "Tabler's Download Icon")
-        btnFontAwesome! =  wnd!.addButton(btnIconFontAwesome$ + "Font Awesome's Download Icon")
+btnTabler! = window!.addButton("Tabler's Download Icon")
+btnIcon! = window!.addWebComponent("dwc-icon")
+btnIcon!.setAttribute("pool", "tabler")
+btnIcon!.setAttribute("name", "download")
+btnTabler!.setSlot("prefix", btnIcon!)
+
+btnFontAwesome! = window!.addButton("Font Awesome's Download Icon")
+btnIcon! = window!.addWebComponent("dwc-icon")
+btnIcon!.setAttribute("pool", "fa")
+btnIcon!.setAttribute("name", "fas-download")
+btnFontAwesome!.setSlot("prefix", btnIcon!)
 ```
 
 ### Size and color
 
-To change the color of the icons, set the `theme` attribute or use an inline style. Inside a button, the button sets the size of its icons through the `--dwc-icon-size` custom property, so the `expanse` attribute of the icon has no effect there; set `--dwc-icon-size` in an inline style instead:
+Set `theme` or `color` on the icon component. Set `--dwc-icon-size` for its size inside the button; changing the host's width alone doesn't set the icon size. The styled buttons in `DownloadButton.bbj` use the same slot API:
 
 ```bbj
-    rem Define the HTML title for the alternate buttons that incorporate the cloud download icons with extra styling for size/color
-        btnIconFeather$ = "<html><dwc-icon pool='feather' name='download-cloud' theme='danger' style='--dwc-icon-size: var(--dwc-font-size-2xl)'></dwc-icon>"
-        btnIconTabler$ = "<html><dwc-icon pool='tabler' name='cloud-download' style='width: 0.5em; color: green'></dwc-icon>"
-        btnIconFontAwesome$ = "<html><dwc-icon pool='fa' name='fas-cloud-download-alt' style='width: 1em; color: var(--dwc-color-danger)'></dwc-icon>"
+btnFeather! = window!.addButton("Feather's Cloud Download Icon")
+btnIcon! = window!.addWebComponent("dwc-icon")
+btnIcon!.setAttribute("pool", "feather")
+btnIcon!.setAttribute("name", "download-cloud")
+btnIcon!.setAttribute("theme", "danger")
+btnIcon!.setStyle("--dwc-icon-size", "var(--dwc-font-size-2xl)")
+btnFeather!.setSlot("prefix", btnIcon!)
+
+btnTabler! = window!.addButton("Tabler's Cloud Download Icon")
+btnIcon! = window!.addWebComponent("dwc-icon")
+btnIcon!.setAttribute("pool", "tabler")
+btnIcon!.setAttribute("name", "cloud-download")
+btnIcon!.setStyle("--dwc-icon-size", "0.5em")
+btnIcon!.setStyle("color", "green")
+btnTabler!.setSlot("prefix", btnIcon!)
+
+btnFontAwesome! = window!.addButton("Font Awesome's Cloud Download Icon")
+btnIcon! = window!.addWebComponent("dwc-icon")
+btnIcon!.setAttribute("pool", "fa")
+btnIcon!.setAttribute("name", "fas-cloud-download-alt")
+btnIcon!.setStyle("--dwc-icon-size", "1em")
+btnIcon!.setStyle("color", "var(--dwc-color-danger)")
+btnFontAwesome!.setSlot("prefix", btnIcon!)
 ```
 
-```bbj
-    rem Now create the buttons using the HTML for the title
-        btnFeather! = wnd!.addButton(btnIconFeather$ + "Feather's Cloud Download Icon")
-        btnTabler! = wnd!.addButton(btnIconTabler$ + "Tabler's Cloud Download Icon")
-        btnFontAwesome! =  wnd!.addButton(btnIconFontAwesome$ + "Font Awesome's Cloud Download Icon")
-```
-
-You can set the icon color either through the `theme` attribute (here `danger`) or with an inline style, and the size with the `--dwc-icon-size` custom property (here the `--dwc-font-size-2xl` token). The style can use a named color such as `green`, or a CSS custom property such as `var(--dwc-color-danger)`.
+The Feather icon uses a theme color and a font-size token. The other examples show a named color and a DWC color token. Each button keeps a plain-text title, and each icon can be changed through its BBj control object.
 
 ## Custom Icon Pools
 
@@ -182,15 +205,18 @@ The program injects JavaScript to register a pool named `ionicons`. Its resolver
 4. Create the buttons with your custom pool name and the icons from the library:
 
 ```bbj
-    rem Define the HTML title for the buttons that incorporate the Ionicons
-        btnIconIon1$ = "<html><dwc-icon pool='ionicons' name='cloud-download-outline'></dwc-icon>"
-        btnIconIon2$ = "<html><dwc-icon pool='ionicons' name='cloud-download' style='fill: currentColor'></dwc-icon>"
-```
+btnIonIcon1! = window!.addButton("Ionicons Cloud Download Icon")
+btnIcon! = window!.addWebComponent("dwc-icon")
+btnIcon!.setAttribute("pool", "ionicons")
+btnIcon!.setAttribute("name", "cloud-download-outline")
+btnIonIcon1!.setSlot("prefix", btnIcon!)
 
-```bbj
-    rem Now create the buttons using the HTML for the title
-        btnIonIcon1! = wnd!.addButton(btnIconIon1$ + "IonIcons's Cloud Download Icon")
-        btnIonIcon2! = wnd!.addButton(btnIconIon2$ + "IonIcons's Cloud Download Icon Filled")
+btnIonIcon2! = window!.addButton("Ionicons Cloud Download Icon Filled")
+btnIcon! = window!.addWebComponent("dwc-icon")
+btnIcon!.setAttribute("pool", "ionicons")
+btnIcon!.setAttribute("name", "cloud-download")
+btnIcon!.setStyle("fill", "currentColor")
+btnIonIcon2!.setSlot("prefix", btnIcon!)
 ```
 
 Running the program gives two buttons with custom icons from the CDN.

@@ -1,61 +1,51 @@
-rem 'https://shoelace.style/components/split-panel
+rem Embed a Shoelace split panel with BBjWebComponent and named slots.
+rem Run in the DWC with BBj 24.11 or later. The browser needs internet access.
+rem https://documentation.basis.cloud/BASISHelp/WebHelp/bbjobjects/Window/BBjWebComponent/BBjWebComponent_setSlot.htm
 
-declare auto BBjSysGui sysgui!
+declare auto BBjWebManager web!
 declare auto BBjTopLevelWindow window!
-declare auto BBjHtmlView htmlview!
+declare auto BBjWebComponent splitter!
+declare auto BBjWebComponent handleIcon!
 declare auto BBjChildWindow top!
 declare auto BBjChildWindow bottom!
 
-sysgui = unt
-open (sysgui)"X0"
-sysgui! = bbjapi().getSysGui()
+if info(3,6) <> "6" then
+    choice = msgbox("Run this sample in the DWC browser client.",48,"Shoelace Splitter")
+    release
+endif
 
-window! = sysgui!.addWindow(25,25,800,500,"Splitter",$00090002$)
-window!.setCallback(window!.ON_CLOSE,"eoj")
+web! = BBjAPI().getWebManager()
+web!.injectStyleUrl("https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css")
+web!.injectScriptUrl("https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace.js",1,"type=module")
 
-uuid$ = "id" + java.util.UUID.randomUUID().toString().replace("-", "")
+window! = BBjAPI().openSysGui("X0").addWindow("Shoelace Splitter",$01101083$)
+window!.setCallback(BBjAPI.ON_CLOSE,"eoj")
+window!.setPanelStyle("display","grid")
+window!.setPanelStyle("height","100vh")
+window!.setPanelStyle("grid-template-rows","minmax(0,1fr)")
 
-html$ = "<sl-split-panel id='" + uuid$ + "' position='50' vertical style='height:100%; width:100%;'><sl-icon slot='handle' name='grip-vertical'></sl-icon></sl-split-panel>"
-htmlview! = window!.addHtmlView(102,20,20,760,460,html$,$$)
+splitter! = window!.addWebComponent("sl-split-panel")
+splitter!.setAttribute("vertical","true")
+splitter!.setAttribute("position","50")
+splitter!.setStyle("height","100%")
 
-rem create two child windows, one for top, one for bottom:
+handleIcon! = window!.addWebComponent("dwc-icon")
+handleIcon!.setAttribute("name","grip-horizontal")
+splitter!.setSlot("handle",handleIcon!)
 
-top! = window!.addChildWindow(window!.getAvailableControlID(),1,1,1,1,"", $00108800$,BBjAPI().getSysGui().getAvailableContext())
+top! = window!.addChildWindow("",$00108800$,BBjAPI().getSysGui().getAvailableContext())
+top!.setPanelStyle("display","grid")
+top!.setPanelStyle("height","100%")
 top!.addButton("This is the top panel").setAttribute("theme","danger")
-top!.setAttribute("slot", "start")
-top!.setAttribute("id", uuid$ + "-start")
+splitter!.setSlot("start",top!)
 
-bottom! = window!.addChildWindow(window!.getAvailableControlID(),1,1,1,1,"", $00108800$,BBjAPI().getSysGui().getAvailableContext())
+bottom! = window!.addChildWindow("",$00108800$,BBjAPI().getSysGui().getAvailableContext())
+bottom!.setPanelStyle("display","grid")
+bottom!.setPanelStyle("height","100%")
 bottom!.addButton("This is the bottom panel").setAttribute("theme","success")
-bottom!.setAttribute("slot", "end")
-bottom!.setAttribute("id", uuid$ + "-end")
-
-htmlview!.setOpaque(0)
-htmlview!.setNoEdge(1)
-htmlview!.setCallback(htmlview!.ON_PAGE_LOADED,"handlePageLoaded")
+splitter!.setSlot("end",bottom!)
 
 process_events
 
-handlePageLoaded:
-  
-  rem after the initial HTML is loaded we can inject the library
-  htmlview!.clearCallback(htmlview!.ON_PAGE_LOADED)
-  url$ = "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.69/dist/shoelace.js"
-  css$ = "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.69/dist/themes/light.css"
-  script$ = "var link =  document.createElement('script');link.setAttribute('type','module');"+
-:           "link.setAttribute('src','" + url$ + "');" + 
-:           "document.head.appendChild(link);" + 
-:           "var csslink =  document.createElement('link');" +
-:           "csslink.setAttribute('rel','stylesheet');" + 
-:           "csslink.setAttribute('href','" + css$ + "');" + 
-:           "document.head.appendChild(csslink);" +
-:           "document.getElementById('" + uuid$ + "').appendChild(document.getElementById('" + top!.getAttribute("id") + "'));"+
-:           "document.getElementById('" + uuid$ + "').appendChild(document.getElementById('" + bottom!.getAttribute("id") + "'));"
-
-  BBjAPI().getSysGui().executeScript(script$)
-  
-return
-
-
 eoj:
-  release
+release

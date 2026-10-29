@@ -30,8 +30,8 @@ The callback starts by getting the contents of the first and last name edit boxe
 ```bbj
     OnFormValidation:
         e! = BBjAPI().getSysGui().getLastEvent()
-        firstName! = e!.getText(editFirstName!)
-        lastName! = e!.getText(editLastName!)
+        firstName! = e!.getText(editFirstName!).trim()
+        lastName! = e!.getText(editLastName!).trim()
         if (len(firstName!) AND len(lastName!)) then
             e!.accept(1)
             temp = msgbox("You filled in the form successfully!", BBjSysGui.MSGBOX_ICON_INFORMATION, "Form Submitted Successfully", mode="theme=success")
@@ -47,13 +47,15 @@ After the code gets the first and last names, it combines the length of each wit
 {/* TODO: screenshot outdated? */}
 ![Alert shown when the first and last name fields are empty](./img/validation-1.png)
 
-This example is simple. The user could enter a space in each name field and pass the check. A real validation routine would `trim()` the strings and compare their length with a minimum acceptable value.
+The callback trims the name fields before checking their length, so whitespace alone doesn't pass the required-field check. Apply any additional business rules on the server before accepting the form.
 
 ## Client-Side Validation
 
 Client-side validation gives the user real-time feedback while they fill out a form. They know right away whether the data in a field is invalid, without pressing the submit button to start form validation.
 
 Treat client-side validation as the first of several checks. It improves the user experience by catching problems before the data goes to the server, where a rejection causes a noticeable delay from the round trip. It is not a complete validation solution. For the most secure app, also run a form-level validation on the server after all client-side validations pass.
+
+The completed email exercise repeats its email and ZIP code checks on the server, using the same pattern strings as the client attributes. Client-side validation improves feedback; the server decides whether to accept the submitted data. Every returning path in an `ON_FORM_VALIDATION` callback must call `accept(0)` or `accept(1)` to unlock the window. Use `ON_BUTTON_PUSH` for an Exit button that doesn't submit a form.
 
 The DWC offers two types of client-side validation. The browser validates the data before it is sent to the server for form validation:
 

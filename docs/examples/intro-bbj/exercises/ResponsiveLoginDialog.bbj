@@ -30,19 +30,19 @@ class public ResponsiveLoginDialog
         BBjAPI().getWebManager().injectStyle(css!)
 
         rem the flags make the window borderless and maximized and switch it to CSS layout
-        #wnd! = BBjAPI().openSysGui("X0").addWindow(10,10,800,600,"Login",$01101083$)
+        #wnd! = BBjAPI().openSysGui("X0").addWindow("Login",$01101083$)
         #wnd!.addPanelStyle("login-screen")
 
         rem the card is a child window with the same CSS layout flag
-        #card! = #wnd!.addChildWindow("",$00100000$,BBjAPI().getSysGui().getAvailableContext())
+        #card! = #wnd!.addChildWindow("",$00108800$,BBjAPI().getSysGui().getAvailableContext())
         #card!.addPanelStyle("login-card")
 
-        #card!.addStaticText("User name:")
         #userBox! = #card!.addEditBox("")
-        #card!.addStaticText("Password:")
+        #userBox!.setAttribute("label","User name")
 
         rem the flag $0400$ replaces the typed characters with asterisks
         #passwordBox! = #card!.addEditBox(#card!.getAvailableControlID(),"",$0400$)
+        #passwordBox!.setAttribute("label","Password")
 
         #loginBtn! = #card!.addButton("Login")
         #loginBtn!.setAttribute("theme","primary")

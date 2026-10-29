@@ -297,7 +297,6 @@ onNumBoxesSpin:
         box!.setStyle("background", backColor!)
         box!.setStyle("border", "2px solid " + borderColor!)
         box!.setStyle("color", textColor!)
-        vectBoxControls!.addItem(box!)
         if (i >= numVisibleBoxes) then
             box!.setVisible(0)
         else

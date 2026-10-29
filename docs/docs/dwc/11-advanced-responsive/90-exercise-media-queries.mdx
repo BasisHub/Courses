@@ -115,8 +115,8 @@ release
 rem Handle the form validation
 OnFormValidation:
     e! = BBjAPI().getSysGui().getLastEvent()
-    firstName! = e!.getText(editFirstName!)
-    lastName! = e!.getText(editLastName!)
+    firstName! = e!.getText(editFirstName!).trim()
+    lastName! = e!.getText(editLastName!).trim()
     if (len(firstName!) AND len(lastName!)) then
         e!.accept(1)
         temp = msgbox("You filled in the form successfully!", BBjSysGui.MSGBOX_ICON_INFORMATION, "Form Submitted Successfully", mode="theme=success")

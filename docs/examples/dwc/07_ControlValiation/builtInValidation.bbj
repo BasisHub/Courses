@@ -83,7 +83,8 @@ editLastName!.setAttribute("required", "true")
 
 rem Define the built-in client-side validation for the zip code field
 rem by setting a valid regular expression pattern
-editZip!.setAttribute("pattern", "(\d{5})(-\d{4})?")
+zipPattern$ = "(\d{5})(-\d{4})?"
+editZip!.setAttribute("pattern", zipPattern$)
 
 
 window!.setVisible(1)
@@ -102,14 +103,16 @@ release
 rem Handle the form validation
 OnFormValidation:
     e! = BBjAPI().getSysGui().getLastEvent()
-    firstName! = e!.getText(editFirstName!)
-    lastName! = e!.getText(editLastName!)
-    if (len(firstName!) AND len(lastName!)) then
+    firstName! = e!.getText(editFirstName!).trim()
+    lastName! = e!.getText(editLastName!).trim()
+    zipText! = e!.getText(editZip!).trim()
+    validZip = (zipText! = "") or zipText!.matches(zipPattern$)
+    if (len(firstName!) AND len(lastName!)) AND validZip then
         e!.accept(1)
         temp = msgbox("You filled in the form successfully!", BBjSysGui.MSGBOX_ICON_INFORMATION, "Form Submitted Successfully", mode="theme=success")
     else
         e!.accept(0)
-        temp = msgbox("You didn't fill in your first and last names, which are required", BBjSysGui.MSGBOX_ICON_STOP, "Invalid Input", mode="theme=danger")
+        temp = msgbox("Enter your first and last names and check the ZIP code.", BBjSysGui.MSGBOX_ICON_STOP, "Invalid Input", mode="theme=danger")
     endif
 return
 
@@ -126,6 +129,6 @@ declare auto BBjEditBox editState!
 declare auto BBjEditBox editZip!
 declare auto BBjButton btnSubmit!
 declare auto BBjFormValidationEvent e!
+declare auto BBjString zipText!
 
 rem Use statements
-use java.util.HashMap

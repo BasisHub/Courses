@@ -65,6 +65,14 @@ Refer to the [plug-in's homepage](https://github.com/BBj-Plugins/BBjGridExWidget
 
 Use the Plug-In Manager to install the BBjGridExWidget on your system. You can find the Plug-In Manager in the start menu, or type `RUN "PM"` in a BBj console. This assumes you use the default `PREFIX`, which contains the `<bbx>/plugins` directory.
 
+When type-checking a downloaded sample with `bbjcpl`, pass your installed configuration so the compiler can find that PREFIX. For example, from the sample folder on Windows:
+
+```powershell
+bbjcpl -t -N -X -c"C:/bbx/cfg/config.bbx" DWCGridSample.bbj
+```
+
+Adjust the installation path for your system. `Cannot find program BBjGridExWidget/BBjGridExWidget.bbj` means that the plug-in is missing or its parent directory isn't on the compiler's PREFIX. The compiler's `-c` option doesn't change the web application's runtime configuration. See the [compiler reference](https://documentation.basis.cloud/BASISHelp/WebHelp/util/bbjcpl_bbj_compiler.htm).
+
 The Plug-In Manager comes with a [getting started document](https://bbj-plugins.com/en/get-started) that describes the steps to install a plug-in.
 
 ### Inspect the Demos
